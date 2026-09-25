@@ -3,7 +3,7 @@
   "nights": [
     {
       "id": "ch10n1",
-      "title": null,
+      "title": "A lift along the canal",
       "paras": [
         "The front door of the hollow tree faced eastwards, so Toad was called at an early hour; partly by the bright sunlight streaming in on him, partly by the exceeding coldness of his toes, which made him dream that he was at home in bed in his own handsome room with the Tudor window, on a cold winter’s night, and his bedclothes had got up, grumbling and protesting they couldn’t stand the cold any longer, and had run downstairs to the kitchen fire to warm themselves; and he had followed, on bare feet, along miles and miles of icy stone-paved passages, arguing and beseeching them to be reasonable. He would probably have been aroused much earlier, had he not slept for some weeks on straw over stone flags, and almost forgotten the friendly feeling of thick blankets pulled well up round the chin.",
         "Sitting up, he rubbed his eyes first and his complaining toes next, wondered for a moment where he was, looking round for familiar stone wall and little barred window; then, with a leap of the heart, remembered everything—his escape, his flight, his pursuit; remembered, first and best thing of all, that he was free!",
@@ -27,12 +27,288 @@
         "“What a bit of luck, meeting you!” observed the barge-woman, thoughtfully. “A regular piece of good fortune for both of us!”",
         "“Why, what do you mean?” asked Toad, nervously."
       ],
-      "questions": [],
-      "hints": []
+      "questions": [
+        {
+          "type": "quoted",
+          "q": "Toad dreams that *his bedclothes had got up, grumbling and protesting*. What is really happening?",
+          "para": 1,
+          "options": [
+            {
+              "text": "His toes are so cold that his dream turns it into runaway blankets.",
+              "correct": true,
+              "why": "Clue: he wakes \"partly by the exceeding coldness of his toes, which made him dream\". Cold toes make the dream."
+            },
+            {
+              "text": "His blankets really did get up and walk off down to the kitchen fire.",
+              "flaw": "literal",
+              "why": "Clue check: it was only a dream. Paragraph 1 says the cold toes \"made him dream\" it."
+            },
+            {
+              "text": "Somebody crept up in the night and pulled his warm blankets away.",
+              "flaw": "literal",
+              "why": "Clue check: paragraph 1 says he has \"almost forgotten the friendly feeling of thick blankets\". He has no blankets to steal!"
+            },
+            {
+              "text": "freezing cold toes",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "How do we know Toad slept outdoors last night, not in a proper bed?",
+          "para": 3,
+          "options": [
+            {
+              "text": "He wakes in a hollow tree and combs dry leaves out of his hair.",
+              "correct": true,
+              "why": "Clue: \"The front door of the hollow tree\" and \"combed the dry leaves out of his hair\". Only an outdoor bed leaves leaves in your hair!"
+            },
+            {
+              "text": "He wakes on the straw in his prison cell with its little barred window.",
+              "flaw": "evidence",
+              "why": "Clue check: in paragraph 2 he looks round for the barred window, then remembers he is free. It isn't there."
+            },
+            {
+              "text": "He wakes in his own grand room at Toad Hall with the Tudor window.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad Hall was only in his dream in paragraph 1."
+            },
+            {
+              "text": "in his prison",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 2 says \"he was free!\""
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "Toad marches out *cold but confident, hungry but hopeful*. What does that tell us about him?",
+          "para": 3,
+          "options": [
+            {
+              "text": "Things aren't perfect, but Toad feels cheerful and sure of himself.",
+              "correct": true,
+              "why": "Clue: each pair has a bad thing and a good thing. \"All nervous terrors of yesterday dispelled\". The good feelings win."
+            },
+            {
+              "text": "Toad is so cold and hungry that he has given up and wants to cry.",
+              "flaw": "literal",
+              "why": "Clue check: confident and hopeful are happy words. Paragraph 3 says he thought of \"the jolly world outside\"."
+            },
+            {
+              "text": "Toad has had a big breakfast and put on a warm coat before setting off.",
+              "flaw": "literal",
+              "why": "Clue check: the words say he is hungry and cold. Nobody has had breakfast yet."
+            },
+            {
+              "text": "cheerful anyway",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "The road *seemed, like a stray dog, to be looking anxiously for company*. What does that tell us?",
+          "para": 4,
+          "options": [
+            {
+              "text": "The road is empty and lonely, with nobody on it to help Toad.",
+              "correct": true,
+              "why": "Clue: \"in that loneliness that was everywhere\". A stray dog wants company, and so does this empty road."
+            },
+            {
+              "text": "A stray dog is trotting along the road, hoping someone will feed it.",
+              "flaw": "literal",
+              "why": "Clue check: paragraph 4 says \"He had the world all to himself\". There is no real dog."
+            },
+            {
+              "text": "The road is full of barking dogs that have lost their owners.",
+              "flaw": "literal",
+              "why": "Clue check: the road is \"solitary and still\". Nobody is there, not even dogs."
+            },
+            {
+              "text": "empty lonely road",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "Toad is looking for something that can talk and tell him which way to go. Why does he then say \"Bother them!\" to the road and the canal?",
+          "para": 5,
+          "options": [
+            {
+              "text": "Neither of them can talk, so they can't tell him which way to go.",
+              "correct": true,
+              "why": "Clue: the road has a \"helpless silence\" and the canal is \"tongue-tied, uncommunicative\". Toad wanted something that could talk."
+            },
+            {
+              "text": "They are both so muddy that he keeps slipping into the water.",
+              "flaw": "evidence",
+              "why": "Clue check: nobody slips in paragraphs 4 or 5. Toad is cross about their silence."
+            },
+            {
+              "text": "He is cross that the canal keeps splashing him as he walks beside it.",
+              "flaw": "evidence",
+              "why": "Clue check: the canal \"ambled along\" quietly. It isn't splashing anyone."
+            },
+            {
+              "text": "they can't talk",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "What story does Toad make up so that the barge-woman will feel sorry for him?",
+          "para": 9,
+          "options": [
+            {
+              "text": "He says his married daughter is in trouble and he's lost his money.",
+              "correct": true,
+              "why": "Clue: \"Here's my married daughter, she sends off to me post-haste\" and \"I've lost all my money\". A sad story to win her over."
+            },
+            {
+              "text": "He says he is a famous Toad who has just escaped from a prison.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad is in disguise. He says he's \"in the washing and laundering line\", not a Toad at all."
+            },
+            {
+              "text": "He says his horse ran away and left him with all of the heavy washing.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad never mentions a horse. Look at who he says sent for him in paragraph 9."
+            },
+            {
+              "text": "a lame horse",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 9 Toad talks about his daughter, his children and his money."
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "How can we tell Toad thinks he is terribly lucky and clever as he gets onto the barge?",
+          "para": 13,
+          "options": [
+            {
+              "text": "He thinks \"Toad's luck again!\" and that he always comes out on top.",
+              "correct": true,
+              "why": "Clue: \"Toad's luck again!\" thought he. \"I always come out on top!\""
+            },
+            {
+              "text": "He tells the barge-woman who he really is and shakes her by the hand.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad keeps his secret. He only thinks his proud thoughts to himself."
+            },
+            {
+              "text": "He does a jig on the deck and sings a loud song all about barges.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 13 says he \"sat down with great satisfaction\". No dancing!"
+            },
+            {
+              "text": "he falls asleep",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: read what Toad thinks to himself in paragraph 13."
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "Toad boasts that he simply loves washing. Why does the barge-woman then say meeting him is good fortune for both of them?",
+          "para": 20,
+          "options": [
+            {
+              "text": "She has washing to do, and hopes Toad will gladly do it for her.",
+              "correct": true,
+              "why": "Clue: she asks \"are you very fond of washing?\" and as soon as he says he loves it, she calls it \"a bit of luck\". She has a job for him!"
+            },
+            {
+              "text": "She wants Toad to steer the barge so she can have a little rest.",
+              "flaw": "evidence",
+              "why": "Clue check: she has just been asking about washing, not steering. Look at paragraph 18."
+            },
+            {
+              "text": "Her own married daughter lives near Toad Hall too, just like his.",
+              "flaw": "evidence",
+              "why": "Clue check: the barge-woman never mentions a daughter of her own."
+            },
+            {
+              "text": "free washing help",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "character",
+          "q": "Which word best describes Toad tonight, and what is your proof?",
+          "para": 15,
+          "options": [
+            {
+              "text": "Boastful: he says the gentry won't go to anyone else but him.",
+              "correct": true,
+              "why": "Clue: \"All the gentry come to me, wouldn't go to any one else if they were paid.\" He has never washed a thing!"
+            },
+            {
+              "text": "Honest: he tells the barge-woman his real name the moment they meet.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad pretends to be a washerwoman with a married daughter. That's not honest."
+            },
+            {
+              "text": "Shy: he is far too nervous to say a word to the barge-woman.",
+              "flaw": "evidence",
+              "why": "Clue check: in paragraph 9 Toad talks and talks. He isn't shy at all."
+            },
+            {
+              "text": "Lazy: he stays in bed all morning in the warm hollow tree.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 1 says he was \"called at an early hour\" by the sun."
+            }
+          ]
+        },
+        {
+          "type": "ending",
+          "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+          "para": 21,
+          "options": [
+            {
+              "text": "On the barge, suddenly nervous about what the barge-woman means.",
+              "correct": true,
+              "why": "Clue: \"Why, what do you mean?\" asked Toad, nervously."
+            },
+            {
+              "text": "At Toad Hall, happy to be home in his own warm bed at last.",
+              "flaw": "evidence",
+              "why": "Clue check: the barge is still gliding along the canal. They haven't reached Toad Hall."
+            },
+            {
+              "text": "Back in prison, very sad that the barge-woman has given him away.",
+              "flaw": "evidence",
+              "why": "Clue check: in the last paragraph Toad is still chatting on the barge."
+            },
+            {
+              "text": "very pleased",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: the very last word tells you how Toad asks his question."
+            }
+          ]
+        }
+      ],
+      "hints": [
+        "Toad can't wash clothes at all, so the barge-woman finds him out and throws him in the canal.",
+        "The barge-woman guesses who Toad is, but he jumps off and hides in the reeds until she has gone.",
+        "Toad is asked to steer the barge, but he crashes it into the bank, so they both have to swim.",
+        "The barge-woman's husband comes back, so Toad pretends to be asleep until they reach Toad Hall."
+      ]
     },
     {
       "id": "ch10n2",
-      "title": null,
+      "title": "Trouble in the wash-tub",
       "paras": [
         "“Well, look at me, now,” replied the barge-woman. “_I_ like washing, too, just the same as you do; and for that matter, whether I like it or not I have got to do all my own, naturally, moving about as I do. Now my husband, he’s such a fellow for shirking his work and leaving the barge to me, that never a moment do I get for seeing to my own affairs. By rights he ought to be here now, either steering or attending to the horse, though luckily the horse has sense enough to attend to himself. Instead of which, he’s gone off with the dog, to see if they can’t pick up a rabbit for dinner somewhere. Says he’ll catch me up at the next lock. Well, that’s as may be—I don’t trust him, once he gets off with that dog, who’s worse than he is. But meantime, how am I to get on with my washing?”",
         "“O, never mind about the washing,” said Toad, not liking the subject. “Try and fix your mind on that rabbit. A nice fat young rabbit, I’ll be bound. Got any onions?”",
@@ -53,12 +329,288 @@
         "The barge-woman was still laughing when he drew up level with her. “Put yourself through your mangle, washerwoman,” she called out, “and iron your face and crimp it, and you’ll pass for quite a decent-looking Toad!”",
         "Toad never paused to reply. Solid revenge was what he wanted, not cheap, windy, verbal triumphs, though he had a thing or two in his mind that he would have liked to say. He saw what he wanted ahead of him. Running swiftly on he overtook the horse, unfastened the towrope and cast off, jumped lightly on the horse’s back, and urged it to a gallop by kicking it vigorously in the sides. He steered for the open country, abandoning the tow-path, and swinging his steed down a rutty lane. Once he looked back, and saw that the barge had run aground on the other side of the canal, and the barge-woman was gesticulating wildly and shouting, “Stop, stop, stop!” “I’ve heard that song before,” said Toad, laughing, as he continued to spur his steed onward in its wild career."
       ],
-      "questions": [],
-      "hints": []
+      "questions": [
+        {
+          "type": "search",
+          "q": "Why does the barge-woman never get time to do her own washing?",
+          "para": 1,
+          "options": [
+            {
+              "text": "Her husband goes off and leaves all the barge work to her.",
+              "correct": true,
+              "why": "Clue: \"he's such a fellow for shirking his work and leaving the barge to me\". He has gone off with the dog after a rabbit."
+            },
+            {
+              "text": "She spends all day washing other people's clothes for money.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 1 says she has to do all her \"own\" washing. Nobody pays her."
+            },
+            {
+              "text": "The horse keeps stopping, so she has to get off and pull it.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 1 says \"the horse has sense enough to attend to himself\"."
+            },
+            {
+              "text": "lazy husband",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "Toad says never mind the washing, *not liking the subject*. Why doesn't he like it?",
+          "para": 2,
+          "options": [
+            {
+              "text": "He fears she'll ask him to wash, and he can't really do it.",
+              "correct": true,
+              "why": "Clue: he tries to change the subject to \"that rabbit\". Toad only pretended to love washing."
+            },
+            {
+              "text": "He doesn't like school subjects, so talk of lessons bores him.",
+              "flaw": "literal",
+              "why": "Clue check: subject here just means what they're talking about. Nobody mentions school."
+            },
+            {
+              "text": "He hates the smell of soap, as it always makes him feel ill.",
+              "flaw": "literal",
+              "why": "Clue check: nothing in the story says soap makes Toad ill. Think about what he boasted in the last part."
+            },
+            {
+              "text": "rabbit for dinner",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and it slips past the clue too. Clue check: the rabbit is just Toad's way to change the subject."
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "Toad said he loves washing. Now the barge-woman offers him some. Why does he quickly offer to steer instead?",
+          "para": 4,
+          "options": [
+            {
+              "text": "He can't wash at all, and he's scared she'll find out his secret.",
+              "correct": true,
+              "why": "Clue: paragraph 4 says he is \"now thoroughly frightened\", and he makes excuses: \"I might spoil your things\"."
+            },
+            {
+              "text": "He has always wanted to steer a barge and thinks it is now his turn.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 4 says Toad is \"thoroughly frightened\". He isn't excited about steering."
+            },
+            {
+              "text": "His paws are too tired from all the washing he did last week.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad has just come out of prison. He hasn't done any washing."
+            },
+            {
+              "text": "thoroughly frightened",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "The clothes *smiled back at him out of the tub unconverted, happy in their original sin*. What does that mean?",
+          "para": 8,
+          "options": [
+            {
+              "text": "The clothes stay just as dirty, however hard Toad scrubs them.",
+              "correct": true,
+              "why": "Clue: \"Nothing that he could do to the things seemed to please them or do them good.\" The dirt won't come out."
+            },
+            {
+              "text": "The shirts in the tub really had faces and grinned up at Toad.",
+              "flaw": "literal",
+              "why": "Clue check: clothes can't smile. The storyteller is joking about how the dirt refuses to budge."
+            },
+            {
+              "text": "The clothes were so glad to be washed that they began to smile.",
+              "flaw": "literal",
+              "why": "Clue check: the same paragraph says nothing he did \"seemed to please them\"."
+            },
+            {
+              "text": "still dirty",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "How do we know Toad is finding washing much harder than he said?",
+          "para": 8,
+          "options": [
+            {
+              "text": "His back aches, his paws go crinkly, and he keeps losing the soap.",
+              "correct": true,
+              "why": "Clue: \"His back ached badly\", his paws were \"beginning to get all crinkly\", and he \"lost the soap, for the fiftieth time\"."
+            },
+            {
+              "text": "He finishes it all in five minutes and then asks for some more.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 8 says \"A long half-hour passed\" and he got \"crosser and crosser\"."
+            },
+            {
+              "text": "He hums a happy song to himself while he scrubs away at the clothes.",
+              "flaw": "evidence",
+              "why": "Clue check: he mutters words \"that should never pass the lips\" of anyone. That's not a happy song!"
+            },
+            {
+              "text": "he loves it",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 8 says he got \"crosser and crosser\"."
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "Toad bragged about his washing business. What does the barge-woman say later that shows she never believed him?",
+          "para": 10,
+          "options": [
+            {
+              "text": "She thought he was a humbug from the conceited way he talked.",
+              "correct": true,
+              "why": "Clue: \"I thought you must be a humbug all along, from the conceited way you talked.\""
+            },
+            {
+              "text": "She knew he was a Toad the moment he stepped onto the barge.",
+              "flaw": "evidence",
+              "why": "Clue check: she only finds out he's a Toad in paragraph 13, when she peers under his bonnet."
+            },
+            {
+              "text": "His married daughter had written to warn her about all his fibs.",
+              "flaw": "evidence",
+              "why": "Clue check: there is no daughter! Toad made her up. Read paragraph 10 again."
+            },
+            {
+              "text": "a big humbug",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "*Toad’s temper which had been simmering viciously for some time, now fairly boiled over*. What does that mean?",
+          "para": 11,
+          "options": [
+            {
+              "text": "Toad has been getting crosser, and now he loses his temper.",
+              "correct": true,
+              "why": "Clue: the next line says \"he lost all control of himself\", and he shouts at the barge-woman."
+            },
+            {
+              "text": "The kettle on the stove boils over and spills onto Toad's feet.",
+              "flaw": "literal",
+              "why": "Clue check: the kettle was in paragraph 3, but here it's Toad's temper that boils, not water."
+            },
+            {
+              "text": "Toad has been standing in the hot water so long he is steaming.",
+              "flaw": "literal",
+              "why": "Clue check: simmering and boiling here are about feelings. Look at what Toad does next in paragraph 12."
+            },
+            {
+              "text": "very very cross",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "How can we tell Toad is still angry, even after being thrown into the cold water?",
+          "para": 15,
+          "options": [
+            {
+              "text": "He vows to get even with the barge-woman as he coughs and chokes.",
+              "correct": true,
+              "why": "Clue: the chill was \"not sufficient to quell his proud spirit\", and \"he vowed... to be even with her\"."
+            },
+            {
+              "text": "He says sorry to the barge-woman and begs her to pull him out again.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad never says sorry. He swims to the shore on his own in paragraph 16."
+            },
+            {
+              "text": "He sinks to the bottom and sulks there among the duck-weed.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 15 says \"He rose to the surface spluttering\"."
+            },
+            {
+              "text": "he shivers",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and it slips past the clue too. Clue check: shivering shows cold, not anger. What does Toad vow?"
+            }
+          ]
+        },
+        {
+          "type": "character",
+          "q": "Which word best describes the barge-woman, and what is your proof?",
+          "para": 10,
+          "options": [
+            {
+              "text": "Sharp: she watches Toad all along and sees he can't wash.",
+              "correct": true,
+              "why": "Clue: \"I've been watching you all the time,\" she gasped. She saw straight through him."
+            },
+            {
+              "text": "Gentle: she helps Toad out of the canal and dries his dress.",
+              "flaw": "evidence",
+              "why": "Clue check: she throws him in and laughs. He has to climb out \"unassisted\" in paragraph 16."
+            },
+            {
+              "text": "Shy: she doesn't dare say a single word to Toad all day.",
+              "flaw": "evidence",
+              "why": "Clue check: she talks a lot, and teases Toad about ironing his face in paragraph 17."
+            },
+            {
+              "text": "Sleepy: she dozes at the tiller and lets the barge drift.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad thinks she's busy steering, but in paragraph 10 she says she was watching him."
+            }
+          ]
+        },
+        {
+          "type": "ending",
+          "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+          "para": 18,
+          "options": [
+            {
+              "text": "Galloping off on the stolen horse, laughing at the barge-woman.",
+              "correct": true,
+              "why": "Clue: \"I've heard that song before,\" said Toad, laughing, as he spurs the horse onward."
+            },
+            {
+              "text": "Stuck in the canal, crying because he can't climb up the steep bank.",
+              "flaw": "evidence",
+              "why": "Clue check: he gets out in paragraph 16 and runs after the barge."
+            },
+            {
+              "text": "Back on the barge, doing all the washing properly at last.",
+              "flaw": "evidence",
+              "why": "Clue check: in the last paragraph Toad is riding away across open country."
+            },
+            {
+              "text": "very sorry",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: Toad is laughing in the last paragraph."
+            }
+          ]
+        }
+      ],
+      "hints": [
+        "Toad is starving and has no money, so he sells the horse to a gipsy for cash and a hot breakfast.",
+        "The barge-woman chases after him, but the horse jumps a hedge and she can't follow.",
+        "The horse gets tired and stops, so Toad has to walk until he finds a farm with food.",
+        "Toad is lost in the fields, but the horse knows the way and carries him home to Toad Hall."
+      ]
     },
     {
       "id": "ch10n3",
-      "title": null,
+      "title": "A deal on the common",
       "paras": [
         "The barge-horse was not capable of any very sustained effort, and its gallop soon subsided into a trot, and its trot into an easy walk; but Toad was quite contented with this, knowing that he, at any rate, was moving, and the barge was not. He had quite recovered his temper, now that he had done something he thought really clever; and he was satisfied to jog along quietly in the sun, steering his horse along by-ways and bridle-paths, and trying to forget how very long it was since he had had a square meal, till the canal had been left very far behind him.",
         "He had travelled some miles, his horse and he, and he was feeling drowsy in the hot sunshine, when the horse stopped, lowered his head, and began to nibble the grass; and Toad, waking up, just saved himself from falling off by an effort. He looked about him and found he was on a wide common, dotted with patches of gorse and bramble as far as he could see. Near him stood a dingy gipsy caravan, and beside it a man was sitting on a bucket turned upside down, very busy smoking and staring into the wide world. A fire of sticks was burning near by, and over the fire hung an iron pot, and out of that pot came forth bubblings and gurglings, and a vague suggestive steaminess. Also smells—warm, rich, and varied smells—that twined and twisted and wreathed themselves at last into one complete, voluptuous, perfect smell that seemed like the very soul of Nature taking form and appearing to her children, a true Goddess, a mother of solace and comfort. Toad now knew well that he had not been really hungry before. What he had felt earlier in the day had been a mere trifling qualm. This was the real thing at last, and no mistake; and it would have to be dealt with speedily, too, or there would be trouble for somebody or something. He looked the gipsy over carefully, wondering vaguely whether it would be easier to fight him or cajole him. So there he sat, and sniffed and sniffed, and looked at the gipsy; and the gipsy sat and smoked, and looked at him.",
@@ -74,12 +626,288 @@
         "Then Toad sat and pondered long and deeply. For he was hungry and quite penniless, and still some way—he knew not how far—from home, and enemies might still be looking for him. To one in such a situation, five shillings may very well appear a large sum of money. On the other hand, it did not seem very much to get for a horse. But then, again, the horse hadn’t cost him anything; so whatever he got was all clear profit. At last he said firmly, “Look here, gipsy! I tell you what we will do; and this is _my_ last word. You shall hand me over six shillings and sixpence, cash down; and further, in addition thereto, you shall give me as much breakfast as I can possibly eat, at one sitting of course, out of that iron pot of yours that keeps sending forth such delicious and exciting smells. In return, I will make over to you my spirited young horse, with all the beautiful harness and trappings that are on him, freely thrown in. If that’s not good enough for you, say so, and I’ll be getting on. I know a man near here who’s wanted this horse of mine for years.”",
         "The gipsy grumbled frightfully, and declared if he did a few more deals of that sort he’d be ruined. But in the end he lugged a dirty canvas bag out of the depths of his trouser pocket, and counted out six shillings and sixpence into Toad’s paw. Then he disappeared into the caravan for an instant, and returned with a large iron plate and a knife, fork, and spoon. He tilted up the pot, and a glorious stream of hot rich stew gurgled into the plate. It was, indeed, the most beautiful stew in the world, being made of partridges, and pheasants, and chickens, and hares, and rabbits, and pea-hens, and guinea-fowls, and one or two other things. Toad took the plate on his lap, almost crying, and stuffed, and stuffed, and stuffed, and kept asking for more, and the gipsy never grudged it him. He thought that he had never eaten so good a breakfast in all his life."
       ],
-      "questions": [],
-      "hints": []
+      "questions": [
+        {
+          "type": "search",
+          "q": "Why is Toad happy even though the horse soon slows down to a walk?",
+          "para": 1,
+          "options": [
+            {
+              "text": "He is moving and the barge isn't, so his revenge has worked.",
+              "correct": true,
+              "why": "Clue: \"knowing that he, at any rate, was moving, and the barge was not\". He has done something \"really clever\"."
+            },
+            {
+              "text": "The horse is carrying him to Toad Hall by the quickest road.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 1 says he steers \"along by-ways and bridle-paths\". Nobody says where they lead."
+            },
+            {
+              "text": "He is eating a lovely picnic lunch as he jogs along in the sun.",
+              "flaw": "evidence",
+              "why": "Clue check: he is \"trying to forget how very long it was since he had had a square meal\"."
+            },
+            {
+              "text": "the horse is fast",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 1 says the horse slows to \"an easy walk\"."
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "*Toad now knew well that he had not been really hungry before.* What has happened?",
+          "para": 2,
+          "options": [
+            {
+              "text": "The smell of the stew makes him feel hungrier than ever before.",
+              "correct": true,
+              "why": "Clue: the smells twine into \"one complete, voluptuous, perfect smell\". Earlier was \"a mere trifling qualm\". \"This was the real thing at last.\""
+            },
+            {
+              "text": "Toad realises he isn't hungry, because he ate a big lunch earlier.",
+              "flaw": "literal",
+              "why": "Clue check: in paragraph 1 it was a very long time since he'd had \"a square meal\"."
+            },
+            {
+              "text": "He finds out that he only thought he was hungry, and he's full.",
+              "flaw": "literal",
+              "why": "Clue check: paragraph 2 says his hunger \"would have to be dealt with speedily\". He is starving!"
+            },
+            {
+              "text": "really starving now",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "How do we know Toad is planning how to get some of the stew?",
+          "para": 2,
+          "options": [
+            {
+              "text": "He wonders if it's easier to fight the gipsy or to charm him.",
+              "correct": true,
+              "why": "Clue: \"wondering vaguely whether it would be easier to fight him or cajole him\". Cajole means sweet-talk."
+            },
+            {
+              "text": "He sneaks up behind the caravan and dips his paw into the pot.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad just sits and sniffs. He doesn't move towards the pot."
+            },
+            {
+              "text": "He offers to wash the gipsy's shirts in return for a plate.",
+              "flaw": "evidence",
+              "why": "Clue check: after the barge, Toad won't be offering to wash anything! Read the end of paragraph 2."
+            },
+            {
+              "text": "he sniffs",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and it slips past the clue too. Clue check: sniffing isn't planning. What does Toad wonder about?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "Why does the gipsy's question seem like such good luck to Toad?",
+          "para": 4,
+          "options": [
+            {
+              "text": "Selling the horse could get him money and a way to breakfast.",
+              "correct": true,
+              "why": "Clue: it seemed \"to smooth the way towards the two things he wanted so badly: ready money, and a solid breakfast\"."
+            },
+            {
+              "text": "The gipsy says he knows the way to Toad Hall and will take him.",
+              "flaw": "evidence",
+              "why": "Clue check: the gipsy only asks about the horse in paragraph 3."
+            },
+            {
+              "text": "Toad has wanted to be rid of the horse, since it is so slow.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 4 says \"It had not occurred to him to turn the horse into cash\"."
+            },
+            {
+              "text": "to buy a car",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 4 names the two things Toad wants."
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "Toad says his horse is *a blood horse, he is, partly; not the part you see*. Is Toad telling the truth?",
+          "para": 7,
+          "options": [
+            {
+              "text": "No, he's making it up, so the special part can't be seen.",
+              "correct": true,
+              "why": "Clue: the horse is a slow barge-horse. Saying the fancy part is the part you can't see is a sneaky way to fib."
+            },
+            {
+              "text": "Yes, part of the horse is hidden under the harness out of sight.",
+              "flaw": "literal",
+              "why": "Clue check: a blood horse means a fine racing breed, not a bit of the horse. Paragraph 1 says it can't even gallop for long."
+            },
+            {
+              "text": "Yes, the horse is covered in blood from galloping through gorse.",
+              "flaw": "literal",
+              "why": "Clue check: nobody says the horse is hurt. Blood horse is a fancy name for a posh breed."
+            },
+            {
+              "text": "showing off",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "Toad says selling his horse is \"out of the question\". How do we know a moment later that he really does want to sell it?",
+          "para": 7,
+          "options": [
+            {
+              "text": "He soon asks how much the gipsy might offer him for it.",
+              "correct": true,
+              "why": "Clue: \"All the same, how much might you be disposed to offer me for this beautiful young horse of mine?\""
+            },
+            {
+              "text": "He jumps down and hands the gipsy the reins without a word.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad has plenty of words! He only climbs down later, in paragraph 10."
+            },
+            {
+              "text": "He tells the gipsy that the horse bites and is no good at all.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad calls it \"this beautiful young horse of mine\" again and again."
+            },
+            {
+              "text": "he asks the price",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "The gipsy says five shillings is *three-and-sixpence more than the animal’s worth*. What is he telling Toad?",
+          "para": 11,
+          "options": [
+            {
+              "text": "The horse isn't worth much, so five shillings is a kind offer.",
+              "correct": true,
+              "why": "Clue: \"I'll make it five shillings... And that's my last word.\" He's saying he is already paying too much."
+            },
+            {
+              "text": "The horse costs exactly three shillings and sixpence to buy.",
+              "flaw": "literal",
+              "why": "Clue check: he says five shillings is three-and-sixpence MORE than it's worth. So he thinks it's worth even less!"
+            },
+            {
+              "text": "He will pay three-and-sixpence for each one of the horse's legs.",
+              "flaw": "literal",
+              "why": "Clue check: the leg price was a shilling a leg, in paragraph 8. Now he offers five shillings in total."
+            },
+            {
+              "text": "a lot of money",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and it slips past the clue too. Clue check: the gipsy is talking about what the horse is worth, not about lots of money."
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "First Toad says the horse carries washing to his customers. Later he says a man nearby has wanted it for years. Are these true?",
+          "para": 12,
+          "options": [
+            {
+              "text": "No, Toad makes them up to get the gipsy to pay him more.",
+              "correct": true,
+              "why": "Clue: Toad has no washing business and the horse isn't even his. \"I know a man near here\" is a trick to make the gipsy pay up."
+            },
+            {
+              "text": "Yes, Toad really does take washing to customers every week.",
+              "flaw": "evidence",
+              "why": "Clue check: last time we saw that Toad has never washed a thing. The horse belongs to the barge!"
+            },
+            {
+              "text": "Yes, a man near the common has asked for that horse for years.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad only got the horse this morning. Nobody could have wanted it \"for years\"."
+            },
+            {
+              "text": "tall stories",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "character",
+          "q": "Which word best describes Toad when he sells the horse, and what is your proof?",
+          "para": 12,
+          "options": [
+            {
+              "text": "Crafty: he asks for more money and a big breakfast on top.",
+              "correct": true,
+              "why": "Clue: \"You shall hand me over six shillings and sixpence... and further... as much breakfast as I can possibly eat\"."
+            },
+            {
+              "text": "Generous: he gives the gipsy the horse for nothing at all.",
+              "flaw": "evidence",
+              "why": "Clue check: in paragraph 13 the gipsy counts out six shillings and sixpence into Toad's paw."
+            },
+            {
+              "text": "Honest: he admits the horse isn't his and that he stole it.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad keeps calling it \"this beautiful young horse of mine\"."
+            },
+            {
+              "text": "Timid: he's too scared to argue, so he takes the first offer.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad turns down four shillings and five shillings, and asks for more."
+            }
+          ]
+        },
+        {
+          "type": "ending",
+          "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+          "para": 13,
+          "options": [
+            {
+              "text": "By the caravan, stuffing himself with stew, happier than ever.",
+              "correct": true,
+              "why": "Clue: he \"stuffed, and stuffed, and stuffed\" and \"thought that he had never eaten so good a breakfast in all his life\"."
+            },
+            {
+              "text": "Riding off on the horse, still hungry and looking for some food.",
+              "flaw": "evidence",
+              "why": "Clue check: the horse now belongs to the gipsy, and Toad is eating."
+            },
+            {
+              "text": "Arguing with the gipsy, cross that all the stew has gone.",
+              "flaw": "evidence",
+              "why": "Clue check: the gipsy \"never grudged it him\". Toad gets as much as he wants."
+            },
+            {
+              "text": "still hungry",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: Toad \"kept asking for more\" until he was stuffed."
+            }
+          ]
+        }
+      ],
+      "hints": [
+        "Toad sees the very car he stole coming along, but the owners don't recognise him and give him a lift.",
+        "The gipsy works out who Toad is, but Toad slips away while he is busy counting his money.",
+        "Toad gets lost on the common, so he follows the sound of the river until he finds his way.",
+        "The barge-woman arrives looking for her horse, so Toad hides in the caravan until she leaves."
+      ]
     },
     {
       "id": "ch10n4",
-      "title": null,
+      "title": "A car on the high road",
       "paras": [
         "When Toad had taken as much stew on board as he thought he could possibly hold, he got up and said good-bye to the gipsy, and took an affectionate farewell of the horse; and the gipsy, who knew the riverside well, gave him directions which way to go, and he set forth on his travels again in the best possible spirits. He was, indeed, a very different Toad from the animal of an hour ago. The sun was shining brightly, his wet clothes were quite dry again, he had money in his pocket once more, he was nearing home and friends and safety, and, most and best of all, he had had a substantial meal, hot and nourishing, and felt big, and strong, and careless, and self-confident.",
         "As he tramped along gaily, he thought of his adventures and escapes, and how when things seemed at their worst he had always managed to find a way out; and his pride and conceit began to swell within him. “Ho, ho!” he said to himself as he marched along with his chin in the air, “what a clever Toad I am! There is surely no animal equal to me for cleverness in the whole world! My enemies shut me up in prison, encircled by sentries, watched night and day by warders; I walk out through them all, by sheer ability coupled with courage. They pursue me with engines, and policemen, and revolvers; I snap my fingers at them, and vanish, laughing, into space. I am, unfortunately, thrown into a canal by a woman fat of body and very evil-minded. What of it? I swim ashore, I seize her horse, I ride off in triumph, and I sell the horse for a whole pocketful of money and an excellent breakfast! Ho, ho! I am The Toad, the handsome, the popular, the successful Toad!” He got so puffed up with conceit that he made up a song as he walked in praise of himself, and sang it at the top of his voice, though there was no one to hear it but him. It was perhaps the most conceited song that any animal ever composed.",
@@ -103,12 +931,288 @@
         "“What a very sensible woman!” said the gentleman. “Of course you shall.” So they carefully helped Toad into the front seat beside the driver, and on they went again.",
         "Toad was almost himself again by now. He sat up, looked about him, and tried to beat down the tremors, the yearnings, the old cravings that rose up and beset him and took possession of him entirely."
       ],
-      "questions": [],
-      "hints": []
+      "questions": [
+        {
+          "type": "search",
+          "q": "How do we know Toad is feeling much better than he did earlier in the day?",
+          "para": 1,
+          "options": [
+            {
+              "text": "His clothes are dry, he has money and he feels big and strong.",
+              "correct": true,
+              "why": "Clue: \"his wet clothes were quite dry again, he had money in his pocket once more\" and he \"felt big, and strong\"."
+            },
+            {
+              "text": "He has found his friends, who are walking home beside him now.",
+              "flaw": "evidence",
+              "why": "Clue check: he is only \"nearing home and friends\". He is still on his own."
+            },
+            {
+              "text": "He has bought a new suit with his money and thrown the dress away.",
+              "flaw": "evidence",
+              "why": "Clue check: later the gentlemen think he is a washerwoman. He's still in the dress!"
+            },
+            {
+              "text": "he is sleepy",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 1 says he feels \"self-confident\" and sets off \"in the best possible spirits\"."
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "*his pride and conceit began to swell within him*. What is happening to Toad?",
+          "para": 2,
+          "options": [
+            {
+              "text": "He starts to think far too highly of how clever he is.",
+              "correct": true,
+              "why": "Clue: straight after, he says \"what a clever Toad I am! There is surely no animal equal to me\"."
+            },
+            {
+              "text": "His tummy swells up because he ate far too much of the stew.",
+              "flaw": "literal",
+              "why": "Clue check: it's his pride that swells, not his tummy. Listen to what he says to himself."
+            },
+            {
+              "text": "His paws swell up from walking so many miles in the hot sun.",
+              "flaw": "literal",
+              "why": "Clue check: paragraph 2 is all about Toad boasting, not about sore paws."
+            },
+            {
+              "text": "getting big-headed",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "Toad sings that he was in the Ark, crying *There’s land ahead*. Could that really be true?",
+          "para": 5,
+          "options": [
+            {
+              "text": "No, it's a boast; he just wants to sound terribly important.",
+              "correct": true,
+              "why": "Clue: the storyteller calls it \"the most conceited song that any animal ever composed\". Toad is showing off, not telling the truth."
+            },
+            {
+              "text": "Yes, Toad was on the Ark and was the first to spot the dry land.",
+              "flaw": "literal",
+              "why": "Clue check: in paragraph 2 Toad makes up the song \"in praise of himself\". It's boasting, not history."
+            },
+            {
+              "text": "Yes, Toad once sailed a boat and shouted when he saw land.",
+              "flaw": "literal",
+              "why": "Clue check: nothing in the passage says Toad sailed anywhere. The song is made up."
+            },
+            {
+              "text": "made it up",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "Toad sings he is cleverer than the men at Oxford. What does the storyteller say afterwards that shows the rest of the song was even worse?",
+          "para": 8,
+          "options": [
+            {
+              "text": "The rest was too conceited to write down; these were mild.",
+              "correct": true,
+              "why": "Clue: \"There was a great deal more of the same sort, but too dreadfully conceited to be written down. These are some of the milder verses.\""
+            },
+            {
+              "text": "The rest was so lovely that all the animals cried to hear it.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 2 says there was \"no one to hear it but him\"."
+            },
+            {
+              "text": "Toad forgot the rest, so he sang the same verse over again.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 8 says there was \"a great deal more\". He didn't forget it."
+            },
+            {
+              "text": "even more boasting",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "How does the storyteller warn us that something bad is about to happen to Toad?",
+          "para": 9,
+          "options": [
+            {
+              "text": "It says his pride was soon to have a very severe fall.",
+              "correct": true,
+              "why": "Clue: \"But his pride was shortly to have a severe fall.\" A proud Toad is about to get a shock."
+            },
+            {
+              "text": "It says a storm is coming and the sky is turning black.",
+              "flaw": "evidence",
+              "why": "Clue check: the weather is sunny all day. Read the short paragraph 9 again."
+            },
+            {
+              "text": "It says the road ahead is full of deep holes and ditches.",
+              "flaw": "evidence",
+              "why": "Clue check: the fall is his pride's, not his feet's. Nobody mentions holes."
+            },
+            {
+              "text": "a big storm",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 9 talks about Toad's pride, not the weather."
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "When Toad first hears the motor-car coming, he is delighted. What does he find out a moment later that makes him collapse?",
+          "para": 12,
+          "options": [
+            {
+              "text": "It's the very car he stole, with the same people inside.",
+              "correct": true,
+              "why": "Clue: \"the approaching car was the very one he had stolen out of the yard of the Red Lion Hotel\"."
+            },
+            {
+              "text": "It is Badger driving the car, coming to take him to prison.",
+              "flaw": "evidence",
+              "why": "Clue check: Badger isn't in the car. Read paragraph 12 to see who is."
+            },
+            {
+              "text": "The car is going so fast that it's about to run him over.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 12 says the car came \"at an easy pace, slowing down\"."
+            },
+            {
+              "text": "the stolen car",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "Why don't the gentlemen recognise Toad lying in the road?",
+          "para": 14,
+          "options": [
+            {
+              "text": "He's dressed as a washerwoman, so they think he's an old woman.",
+              "correct": true,
+              "why": "Clue: \"Here is a poor old thing, a washerwoman apparently, who has fainted in the road!\""
+            },
+            {
+              "text": "Toad grew a long beard in prison, so he looks very different now.",
+              "flaw": "evidence",
+              "why": "Clue check: nobody mentions a beard. Look at what the gentleman calls Toad in paragraph 14."
+            },
+            {
+              "text": "The gentlemen have left their spectacles back at the hotel.",
+              "flaw": "evidence",
+              "why": "Clue check: nothing is said about spectacles. It's Toad's clothes that fool them."
+            },
+            {
+              "text": "a false beard",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 14 says they think he is \"a washerwoman\"."
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "Toad *cautiously opened first one eye and then the other*. Why so carefully?",
+          "para": 16,
+          "options": [
+            {
+              "text": "He wants to check it's safe before they see he is awake.",
+              "correct": true,
+              "why": "Clue: he only opens them once he \"knew that he was not recognised\". Cautiously means carefully, in case of danger."
+            },
+            {
+              "text": "His eyes are sore from the road dust, so he opens them slowly.",
+              "flaw": "literal",
+              "why": "Clue check: paragraph 16 says his courage began to revive. It's about fear, not dust."
+            },
+            {
+              "text": "He has just woken up from a very long, deep sleep in the car.",
+              "flaw": "literal",
+              "why": "Clue check: Toad was pretending, not asleep. He heard every word the gentlemen said."
+            },
+            {
+              "text": "he is tired",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 16 says his \"courage began to revive\". It's about being scared."
+            }
+          ]
+        },
+        {
+          "type": "character",
+          "q": "Which word best describes Toad tonight, and what is your proof?",
+          "para": 2,
+          "options": [
+            {
+              "text": "Conceited: he makes up a song about how great he is.",
+              "correct": true,
+              "why": "Clue: \"he made up a song as he walked in praise of himself\", the \"most conceited song\" ever."
+            },
+            {
+              "text": "Modest: he tells himself he was just lucky to escape.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad says \"I am The Toad, the handsome, the popular, the successful Toad!\" Not modest!"
+            },
+            {
+              "text": "Brave: he walks up and tells the gentlemen who he is.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad collapses in fright and keeps his disguise on."
+            },
+            {
+              "text": "Careful: he hides by day and only walks home in the dark.",
+              "flaw": "evidence",
+              "why": "Clue check: in paragraph 13 Toad wishes he HAD hidden \"till nightfall\". He didn't."
+            }
+          ]
+        },
+        {
+          "type": "ending",
+          "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+          "para": 21,
+          "options": [
+            {
+              "text": "In the front seat by the driver, itching to drive the car.",
+              "correct": true,
+              "why": "Clue: \"the old cravings that rose up and beset him and took possession of him entirely\". Toad longs to drive."
+            },
+            {
+              "text": "Lying in the road, fainting with fright as the car goes by.",
+              "flaw": "evidence",
+              "why": "Clue check: in paragraph 20 they help Toad into the front seat."
+            },
+            {
+              "text": "Back with the gipsy, sorry he ever sold the lovely horse.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad is riding in the motor-car at the end."
+            },
+            {
+              "text": "longing to drive",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        }
+      ],
+      "hints": [
+        "Toad begs to drive and goes much too fast, so the car crashes into a pond and he runs away.",
+        "The gentlemen guess who Toad is, but he jumps out and hides in a haystack until dark.",
+        "Toad feels ill again, so they drop him at a village where he catches a train home.",
+        "The driver won't let him drive, but Toad waits until they stop and then sneaks off."
+      ]
     },
     {
       "id": "ch10n5",
-      "title": null,
+      "title": "Poop poop",
       "paras": [
         "“It is fate!” he said to himself. “Why strive? why struggle?” and he turned to the driver at his side.",
         "“Please, Sir,” he said, “I wish you would kindly let me try and drive the car for a little. I’ve been watching you carefully, and it looks so easy and so interesting, and I should like to be able to tell my friends that once I had driven a motor-car!”",
@@ -135,8 +1239,284 @@
         "Grave and round, with neat ears and silky hair.",
         "It was the Water Rat!"
       ],
-      "questions": [],
-      "hints": []
+      "questions": [
+        {
+          "type": "quoted",
+          "q": "Toad tells himself *Why strive? why struggle?* What does he mean?",
+          "para": 1,
+          "options": [
+            {
+              "text": "He wants to drive so badly that he stops trying to resist.",
+              "correct": true,
+              "why": "Clue: \"It is fate!\" he says, and turns straight to the driver to ask for a go. He has given in to his craving."
+            },
+            {
+              "text": "He is too tired to struggle, so he just wants to have a sleep.",
+              "flaw": "literal",
+              "why": "Clue check: the very next thing he does is ask to drive. That isn't a sleepy Toad."
+            },
+            {
+              "text": "He means the car is struggling up a hill and needs a push.",
+              "flaw": "literal",
+              "why": "Clue check: nobody mentions a hill. Toad is talking about the struggle inside himself."
+            },
+            {
+              "text": "giving in",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "Toad *listened with affected humility to the instructions*. What does that tell us?",
+          "para": 4,
+          "options": [
+            {
+              "text": "He only pretends to listen politely; he thinks he knows best.",
+              "correct": true,
+              "why": "Clue: affected means put on or pretend. Toad has driven lots of cars before, so he's only acting humble."
+            },
+            {
+              "text": "He listens hard because he has never driven a car before.",
+              "flaw": "literal",
+              "why": "Clue check: last night we learned he stole this very car. Toad has driven plenty!"
+            },
+            {
+              "text": "He is so humble that he asks for the whole lesson all over again.",
+              "flaw": "literal",
+              "why": "Clue check: Toad sets the car going straight after. He doesn't ask for anything again."
+            },
+            {
+              "text": "listening hard",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: affected humility means pretend politeness."
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "What makes Toad start to lose his head while he is driving?",
+          "para": 7,
+          "options": [
+            {
+              "text": "They call him washerwoman and tell him to be careful.",
+              "correct": true,
+              "why": "Clue: \"Be careful, washerwoman!\" And this annoyed him, and he began to lose his head."
+            },
+            {
+              "text": "The driver laughs at him and says he is far too slow.",
+              "flaw": "evidence",
+              "why": "Clue check: the driver laughed back in paragraph 3, before Toad drove. Look at paragraph 7."
+            },
+            {
+              "text": "A policeman steps into the road and waves at him to stop.",
+              "flaw": "evidence",
+              "why": "Clue check: no policeman appears until much later, in paragraph 17."
+            },
+            {
+              "text": "going too slow",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: read what the gentlemen call out in paragraph 7."
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "At first Toad drives very slowly because he is determined to be prudent. How has that changed a little later?",
+          "para": 8,
+          "options": [
+            {
+              "text": "He pins the driver down and puts on full speed, boasting.",
+              "correct": true,
+              "why": "Clue: \"he pinned him down in his seat with one elbow, and put on full speed\", shouting \"I am the Toad\"."
+            },
+            {
+              "text": "He stops the car politely and hands the wheel back to the driver.",
+              "flaw": "evidence",
+              "why": "Clue check: in paragraph 8 the driver tries to stop him, and Toad won't let him."
+            },
+            {
+              "text": "He goes even more slowly, just as the gentlemen asked.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 6 says \"faster; then faster still, and faster\"."
+            },
+            {
+              "text": "full speed",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "quoted",
+          "q": "Flying through the air, Toad wonders if he will *developed wings and turned into a Toad-bird*. Is he really changing?",
+          "para": 11,
+          "options": [
+            {
+              "text": "No, he flies so smoothly that he just imagines being a bird.",
+              "correct": true,
+              "why": "Clue: he flies \"with the strong upward rush and delicate curve of a swallow\", then lands \"with a thump\". It was only a wonder."
+            },
+            {
+              "text": "Yes, Toad grows real wings and flies away over the meadow.",
+              "flaw": "literal",
+              "why": "Clue check: paragraph 11 says he \"landed on his back with a thump\". No wings!"
+            },
+            {
+              "text": "Yes, Toad has little wings hidden under his washerwoman's dress.",
+              "flaw": "literal",
+              "why": "Clue check: Toads don't have wings, and the story never says he does."
+            },
+            {
+              "text": "turning into a bird",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: \"just beginning to wonder\" means it's only in his head."
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "How can we tell Toad isn't one bit sorry about crashing the car?",
+          "para": 12,
+          "options": [
+            {
+              "text": "He laughs till he has to sit down, and calls himself good Toad.",
+              "correct": true,
+              "why": "Clue: \"he laughed till he had to sit down under a hedge\" and cries \"clever Toad, great Toad, good Toad!\""
+            },
+            {
+              "text": "He runs back to the pond to help the gentlemen out of the water.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 12 says he \"set off running across country\", away from them."
+            },
+            {
+              "text": "He writes a note to say sorry and leaves it on the hedge.",
+              "flaw": "evidence",
+              "why": "Clue check: no note is written. Toad sings about himself instead."
+            },
+            {
+              "text": "he says sorry",
+              "flaw": "short",
+              "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 12 Toad praises himself."
+            }
+          ]
+        },
+        {
+          "type": "across",
+          "q": "Toad sings that he is ingenious and clever. What does he call himself once he sees who is chasing him?",
+          "para": 18,
+          "options": [
+            {
+              "text": "A conceited and heedless ass, for swaggering and singing.",
+              "correct": true,
+              "why": "Clue: \"what an ass I am! What a conceited and heedless ass! Swaggering again! Shouting and singing songs again!\""
+            },
+            {
+              "text": "The cleverest Toad in the world, who will escape once more.",
+              "flaw": "evidence",
+              "why": "Clue check: that's how he talked BEFORE he saw the policemen. Read paragraph 18."
+            },
+            {
+              "text": "A famous racing driver who can outrun any old policeman.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 19 says \"they still gained steadily\". He can't outrun them."
+            },
+            {
+              "text": "a silly ass",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "search",
+          "q": "Why can't Toad get away from the policemen?",
+          "para": 19,
+          "options": [
+            {
+              "text": "He's a fat animal with short legs, so they keep gaining.",
+              "correct": true,
+              "why": "Clue: \"he was a fat animal, and his legs were short, and still they gained\"."
+            },
+            {
+              "text": "He keeps stopping to sing, and they catch up while he sings.",
+              "flaw": "evidence",
+              "why": "Clue check: in paragraph 19 he runs \"desperately\". There's no time for songs now."
+            },
+            {
+              "text": "He runs round in a circle and comes right back to the pond.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 19 says he runs straight into the river, not back to the pond."
+            },
+            {
+              "text": "short fat legs",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        },
+        {
+          "type": "character",
+          "q": "Which word best describes Toad in this passage, and what is your proof?",
+          "para": 10,
+          "options": [
+            {
+              "text": "Reckless: he drives at full speed and crashes into a pond.",
+              "correct": true,
+              "why": "Clue: he \"put on full speed\" and sent the car \"crashing through the low hedge\" into \"a horse-pond\"."
+            },
+            {
+              "text": "Careful: he drives slowly all the way and never goes fast.",
+              "flaw": "evidence",
+              "why": "Clue check: paragraph 6 says he went \"faster; then faster still, and faster\"."
+            },
+            {
+              "text": "Kind: he helps the gentlemen out of the pond after the crash.",
+              "flaw": "evidence",
+              "why": "Clue check: he leaves them \"floundering helplessly in the water\" and runs away."
+            },
+            {
+              "text": "Humble: he admits he's a bad driver and gives back the wheel.",
+              "flaw": "evidence",
+              "why": "Clue check: he calls himself \"the famous, the skilful, the entirely fearless Toad\"."
+            }
+          ]
+        },
+        {
+          "type": "ending",
+          "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+          "para": 24,
+          "options": [
+            {
+              "text": "Clinging to a hole in the bank, amazed to see the Water Rat.",
+              "correct": true,
+              "why": "Clue: he rests \"his elbows on the edge of the hole\", and out of the dark comes \"a familiar face\": \"It was the Water Rat!\""
+            },
+            {
+              "text": "Safe at home in Toad Hall, laughing about the horse-pond.",
+              "flaw": "evidence",
+              "why": "Clue check: at the end Toad is still hanging on in the river."
+            },
+            {
+              "text": "Caught by the policemen and being marched straight back to prison.",
+              "flaw": "evidence",
+              "why": "Clue check: Toad falls into the river in paragraph 19, away from the policemen."
+            },
+            {
+              "text": "very relieved",
+              "flaw": "fragment",
+              "why": "Right idea! Now make it a full sentence. Which option says it properly?"
+            }
+          ]
+        }
+      ],
+      "hints": [
+        "Toad is soaking and in a terrible state, so the Rat pulls him in and makes him wash and change.",
+        "Toad wants to go straight home, but the Rat tells him the weasels have taken over Toad Hall.",
+        "The policemen reach the bank, but the Rat hides Toad in a cupboard until they give up.",
+        "The river pulls Toad away again, so the Rat throws him a rope and tows him in."
+      ]
     }
   ]
 }

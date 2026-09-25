@@ -26,7 +26,7 @@
             "why": "Clue: \"The Toad was so anxious not to be left out\". Inferior position means the worst place, at the back, and without a murmur means no complaining." },
           { "text": "Toad has to lie down on the floor, so low down that nobody can hear him.", "flaw": "literal",
             "why": "Clue check: in paragraph 2 Badger says \"Toad last\". The position is a place in the line, not lying on the floor." },
-          { "text": "Toad is given a job so boring that he falls asleep without making a sound.", "flaw": "literal",
+          { "text": "Toad is given a job so very boring that he falls asleep without making a sound.", "flaw": "literal",
             "why": "Clue check: Toad is wide awake. In the very next sentence he falls into the water with a squeal!" },
           { "text": "no complaining", "flaw": "fragment",
             "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
@@ -41,7 +41,7 @@
             "why": "Clue: he \"came on\" with such a rush that he upset the Rat into the Mole and the Mole into the Badger." },
           { "text": "He starts singing loudly, so the weasels upstairs might hear them.", "flaw": "evidence",
             "why": "Clue check: nobody sings in the tunnel. Look at what happens when the Rat calls \"Come on, Toad!\" in paragraph 5." },
-          { "text": "He runs off back home because the tunnel is far too cold and damp.", "flaw": "evidence",
+          { "text": "He runs off back home because the tunnel is far too cold and damp for him.", "flaw": "evidence",
             "why": "Clue check: Toad is terrified of \"being left behind, alone in the darkness\". He runs forwards, not home." },
           { "text": "falls in again", "flaw": "short",
             "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 5 they are deep in the tunnel, far from the river." }
@@ -54,7 +54,7 @@
         "options": [
           { "text": "The weasels are having a very noisy, wild party above them.", "correct": true,
             "why": "Clue: they hear \"shouting and cheering and stamping on the floor and hammering on tables\". Going it means having a wild time." },
-          { "text": "The weasels are going away and leaving Toad Hall for good.", "flaw": "literal",
+          { "text": "The weasels are going away and leaving Toad Hall for good now.", "flaw": "literal",
             "why": "Clue check: the noise is \"nearly over their heads\". The weasels are still right there in the Hall." },
           { "text": "The weasels are running down to the tunnel to catch them.", "flaw": "literal",
             "why": "Clue check: in paragraph 10 the friends reach the pantry and nobody has spotted them." },
@@ -69,7 +69,7 @@
         "options": [
           { "text": "The party is so loud that nobody could hear them over the noise.", "correct": true,
             "why": "Clue: \"Such a tremendous noise was going on in the banqueting-hall that there was little danger of their being overheard.\"" },
-          { "text": "They have oiled the trap-door so that it opens without a squeak.", "flaw": "evidence",
+          { "text": "They have oiled the old trap-door so that it opens without a squeak.", "flaw": "evidence",
             "why": "Clue check: nobody oils anything. They simply \"put their shoulders to the trap-door and heaved it back\"." },
           { "text": "The weasels have all gone to bed, so the whole house is quiet.", "flaw": "evidence",
             "why": "Clue check: paragraph 11 says the noise was \"simply deafening\". Nobody is asleep!" },
@@ -101,7 +101,7 @@
             "why": "Clue: \"Only just let me get at him!\" muttered Toad, grinding his teeth, and Badger was \"restraining him with difficulty\"." },
           { "text": "He bursts into tears and hides behind the Mole in the dark pantry.", "flaw": "evidence",
             "why": "Clue check: Toad isn't crying here. Look at what he does with his teeth in paragraph 12." },
-          { "text": "He shouts back at the weasels through the keyhole of the pantry door.", "flaw": "evidence",
+          { "text": "He yells rude names back at the weasels through the keyhole of the pantry.", "flaw": "evidence",
             "why": "Clue check: Toad only \"muttered\". The friends stay hidden until Badger flings the door open." },
           { "text": "grinding his teeth", "flaw": "fragment",
             "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
@@ -129,7 +129,7 @@
         "options": [
           { "text": "Fearless: he flings the door wide and leads the charge with his stick.", "correct": true,
             "why": "Clue: \"The hour is come! Follow me!\" And flung the door open wide, \"his great cudgel whistling through the air\"." },
-          { "text": "Careless: he forgets the lantern, so they all walk along in the dark.", "flaw": "evidence",
+          { "text": "Careless: he forgets the lantern, so they all have to walk along in the dark.", "flaw": "evidence",
             "why": "Clue check: in paragraph 2 Badger \"took a dark lantern in one paw\"." },
           { "text": "Cowardly: he lets the others go first while he waits in the tunnel.", "flaw": "evidence",
             "why": "Clue check: Badger leads the way the whole time, and he goes through the door first." },
@@ -216,7 +216,7 @@
         "options": [
           { "text": "The stoats and weasels fought each other and most rolled into the river.", "correct": true,
             "why": "Clue: \"the stoats grappled with the weasels... till most of 'em rolled into the river!\"" },
-          { "text": "The stoats have tied themselves up and are waiting to say sorry to Toad.", "flaw": "evidence",
+          { "text": "The stoats have tied themselves up and are waiting to say sorry to Mr. Toad.", "flaw": "evidence",
             "why": "Clue check: paragraph 4 says \"They've all disappeared by now\". Nobody is waiting." },
           { "text": "The stoats are marching in to help the weasels win back the Hall.", "flaw": "evidence",
             "why": "Clue check: the Mole reports \"It's all over\", and he has brought back their rifles." },
@@ -231,7 +231,7 @@
         "options": [
           { "text": "He trusts the Mole to get jobs done, but the Rat might daydream.", "correct": true,
             "why": "Clue: just before, Badger says \"I know I can trust you to see a thing done\". Poets have their heads full of rhymes." },
-          { "text": "The Rat is busy writing a poem, so he mustn't be interrupted.", "flaw": "literal",
+          { "text": "The Rat is busy writing a new poem, so he mustn't be interrupted.", "flaw": "literal",
             "why": "Clue check: the Rat isn't writing anything. In paragraph 3 he is busy finding supper." },
           { "text": "Poets are not allowed to go upstairs in Toad Hall after dark.", "flaw": "literal",
             "why": "Clue check: there's no such rule. Badger is talking about who he can trust." },
@@ -246,7 +246,7 @@
         "options": [
           { "text": "He doesn't give them a licking, and gives each of them a roll.", "correct": true,
             "why": "Clue: \"I didn't have to lick them, either\" and \"I gave them a roll a-piece, and let them out at the back\"." },
-          { "text": "He lets them sleep the night in the clean beds they have made.", "flaw": "evidence",
+          { "text": "He lets them sleep the night in the nice clean beds they have made.", "flaw": "evidence",
             "why": "Clue check: in paragraph 6 he lets them out at the back and \"off they ran\"." },
           { "text": "He invites them to sit down at the table and share the tongue.", "flaw": "evidence",
             "why": "Clue check: the Mole eats the cold tongue himself in paragraph 7. The weasels have gone." },
@@ -263,7 +263,7 @@
             "why": "Clue: he said heartily, \"Thank you kindly, dear Mole, for all your pains and trouble tonight\"." },
           { "text": "He takes off his jealous face and puts it away in a drawer.", "flaw": "literal",
             "why": "Clue check: put from him means he stops feeling it. Look at what Toad says to the Mole." },
-          { "text": "He tells the Mole he did all the fighting and the Mole did none.", "flaw": "evidence",
+          { "text": "He tells the Mole he did all the fighting and the Mole did none at all.", "flaw": "evidence",
             "why": "Clue check: Badger says \"There spoke my brave Toad!\" He wouldn't say that about a boast." },
           { "text": "he's still jealous", "flaw": "short",
             "why": "That isn't a full sentence, and the idea slips past too. Clue check: \"put all his jealousy from him\" means he stopped being jealous." }
@@ -276,7 +276,7 @@
         "options": [
           { "text": "Just egg-shells, cold toast and a nearly empty coffee-pot are left.", "correct": true,
             "why": "Clue: \"a certain quantity of egg-shells, some fragments of cold and leathery toast, a coffee-pot three-fourths empty\"." },
-          { "text": "The weasels have come back again and are eating up his breakfast.", "flaw": "evidence",
+          { "text": "The weasels have come back again and are eating up all his breakfast.", "flaw": "evidence",
             "why": "Clue check: in paragraph 8 the Mole and Rat are on the lawn and Badger is reading the paper. No weasels!" },
           { "text": "Badger has locked the kitchen, so nobody can have any breakfast.", "flaw": "evidence",
             "why": "Clue check: the others have clearly had lots of breakfast. That's the trouble!" },
@@ -335,7 +335,7 @@
             "why": "Clue: Toad acts puzzled about a Banquet \"in the morning\", but everyone knows Banquets are at night. Badger can see he's pretending." },
           { "text": "He thinks Toad really is very stupid and wants him to prove it.", "flaw": "literal",
             "why": "Clue check: the key word is pretend. Badger thinks Toad is acting, not that he is truly stupid." },
-          { "text": "He wants Toad to be even more stupid, just for the fun of it all.", "flaw": "literal",
+          { "text": "He wants Toad to act even sillier, because it makes everyone laugh.", "flaw": "literal",
             "why": "Clue check: Badger says \"Don't\". He wants Toad to stop, not to do more of it." },
           { "text": "stop acting silly", "flaw": "fragment",
             "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
@@ -348,7 +348,7 @@
         "options": [
           { "text": "He starts to refuse, then stops and suddenly says of course he'll do it.", "correct": true,
             "why": "Clue: \"Certainly not! I'll be, I'll see you... Stop a minute, though! Why, of course, dear Badger!\"" },
-          { "text": "Badger promises him a big slice of cake if he writes all the letters.", "flaw": "evidence",
+          { "text": "Badger promises him a big slice of cake if he writes all of the letters today.", "flaw": "evidence",
             "why": "Clue check: there's no cake. Toad changes his mind all by himself in the middle of paragraph 3." },
           { "text": "The Rat kindly agrees to write half of the letters to help him out.", "flaw": "evidence",
             "why": "Clue check: the Rat isn't even in the room. Badger offers to order the Banquet, not write letters." },
@@ -380,7 +380,7 @@
             "why": "Clue: \"SPEECH... BY TOAD\", \"ADDRESS... BY TOAD\", \"SONG... BY TOAD. (Composed by himself.)\"" },
           { "text": "He has asked the Mole and the Rat to sing a song each.", "flaw": "evidence",
             "why": "Clue check: look at the programme. Is anyone else's name on it?" },
-          { "text": "He has left the whole evening free for the guests to chat.", "flaw": "evidence",
+          { "text": "He has left the whole evening free for the guests to chat in.", "flaw": "evidence",
             "why": "Clue check: \"There will be other speeches by TOAD during the evening.\" Not much time to chat!" },
           { "text": "Toad, Toad, Toad", "flaw": "fragment",
             "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
@@ -393,7 +393,7 @@
         "options": [
           { "text": "No, he makes it sound like a reward without really promising one.", "correct": true,
             "why": "Clue: \"perhaps there mightn't\". Toad says maybe yes, maybe no, so he hasn't promised anything at all." },
-          { "text": "Yes, he is promising to pay him one whole shilling this evening.", "flaw": "literal",
+          { "text": "Yes, he is promising to pay him one whole shilling later this evening.", "flaw": "literal",
             "why": "Clue check: read the whole quote. The second half takes the promise away again." },
           { "text": "Yes, he will pay him two shillings, one now and one later on.", "flaw": "literal",
             "why": "Clue check: only one shilling is mentioned, and even that is only a perhaps." },
@@ -408,7 +408,7 @@
         "options": [
           { "text": "His conscience has been pricking him, so he looks at Toad doubtfully.", "correct": true,
             "why": "Clue: \"the Mole, whose conscience had been pricking him, looked doubtfully at Toad\". He feels bad for leaving Toad indoors all morning." },
-          { "text": "He brings Toad a present back from the river to say that he's sorry.", "flaw": "evidence",
+          { "text": "He brings Toad a little present back from the river to say that he's sorry.", "flaw": "evidence",
             "why": "Clue check: nobody brings a present. Look at the word conscience in paragraph 10." },
           { "text": "He tells Badger they should let Toad give just one little speech.", "flaw": "evidence",
             "why": "Clue check: the Mole doesn't say anything about speeches. He just looks at Toad." },
@@ -423,7 +423,7 @@
         "options": [
           { "text": "They've both guessed Toad is up to something, and silently agree.", "correct": true,
             "why": "Clue: Toad is \"so uppish and inflated\" that even the Mole \"began to suspect something\". A significant glance is a look that means something." },
-          { "text": "They swap their glasses so that they can see each other clearly.", "flaw": "literal",
+          { "text": "They swap their glasses so that they can see each other more clearly.", "flaw": "literal",
             "why": "Clue check: glances are quick looks, not spectacles. Nobody swaps anything." },
           { "text": "They pass secret notes to each other across the lunch table.", "flaw": "literal",
             "why": "Clue check: glances are looks. No notes are passed in paragraph 10." },
@@ -510,7 +510,7 @@
         "options": [
           { "text": "So Toad is respected, not laughed at by the stoats and weasels.", "correct": true,
             "why": "Clue: \"This good fellow has got to live here, and hold his own, and be respected. Would you have him a common laughing-stock?\"" },
-          { "text": "So the Banquet finishes early and everyone can go home to bed.", "flaw": "evidence",
+          { "text": "So the Banquet finishes early and everyone can go home to bed soon.", "flaw": "evidence",
             "why": "Clue check: Badger's reason is about Toad, not about bedtime. Read paragraph 3." },
           { "text": "So Badger can give all of the speeches at the Banquet himself.", "flaw": "evidence",
             "why": "Clue check: Badger \"cared little about Society\". He doesn't want to make speeches!" },
@@ -540,7 +540,7 @@
         "options": [
           { "text": "Nobody; he pretends his empty chairs are a cheering crowd.", "correct": true,
             "why": "Clue: he \"locked the door\" and \"collected all the chairs in the room and arranged them in a semicircle\". The crowd is only in his imagination." },
-          { "text": "A real crowd of guests who have crept up to his bedroom.", "flaw": "literal",
+          { "text": "A real crowd of guests who have crept up to his bedroom door.", "flaw": "literal",
             "why": "Clue check: the door is locked and the curtains are drawn. Nobody could get in." },
           { "text": "The weasels, who are hiding under the chairs to listen.", "flaw": "literal",
             "why": "Clue check: the word imagination tells us the audience isn't really there." },
@@ -557,7 +557,7 @@
             "why": "Clue: \"Badger's was the mastermind; the Mole and the Water Rat bore the brunt of the fighting; I merely served in the ranks and did little or nothing.\"" },
           { "text": "He tells all the guests he beat the Chief Weasel all by himself.", "flaw": "evidence",
             "why": "Clue check: in paragraph 14 Toad only says \"Not at all!\" and \"On the contrary!\" to praise." },
-          { "text": "He sings the very same song again for all of his guests to hear.", "flaw": "evidence",
+          { "text": "He sings the very same song again for all of his many guests to hear.", "flaw": "evidence",
             "why": "Clue check: in paragraph 15 Toad \"only shook his head gently\" when they asked for a song." },
           { "text": "very modestly", "flaw": "fragment",
             "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
@@ -602,7 +602,7 @@
             "why": "Clue: \"Look, baby! There goes the great Mr. Toad!\" He's respected, not a laughing-stock." },
           { "text": "The weasels write Toad a song all about his great motor-car rides.", "flaw": "evidence",
             "why": "Clue check: nobody writes songs. Look at what the mother-weasels say in paragraph 18." },
-          { "text": "The weasels ask Toad to come and be the new Chief of the Wild Wood.", "flaw": "evidence",
+          { "text": "The weasels ask Toad to come and be the new Chief of the whole Wild Wood.", "flaw": "evidence",
             "why": "Clue check: nobody asks Toad to be Chief. Read paragraph 18 again." },
           { "text": "weasels laugh", "flaw": "short",
             "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 18 the weasels greet the friends \"respectfully\"." }
@@ -630,7 +630,7 @@
         "options": [
           { "text": "Strolling in the Wild Wood with his friends, happy and admired.", "correct": true,
             "why": "Clue: the friends \"take a stroll together in the Wild Wood\" in \"great joy and contentment\", and the weasels call him \"the great Mr. Toad\"." },
-          { "text": "Locked in his bedroom, singing songs to rows of empty chairs.", "flaw": "evidence",
+          { "text": "Locked in his bedroom, singing songs to long rows of empty chairs.", "flaw": "evidence",
             "why": "Clue check: that happened earlier, in paragraph 5. The story ends on long summer evenings." },
           { "text": "In a prison cell again, sorry that he ever stole a motor-car.", "flaw": "evidence",
             "why": "Clue check: paragraph 17 says they lived \"in great joy and contentment\". No prison!" },

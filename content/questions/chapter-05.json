@@ -1,0 +1,649 @@
+{
+  "ch5n1": {
+    "title": "A smell in the dark",
+    "questions": [
+      {
+        "type": "search",
+        "q": "There is no signpost. How do the two animals know they have found the right way home?",
+        "para": 1,
+        "options": [
+          { "text": "A little feeling inside them says the track leads home.", "correct": true,
+            "why": "Clue: \"that small inquiring something which all animals carry inside them\" says \"Yes, quite right; this leads home!\"" },
+          { "text": "The Otter drew them a map of the track before he went back.", "flaw": "evidence",
+            "why": "Clue check: paragraph 1 never mentions a map. The Otter isn't with them any more." },
+          { "text": "They follow the church bells ringing from the village ahead.", "flaw": "evidence",
+            "why": "Clue check: paragraph 1 says they \"heard the sheep\", not bells. Look at what tells them the track is right." },
+          { "text": "they asked sheep", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: they walked towards the sheep, but nobody asked them anything. Something inside the animals told them." }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How can we tell the Mole isn't keen to go through the village?",
+        "para": 2,
+        "options": [
+          { "text": "He slows down and sounds unsure, as animals don't like villages.", "correct": true,
+            "why": "Clue: he speaks \"somewhat dubiously, slackening his pace\", and \"The animals did not hold with villages\"." },
+          { "text": "He sits down in the road and refuses to walk one more step.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 2 he only slows down. He keeps walking all the way through the village." },
+          { "text": "He says the people in the village once chased him with a big stick.", "flaw": "evidence",
+            "why": "Clue check: the Mole says only one thing in paragraph 2, and it isn't about being chased." },
+          { "text": "he slows down", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Most of the cottage windows were *innocent of blinds*. What does that mean?",
+        "para": 4,
+        "options": [
+          { "text": "The windows had no blinds, so anyone could see right inside.", "correct": true,
+            "why": "Clue: the lookers-in can see the people \"gathered round the tea-table\". Innocent of here means without." },
+          { "text": "The blinds had done nothing wrong, so nobody could blame them at all.", "flaw": "literal",
+            "why": "Clue check: blinds can't be naughty! Paragraph 4 is about how easily the animals can see into the rooms." },
+          { "text": "The windows were brand new and nobody had ever looked through them.", "flaw": "literal",
+            "why": "Clue check: the animals are looking through them right now, watching \"a cat being stroked\"." },
+          { "text": "no blinds up", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "In the village, the animals feel cosy watching the cottages. What snaps them out of it and reminds them how far from home they are?",
+        "para": 5,
+        "options": [
+          { "text": "A sting of icy sleet wakes them up, cold, tired and far from home.", "correct": true,
+            "why": "Clue: \"a small sting of frozen sleet on the skin woke them as from a dream, and they knew their toes to be cold\"." },
+          { "text": "A big dog barks from a cottage and chases them right out of the village.", "flaw": "evidence",
+            "why": "Clue check: paragraph 3 says the dogs are \"safe indoors\". Nobody chases them." },
+          { "text": "The bird in the cage wakes up and starts singing very loudly at them.", "flaw": "evidence",
+            "why": "Clue check: the bird only yawns and goes back to sleep. Look at what hits them \"in the back of the neck\"." },
+          { "text": "icy sleet", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Why doesn't the Rat notice when something suddenly happens to the Mole?",
+        "para": 6,
+        "options": [
+          { "text": "He is walking ahead with his eyes fixed on the road in front.", "correct": true,
+            "why": "Clue: the Rat \"was walking a little way ahead... his eyes fixed on the straight grey road in front of him\"." },
+          { "text": "He is fast asleep on his feet after the long day out with Otter.", "flaw": "evidence",
+            "why": "Clue check: paragraph 6 says he is walking with his eyes fixed on the road. He's awake." },
+          { "text": "He has gone back to the village to have one more look at the bird.", "flaw": "evidence",
+            "why": "Clue check: they have left the village behind. Paragraph 6 starts \"Once beyond the village\"." },
+          { "text": "Rat is deaf", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 6 tells us where the Rat is walking and where he is looking." }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The summons *took him like an electric shock*. What does that mean?",
+        "para": 6,
+        "options": [
+          { "text": "Something hit the Mole so suddenly it made him jump inside.", "correct": true,
+            "why": "Clue: it happens \"suddenly\", and in paragraph 7 he \"stopped dead in his tracks\" and tingled \"through and through\"." },
+          { "text": "The Mole touched a wire by the road and it gave him a real shock.", "flaw": "literal",
+            "why": "Clue check: paragraph 7 says it was a smell, \"one of these mysterious fairy calls\". No wires!" },
+          { "text": "Lightning struck the road right beside the Mole and made him jump.", "flaw": "literal",
+            "why": "Clue check: there is no storm. It is a smell that reaches him in paragraph 7." },
+          { "text": "a big surprise", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "At first the Mole can't remember what the smell is. What does he realise a moment later, and how does it seem to feel about him?",
+        "para": 8,
+        "options": [
+          { "text": "It is his old home, and it misses him and wants him back.", "correct": true,
+            "why": "Clue: \"Home!\" and the home \"was missing him, and wanted him back, and was telling him so, through his nose\"." },
+          { "text": "It is the Rat's supper cooking, and it makes him feel very hungry indeed.", "flaw": "evidence",
+            "why": "Clue check: the Mole was thinking about supper in paragraph 6, but paragraph 8 starts with a different word. What is it?" },
+          { "text": "It is Badger's house nearby, and Badger is calling him inside.", "flaw": "evidence",
+            "why": "Clue check: paragraph 8 says it is \"his old home that he had hurriedly forsaken\". Whose home is that?" },
+          { "text": "his old home", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The home calls to him *sorrowfully, reproachfully, but with no bitterness or anger*. How does the home seem to feel?",
+        "para": 8,
+        "options": [
+          { "text": "It is sad and a bit hurt that he left, but it is not cross.", "correct": true,
+            "why": "Clue: sorrowfully means sadly, reproachfully means a little hurt, and \"no bitterness or anger\" means not cross." },
+          { "text": "It is furious with the Mole and wants to punish him for leaving.", "flaw": "evidence",
+            "why": "Clue check: the quote itself says \"no bitterness or anger\". Furious is very angry." },
+          { "text": "It is happy he has a new life and hopes he never comes back.", "flaw": "evidence",
+            "why": "Clue check: paragraph 8 says the home \"wanted him back\"." },
+          { "text": "very angry", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: read the end of the quote again: \"no bitterness or anger\"." }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes the Mole when the smell reaches him, and what is your proof?",
+        "para": 11,
+        "options": [
+          { "text": "Homesick: he begs the Rat to stop, as he must go to his old home.", "correct": true,
+            "why": "Clue: \"It's my home, my old home!... And I must go to it, I must, I must!\"" },
+          { "text": "Bored: he yawns and says he would much rather stay in the village.", "flaw": "evidence",
+            "why": "Clue check: it's the little bird in paragraph 5 that yawns, not the Mole." },
+          { "text": "Angry: he shouts that he never wants to see the Rat again.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 he says \"Please, please come back!\" He wants the Rat with him." },
+          { "text": "Lazy: he sits on a tree stump and won't walk one more step.", "flaw": "evidence",
+            "why": "Clue check: there are no tree stumps tonight. The Mole is standing on the road, calling." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is the Mole feeling?",
+        "para": 11,
+        "options": [
+          { "text": "On the dark road, begging the Rat to come back, desperate to go home.", "correct": true,
+            "why": "Clue: \"pleaded the poor Mole, in anguish of heart\" and \"Oh, come back, Ratty! Please, please come back!\"" },
+          { "text": "In the village, happily watching a little bird asleep in its warm cage.", "flaw": "evidence",
+            "why": "Clue check: they left the village in paragraph 6. The last paragraph is out on the road." },
+          { "text": "At Mole End already, dusting his old things and feeling very proud.", "flaw": "evidence",
+            "why": "Clue check: in the last paragraph he hasn't reached his home yet. He is still begging the Rat to stop." },
+          { "text": "fast asleep", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 11 the Mole is calling out. Is that asleep?" }
+        ]
+      }
+    ],
+    "hints": [
+      "The Rat is too far ahead to hear, so the Mole follows him sadly until he bursts into tears.",
+      "The Mole runs off alone to find his home, but he gets lost until the Rat tracks his footprints.",
+      "The Rat hears the Mole at last, so they follow the smell together and find the old home.",
+      "Snow starts to fall and hides the smell, but the Mole digs down until he finds his tunnel."
+    ]
+  },
+
+  "ch5n2": {
+    "title": "Following the nose",
+    "questions": [
+      {
+        "type": "across",
+        "q": "At the start of tonight the Rat can smell something too. What is it, and why does it make him hurry on?",
+        "para": 2,
+        "options": [
+          { "text": "He smells snow and isn't sure of the way, so he won't stop.", "correct": true,
+            "why": "Clue: he smells \"something suspiciously like approaching snow\", then says \"the snow's coming on again, and I'm not sure of the way!\"" },
+          { "text": "He smells his supper cooking back home, so he runs off to eat it.", "flaw": "evidence",
+            "why": "Clue check: paragraph 1 says he was \"much taken up with the weather\". What weather can he smell?" },
+          { "text": "He smells the Wild Wood animals nearby, so he wants to hide.", "flaw": "evidence",
+            "why": "Clue check: nobody mentions the Wild Wood tonight. Look at the end of paragraph 1." },
+          { "text": "snow is coming", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Mole stands alone with *his heart torn asunder*. What does that mean?",
+        "para": 3,
+        "options": [
+          { "text": "He feels pulled two ways, between his old home and his friend.", "correct": true,
+            "why": "Clue: the smells of home \"pleaded\" with him, but \"his loyalty to his friend stood firm\". Torn asunder means pulled apart." },
+          { "text": "His heart is broken into pieces and a doctor will have to mend it.", "flaw": "literal",
+            "why": "Clue check: the Mole walks on down the road straight afterwards. This is about feelings, not a real heart." },
+          { "text": "Somebody has torn his coat so his chest is showing in the cold.", "flaw": "literal",
+            "why": "Clue check: paragraph 3 says nothing about his coat. It's about the \"big sob gathering\" inside him." },
+          { "text": "pulled two ways", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "The Mole wants his home very badly. Why does he follow the Rat instead?",
+        "para": 3,
+        "options": [
+          { "text": "He is loyal and would never dream of leaving his friend alone.", "correct": true,
+            "why": "Clue: \"his loyalty to his friend stood firm. Never for a moment did he dream of abandoning him.\"" },
+          { "text": "He is frightened of the dark and does not dare to go on his own.", "flaw": "evidence",
+            "why": "Clue check: paragraph 3 gives the real reason, and it's about his friend, not the dark." },
+          { "text": "The Rat has his arm, so the Mole cannot get away from him.", "flaw": "evidence",
+            "why": "Clue check: the Rat is \"very far ahead\" in paragraph 1. He isn't holding the Mole at all yet." },
+          { "text": "he's loyal", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How can we tell the Rat has no idea how sad the Mole is on the walk?",
+        "para": 4,
+        "options": [
+          { "text": "He chats about fires and supper, not noticing Mole's silence.", "correct": true,
+            "why": "Clue: he \"began chattering cheerfully about... what a supper he meant to eat; never noticing his companion's silence\"." },
+          { "text": "He asks the Mole why he is crying and the Mole says it's the cold.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 4 the Rat never asks. He only notices the Mole is tired much later." },
+          { "text": "He sings a happy song all the way and makes the Mole join in.", "flaw": "evidence",
+            "why": "Clue check: paragraph 4 says the Rat is chattering, not singing, and the Mole is silent." },
+          { "text": "Rat is sleepy", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 4 the Rat is chattering away. What is he not noticing?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Mole cries because *he had lost what he could hardly be said to have found*. What does that mean?",
+        "para": 5,
+        "options": [
+          { "text": "He only just smelt his home, and now he has lost it again.", "correct": true,
+            "why": "Clue: he had only caught the smell of home on the road, then had to leave it behind. He hardly found it before it was gone." },
+          { "text": "He found a lost coin on the road and then dropped it again.", "flaw": "literal",
+            "why": "Clue check: nobody finds a coin. Think about what the Mole smelt on the road in paragraph 3." },
+          { "text": "He has lost his way home to the river and nobody can find him.", "flaw": "literal",
+            "why": "Clue check: the Rat is sitting right beside him on the tree stumps. He isn't lost." },
+          { "text": "lost his map", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: there is no map. What did the Mole find, only for a moment, on the road?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "Early on, the Rat says they mustn't stop. What does he call himself once the Mole explains, and why?",
+        "para": 9,
+        "options": [
+          { "text": "A pig, as he wouldn't listen when the Mole begged to stop.", "correct": true,
+            "why": "Clue: after the Mole sobs \"you wouldn't turn back, Ratty\", the Rat says \"What a pig I have been!\"" },
+          { "text": "A hero, because he got the Mole home safely through the snow.", "flaw": "evidence",
+            "why": "Clue check: they aren't home yet, and the Rat isn't proud of himself in paragraph 9 at all." },
+          { "text": "A fool, because he got them both lost on the dark road again.", "flaw": "evidence",
+            "why": "Clue check: nobody is lost. Read the word the Rat uses in paragraph 9." },
+          { "text": "a plain pig", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence, and say why he feels that way. Which option does it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Rat gets up *remarking carelessly* that they'd better be getting on. Does he really not care?",
+        "para": 10,
+        "options": [
+          { "text": "He does care; he acts casual so Mole won't guess his plan.", "correct": true,
+            "why": "Clue: he sets off \"over the toilsome way they had come\", back towards Mole's home. The careless voice hides a kind surprise." },
+          { "text": "No, he has stopped caring and just wants to get home to bed.", "flaw": "literal",
+            "why": "Clue check: paragraph 10 says he walks back \"the way they had come\". That's away from his own bed!" },
+          { "text": "He is careless, so he drops the Mole's things all over the road.", "flaw": "literal",
+            "why": "Clue check: nothing is dropped. Look at which way the Rat walks in paragraph 10." },
+          { "text": "a surprise plan", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "It is dark and they can't see much. How does the Rat know the Mole has caught the smell again?",
+        "para": 16,
+        "options": [
+          { "text": "He feels a thrill run down the Mole's arm, linked in his.", "correct": true,
+            "why": "Clue: \"the Rat was conscious, through his arm that was linked in Mole's, of a faint sort of electric thrill\"." },
+          { "text": "The Mole shouts \"Home!\" as loud as he can and starts to cry.", "flaw": "evidence",
+            "why": "Clue check: the Rat said \"no more talking\" in paragraph 15. They move \"in silence\"." },
+          { "text": "He sees the Mole's front door shining in the starlight ahead.", "flaw": "evidence",
+            "why": "Clue check: the front door is deep underground. They don't see it until the very end." },
+          { "text": "Mole sniffs loudly", "flaw": "short",
+            "why": "That isn't a full sentence, and it slips past the clue too. Clue check: the Rat feels it rather than hears it. Where are their arms?" }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes the Rat once he understands, and what is your proof?",
+        "para": 14,
+        "options": [
+          { "text": "Kind: he turns right round in the snow to help find Mole's home.", "correct": true,
+            "why": "Clue: \"I'm going to find this place now, if I stay out all night.\"" },
+          { "text": "Grumpy: he tells the Mole off for crying and walks away.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 9 he pats the Mole \"gently on the shoulder\"." },
+          { "text": "Selfish: he says his own supper matters more than Mole's old home.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 14 he says \"Hang River Bank, and supper too!\"" },
+          { "text": "Scared: he won't follow the Mole down the dark tunnel.", "flaw": "evidence",
+            "why": "Clue check: paragraph 21 says \"the Rat was on the alert, and promptly followed him\"." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is the Mole feeling?",
+        "para": 22,
+        "options": [
+          { "text": "Underground at his own front door, glad he found his old home.", "correct": true,
+            "why": "Clue: \"directly facing them was Mole's little front door, with 'Mole End' painted\" over the bell-pull. His nose led him all the way." },
+          { "text": "Still crying on a tree stump by the road, sure he'll never get home.", "flaw": "evidence",
+            "why": "Clue check: they left the tree stumps back in paragraph 10. The last paragraph is underground." },
+          { "text": "Back at the river bank, eating supper in front of the Rat's fire.", "flaw": "evidence",
+            "why": "Clue check: read the name painted over the door in the last paragraph. Whose home is it?" },
+          { "text": "at River Bank", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: the name painted in the last paragraph is not River Bank." }
+        ]
+      }
+    ],
+    "hints": [
+      "Mole's home is dusty and bare, so the Rat lights a fire and they tidy it up together.",
+      "There seems to be no food in the house, but the Rat hunts through the cupboards until he finds some.",
+      "The front door is locked, so the Mole squeezes down the chimney to let the Rat in.",
+      "Weasels have moved into Mole End, but the Rat chases them out with his cudgel."
+    ]
+  },
+
+  "ch5n3": {
+    "title": "Home again",
+    "questions": [
+      {
+        "type": "search",
+        "q": "How do we know the Mole liked to keep his home neat before he left it?",
+        "para": 1,
+        "options": [
+          { "text": "He kept a roller so animals couldn't mess up his ground.", "correct": true,
+            "why": "Clue: he \"was a tidy animal when at home, could not stand having his ground kicked up\", so he kept a roller." },
+          { "text": "He hired a gardener to sweep the fore-court every single day.", "flaw": "evidence",
+            "why": "Clue check: paragraph 1 never mentions a gardener. Look at what stands on the other side of the door." },
+          { "text": "He locked every door so no animal could ever get inside.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 2 the Mole walks straight in. Nothing is locked." },
+          { "text": "a tidy animal", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The glass ball *reflected everything all wrong and had a very pleasing effect*. Why is the storyteller being funny?",
+        "para": 1,
+        "options": [
+          { "text": "It makes everything look silly, yet Mole thinks it's lovely.", "correct": true,
+            "why": "Clue: \"all wrong\" and \"very pleasing\" in the same breath. The storyteller is smiling at how much the Mole loves his odd little things." },
+          { "text": "It is broken, so Mole wants to throw it out and buy a new one.", "flaw": "literal",
+            "why": "Clue check: in paragraph 2 Mole's face \"beamed at the sight of all these objects so dear to him\". He wouldn't throw it out!" },
+          { "text": "It shows the Mole's face all wrong, so he is scared of it.", "flaw": "literal",
+            "why": "Clue check: the Mole isn't scared. The ball has \"a very pleasing effect\"." },
+          { "text": "it's broken", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: nothing is broken. Read the last three words of the quote again." }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "Mole's face beams when he sees the fore-court. A moment later he collapses on a chair. Why does his mood change so fast?",
+        "para": 2,
+        "options": [
+          { "text": "Inside it's dusty and shabby, and he's ashamed to show Rat.", "correct": true,
+            "why": "Clue: he sees \"the dust lying thick on everything\" and cries \"Why did I bring you to this poor, cold little place\"." },
+          { "text": "Inside, a family of rabbits has moved in and eaten his food.", "flaw": "evidence",
+            "why": "Clue check: nobody else is in the house. Look at what the Mole sees in paragraph 2." },
+          { "text": "He remembers he has lost his key and can't open the front door.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 2 he \"hurried Rat through the door\". He's already inside." },
+          { "text": "dust everywhere", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "*The Rat paid no heed to his doleful self-reproaches.* Why does the Rat ignore the Mole's moaning?",
+        "para": 3,
+        "options": [
+          { "text": "He wants to cheer Mole up, so he talks about the good things.", "correct": true,
+            "why": "Clue: straight away he calls out \"What a capital little house this is!\" He's changing the mood on purpose." },
+          { "text": "He cannot hear the Mole, as his ears are full of snow.", "flaw": "literal",
+            "why": "Clue check: nobody's ears are full of snow. Look at what the Rat says instead in paragraph 3." },
+          { "text": "He thinks the Mole is right and the house is a dreadful place.", "flaw": "literal",
+            "why": "Clue check: in paragraph 3 the Rat says \"So compact! So well planned!\" He doesn't think it's dreadful." },
+          { "text": "he is rude", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: read what the Rat calls out in paragraph 3. Is he being rude or kind?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How does the Rat work out there must be food somewhere in the house?",
+        "para": 5,
+        "options": [
+          { "text": "He spots a sardine-opener, so there must be sardines too.", "correct": true,
+            "why": "Clue: \"I saw a sardine-opener on the kitchen dresser... that means there are sardines about somewhere\". Just like the door-scraper meant a door!" },
+          { "text": "He smells sausages cooking in the kitchen next door.", "flaw": "evidence",
+            "why": "Clue check: nothing is cooking. The sausage is found later, in a drawer, wrapped in silver paper." },
+          { "text": "The Mole tells him the cellar is full of bread and butter.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 8 the Mole groans \"No bread! no butter\"." },
+          { "text": "a sardine-opener", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "At first the Mole calls his house a poor, cold little place. What does the Rat keep doing to change how the Mole feels?",
+        "para": 10,
+        "options": [
+          { "text": "He keeps praising the house and asking about Mole's things.", "correct": true,
+            "why": "Clue: \"This is really the jolliest little place I ever was in\" and \"Tell us all about it, and how you came to make it what it is.\"" },
+          { "text": "He tells Mole it's much better than his own house by the river.", "flaw": "evidence",
+            "why": "Clue check: the Rat praises Mole End a lot, but he never compares it with his own home." },
+          { "text": "He promises to buy Mole a bigger house with lots of new things.", "flaw": "evidence",
+            "why": "Clue check: the Rat loves the house just as it is. He never talks about buying anything." },
+          { "text": "praises everything", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How can we tell the Rat is very hungry but hides it to be kind?",
+        "para": 11,
+        "options": [
+          { "text": "He says \"wonderful\" to Mole's things instead of asking for food.", "correct": true,
+            "why": "Clue: \"Rat, who was desperately hungry but strove to conceal it, nodding seriously\" and saying \"wonderful\"." },
+          { "text": "He sneaks a sardine out of the tin when the Mole isn't looking.", "flaw": "evidence",
+            "why": "Clue check: the sardine tin isn't opened until paragraph 12, and the Rat is still waiting then." },
+          { "text": "He tells the Mole to hurry up because his tummy is rumbling loudly.", "flaw": "evidence",
+            "why": "Clue check: paragraph 11 says he \"strove to conceal it\". He never tells the Mole he's hungry." },
+          { "text": "tummy rumbling loudly", "flaw": "short",
+            "why": "That isn't a full sentence, and it slips past the clue too. Clue check: nobody hears his tummy. Look at what the Rat says instead." }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Mole speaks *with a touch of pride in his manner*. Why is he proud?",
+        "para": 14,
+        "options": [
+          { "text": "The singers never miss Mole End; they save it till last.", "correct": true,
+            "why": "Clue: \"they never pass me over, they come to Mole End last of all\". Being saved till last is special." },
+          { "text": "He touches the Rat's arm to show off his lovely new coat.", "flaw": "literal",
+            "why": "Clue check: a touch of pride means a little bit of pride. Nobody touches anyone." },
+          { "text": "He is proud because he taught the field-mice every carol.", "flaw": "evidence",
+            "why": "Clue check: paragraph 16 says the carols were \"handed down\" from their forefathers, not taught by the Mole." },
+          { "text": "never missed out", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes the Rat tonight, and what is your proof?",
+        "para": 3,
+        "options": [
+          { "text": "Cheerful: he calls the house capital and makes a jolly fire.", "correct": true,
+            "why": "Clue: \"What a capital little house this is!\" he called out cheerily, and soon had \"a cheerful blaze\"." },
+          { "text": "Grumpy: he moans that the Mole's house is far too small and dusty.", "flaw": "evidence",
+            "why": "Clue check: it's the Mole who moans in paragraph 2. The Rat says \"So compact!\"" },
+          { "text": "Lazy: he sits by the fire while the Mole does all of the work.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 4 the Rat is \"running to and fro with armfuls of fuel\"." },
+          { "text": "Greedy: he eats the whole German sausage before the Mole can.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 the Rat is hungry but waits. Nobody has eaten yet." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is the Mole feeling?",
+        "para": 16,
+        "options": [
+          { "text": "At his door as the field-mice start a carol, proud and happy.", "correct": true,
+            "why": "Clue: the field-mice stand in a semicircle and \"their shrill little voices uprose on the air\". Mole said \"It will be like old times\"." },
+          { "text": "Tucked in his bunk at Mole End, fast asleep after a long, tiring day.", "flaw": "evidence",
+            "why": "Clue check: nobody has gone to bed yet. They haven't even had supper." },
+          { "text": "At the table, sad because the field-mice ate all of the sardines.", "flaw": "evidence",
+            "why": "Clue check: the field-mice are outside singing. They haven't touched any food." },
+          { "text": "cross and cold", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 14 the Mole says \"It will be like old times\". Does that sound cross?" }
+        ]
+      }
+    ],
+    "hints": [
+      "Mole has nothing to feed the singers, so the Rat sends a field-mouse to the shops for food.",
+      "The field-mice are freezing, so the Mole invites them in by the fire to warm up.",
+      "The carol singers forget the words, but the Rat helps them until they reach the end.",
+      "The sardine tin won't open, so the Mole bangs it with the garden roller until it pops."
+    ]
+  },
+
+  "ch5n4": {
+    "title": "Singers at the door",
+    "questions": [
+      {
+        "type": "quoted",
+        "q": "The carol says *Blowing fingers and stamping feet*. Why are the singers doing that?",
+        "para": 3,
+        "options": [
+          { "text": "They are trying to warm up, standing out in the cold.", "correct": true,
+            "why": "Clue: the same verse starts \"Here we stand in the cold and the sleet\". Blowing on fingers and stamping keeps you warm." },
+          { "text": "They are blowing kisses and stamping because they are cross.", "flaw": "literal",
+            "why": "Clue check: the verse says they have come \"you to greet\" and bid \"joy\". They aren't cross." },
+          { "text": "It is a dance they do at the end of every single carol.", "flaw": "literal",
+            "why": "Clue check: look at the line just before it: \"in the cold and the sleet\". It's about the weather, not a dance." },
+          { "text": "they're cold", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How do we know it is a very special night, just as the singing ends?",
+        "para": 7,
+        "options": [
+          { "text": "Far away, bells ring a joyful peal down the tunnel.", "correct": true,
+            "why": "Clue: \"the sound of distant bells ringing a joyful and clangorous peal\". Bells ring out for special days like Christmas." },
+          { "text": "Snow starts falling inside the house and covers the table.", "flaw": "evidence",
+            "why": "Clue check: nothing falls inside. Paragraph 7 is about a sound they hear." },
+          { "text": "An owl hoots three times from the top of the chimney.", "flaw": "evidence",
+            "why": "Clue check: there are no owls tonight. Read what comes \"down the tunnel\" in paragraph 7." },
+          { "text": "an owl hoots", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 7 says the sound is \"a faint musical hum\" from far away. What makes that sound?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "The Rat invites the singers in for something hot. Why does the Mole suddenly nearly cry?",
+        "para": 9,
+        "options": [
+          { "text": "He remembers he has no food or drink to give them.", "correct": true,
+            "why": "Clue: \"Whatever are we doing? We've nothing to give them!\"" },
+          { "text": "He is sad the carol is over and wishes it went on longer.", "flaw": "evidence",
+            "why": "Clue check: he says \"This is quite like old times!\" and is happy, until he remembers something." },
+          { "text": "The field-mice tread snow all over his nice clean floor.", "flaw": "evidence",
+            "why": "Clue check: read what the Mole cries out in paragraph 9. It's not about the floor." },
+          { "text": "nothing to give", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The storyteller calls him *the masterful Rat*. What does that show?",
+        "para": 10,
+        "options": [
+          { "text": "He takes charge and knows just how to fix the problem.", "correct": true,
+            "why": "Clue: he says \"You leave all that to me\" and straight away asks about the shops." },
+          { "text": "The Rat is master of the house, so the Mole must obey him.", "flaw": "literal",
+            "why": "Clue check: it's the Mole's house, not the Rat's. Masterful here means good at taking charge." },
+          { "text": "The Rat is a school master who teaches the field-mice to sing.", "flaw": "literal",
+            "why": "Clue check: the field-mice sang before the Rat said a word. He isn't their teacher." },
+          { "text": "takes charge", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How can we tell the Rat is fussy about the food he orders?",
+        "para": 13,
+        "options": [
+          { "text": "He wants only fresh, home-made things, and only the best.", "correct": true,
+            "why": "Clue: \"Fresh, mind!\", \"only the best\" and \"home-made, no tinned stuff\"." },
+          { "text": "He tells the mouse to buy whatever is cheapest in the shop.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 13 the Rat says \"only the best\". That's not the cheapest." },
+          { "text": "He writes a very long list and makes the mouse learn it.", "flaw": "evidence",
+            "why": "Clue check: nobody writes anything. The Mole only hears \"bits\" of their muttered talk." },
+          { "text": "cheapest is best", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 13 says \"only the best\" and \"no tinned stuff\"." }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Why can't the field-mouse act his part in last year's play?",
+        "para": 18,
+        "options": [
+          { "text": "He gets stage-fright and is too shy to say a single word.", "correct": true,
+            "why": "Clue: he \"giggled shyly... and remained absolutely tongue-tied\" and \"nothing could overcome his stage-fright\"." },
+          { "text": "He has a sore throat from singing so many carols in the cold.", "flaw": "evidence",
+            "why": "Clue check: nobody says his throat hurts. Paragraph 18 names the real problem." },
+          { "text": "He has forgotten all the words, because the play was last year.", "flaw": "evidence",
+            "why": "Clue check: paragraph 18 blames \"his stage-fright\", not his memory." },
+          { "text": "too shy", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Mole eats *the provender so magically provided*. Why does the storyteller say magically?",
+        "para": 19,
+        "options": [
+          { "text": "The table was bare, then suddenly it was full of food.", "correct": true,
+            "why": "Clue: \"a lately barren board set thick with savoury comforts\". Empty one minute, full the next, like magic!" },
+          { "text": "The Rat is a wizard and makes all the food with a spell.", "flaw": "literal",
+            "why": "Clue check: the food came in the field-mouse's basket from the shops. No spells!" },
+          { "text": "A fairy flew in through the window with a basket of cakes.", "flaw": "literal",
+            "why": "Clue check: it was the field-mouse with the lantern who came back with the basket in paragraph 18." },
+          { "text": "empty to full", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "When the Mole first got home, he was ashamed of his house. How does he feel about it by the very end?",
+        "para": 22,
+        "options": [
+          { "text": "It's plain and small, but it's all his and he's glad to have it.", "correct": true,
+            "why": "Clue: he saw \"how plain and simple\" it was, \"but clearly, too, how much it all meant to him\"." },
+          { "text": "He wants to stay there forever and never go back up to the river.", "flaw": "evidence",
+            "why": "Clue check: paragraph 22 says \"he knew he must return to the larger stage\". He will go back." },
+          { "text": "He is still ashamed of it and plans to sell it to the field-mice.", "flaw": "evidence",
+            "why": "Clue check: paragraph 22 says the old room \"smilingly received him back\". He isn't ashamed any more." },
+          { "text": "still ashamed", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 22 he has his head on his pillow \"in great joy and contentment\"." }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes how the Rat treats the Mole tonight, and what is your proof?",
+        "para": 19,
+        "options": [
+          { "text": "Thoughtful: he quietly makes sure the Mole has no worries at all.", "correct": true,
+            "why": "Clue: the Rat said little, \"only taking care... that Mole had no trouble or anxiety about anything\"." },
+          { "text": "Bossy: he makes the Mole do all the cooking and all the washing up.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 19 the Rat sets everybody to work, and the Mole sits at the head of the table." },
+          { "text": "Show-off: he tells the field-mice he paid for the whole feast.", "flaw": "evidence",
+            "why": "Clue check: paragraph 19 says the Rat \"said little or nothing\"." },
+          { "text": "Sleepy: he goes to bed before the singers have even had supper.", "flaw": "evidence",
+            "why": "Clue check: the Rat only goes to bed after the field-mice have \"clattered off at last\"." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is the Mole feeling?",
+        "para": 22,
+        "options": [
+          { "text": "In his bunk at Mole End, happy and at peace with his old home.", "correct": true,
+            "why": "Clue: \"soon had his head on his pillow, in great joy and contentment\"." },
+          { "text": "Walking back to the river bank, sad to leave his home once again.", "flaw": "evidence",
+            "why": "Clue check: in the last paragraph he is in bed at Mole End. Nobody is walking anywhere." },
+          { "text": "By the fire with the field-mice, still waiting for the food to come.", "flaw": "evidence",
+            "why": "Clue check: the food came and was eaten, and the field-mice \"clattered off at last\"." },
+          { "text": "at River Bank", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: the last paragraph calls it \"his old room\". Which house is that?" }
+        ]
+      }
+    ],
+    "hints": [
+      "Toad buys yet another motor-car, so Badger, Rat and Mole march to Toad Hall to stop him.",
+      "The Rat misses his river, but the Mole walks him home in the morning until he is happy again.",
+      "The field-mice come back hungry for breakfast, but the food is gone, so they sing for their porridge.",
+      "Snow blocks the tunnel out of Mole End, so the Mole digs a new way up to the fields."
+    ]
+  }
+}
