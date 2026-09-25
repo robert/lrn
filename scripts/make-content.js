@@ -1,6 +1,6 @@
 // Builds content/chapter-XX.json from the book text, content/plan.json and
 // the hand-written questions in content/questions/chapter-XX.json.
-// Usage: node scripts/make-content.js
+// Usage: node scripts/make-content.js [chapter number]   (all chapters if omitted)
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,7 +13,10 @@ const pad = n => String(n).padStart(2, "0");
 const book = loadChapters();
 const plan = readJson(path.join(root, "content/plan.json"));
 
+const only = process.argv[2] ? Number(process.argv[2]) : null;
+
 for (const chPlan of plan.chapters) {
+  if (only && chPlan.num !== only) continue;
   const ch = book[chPlan.num - 1];
   const qFile = path.join(root, `content/questions/chapter-${pad(chPlan.num)}.json`);
   const authored = fs.existsSync(qFile) ? readJson(qFile) : {};

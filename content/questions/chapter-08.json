@@ -1,0 +1,649 @@
+{
+  "ch8n1": {
+    "title": "Locked in the castle",
+    "questions": [
+      {
+        "type": "quoted",
+        "q": "Toad used to go about *disporting himself as if he had bought up every road in England*. What does that tell us about how he drove?",
+        "para": 1,
+        "options": [
+          { "text": "He drove as if the roads were all his and nobody else mattered.", "correct": true,
+            "why": "Clue: \"as if\" tells us he hadn't really bought them. He just behaved like the roads belonged to him." },
+          { "text": "He really had bought every road in England with all of his money.", "flaw": "literal",
+            "why": "Clue check: the words \"as if\" mean it only looked that way. Nobody can buy every road!" },
+          { "text": "He went round all the shops buying up maps of every road in England.", "flaw": "literal",
+            "why": "Clue check: paragraph 1 is about how happy he was out on the \"well-metalled high roads\", not about shopping for maps." },
+          { "text": "showing off", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How do we know Toad is really miserable in the dungeon at first?",
+        "para": 1,
+        "options": [
+          { "text": "He cries on the floor and won't eat his meals for several weeks.", "correct": true,
+            "why": "Clue: he \"shed bitter tears\" and spent \"several weeks, refusing his meals\". Toad never refuses food when he is happy!" },
+          { "text": "He writes long, sad letters home to the Badger, the Rat and the Mole.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 1 he only talks about his friends to himself. Nobody writes any letters." },
+          { "text": "He bangs on his cell door every night, shouting to be let out at once.", "flaw": "evidence",
+            "why": "Clue check: paragraph 1 says he \"flung himself at full length on the floor\". He lies there crying, not banging." },
+          { "text": "he sings songs", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 1 Toad isn't singing at all. What is he doing on the floor?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "The gaoler is tired of Toad's meanness. What did we find out earlier that explains why he calls Toad mean?",
+        "para": 3,
+        "options": [
+          { "text": "Toad has plenty of money but won't pay for any comforts to be sent in.", "correct": true,
+            "why": "Clue: in paragraph 1 the gaoler knew \"Toad's pockets were well lined\" and kept saying comforts could be sent in \"at a price\". Toad wouldn't pay." },
+          { "text": "Toad stole the gaoler's own dinner and ate it all up in a single night.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 1 Toad refuses food. He isn't stealing anybody's dinner." },
+          { "text": "Toad was rude to the gaoler's daughter and upset her little canary.", "flaw": "evidence",
+            "why": "Clue check: the daughter hasn't even met Toad yet when her father says this. Look back at paragraph 1 and money." },
+          { "text": "won't pay up", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The smell of cabbage *gave him the idea for a moment that perhaps life was not such a blank and desperate thing*. What does that mean?",
+        "para": 5,
+        "options": [
+          { "text": "The lovely smell made him feel that things might not be so bad after all.", "correct": true,
+            "why": "Clue: straight after, he \"began to think new and inspiring thoughts\" of meadows and Toad Hall. The smell cheered him up." },
+          { "text": "The cabbage was so very smelly that it made him feel even more hopeless.", "flaw": "literal",
+            "why": "Clue check: the same paragraph says the air of the cell \"took a rosy tinge\". Rosy means happier, not more hopeless." },
+          { "text": "He thought the cabbage had a message on it telling him to cheer up.", "flaw": "literal",
+            "why": "Clue check: it's the smell that does it. Nothing is written on the cabbage." },
+          { "text": "cheered up a bit", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Toad won't eat the bubble-and-squeak. How does it still help him?",
+        "para": 5,
+        "options": [
+          { "text": "Its smell stays in the cell and fills his head with happy thoughts of home.", "correct": true,
+            "why": "Clue: \"a good deal of the smell of hot cabbage remained behind\", and he thinks of \"the comforting clink of dishes\" at Toad Hall." },
+          { "text": "He eats it secretly when the girl has gone, and he feels much stronger.", "flaw": "evidence",
+            "why": "Clue check: paragraph 5 says he \"sniffed and reflected\". Sniffing isn't eating!" },
+          { "text": "He throws the plate at the door, and the loud crash makes the gaoler laugh.", "flaw": "evidence",
+            "why": "Clue check: nobody throws anything. In paragraph 5 he kicks his legs and then starts sniffing." },
+          { "text": "the smell lingers", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "*The smell of that buttered toast simply talked to Toad.* Can toast really talk?",
+        "para": 6,
+        "options": [
+          { "text": "No, but its smell makes him remember cosy kitchens and happy times.", "correct": true,
+            "why": "Clue: it \"talked of warm kitchens, of breakfasts on bright frosty mornings\". The smell brings back memories, as if it were telling him about them." },
+          { "text": "Yes, it whispers to him all about warm kitchens and purring cats.", "flaw": "literal",
+            "why": "Clue check: the story says \"The smell\" talked. A smell can't make words, so this is a way of describing it." },
+          { "text": "No, but the gaoler's daughter chats to him while he eats his toast.", "flaw": "evidence",
+            "why": "Clue check: the sentence is about the smell of the toast, and in paragraph 6 it is Toad who starts talking." },
+          { "text": "it is magic", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: it's ordinary toast. What does its smell remind Toad of in paragraph 6?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Toad describes Toad Hall as if it were a house for sale. How do we know the girl can tell he is showing off?",
+        "para": 10,
+        "options": [
+          { "text": "She laughs and says she doesn't want to buy it, just hear something real.", "correct": true,
+            "why": "Clue: \"said the girl, laughing, I don't want to take it. Tell me something real about it.\"" },
+          { "text": "She asks him how much money he wants for Toad Hall, and he tells her.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 10 she says she doesn't want to take it at all." },
+          { "text": "She says she will come and buy Toad Hall when he is let out of prison.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 10 she laughs at the idea. She wants the real story, not the house." },
+          { "text": "she laughs", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence, and say what she asks for. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "The girl tells her father she'll make Toad \"eat from my hand, and sit up\". How does she treat him later that shows she is careful not to say this to Toad?",
+        "para": 11,
+        "options": [
+          { "text": "She never lets on that she sees him as a pet, as he'd be offended.", "correct": true,
+            "why": "Clue: \"she did not say she was fond of animals as pets, because she had the sense to see that Toad would be extremely offended.\"" },
+          { "text": "She puts him in a cage beside her canary and her little piebald mice.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 she fills his water-jug and shakes up his straw in his cell. No cages." },
+          { "text": "She teaches him to sit up and beg before he is given any buttered toast.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 she brings the toast and asks about his friends. There's no begging." },
+          { "text": "treats him like pets", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 11 says she did NOT show him she was fond of animals as pets." }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes the gaoler's daughter, and what is your proof?",
+        "para": 6,
+        "options": [
+          { "text": "Kind: she feels sorry for Toad and brings him hot tea and toast.", "correct": true,
+            "why": "Clue: she was \"pitying the misery of Toad\", and she carried in \"a cup of fragrant tea\" and \"very hot buttered toast\"." },
+          { "text": "Strict: she makes Toad scrub his cell floor before he can eat a thing.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 it's the girl who tidies up, shaking up his straw for him." },
+          { "text": "Greedy: she eats up Toad's dinner herself and brings him only crusts.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 4 she brings Toad \"some of mine\". She shares her own dinner with him." },
+          { "text": "Lazy: she leaves his cell a mess and never once fills his water-jug.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 she has \"filled his water-jug and shaken up his straw for him\"." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+        "para": 11,
+        "options": [
+          { "text": "Curled up in his straw, cheerful and pleased with himself again.", "correct": true,
+            "why": "Clue: he was \"the same sanguine, self-satisfied animal that he had been of old\", and he \"had an excellent night's rest\"." },
+          { "text": "Running out of the castle gate, scared that the gaoler will catch him.", "flaw": "evidence",
+            "why": "Clue check: in the last paragraph Toad is still in his cell, curled up in the straw." },
+          { "text": "Crying on the dungeon floor, sure that everyone will forget him.", "flaw": "evidence",
+            "why": "Clue check: that was how he felt at the start. By the end he is singing little songs." },
+          { "text": "very hungry", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 11 he has been \"pitching into the toast\". He isn't hungry now." }
+        ]
+      }
+    ],
+    "hints": [
+      "Toad is stuck in the dungeon, so the girl thinks up a disguise that lets him walk out of the gate.",
+      "The dungeon walls are thick, but Toad digs a tunnel with his spoon until he reaches the moat.",
+      "Toad's friends find out where he is, so the Badger marches up with the Rat and Mole to rescue him.",
+      "The gaoler falls asleep at his desk, so Toad takes his keys and tiptoes out in the night."
+    ]
+  },
+
+  "ch8n2": {
+    "title": "A disguise for Toad",
+    "questions": [
+      {
+        "type": "search",
+        "q": "Why does Toad think the gaoler's daughter is so interested in him?",
+        "para": 1,
+        "options": [
+          { "text": "He is so vain that he thinks she must be growing fond of him.", "correct": true,
+            "why": "Clue: \"Toad, of course, in his vanity, thought that her interest in him proceeded from a growing tenderness\". Really she is just sorry for him." },
+          { "text": "She tells him she wants to marry him as soon as he gets out.", "flaw": "evidence",
+            "why": "Clue check: she never says anything like that. Paragraph 1 says she \"grew very sorry for Toad\"." },
+          { "text": "She says he is the cleverest animal she has ever met in her life.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 5 she actually tells him \"You talk too much, that's your chief fault\"." },
+          { "text": "he's very vain", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Toad says *I have several aunts who ought to be washerwomen.* Why does he say this?",
+        "para": 4,
+        "options": [
+          { "text": "He thinks she is ashamed of her aunt, so he makes a joke to comfort her.", "correct": true,
+            "why": "Clue: he says \"There, there... never mind; think no more about it.\" That's what you say to someone who is embarrassed. He hasn't understood her plan at all!" },
+          { "text": "His aunts really do all work as washerwomen in the prison laundry.", "flaw": "literal",
+            "why": "Clue check: \"ought to be\" means they aren't. Toad is a rich animal from Toad Hall." },
+          { "text": "He wants his own aunts to come and do all the washing at Toad Hall.", "flaw": "literal",
+            "why": "Clue check: Toad is answering what the girl said about HER aunt, not planning his washing." },
+          { "text": "trying to comfort her", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The girl says her aunt must be *squared, I believe is the word you animals use*. What does squared mean here?",
+        "para": 5,
+        "options": [
+          { "text": "Paid some money so that she will agree to help Toad get away.", "correct": true,
+            "why": "Clue: she says Toad is \"very rich\" and her aunt is \"very poor\", and \"A few pounds wouldn't make any difference to you\". Squared means paid to go along with it." },
+          { "text": "Folded up neatly into a square, just like a clean pillow-case.", "flaw": "literal",
+            "why": "Clue check: the aunt is a person, not the washing. Paragraph 5 is all about money." },
+          { "text": "Drawn inside a square box so that the guards cannot see her.", "flaw": "literal",
+            "why": "Clue check: nobody draws anything. Look at what the girl says about rich and poor in paragraph 5." },
+          { "text": "folded up", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 5 talks about \"A few pounds\". What are pounds?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Why does the aunt want to be tied up and left in a corner?",
+        "para": 11,
+        "options": [
+          { "text": "So it looks as if Toad forced her, and she won't lose her job.", "correct": true,
+            "why": "Clue: she \"hoped to retain her situation, in spite of the suspicious appearance of things\". Her situation means her job." },
+          { "text": "So she can have a good long rest while Toad does her washing.", "flaw": "evidence",
+            "why": "Clue check: Toad isn't going to do any washing. Paragraph 11 says why she wants it, and it's about her situation." },
+          { "text": "So Toad can't change his mind and take his gold coins back.", "flaw": "evidence",
+            "why": "Clue check: paragraph 11 says the aunt hopes to keep her situation. That's the reason, not the coins." },
+          { "text": "to have a rest", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: read the last sentence of paragraph 11 about her situation." }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The girl tells Toad to *remember you’re a widow woman, quite alone in the world, with a character to lose*. What is she telling him to do?",
+        "para": 15,
+        "options": [
+          { "text": "Act like a proper old lady who minds her manners, so nobody guesses.", "correct": true,
+            "why": "Clue: she says he can \"chaff back a bit\" but must remember who he is meant to be. A character to lose means a good name to protect." },
+          { "text": "Be careful not to drop the character he is carrying in his apron.", "flaw": "literal",
+            "why": "Clue check: a character here isn't a thing you carry. It means what people think of you." },
+          { "text": "Stay all alone in the world and never go home to his friends again.", "flaw": "literal",
+            "why": "Clue check: she is telling him how to act on the way out, not how to live forever." },
+          { "text": "keep very quiet", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: she says he CAN \"chaff back a bit\". It's about how he acts, not staying silent." }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "Toad was cross when the girl said he had the same figure as her aunt. What happens later that shows she was right?",
+        "para": 16,
+        "options": [
+          { "text": "Dressed in her clothes he looks just like her, so the guards let him by.", "correct": true,
+            "why": "Clue: \"You're the very image of her\", and \"The washerwoman's squat figure\" was \"a passport for every barred door\"." },
+          { "text": "The gown is far too big, so the girl has to pin it up all over him.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 14 she just hooks him into the gown. Nothing needs pinning." },
+          { "text": "The aunt is much taller, so Toad has to walk on tiptoe to look right.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 15 the girl giggles \"You're the very image of her\". Nobody needs tiptoes!" },
+          { "text": "same shape", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "At the start Toad thinks the girl admires him. On the way out, what does he find out about who people really like?",
+        "para": 16,
+        "options": [
+          { "text": "The guards are all friendly because they like the washerwoman, not him.", "correct": true,
+            "why": "Clue: he was \"a little humbled at the thought that both his popularity... were really another's\". Another's means somebody else's." },
+          { "text": "Everyone in the castle is a big fan of the famous Mr. Toad of Toad Hall.", "flaw": "evidence",
+            "why": "Clue check: the guards think he is the washerwoman. They have no idea he is Toad." },
+          { "text": "The guards all knew it was Toad but let him walk out as a joke.", "flaw": "evidence",
+            "why": "Clue check: paragraph 16 says her figure was \"a passport\". The disguise really worked." },
+          { "text": "they like her", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "What is the hardest part of the escape for Toad, and why?",
+        "para": 16,
+        "options": [
+          { "text": "The guards' jokes, as he hates being teased and must answer nicely.", "correct": true,
+            "why": "Clue: \"The chaff and the humourous sallies... formed, indeed, his chief danger; for Toad was an animal with a strong sense of his own dignity.\"" },
+          { "text": "Finding the way out, as he gets lost and nobody will help him at all.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 16, when he isn't sure of the way, a warder calls him to \"come along sharp\". People help him!" },
+          { "text": "Walking in the long cotton gown, as he keeps tripping over the hem.", "flaw": "evidence",
+            "why": "Clue check: nobody trips. Paragraph 16 names his \"chief danger\". What is it?" },
+          { "text": "the locked doors", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 16 says the costume was \"a passport for every barred door\". Doors were easy." }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes the gaoler's daughter in this passage, and what is your proof?",
+        "para": 5,
+        "options": [
+          { "text": "Clever: she thinks up the plan to dress Toad as her washerwoman aunt.", "correct": true,
+            "why": "Clue: in paragraph 5 she says \"this is what occurs to me\" and explains the whole escape plan." },
+          { "text": "Shy: she is too nervous to talk to Toad and hides behind her old aunt.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 5 she tells Toad \"Do be quiet a minute\". That's not shy!" },
+          { "text": "Unkind: she won't help Toad and tells her father all about the plan.", "flaw": "evidence",
+            "why": "Clue check: she says \"I'm sorry for you, and trying to help you!\" in paragraph 7." },
+          { "text": "Greedy: she keeps all of Toad's gold sovereigns for herself.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 the gold goes to the aunt, in return for her clothes." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+        "para": 18,
+        "options": [
+          { "text": "Outside the castle, heading for town, dizzy with how easy it was.", "correct": true,
+            "why": "Clue: \"Dizzy with the easy success of his daring exploit, he walked quickly towards the lights of the town\"." },
+          { "text": "Still in his cell, sulking about having to wear a washerwoman's gown.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 17 the gate clicks behind him and he knows \"that he was free!\"" },
+          { "text": "Back home at Toad Hall, telling all his friends about the escape.", "flaw": "evidence",
+            "why": "Clue check: in the last paragraph he doesn't know \"in the least what he should do next\". He's nowhere near home." },
+          { "text": "free at last", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence, and say where he is too. Which option says it properly?" }
+        ]
+      }
+    ],
+    "hints": [
+      "Toad has no money for a train ticket, so he sobs until a kind engine-driver gives him a ride.",
+      "The guards spot his green hands, but Toad runs off into the dark until they give up.",
+      "Toad is hungry in the town, so he washes clothes for a baker in return for a loaf of bread.",
+      "Toad can't find the road home, but a friendly horse gives him a lift all the way."
+    ]
+  },
+
+  "ch8n3": {
+    "title": "The train home",
+    "questions": [
+      {
+        "type": "search",
+        "q": "Why is Toad so pleased to find the railway station?",
+        "para": 1,
+        "options": [
+          { "text": "He can get a train home without walking through the town in disguise.", "correct": true,
+            "why": "Clue: \"I needn't go through the town to get it, and shan't have to support this humiliating character\"." },
+          { "text": "He loves trains even more than motor-cars and wants to drive one.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 1 he wants the station to get away, not to drive an engine." },
+          { "text": "He knows the engine-driver and is sure he'll give him a free ride.", "flaw": "evidence",
+            "why": "Clue check: Toad meets the engine-driver for the first time much later, in paragraph 8." },
+          { "text": "can get home", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Toad struggles with *the strange uncanny thing that seemed to hold his hands*. What is this thing?",
+        "para": 3,
+        "options": [
+          { "text": "The cotton gown, which gets in his way as he feels for his pocket.", "correct": true,
+            "why": "Clue: \"the cotton gown, which had nobly stood by him so far, and which he had basely forgotten, intervened\". It's tangling him up." },
+          { "text": "A ghost in the booking-office that grabs his hands and laughs at him.", "flaw": "literal",
+            "why": "Clue check: \"seemed to\" tells us it only felt that way. The sentence before names the thing: the cotton gown." },
+          { "text": "The next traveller in the queue, who is holding on to Toad's paws.", "flaw": "evidence",
+            "why": "Clue check: the travellers behind him are \"making suggestions\". Nobody is holding him." },
+          { "text": "a ghost", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: look earlier in paragraph 3 for what \"intervened\" and got in his way." }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "Toad reaches for his waistcoat pocket and finds nothing. What happened earlier that explains it?",
+        "para": 4,
+        "options": [
+          { "text": "He took off his coat and waistcoat in his cell, with his money inside.", "correct": true,
+            "why": "Clue: \"he had left both coat and waistcoat behind him in his cell, and with them his pocket-book, money, keys, watch\"." },
+          { "text": "The gaoler's daughter took his money to pay for his railway ticket.", "flaw": "evidence",
+            "why": "Clue check: paragraph 4 says where the money is: still in his cell." },
+          { "text": "His purse fell out of his pocket as he was running to the station.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 3 he finds \"no pocket to hold it, and no waistcoat to hold the pocket!\" So nothing could fall out." },
+          { "text": "left it behind", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The clerk says *I should think you were pretty well known in these parts, if you’ve tried this game on often.* What does he mean?",
+        "para": 6,
+        "options": [
+          { "text": "He thinks Toad is a trickster who often tries not to pay for tickets.", "correct": true,
+            "why": "Clue: \"this game\" means the trick of asking for a ticket and promising to pay later. He's saying people would know Toad for that trick." },
+          { "text": "He thinks Toad is famous because everybody has heard of Toad Hall.", "flaw": "literal",
+            "why": "Clue check: the clerk thinks he is talking to a washerwoman. He laughs, and sends him away from the window." },
+          { "text": "He wants to play a game with Toad while the train is waiting to go.", "flaw": "literal",
+            "why": "Clue check: straight after, he says \"stand away from the window, please\". He doesn't want to play!" },
+          { "text": "a trickster", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "What upsets Toad more than anything else at the ticket window?",
+        "para": 7,
+        "options": [
+          { "text": "An old gentleman pushes him away and calls him his good woman.", "correct": true,
+            "why": "Clue: he \"addressed him as his good woman, which angered Toad more than anything that had occurred that evening\"." },
+          { "text": "The clerk tells everyone in the station that Toad is a robber.", "flaw": "evidence",
+            "why": "Clue check: the clerk just laughs and tells him to move away. Nobody calls him a robber." },
+          { "text": "The train leaves without him while he looks for his money.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 8 the train is still \"standing\" at the platform." },
+          { "text": "no ticket", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 7 says one thing angered him \"more than anything\". What was it?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Before he meets the engine-driver, what is Toad most afraid will happen next?",
+        "para": 8,
+        "options": [
+          { "text": "His escape will be found out and he'll be dragged back to prison.", "correct": true,
+            "why": "Clue: \"Very soon his escape would be discovered... dragged back again to prison and bread-and-water and straw\"." },
+          { "text": "He'll get lost in the dark town, as he doesn't know the way at all.", "flaw": "evidence",
+            "why": "Clue check: he is at the station now, not the town. Look at what he pictures happening in paragraph 8." },
+          { "text": "The engine-driver will make him shovel coal all the way home.", "flaw": "evidence",
+            "why": "Clue check: he hasn't even met the engine-driver yet at this point." },
+          { "text": "missing supper", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 8 he pictures chains and straw. What is he scared of?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Toad says his children are at home playing with matches, *the little innocents*. Is any of this true?",
+        "para": 12,
+        "options": [
+          { "text": "No, he is pretending to be the washerwoman so the driver feels sorry.", "correct": true,
+            "why": "Clue: in paragraph 10 he says \"I am a poor unhappy washerwoman\". He's really Toad in a disguise, so the children are made up too." },
+          { "text": "Yes, and they really are playing with matches at home right now.", "flaw": "literal",
+            "why": "Clue check: Toad isn't really a washerwoman. Who is really inside that gown?" },
+          { "text": "Yes, his children are waiting for him at Toad Hall with the Rat.", "flaw": "evidence",
+            "why": "Clue check: nobody in the story has ever said Toad has children. He's saying whatever will get him a ride." },
+          { "text": "made it up", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "The driver will give Toad a ride if he washes some shirts. What does Toad secretly plan to do instead?",
+        "para": 14,
+        "options": [
+          { "text": "Send the driver money for washing, as he has never washed a shirt.", "correct": true,
+            "why": "Clue: \"he had never washed a shirt in his life\", so he plans to \"send the engine-driver enough to pay for quite a quantity of washing\"." },
+          { "text": "Ask the old aunt from the castle to wash all of the shirts for him.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 14 Toad's plan is about money, once he gets home." },
+          { "text": "Wash the shirts in the river near Toad Hall with the Water Rat.", "flaw": "evidence",
+            "why": "Clue check: paragraph 14 says he \"wasn't going to begin\" washing shirts." },
+          { "text": "wash them himself", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 14 says he couldn't wash a shirt \"if he tried\"." }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes the engine-driver, and what is your proof?",
+        "para": 13,
+        "options": [
+          { "text": "Kind: he lets a crying washerwoman ride home on his engine.", "correct": true,
+            "why": "Clue: \"I'll give you a ride on my engine. It's against the Company's regulations\". He breaks a rule to help." },
+          { "text": "Strict: he makes Toad buy a proper ticket before he can climb up.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 13 he says the ride is against the rules, but he gives it anyway." },
+          { "text": "Grumpy: he shouts at Toad to stop crying and go away at once.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 9 he asks \"what's the trouble? You don't look particularly cheerful.\"" },
+          { "text": "Lazy: he sits reading while someone else oils his engine for him.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 8 he is oiling and wiping the engine himself, with an oil-can in his hand." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+        "para": 15,
+        "options": [
+          { "text": "On the engine speeding home, so happy he skips about and sings.", "correct": true,
+            "why": "Clue: \"he began to skip up and down and shout and sing snatches of song, to the great astonishment of the engine-driver\"." },
+          { "text": "On the platform, crying because he has no money for a ticket.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 15 the train has \"moved out of the station\" with Toad on board." },
+          { "text": "Under a seat in a carriage, hiding and scared of being found.", "flaw": "evidence",
+            "why": "Clue check: he only thought about hiding under a seat. In the end he rides up front on the engine." },
+          { "text": "at the station", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in the last paragraph fields and hedges are \"flying past him\"." }
+        ]
+      }
+    ],
+    "hints": [
+      "Another engine chases them, so the driver races through a tunnel until Toad can jump off and hide.",
+      "Police are waiting at the next station, but Toad hides in the coal until they give up looking.",
+      "Toad's bonnet blows off and the driver sees he's a toad, so he stops the train at once.",
+      "The engine runs out of coal, so Toad and the driver burn the wooden seats to keep it going."
+    ]
+  },
+
+  "ch8n4": {
+    "title": "Chased through the night",
+    "questions": [
+      {
+        "type": "search",
+        "q": "Find the moment Toad stops enjoying the ride. What changes?",
+        "para": 2,
+        "options": [
+          { "text": "The driver hears another train following, and Toad goes quiet and grave.", "correct": true,
+            "why": "Clue: \"I could be sworn that I heard another following us!\" and then \"Toad ceased his frivolous antics at once. He became grave\"." },
+          { "text": "The engine runs out of coal, and Toad has to shovel it in all night.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 1 the driver climbs \"on to the coals\". There's plenty of coal." },
+          { "text": "It starts to pour with rain, and Toad's bonnet gets soaked right through.", "flaw": "evidence",
+            "why": "Clue check: paragraph 3 says \"the moon was shining brightly\". No rain tonight." },
+          { "text": "a train follows", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Toad feels *a dull pain in the lower part of his spine*. Why?",
+        "para": 2,
+        "options": [
+          { "text": "He is so scared of being caught that his body goes weak and wobbly.", "correct": true,
+            "why": "Clue: it made him want to sit down and \"try desperately not to think of all the possibilities\". Fear can make your body feel like that." },
+          { "text": "He hurt his back while he was dancing about on the engine earlier.", "flaw": "literal",
+            "why": "Clue check: the pain comes straight after he hears about the other train. It's about fear, not dancing." },
+          { "text": "He sat on a hard lump of coal, and it has bruised him quite badly.", "flaw": "literal",
+            "why": "Clue check: he only crouches in the coal later, in paragraph 5. The pain comes first." },
+          { "text": "he's frightened", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How do we know the engine behind them has come from the prison?",
+        "para": 6,
+        "options": [
+          { "text": "It's full of warders and policemen all shouting \"Stop, stop, stop!\"", "correct": true,
+            "why": "Clue: \"Men like ancient warders, waving halberds; policemen in their helmets\". Warders work in prisons." },
+          { "text": "It has the name of the castle painted in huge letters along its side.", "flaw": "evidence",
+            "why": "Clue check: the driver describes the people on it in paragraph 6, not any writing." },
+          { "text": "The gaoler's daughter is standing at the front, waving her apron.", "flaw": "evidence",
+            "why": "Clue check: read the list of people in paragraph 6. Is the girl there?" },
+          { "text": "a big engine", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: it's WHO is on the engine that gives it away in paragraph 6." }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Toad says *I only borrowed a motorcar while the owners were at lunch*. Is that the truth?",
+        "para": 9,
+        "options": [
+          { "text": "No, he stole it; he is trying to make it sound like nothing much.", "correct": true,
+            "why": "Clue: he is \"colouring deeply\", which means going red, and in the last chapter he was locked up for stealing it. Only is a word people use to make things sound small." },
+          { "text": "Yes, he gave the car straight back when the owners had had lunch.", "flaw": "literal",
+            "why": "Clue check: if he had given it back he wouldn't have been in prison. And he's blushing." },
+          { "text": "Yes, the owners said he could borrow it while they ate their lunch.", "flaw": "literal",
+            "why": "Clue check: in paragraph 10 the driver says \"you have been indeed a wicked toad\". He doesn't believe it either." },
+          { "text": "not really true", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence, and say what really happened. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "At first the driver thought Toad was a poor washerwoman. Now he knows the truth, why does he still help?",
+        "para": 10,
+        "options": [
+          { "text": "He hates motor-cars and bossy police, and hates to see an animal cry.", "correct": true,
+            "why": "Clue: \"I don't hold with motor-cars... I don't hold with being ordered about by policemen... the sight of an animal in tears always makes me feel queer\"." },
+          { "text": "Toad promises him a huge bag of gold coins if he gets away safely.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 7 Toad begs and confesses, but he never offers gold." },
+          { "text": "He is scared of Toad, because Toad has told him he is very dangerous.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 8 the driver looks \"very sternly\" at Toad. He isn't scared of him." },
+          { "text": "he likes toads", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 10 lists his real reasons. Can you find all three?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Why does the driver's plan need the tunnel?",
+        "para": 11,
+        "options": [
+          { "text": "The chasers will slow down in the dark tunnel, giving Toad time to jump.", "correct": true,
+            "why": "Clue: \"the other fellows will slow down a bit, naturally, for fear of an accident\", so Toad can jump \"before they get through the tunnel and see you\"." },
+          { "text": "Toad can hide inside the dark tunnel until the other engine has gone.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 11 the plan is to jump AFTER the tunnel and hide in the wood." },
+          { "text": "The tunnel is much too narrow for the other engine to fit through it.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 14 the other engine bursts \"out of the tunnel\". It fits fine." },
+          { "text": "it is shorter", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 11 says what the other engine will do in the tunnel." }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The owl flits off laughing, *which Toad thought in very poor taste*. Why does Toad think the owl is rude?",
+        "para": 16,
+        "options": [
+          { "text": "The owl seems to laugh at him just after giving him a horrid fright.", "correct": true,
+            "why": "Clue: its wing brushed him with \"the horrid certainty that it was a hand\", then it went off \"laughing its low ho! ho! ho\". Poor taste means rude." },
+          { "text": "The owl tastes horrid when Toad tries to take a bite out of it.", "flaw": "literal",
+            "why": "Clue check: nobody bites anybody. \"Poor taste\" here is about manners, not food." },
+          { "text": "The owl's supper smells horrid, and Toad hates that sort of food.", "flaw": "literal",
+            "why": "Clue check: the owl isn't eating. Look at what it does to Toad in paragraph 16." },
+          { "text": "it laughed at him", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "In the wood a fox calls Toad \"washerwoman\". What earlier in tonight's story explains why?",
+        "para": 16,
+        "options": [
+          { "text": "Toad is still wearing the washerwoman's disguise from his escape.", "correct": true,
+            "why": "Clue: in paragraph 7 Toad says \"I am not the simple washerwoman I seem to be\". He still looks like one, so the fox is fooled too." },
+          { "text": "The fox saw Toad washing his clothes in a stream in the wood.", "flaw": "evidence",
+            "why": "Clue check: Toad doesn't wash anything tonight. Think about what he is wearing." },
+          { "text": "Toad told the fox he was a washerwoman so he wouldn't get eaten.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 16 Toad doesn't say a word to the fox. He just looks for a stone." },
+          { "text": "still in disguise", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes Toad in this passage, and what is your proof?",
+        "para": 7,
+        "options": [
+          { "text": "Boastful: even while begging, he calls himself well-known and popular.", "correct": true,
+            "why": "Clue: on his knees he cries \"I am a toad, the well-known and popular Mr. Toad\" and talks of \"my great daring and cleverness\"." },
+          { "text": "Brave: he stands up and fights the policemen on the chasing engine.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 5 he is \"crouching in the coal-dust\", and then he jumps off and hides." },
+          { "text": "Honest: he tells the driver straight away that he stole the car.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 9 he says he \"only borrowed\" it. That's not quite honest!" },
+          { "text": "Calm: he sits quietly on the coal and never gets scared at all.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 7 he falls on his knees and cries \"Save me, only save me\"." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+        "para": 16,
+        "options": [
+          { "text": "Asleep in a hollow tree, cold and tired, but safe for the night.", "correct": true,
+            "why": "Clue: \"cold, hungry, and tired out, he sought the shelter of a hollow tree\" and \"slept soundly till the morning\"." },
+          { "text": "Back at Toad Hall, warm in his own bed after a big hot supper.", "flaw": "evidence",
+            "why": "Clue check: paragraph 15 says he is \"still far from friends and home\", with \"no chance of supper\"." },
+          { "text": "Back in the dungeon, crying because the police have caught him.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 14 the chasing engine rushes straight past. They never see him." },
+          { "text": "home at last", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in the last paragraph he makes a bed of leaves in a wood." }
+        ]
+      }
+    ],
+    "hints": [
+      "Summer is ending and the Rat feels restless, but the Mole helps him until the feeling passes.",
+      "Toad wakes up hungry, so he finds a canal and begs a lift on a passing barge.",
+      "The police search the wood, but Toad hides in a rabbit hole until they go away.",
+      "Toad is lost and far from home, so he follows the railway line until he sees Toad Hall."
+    ]
+  }
+}

@@ -1,0 +1,487 @@
+{
+  "ch6n1": {
+    "title": "A knock at breakfast",
+    "questions": [
+      {
+        "type": "search",
+        "q": "Why is it such a big surprise that the Badger has come to call?",
+        "para": 4,
+        "options": [
+          { "text": "Badger hardly ever visits; you usually have to hunt him down.", "correct": true,
+            "why": "Clue: \"He generally had to be caught, if you wanted him\", or \"hunted up in his own house\". A Badger who comes calling is very rare." },
+          { "text": "Badger should be fast asleep all winter, so he ought to be in bed.", "flaw": "evidence",
+            "why": "Clue check: paragraph 1 says it is \"the early part of summer\". Winter is well over." },
+          { "text": "Badger has never once met the Rat or the Mole before this morning.", "flaw": "evidence",
+            "why": "Clue check: they stayed at his house in the snow, and in paragraph 8 he reminds them what he said he would do." },
+          { "text": "he is late", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 4 explains what Badger usually does, and it isn't about being late." }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Badger says \"The hour has come!\" and the Rat asks \"What hour?\", *glancing at the clock on the mantelpiece*. Why does the Rat look at the clock?",
+        "para": 7,
+        "options": [
+          { "text": "He thinks Badger means the time, not that it's Toad's turn.", "correct": true,
+            "why": "Clue: Badger has to explain, \"Whose hour, you should rather say... Why, Toad's hour!\" The Rat had taken it the clock way." },
+          { "text": "He thinks the clock has stopped and Badger has come to mend it.", "flaw": "literal",
+            "why": "Clue check: nobody says the clock is broken. Look at how Badger answers in paragraph 8." },
+          { "text": "He is worried Badger has come far too early for their boat trip.", "flaw": "literal",
+            "why": "Clue check: Badger isn't going boating. In paragraph 8 he says it's \"Toad's hour\"." },
+          { "text": "thinks it's clock time", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Badger says Toad is putting on *those singularly hideous habiliments so dear to him*. What are they?",
+        "para": 10,
+        "options": [
+          { "text": "Toad's ugly driving clothes, which Toad himself loves to wear.", "correct": true,
+            "why": "Clue: hideous means ugly, and \"so dear to him\" means Toad loves them. In paragraph 13 we see them: \"goggles, cap, gaiters, and enormous overcoat\"." },
+          { "text": "Some ugly pets that Toad keeps at home and is very fond of indeed.", "flaw": "literal",
+            "why": "Clue check: Badger says Toad is \"arraying himself\" in them. You put on clothes, not pets!" },
+          { "text": "A strange ugly new car that Toad is building for himself at home.", "flaw": "literal",
+            "why": "Clue check: the new car is being delivered, not built. Look at what Toad is wearing in paragraph 13." },
+          { "text": "ugly motoring clothes", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How can we tell Toad suddenly realises his friends have not come to go driving with him?",
+        "para": 15,
+        "options": [
+          { "text": "His cheery invitation trails off when he sees their stern faces.", "correct": true,
+            "why": "Clue: \"His hearty accents faltered and fell away as he noticed the stern unbending look\", and \"his invitation remained unfinished\"." },
+          { "text": "He shouts at them to go away and runs straight back into the house.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 16 Toad is \"hustled through the door\" by his friends. He doesn't run in by himself." },
+          { "text": "He offers to let the Badger drive the new red car instead of him.", "flaw": "evidence",
+            "why": "Clue check: Toad never finishes his offer at all. Read how his words stop in paragraph 14." },
+          { "text": "they wave back", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 15 says his friends are \"silent\" and stern. Nobody waves." }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "At first Toad comes swaggering down the steps. Once his motor-clothes are off, how has he changed, and why?",
+        "para": 21,
+        "options": [
+          { "text": "He goes giggly and meek, as without them he's just plain Toad.", "correct": true,
+            "why": "Clue: \"Now that he was merely Toad, and no longer the Terror of the Highway, he giggled feebly\". The clothes made him feel grand." },
+          { "text": "He gets even crosser and bites them, as he feels cold without a coat.", "flaw": "evidence",
+            "why": "Clue check: paragraph 21 says \"A good deal of his blustering spirit seemed to have evaporated\". He gets calmer, not crosser." },
+          { "text": "He runs off to find spare goggles and a cap in his bedroom cupboard.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 21 they stand him up and he looks \"from one to the other appealingly\". He doesn't run anywhere." },
+          { "text": "less boastful now", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Rat says *Talking to Toad’ll never cure him. He’ll say anything.* What does he mean?",
+        "para": 25,
+        "options": [
+          { "text": "Toad will promise whatever you want to hear, then not mean it.", "correct": true,
+            "why": "Clue: \"He'll say anything\". Toad agrees with whoever is talking to him. Paragraph 26 says he is \"very easily converted, for the time being\"." },
+          { "text": "Toad is poorly and needs a real doctor, not just a friendly chat.", "flaw": "literal",
+            "why": "Clue check: cure here isn't about being ill. The Rat is talking about stopping Toad's driving." },
+          { "text": "Toad talks so much that nobody else can ever get a word in at all.", "flaw": "literal",
+            "why": "Clue check: in paragraph 26 it is Badger's voice droning on. The Rat is worried about Toad's promises, not his chatter." },
+          { "text": "promises mean nothing", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How do we know Badger's talk in the smoking-room seems to be working, at least for now?",
+        "para": 26,
+        "options": [
+          { "text": "They hear Toad sobbing through the door while Badger talks.", "correct": true,
+            "why": "Clue: the talk \"began to be punctuated at intervals by long-drawn sobs, evidently proceeding from the bosom of Toad\"." },
+          { "text": "Toad shouts through the door that he will never drive again.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 26 all they can hear from Toad is sobbing. No shouting." },
+          { "text": "Badger pops out halfway through to say Toad is cured already.", "flaw": "evidence",
+            "why": "Clue check: the door stays shut for \"some three-quarters of an hour\" (paragraph 27)." },
+          { "text": "Toad goes quiet", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: Toad isn't quiet at all in paragraph 26. What sound do they hear?" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "The Rat thinks he sees a twinkle in Toad's eye. What happens a little later that shows the Rat was right to be doubtful?",
+        "para": 34,
+        "options": [
+          { "text": "Toad says he isn't sorry and that driving was simply glorious.", "correct": true,
+            "why": "Clue: \"No!... I'm not sorry. And it wasn't folly at all! It was simply glorious!\" The twinkle meant he didn't mean his promise." },
+          { "text": "Toad cries even harder and begs Badger to lock up the new motor-car.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 34 Toad speaks \"stoutly\". He has stopped crying." },
+          { "text": "Toad quietly signs a paper promising he will never drive a car again.", "flaw": "evidence",
+            "why": "Clue check: nobody signs anything. In paragraph 37 Badger has to ask if Toad will promise at all." },
+          { "text": "Toad says no", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes Toad in this passage, and what is your proof?",
+        "para": 34,
+        "options": [
+          { "text": "Stubborn: he refuses to say sorry, even with all his friends watching.", "correct": true,
+            "why": "Clue: with everyone waiting \"in grave silence\", Toad says \"I'm not sorry\" and won't budge." },
+          { "text": "Brave: he fights off the chauffeur to save his shiny new red motor-car.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 17 it is Badger who speaks to the chauffeur. Toad is already inside." },
+          { "text": "Generous: he gives his new red car to Badger as a thank you present.", "flaw": "evidence",
+            "why": "Clue check: Badger sends the car away in paragraph 17. Toad doesn't give it to anyone." },
+          { "text": "Shy: he hides away in the smoking-room and won't come out to see them.", "flaw": "evidence",
+            "why": "Clue check: Badger leads him into the smoking-room in paragraph 24. Toad didn't choose to hide there." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is the Badger feeling?",
+        "para": 37,
+        "options": [
+          { "text": "In Toad Hall, with Badger shocked that Toad has gone back on his word.", "correct": true,
+            "why": "Clue: Badger is \"greatly scandalised\" and calls Toad a \"backsliding animal\", then asks if Toad won't promise after all." },
+          { "text": "In the smoking-room, with Badger pleased that Toad is cured at long last.", "flaw": "evidence",
+            "why": "Clue check: they came out of the smoking-room in paragraph 27, and Toad is far from cured." },
+          { "text": "Out on the road, with Badger happily driving the shiny new red car.", "flaw": "evidence",
+            "why": "Clue check: the car was sent away in paragraph 17, and nobody has left the house." },
+          { "text": "very pleased", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: in paragraph 35 Badger is \"greatly scandalised\". That's shocked, not pleased." }
+        ]
+      }
+    ],
+    "hints": [
+      "Toad won't promise, so his friends lock him in his bedroom until he comes to his senses.",
+      "Toad pretends to be very ill, so the Rat runs for a doctor and Toad climbs out of the window.",
+      "Toad sneaks out to the new car, but Badger has hidden the starting handle so it won't go.",
+      "Badger is so cross he storms off home, but the Mole talks Toad into saying sorry after all."
+    ]
+  },
+
+  "ch6n2": {
+    "title": "Keeping watch",
+    "questions": [
+      {
+        "type": "quoted",
+        "q": "Badger says *Since you won’t yield to persuasion, we’ll try what force can do.* What does he mean?",
+        "para": 3,
+        "options": [
+          { "text": "Talking hasn't worked, so now they will make Toad stay put.", "correct": true,
+            "why": "Clue: straight after, he says \"lock him up in his bedroom\". Persuasion is talking someone round; force is making them." },
+          { "text": "He is going to use a strong horse to drag the car away from Toad.", "flaw": "literal",
+            "why": "Clue check: there's no horse, and the car was already sent away. Look at what Badger orders at the end of paragraph 3." },
+          { "text": "He is going to shout at Toad until Toad gets tired and gives in.", "flaw": "literal",
+            "why": "Clue check: Badger has finished talking. In paragraph 3 he tells the others to take Toad upstairs." },
+          { "text": "lock Toad up", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How do we know Toad still can't stop thinking about motor-cars, even when he is locked in his room?",
+        "para": 10,
+        "options": [
+          { "text": "He lines up chairs like a car and pretends to drive, making noises.", "correct": true,
+            "why": "Clue: he \"would arrange bedroom chairs in rude resemblance of a motor-car\" and crouch on the front one \"making uncouth and ghastly noises\"." },
+          { "text": "He writes letters to the car shop asking them to send him a new car.", "flaw": "evidence",
+            "why": "Clue check: nobody mentions any letters. Look at what Toad does with the bedroom chairs in paragraph 10." },
+          { "text": "He stares out of the window all day, waiting for cars to drive past.", "flaw": "evidence",
+            "why": "Clue check: paragraph 10 says what he does in his room, and it's not at the window. It's with the chairs." },
+          { "text": "plays at cars", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Rat hurries off, *not forgetting, however, to lock the door carefully behind him*. Why doesn't that stop Toad?",
+        "para": 24,
+        "options": [
+          { "text": "Toad doesn't need the door; he climbs down knotted sheets instead.", "correct": true,
+            "why": "Clue: in paragraph 27 Toad knots \"the sheets from his bed together\" and scrambles out of the window." },
+          { "text": "Toad has a spare key hidden in a small drawer in his dressing-table.", "flaw": "literal",
+            "why": "Clue check: in paragraph 27 the drawer holds cash, not a key. How does Toad actually get out?" },
+          { "text": "The Rat forgets and leaves the key in the lock for Toad to turn.", "flaw": "literal",
+            "why": "Clue check: the words say he did NOT forget. He locked it carefully." },
+          { "text": "out the window", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Why does Toad asking for a lawyer frighten the Rat even more than asking for a doctor?",
+        "para": 26,
+        "options": [
+          { "text": "Toad often fusses over doctors, but has never asked for a lawyer.", "correct": true,
+            "why": "Clue: \"I've known Toad fancy himself frightfully bad before... but I've never heard him ask for a lawyer!\"" },
+          { "text": "The Rat is scared of lawyers, since one told him off in court once.", "flaw": "evidence",
+            "why": "Clue check: the Rat has never been in court. Read what he says to himself in paragraph 26." },
+          { "text": "The lawyer lives miles away, so it will take the Rat the whole day.", "flaw": "evidence",
+            "why": "Clue check: Toad says the Rat \"will pass the door\" on the way to the village. It isn't far at all." },
+          { "text": "lawyers cost lots", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: the Rat isn't worried about money. Read paragraph 26." }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How do we know Toad had thought carefully about his escape?",
+        "para": 27,
+        "options": [
+          { "text": "He waits until Rat is out of sight, then goes the other way.", "correct": true,
+            "why": "Clue: he \"watched him eagerly from the window till he disappeared\", then took \"the opposite direction to the Rat\"." },
+          { "text": "He leaves a note for Badger saying where he's gone and why.", "flaw": "evidence",
+            "why": "Clue check: there is no note. Paragraph 28 says the Rat has to tell the story himself." },
+          { "text": "He takes the Rat's boat so that nobody can follow him downriver.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 27 Toad \"marched off\" on foot. No boat." },
+          { "text": "runs very fast", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 27 says he marched off \"whistling a merry tune\". No hurry at all!" }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "Before he leaves, Badger warns the Rat that a quiet, good Toad is a tricky Toad. What happens later that proves Badger right?",
+        "para": 27,
+        "options": [
+          { "text": "Toad fakes being ill, then climbs out as soon as the Rat goes.", "correct": true,
+            "why": "Clue: Badger said when Toad is quiet \"he's at his artfullest\". Then Toad \"hopped lightly out of bed as soon as he heard the key turned\"." },
+          { "text": "Toad sleeps all day and snores, just as Badger said he would.", "flaw": "evidence",
+            "why": "Clue check: Badger never said Toad would sleep. He said \"There's sure to be something up.\"" },
+          { "text": "Toad gets so bored that he tidies his whole bedroom from top to toe.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 27 Toad pulls the sheets off his bed. That's not tidying!" },
+          { "text": "he tricks Rat", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "The Mole says *You’ve been a bit of a duffer this time, Ratty!* What does he mean?",
+        "para": 28,
+        "options": [
+          { "text": "The Rat was silly to be tricked, but the Mole still likes him.", "correct": true,
+            "why": "Clue: the Mole \"took his friend's side as far as possible\" but still says it. A duffer is someone who has been a bit silly." },
+          { "text": "The Rat was clumsy and dropped all of the lunch on the kitchen floor.", "flaw": "literal",
+            "why": "Clue check: nobody drops anything. The Mole adds \"Toad, too, of all animals!\" It's about being fooled by Toad." },
+          { "text": "The Rat has been very clever and deserves a treat after lunch.", "flaw": "literal",
+            "why": "Clue check: paragraph 28 calls it \"a gloomy luncheon\" and the Rat's story \"pitiful\". Nobody is saying well done." },
+          { "text": "Rat was clumsy", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: the Mole adds \"Toad, too, of all animals!\" It's about being tricked, not clumsy." }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "At the start the Rat tells Toad it's all for his own good. At the end, why is lunch so gloomy for the Rat?",
+        "para": 28,
+        "options": [
+          { "text": "Toad tricked him and got away, and now he must tell Badger.", "correct": true,
+            "why": "Clue: \"he had to face them at table with his pitiful and unconvincing story\". He let Toad escape." },
+          { "text": "Toad ate all the food in the house before he ran away from it.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 27 Toad takes cash, clothes and sheets. No food." },
+          { "text": "Mole and Badger came home too late, so the lunch had gone cold.", "flaw": "evidence",
+            "why": "Clue check: paragraph 28 says what makes it gloomy, and it's about the story the Rat must tell." },
+          { "text": "Toad got away", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes Toad in this passage, and what is your proof?",
+        "para": 23,
+        "options": [
+          { "text": "Sly: he pretends to be very ill so the Rat will leave him alone.", "correct": true,
+            "why": "Clue: he asks for a doctor and a lawyer in a feeble voice, then \"hopped lightly out of bed\" the moment the key turned." },
+          { "text": "Honest: he tells the Rat straight out that he's going to run away.", "flaw": "evidence",
+            "why": "Clue check: Toad says he doesn't expect to be a burden \"much longer\", but he never says he'll escape." },
+          { "text": "Lazy: he stays in bed all morning and never gets up at all that day.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 27 he hops out of bed, dresses and climbs out of the window." },
+          { "text": "Grateful: he writes a kind note thanking his friends for their care.", "flaw": "evidence",
+            "why": "Clue check: Toad leaves no note, and he shouts \"abuse\" at them through the keyhole in paragraph 8." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is the Rat feeling?",
+        "para": 28,
+        "options": [
+          { "text": "At a gloomy lunch, feeling silly, as the Mole calls him a duffer.", "correct": true,
+            "why": "Clue: \"It was a gloomy luncheon for Rat\", and even the Mole says \"You've been a bit of a duffer this time, Ratty!\"" },
+          { "text": "Chasing Toad down the road, excited as he has nearly caught him.", "flaw": "evidence",
+            "why": "Clue check: in the last paragraph the Rat is sitting at the table, not chasing anyone." },
+          { "text": "At the doctor's house, pleased that Toad will soon be feeling well.", "flaw": "evidence",
+            "why": "Clue check: by the last paragraph the Rat is back home at lunch with Badger and the Mole." },
+          { "text": "very proud", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 28 says it was \"painful to the Rat\". That's not proud." }
+        ]
+      }
+    ],
+    "hints": [
+      "Toad finds a car left all alone, so he drives off in it, but the police soon catch him.",
+      "Toad runs out of money, so he sneaks back home until Badger finds him hiding in the cellar.",
+      "The Rat feels awful, so he sets out to find Toad and bring him home before the police do.",
+      "Toad gets hungry on the road, but a kind farmer feeds him in return for help with the hay."
+    ]
+  },
+
+  "ch6n3": {
+    "title": "Just one look",
+    "questions": [
+      {
+        "type": "quoted",
+        "q": "The Rat says Toad \"did it awfully well\", and Badger snaps back *He did you awfully well!* What does Badger mean?",
+        "para": 2,
+        "options": [
+          { "text": "Toad didn't just act well; he fooled the Rat.", "correct": true,
+            "why": "Clue: Badger says it \"hotly\", which means crossly. Doing someone is an old way of saying tricking them." },
+          { "text": "Toad was very kind to the Rat before he left the house.", "flaw": "literal",
+            "why": "Clue check: Badger says it \"hotly\". He is cross, not praising anybody." },
+          { "text": "Toad cooked the Rat a very good lunch before he escaped.", "flaw": "literal",
+            "why": "Clue check: Toad left before lunch, and it was a \"gloomy luncheon\". Nobody cooked for the Rat." },
+          { "text": "Rat got tricked", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "Why does Badger decide they should all keep sleeping at Toad Hall?",
+        "para": 2,
+        "options": [
+          { "text": "Toad might be brought back any time, hurt or with the police.", "correct": true,
+            "why": "Clue: \"Toad may be brought back at any moment, on a stretcher, or between two policemen.\"" },
+          { "text": "Badger's own house has flooded, so he has nowhere else to go.", "flaw": "evidence",
+            "why": "Clue check: nothing is said about Badger's house. Read the reason Badger gives in paragraph 2." },
+          { "text": "Toad Hall is comfier, and Badger really likes the big soft beds.", "flaw": "evidence",
+            "why": "Clue check: Badger never mentions beds. He's thinking about Toad coming back." },
+          { "text": "it is warmer", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: the reason in paragraph 2 is about Toad, not the weather." }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Toad feels *all Nature joining in a chorus of approval to the song of self-praise that his own heart was singing to him*. Is Nature really singing to Toad?",
+        "para": 4,
+        "options": [
+          { "text": "No, Toad is so pleased with himself that it all seems to cheer.", "correct": true,
+            "why": "Clue: the song is one \"his own heart was singing to him\", and the same paragraph talks about \"his satisfaction and conceit\". It's all in his head." },
+          { "text": "Yes, the birds and the trees all start singing a song about Toad.", "flaw": "literal",
+            "why": "Clue check: nobody else sings anything. The song of self-praise is coming from Toad's own heart." },
+          { "text": "Yes, Toad sings so loudly that all the animals come and join in.", "flaw": "literal",
+            "why": "Clue check: Toad is walking alone on the high road. No animals join him." },
+          { "text": "he just feels it", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How can we tell Toad is very pleased with himself about his escape?",
+        "para": 5,
+        "options": [
+          { "text": "He chuckles to himself that his brain beat their brute force.", "correct": true,
+            "why": "Clue: \"Brain against brute force, and brain came out on the top\", and the Rat has \"very little intelligence\"." },
+          { "text": "He writes a long letter home to tell his friends how sorry he is.", "flaw": "evidence",
+            "why": "Clue check: Toad isn't sorry at all. In paragraph 5 he is chuckling." },
+          { "text": "He hides in a ditch, scared that the Badger is right behind him.", "flaw": "evidence",
+            "why": "Clue check: paragraph 4 says he feels \"safe from recapture\" and almost dances along the road." },
+          { "text": "he is scared", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: paragraph 5 says he is \"chuckling\". Does that sound scared?" }
+        ]
+      },
+      {
+        "type": "quoted",
+        "q": "Toad tells himself *There cannot be any harm ... in my only just looking at it!* Is he really only going to look?",
+        "para": 7,
+        "options": [
+          { "text": "No, he's making excuses; he can't resist the car at all.", "correct": true,
+            "why": "Clue: he had to \"hold on to the leg of the table\" when he heard it, and he \"could stand it no longer\". Only looking is just an excuse." },
+          { "text": "Yes, he only wants to check that the car is clean and not dented.", "flaw": "literal",
+            "why": "Clue check: in paragraph 7 Toad is trembling with \"over-mastering emotion\". That's more than checking for dents!" },
+          { "text": "Yes, he thinks the car is broken, and he wants to help mend it.", "flaw": "literal",
+            "why": "Clue check: nobody says the car is broken. The people inside are praising \"the merits of the chariot\"." },
+          { "text": "only a look", "flaw": "short",
+            "why": "That isn't a full sentence, and the idea slips past too. Clue check: think about how he felt when he heard the poop-poop in paragraph 7." }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "At the inn Toad has to hold the table leg when he hears the car. Once he starts it, what happens to him?",
+        "para": 10,
+        "options": [
+          { "text": "He forgets right and wrong and drives off, feeling like Toad again.", "correct": true,
+            "why": "Clue: \"all sense of right and wrong... seemed temporarily suspended\" and \"he was only conscious that he was Toad once more\"." },
+          { "text": "He switches it off at once and goes back inside to finish his lunch.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 10 he \"swung the car round the yard and out through the archway\"." },
+          { "text": "He drives it carefully round the yard, then parks it back neatly.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 10 he heads out \"on the high road through the open country\". He doesn't park it." },
+          { "text": "old passion returns", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "search",
+        "q": "How do we know the Chairman has already made up his mind that Toad is guilty?",
+        "para": 11,
+        "options": [
+          { "text": "He says the only problem is how hard to punish the prisoner.", "correct": true,
+            "why": "Clue: \"the only difficulty... is, how we can possibly make it sufficiently hot\" for him. He isn't asking IF Toad did it." },
+          { "text": "He asks Toad to stand up and tell his side of the story first.", "flaw": "evidence",
+            "why": "Clue check: Toad never gets to speak. The Chairman only tells him to stand up straight in paragraph 15." },
+          { "text": "The Clerk says the police must have caught the wrong toad.", "flaw": "evidence",
+            "why": "Clue check: the Clerk is busy adding up years. He never doubts it was Toad." },
+          { "text": "twenty whole years", "flaw": "short",
+            "why": "That isn't a full sentence, and it's the punishment, not the proof. Clue check: look at what the Chairman says is his \"only difficulty\"." }
+        ]
+      },
+      {
+        "type": "across",
+        "q": "The Clerk works out a punishment for each crime. How does he end up at twenty years?",
+        "para": 14,
+        "options": [
+          { "text": "He adds them up to nineteen, then rounds up to twenty to be safe.", "correct": true,
+            "why": "Clue: the years \"tot up to nineteen\", so \"you had better make it a round twenty years and be on the safe side\"." },
+          { "text": "He gives twenty years for stealing the car, as that is the worst crime.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 12 he suggests just \"twelve months for the theft\". The cheek gets the most years!" },
+          { "text": "He gives Toad one year for every mile he drove the stolen car.", "flaw": "evidence",
+            "why": "Clue check: miles aren't mentioned. Read how the Clerk adds up in paragraph 12." },
+          { "text": "adding them up", "flaw": "fragment",
+            "why": "Right idea! Now make it a full sentence. Which option says it properly?" }
+        ]
+      },
+      {
+        "type": "character",
+        "q": "Which word best describes Toad in tonight's passage, and what is your proof?",
+        "para": 10,
+        "options": [
+          { "text": "Reckless: he takes a stranger's car and speeds off without a care.", "correct": true,
+            "why": "Clue: he drove \"reckless of what might come to him\", with \"all fear of obvious consequences\" gone." },
+          { "text": "Careful: he checks with the car's owners before he borrows their car.", "flaw": "evidence",
+            "why": "Clue check: the car stood \"quite unattended\" in paragraph 8. Toad asks nobody." },
+          { "text": "Humble: he tells himself that Ratty is much cleverer than he is.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 5 Toad says Ratty has \"very little intelligence\". That's the opposite!" },
+          { "text": "Patient: he waits politely until the owners have had all their lunch.", "flaw": "evidence",
+            "why": "Clue check: in paragraph 7 he \"could stand it no longer\" and slipped out while they were eating." }
+        ]
+      },
+      {
+        "type": "ending",
+        "q": "Where does tonight's bit of the story end, and how is Toad feeling?",
+        "para": 18,
+        "options": [
+          { "text": "Locked in the deepest dungeon of a castle, helpless and miserable.", "correct": true,
+            "why": "Clue: \"the miserable Toad\" is \"a helpless prisoner in the remotest dungeon of the best-guarded keep\"." },
+          { "text": "Speeding along the high road in the car, happy and free as a bird.", "flaw": "evidence",
+            "why": "Clue check: that happened earlier, in paragraph 10. By the end he's in court and then prison." },
+          { "text": "Back home at Toad Hall, safe and sorry with his three good friends.", "flaw": "evidence",
+            "why": "Clue check: in the last paragraph the great door \"clanged behind them\". He's nowhere near home." },
+          { "text": "in a castle", "flaw": "fragment",
+            "why": "Right place! Now make it a full sentence, and say how Toad feels too. Which option does both?" }
+        ]
+      }
+    ],
+    "hints": [
+      "Toad is locked up for twenty years, but the gaoler's kind daughter helps him escape in a disguise.",
+      "Toad digs a tunnel with his spoon, so he gets out after many long weeks and runs for the river.",
+      "Badger hears the news, so he and his friends storm the castle until the guards let Toad go.",
+      "Toad refuses to eat, so the guards get worried, but a letter from the Rat cheers him up."
+    ]
+  }
+}

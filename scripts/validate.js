@@ -1,6 +1,6 @@
 // Checks every written night in content/chapter-XX.json against the
 // question-writing rules. Exits with an error if anything is broken.
-// Usage: node scripts/validate.js
+// Usage: node scripts/validate.js [chapter number]   (all chapters if omitted)
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -105,7 +105,8 @@ function checkNight(night) {
   });
 }
 
-const files = fs.readdirSync(contentDir).filter(f => /^chapter-\d+\.json$/.test(f)).sort();
+const only = process.argv[2] ? `chapter-${String(process.argv[2]).padStart(2, "0")}.json` : null;
+const files = fs.readdirSync(contentDir).filter(f => /^chapter-\d+\.json$/.test(f) && (!only || f === only)).sort();
 for (const f of files) {
   const ch = JSON.parse(fs.readFileSync(path.join(contentDir, f), "utf8"));
   for (const night of ch.nights) if (!night.done) checkNight(night);
