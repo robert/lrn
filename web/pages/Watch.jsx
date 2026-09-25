@@ -25,13 +25,14 @@ export default function Watch() {
         <ErrorBox error={error} />
         {!films && !error && <Loading />}
         {groups.map(g => (
-          <section key={g} className="watch-group">
+          <section key={g} className={`watch-group ${g === "The cinema" ? "cinema" : ""}`}>
             <h2 className="watch-group-title">{g}</h2>
             <div className="watch-list">
               {films.filter(f => f.group === g).map(f => (
                 <button key={f.id} className="watch-film" disabled={!f.ready} onClick={() => setPlaying(f)}>
                   <span className="watch-play"><Icon name="play" size={34} strokeWidth={1.3} /></span>
                   <span className="watch-text">
+                    {f.genre && <span className="watch-genre">{f.genre}</span>}
                     <span className="watch-title">{f.title}</span>
                     <span className="watch-blurb">{f.ready ? f.blurb : "Being made"}</span>
                   </span>

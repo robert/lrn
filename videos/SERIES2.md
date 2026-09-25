@@ -32,14 +32,15 @@ Series 1 is a consistent library of calm, bookish tutorials. Series 2 does the o
 
 - [x] Engine: multi-voice cast, `frame: "none"`, custom subtitles, music with ducking, extra sound effects
 - [x] Music generator (`music/synth.py`)
-- [x] 1 noir: written, voiced, reviewed; rendering
-- [ ] 2 arcade
-- [ ] 3 chalk
-- [ ] 4 space
-- [ ] 5 nature
+- [x] 1 noir: rendered, 2:21 (`public-videos/s2-noir.mp4`)
+- [ ] 2 arcade (agent working, with chalk)
+- [ ] 3 chalk (agent working)
+- [ ] 4 space (agent working, with train)
+- [ ] 5 nature (agent working, with sports)
 - [ ] 6 theatre
 - [ ] 7 bakeoff
 - [ ] 8 heist
-- [ ] 9 sports
-- [ ] 10 train
-- [ ] Films wired into the app (a "Cinema" shelf in the film library)
+- [ ] 9 sports (agent working)
+- [ ] 10 train (agent working)
+- [x] Films wired into the app (a "Cinema" shelf in the film library; each film appears when its mp4 exists)
+- [ ] Still to assign once agents free up: theatre (swapped words), bakeoff (balancing), heist (find the evidence)

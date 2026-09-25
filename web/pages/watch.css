@@ -16,3 +16,18 @@
 .watch-text { display: flex; flex-direction: column; gap: 2px; }
 .watch-title { font-family: var(--story); font-weight: 600; font-size: 21px; line-height: 1.2; color: var(--ink); }
 .watch-blurb { font-size: 15px; color: var(--soft); line-height: 1.35; }
+
+/* The cinema shelf: films shown like small posters on a dark velvet wall. */
+.watch-group.cinema {
+  margin: 28px -20px 0; padding: 22px 20px 26px; border-radius: 12px;
+  background: radial-gradient(120% 100% at 50% 0%, #3A2330, #1A1016 70%);
+}
+.watch-group.cinema .watch-group-title { color: var(--gilt-light); }
+.watch-group.cinema .watch-film {
+  background: linear-gradient(160deg, #2B1B24, #140C11);
+  box-shadow: 0 0 0 1px rgba(201, 162, 75, 0.45), 0 14px 30px -18px rgba(0, 0, 0, 0.9);
+}
+.watch-group.cinema .watch-title { color: var(--paper); }
+.watch-group.cinema .watch-blurb { color: rgba(250, 251, 248, 0.65); }
+.watch-group.cinema .watch-play { color: var(--gilt); }
+.watch-genre { font-size: 13px; font-weight: 800; color: var(--gilt); }

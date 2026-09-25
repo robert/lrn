@@ -259,7 +259,7 @@ export default {
             <Sentence sentence={CARROT} t={s.t} cy={460} size={96} moves={moves} appear={rise(s.t, 18, 6)}
               tint={{ 1: silly }} notes={[{ token: 1, text: "silly!", appear: silly, mud: true }]} under={{ 1: u1 * (1 - rise(s.t, 10, s.at(3))), 5: u5 * (1 - rise(s.t, 10, s.at(3))) }}
               sweep={s.beat === 4 ? reading(s, 4, 0.3, 0.85) : s.beat === 0 ? reading(s, 0, 0.2, 0.95) : 0} />
-            <Seal x={1640} y={410} size={92} t={s.t} start={s.at(4) + s.speech(4) * 0.72} />
+            <Seal x={1770} y={440} size={84} t={s.t} start={s.at(4) + s.speech(4) * 0.72} />
             {/* The answer, as it would be marked on the paper. */}
             <div style={{ opacity: rise(s.t, 18, s.at(5)) }}>
               <Words x={260} w={1400} y={608} size={34} italic color={C.soft} align="center">On the paper:</Words>
@@ -306,10 +306,10 @@ export default {
             <Words x={260} w={1400} y={600} size={46} italic color={C.mud} align="center" appear={window(s.t, s.at(3) + s.speech(3) * 0.55, s.at(4) + 6)}>
               Still silly, so that was the wrong swap.
             </Words>
-            <Words x={260} w={1400} y={600} size={46} italic color={C.giltDark} align="center" appear={rise(s.t, 18, s.at(6))}>
+            <Words x={260} w={1400} y={650} size={46} italic color={C.giltDark} align="center" appear={rise(s.t, 18, s.at(6))}>
               Reading it again catches the trap.
             </Words>
-            <Seal x={1700} y={400} size={88} t={s.t} start={sealAt} />
+            <Seal x={960} y={575} size={84} t={s.t} start={sealAt} />
           </>
         );
       },

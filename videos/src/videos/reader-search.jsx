@@ -105,7 +105,7 @@ export default {
                   ],
                 },
               ]} />
-            <Note x={PAGE.x + 40} y={770} size={36} bg="#F3E9DF" color={C.mud}
+            <Note x={Q.x + 170} y={800} size={34} bg="#F3E9DF" color={C.mud}
               appear={rise(s.t, 16, s.at(5) + s.speech(5) * 0.5)}>nobody yawns: not in the story</Note>
             <AskCard {...Q} appear={rise(s.t, 18, 4)} text={BED_Q} />
             <Choices size={31} x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={s.at(0) + 30} correct={0}

@@ -13,6 +13,17 @@ export const FILMS = [
   { id: "reader-search", title: "Find the Evidence", group: "Mega Reader questions", blurb: "Hunt down the clue yourself." },
   { id: "reader-across", title: "Two Places at Once", group: "Mega Reader questions", blurb: "Hold two parts of the story together." },
   { id: "reader-character", title: "Word and Proof", group: "Mega Reader questions", blurb: "Check the proof first, then the word." },
+  // Series 2: the cinema. Each is a short film in a different genre.
+  { id: "s2-noir", title: "The Case of the Odd One Out", group: "The cinema", genre: "Film noir", blurb: "Inspector Sharp and a line-up of five suspects." },
+  { id: "s2-arcade", title: "Code Breaker 3000", group: "The cinema", genre: "Arcade game", blurb: "Insert coin. Crack the code. Beat the high score." },
+  { id: "s2-chalk", title: "Professor Chalk's Magic Changes", group: "The cinema", genre: "Blackboard lecture", blurb: "Analogies, sketched live in chalk." },
+  { id: "s2-space", title: "Mission to the Missing Square", group: "The cinema", genre: "Space adventure", blurb: "Complete the star map to jump home." },
+  { id: "s2-nature", title: "Planet Shapes", group: "The cinema", genre: "Nature documentary", blurb: "Watching shapes change in the wild." },
+  { id: "s2-theatre", title: "The Great Word Swap", group: "The cinema", genre: "Puppet theatre", blurb: "Two words have swapped costumes." },
+  { id: "s2-bakeoff", title: "The Great Balance Bake-Off", group: "The cinema", genre: "Cooking show", blurb: "Weigh it up, one scale at a time." },
+  { id: "s2-heist", title: "The Evidence Heist", group: "The cinema", genre: "Heist", blurb: "Steal the clue from the story itself." },
+  { id: "s2-sports", title: "Match of the Day: Most Alike", group: "The cinema", genre: "Football highlights", blurb: "Action replays of what two figures really share." },
+  { id: "s2-train", title: "The Sequence Express", group: "The cinema", genre: "Steam railway", blurb: "Couple on the missing carriage." },
 ];
 
 // Which film goes with each question type in "nothing gets past you".
