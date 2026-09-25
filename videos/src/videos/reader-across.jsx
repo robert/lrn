@@ -32,8 +32,8 @@ const EX2 = [
 // ---------- Your turn: when will the Badger act? ----------
 const TRY = [
   { n: 6, top: 34, text: "The Badger went through a bit of hard thinking. “Now look here!” he said at last, rather severely; “of course you know I can’t do anything now?”" },
-  { gap: true, top: 262 },
-  { n: 8, top: 312, text: "“Very well then!” continued the Badger. “But, when once the year has really turned, and the nights are shorter, and halfway through them one rouses and feels fidgety and wanting to be up and doing by sunrise, if not before—you know!”" },
+  { gap: true, top: 196 },
+  { n: 8, top: 244, text: "“Very well then!” continued the Badger. “But, when once the year has really turned, and the nights are shorter, and halfway through them one rouses and feels fidgety and wanting to be up and doing by sunrise, if not before—you know!”" },
 ];
 
 // A sketch of a page: grey lines with two lit places and a thread between.
@@ -126,7 +126,7 @@ export default {
       ],
       render: s => (
         <>
-          <BookPage {...PAGE} appear={rise(s.t, 20, s.at(1) - 10)} paras={EX1}
+          <BookPage {...PAGE} appear={rise(s.t, 20, s.at(0) + 40)} paras={EX1}
             marks={[
               { n: 11, phrase: "never mind what done it", k: sweep(s, s.at(1) + s.speech(1) * 0.35) },
               { n: 10, phrase: "made by a sharp edge of something in metal", kind: "both", k: sweep(s, s.at(2) + s.speech(2) * 0.45) },
@@ -163,7 +163,7 @@ export default {
       ],
       render: s => (
         <>
-          <BookPage {...PAGE} appear={rise(s.t, 20, s.at(1) - 10)} paras={EX2}
+          <BookPage {...PAGE} appear={rise(s.t, 20, s.at(0) + 40)} paras={EX2}
             marks={[
               { n: 1, phrase: "slow shuffling footsteps", kind: "soft", k: sweep(s, s.at(5) + s.speech(5) * 0.2) },
               { n: 1, phrase: "carpet slippers that were too large for him and down at heel", k: sweep(s, s.at(1) + s.speech(1) * 0.45) },

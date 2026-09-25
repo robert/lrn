@@ -21,11 +21,13 @@ manifest_file = out / "durations.json"
 manifest = json.loads(manifest_file.read_text()) if manifest_file.exists() else {}
 
 for line in lines:
-    key = hashlib.sha1(f"{voice}|{speed}|{line['text']}".encode()).hexdigest()
+    # A line may choose its own voice and speed (for films with a cast).
+    v, sp = line.get("voice") or voice, float(line.get("speed") or speed)
+    key = hashlib.sha1(f"{v}|{sp}|{line['text']}".encode()).hexdigest()
     wav = out / f"{line['id']}.wav"
     if wav.exists() and manifest.get(line["id"], {}).get("key") == key:
         continue
-    samples, rate = kokoro.create(line["text"], voice=voice, speed=speed, lang="en-gb")
+    samples, rate = kokoro.create(line["text"], voice=v, speed=sp, lang="en-gb")
     sf.write(wav, samples, rate)
     manifest[line["id"]] = {"key": key, "seconds": round(len(samples) / rate, 3)}
     print(f"{line['id']}: {manifest[line['id']]['seconds']}s")

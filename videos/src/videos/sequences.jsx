@@ -11,11 +11,11 @@ import { Plate, Ring, Strike, Seal, Words, TitleCard, Countdown, Steps, Emblem }
 // the four answers in a row underneath.
 const RP = 196; // row plate size
 const GAP = 36;
-const ROW = { x: (1920 - (5 * RP + 4 * GAP)) / 2, y: 176 };
+const ROW = { x: (1920 - (5 * RP + 4 * GAP)) / 2, y: 226 };
 const rowX = i => ROW.x + i * (RP + GAP);
 const OP = 150; // option plate size
 const OGAP = 46;
-const OPTS = { x: (1920 - (4 * OP + 3 * OGAP)) / 2, y: 520 };
+const OPTS = { x: (1920 - (4 * OP + 3 * OGAP)) / 2, y: 600 };
 const optX = i => OPTS.x + i * (OP + OGAP);
 const UNDER = ROW.y + RP + 14; // first line of notes under the row
 
@@ -155,7 +155,7 @@ export default {
         <>
           <Row s={s} figs={[circle(30), circle(42), circle(54), circle(66)]} glowQ={window(s.t, s.at(2) + 10, s.length)} />
           {[0, 1, 2, 3].map(i => <StepArc key={i} from={i} progress={rise(s.t, 16, s.at(1) + s.speech(1) * 0.35 + i * 10)} />)}
-          <Words x={260} w={1400} y={480} size={60} align="center" appear={rise(s.t, 20, s.at(2) + s.speech(2) * 0.5)}>
+          <Words x={260} w={1400} y={520} size={64} align="center" appear={rise(s.t, 20, s.at(2) + s.speech(2) * 0.5)}>
             What comes next?
           </Words>
         </>

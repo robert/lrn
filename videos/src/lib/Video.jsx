@@ -15,31 +15,61 @@ export function Video({ script, timeline }) {
   const cloth = CLOTHS[script.cloth ?? "spotter"];
   const scene = timeline.scenes.find(s => frame >= s.start && frame < s.start + s.length) ?? timeline.scenes.at(-1);
   const onCloth = scene.bg === "cloth";
+  // Series 2 films build their own world: frame "none" drops the book frame,
+  // and a script may bring a Backdrop (behind), an Overlay (on top, e.g. film
+  // grain) and its own Subtitles renderer.
+  const fullBleed = script.frame === "none";
+  const beats = timeline.scenes.flatMap(s => s.beats);
 
   return (
-    <AbsoluteFill style={{ background: cloth, fontFamily: SANS }}>
-      <ClothTexture />
-      <PaperStage visible={!onCloth} title={script.title} />
+    <AbsoluteFill style={{ background: fullBleed ? "#000" : cloth, fontFamily: SANS }}>
+      {!fullBleed && <ClothTexture />}
+      {!fullBleed && <PaperStage visible={!onCloth} title={script.title} />}
+      {script.Backdrop && <script.Backdrop frame={frame} scene={scene} />}
 
       {timeline.scenes.map(s => (
         <Sequence key={s.index} from={s.start} durationInFrames={s.length} layout="none">
-          <SceneFrame scene={s} />
+          <SceneFrame scene={s} push={script.push ?? 0.018} />
         </Sequence>
       ))}
 
-      {timeline.scenes.flatMap(s => s.beats).map(b => (
+      {beats.map(b => (
         <Sequence key={b.id} from={b.start} durationInFrames={b.length} layout="none">
           {timeline.voiced && <Audio src={staticFile(`audio/${script.id}/${b.id}.wav`)} />}
-          {b.sfx && (
-            <Sequence from={Math.round((b.sfxAt ?? 0) * 30)} layout="none">
-              <Audio src={staticFile(`sfx/${b.sfx}.wav`)} />
+          {[...(b.sfx ? [{ sfx: b.sfx, at: b.sfxAt ?? 0, volume: b.sfxVolume }] : []), ...(b.sfxs ?? [])].map((x, i) => (
+            <Sequence key={i} from={Math.round(x.at * 30)} layout="none">
+              <Audio src={staticFile(`sfx/${x.sfx}.wav`)} volume={x.volume ?? 1} />
             </Sequence>
-          )}
+          ))}
         </Sequence>
       ))}
 
-      <Subtitles timeline={timeline} onCloth={onCloth} />
+      {script.music && <Music music={script.music} beats={beats} total={timeline.total} />}
+      {script.Overlay && <script.Overlay frame={frame} scene={scene} />}
+
+      <Subtitles timeline={timeline} onCloth={onCloth || fullBleed} script={script} />
     </AbsoluteFill>
+  );
+}
+
+// A looping music bed that dips under speech and fades at both ends.
+// music: { src: "music/noir.wav", volume: 0.3, duck: 0.35 }
+function Music({ music, beats, total }) {
+  const speaking = new Uint8Array(total);
+  for (const b of beats) for (let f = b.start; f < Math.min(total, b.start + b.speech + 6); f++) speaking[f] = 1;
+  // Smooth the ducking so it breathes rather than jumps.
+  const level = new Float32Array(total);
+  let v = 1;
+  for (let f = 0; f < total; f++) {
+    const target = speaking[f] ? (music.duck ?? 0.35) : 1;
+    v += (target - v) * (target < v ? 0.25 : 0.05);
+    level[f] = v;
+  }
+  return (
+    <Audio src={staticFile(music.src)} loop volume={f => {
+      const fade = Math.min(1, f / 30, (total - f) / 45);
+      return Math.max(0, (music.volume ?? 0.3) * level[Math.max(0, Math.min(total - 1, Math.floor(f)))] * fade);
+    }} />
   );
 }
 
@@ -93,7 +123,7 @@ const Diamond = () => (
 );
 
 // Each scene fades in and out, and gets helpers for timing its beats.
-function SceneFrame({ scene }) {
+function SceneFrame({ scene, push: pushAmount }) {
   const t = useCurrentFrame(); // frames since the scene started
   const opacity = Math.min(rise(t, 12), 1 - rise(t, 10, scene.length - 10));
   const beatStarts = scene.beats.map(b => b.start - scene.start);
@@ -110,7 +140,7 @@ function SceneFrame({ scene }) {
     length: scene.length,
   };
   // A very slow push-in keeps every frame alive without drawing attention.
-  const push = 1 + 0.018 * (t / Math.max(1, scene.length));
+  const push = 1 + (scene.push ?? pushAmount) * (t / Math.max(1, scene.length));
   return (
     <AbsoluteFill style={{ opacity, transform: `scale(${push})`, transformOrigin: "50% 45%" }}>
       {scene.render(s)}
@@ -120,7 +150,7 @@ function SceneFrame({ scene }) {
 
 // Subtitles: the current phrase, with words turning to full ink as they are
 // spoken (timed by letters, which tracks the voice closely enough).
-function Subtitles({ timeline, onCloth }) {
+function Subtitles({ timeline, onCloth, script }) {
   const frame = useCurrentFrame();
   const beat = timeline.scenes.flatMap(s => s.beats).find(b => frame >= b.start && frame < b.start + b.length);
   if (!beat) return null;
@@ -132,6 +162,13 @@ function Subtitles({ timeline, onCloth }) {
   const letters = chunk.words.join(" ").length;
   let count = 0;
 
+  if (script.Subtitles) {
+    // Hand the film's own renderer the words, how many are spoken, and who's talking.
+    let spoken = 0, seen = 0;
+    chunk.words.forEach(w => { if (into >= (seen / letters) * chunk.length) spoken++; seen += w.length + 1; });
+    return <script.Subtitles words={chunk.words} spoken={spoken} opacity={shown} who={beat.who} actor={script.cast?.[beat.who]} frame={frame} />;
+  }
+  if (script.subtitles === "none") return null;
   const ink = onCloth ? C.paper : C.ink;
   const ahead = onCloth ? "rgba(250,251,248,0.45)" : C.faint;
   return (

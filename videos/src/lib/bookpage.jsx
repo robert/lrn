@@ -32,7 +32,7 @@ export function BookPage({ x, y, w, h, paras, marks = [], thread, appear = 1, di
       ) : (
         <div key={i} style={{ position: "absolute", left: 0, right: 0, top: p.top, opacity: dim.includes(p.n) ? 0.35 : 1 }}>
           <div style={{
-            position: "absolute", left: 0, width: 80, textAlign: "right", top: 6,
+            position: "absolute", left: 0, width: 70, textAlign: "right", top: 6,
             fontFamily: SERIF, fontStyle: "italic", fontSize: 26, color: C.gilt,
           }}>{p.n}</div>
           <div style={{
@@ -99,15 +99,15 @@ function Thread({ paras, from, to, k }) {
   if (k <= 0) return null;
   const y1 = paras.find(p => p.n === from).top + 24;
   const y2 = paras.find(p => p.n === to).top + 24;
-  const x = 100;
-  const bow = 44;
-  const d = `M ${x - 6} ${y1} C ${x - bow - 30} ${y1}, ${x - bow - 30} ${y2}, ${x - 6} ${y2}`;
+  // Runs straight down the gilt margin rule, clear of the numbers.
+  const x = 102;
+  const d = `M ${x} ${y1} L ${x} ${y2}`;
   return (
     <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={1} height={1}>
       <path d={d} fill="none" stroke={C.gilt} strokeWidth={4} strokeLinecap="round"
         pathLength={1} strokeDasharray={1} strokeDashoffset={1 - Math.min(1, k)} />
-      <circle cx={x - 6} cy={y1} r={7} fill={C.gilt} opacity={Math.min(1, k * 4)} />
-      <circle cx={x - 6} cy={y2} r={7} fill={C.gilt} opacity={k >= 0.98 ? 1 : 0} />
+      <circle cx={x} cy={y1} r={7} fill={C.gilt} opacity={Math.min(1, k * 4)} />
+      <circle cx={x} cy={y2} r={7} fill={C.gilt} opacity={k >= 0.98 ? 1 : 0} />
     </svg>
   );
 }
@@ -130,7 +130,7 @@ export function QuestionCard({ x, y, w, children, appear = 1, size = 33 }) {
 // options: [{ text, word? }]; word, if given, is set bold before a colon.
 // strikes: { index: startFrame }, seal: { index, at }, tags: { index: { text, tone, at } }
 // glow: { index: 0..1 } warms a card's edge.
-export function AnswerCards({ t, x, y, w, options, appearAt = 0, gap = 14, height = 104, strikes = {}, seal, tags = {}, glow = {}, size = 29 }) {
+export function AnswerCards({ t, x, y, w, options, appearAt = 0, gap = 14, height = 104, strikes = {}, seal, tags = {}, glow = {}, size = 30 }) {
   return options.map((o, i) => {
     const top = y + i * (height + gap);
     const a = rise(t, 16, appearAt + i * 6);
@@ -161,10 +161,10 @@ export function AnswerCards({ t, x, y, w, options, appearAt = 0, gap = 14, heigh
         )}
         {tag && tagK > 0 && (
           <div style={{
-            position: "absolute", left: x + w - 24, top: top - 16,
+            position: "absolute", left: x + w - 24, top: top - 26,
             transform: `translateX(-100%) scale(${lerp(0.7, 1, tagK)})`, transformOrigin: "right center", opacity: Math.min(1, tagK * 1.4),
             background: tag.tone === "good" ? "#E3F0E8" : "#F3E9DF", color: tag.tone === "good" ? C.green : C.mud,
-            fontFamily: SERIF, fontStyle: "italic", fontSize: 25, padding: "3px 14px 5px", borderRadius: 8, whiteSpace: "nowrap",
+            fontFamily: SERIF, fontStyle: "italic", fontSize: 26, padding: "2px 16px 5px", boxShadow: "0 0 0 3px #FAFBF8", borderRadius: 8, whiteSpace: "nowrap",
           }}>{tag.text}</div>
         )}
         {seal && seal.index === i && <Seal x={x + w - 8} y={top + height / 2} size={70} t={t} start={seal.at} />}

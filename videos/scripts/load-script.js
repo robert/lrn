@@ -18,10 +18,12 @@ const stubs = {
       const names = new Set([...src.matchAll(/export\s+(?:const|function|let|class)\s+(\w+)/g)].map(m => m[1]));
       for (const m of src.matchAll(/export\s+(?:const|let)\s+\{([^}]+)\}/g)) m[1].split(",").forEach(n => names.add(n.split(":").pop().trim()));
       // Bare packages (remotion, react): stub whatever the script imports.
-      const any = "new Proxy(function(){}, { get: () => () => null, apply: () => null })";
-      const known = ["jsx", "jsxs", "jsxDEV", "AbsoluteFill", "interpolate", "spring", "Easing", "Sequence", "useCurrentFrame", "staticFile", "Img", "useId", "Fragment"];
+      // One self-returning stand-in: any property, call or destructure works.
+      const any = "__any";
+      const known = ["loadFont", "jsx", "jsxs", "jsxDEV", "AbsoluteFill", "interpolate", "spring", "Easing", "Sequence", "useCurrentFrame", "staticFile", "Img", "useId", "Fragment"];
       known.forEach(n => names.add(n));
-      return { contents: [...names].map(n => `export const ${n} = ${any};`).join("\n") + `\nexport default ${any};`, loader: "js" };
+      const header = "const __any = new Proxy(function(){}, { get: (t, k) => k === Symbol.toPrimitive ? () => \"\" : __any, apply: () => __any });\n";
+      return { contents: header + [...names].map(n => `export const ${n} = ${any};`).join("\n") + `\nexport default ${any};`, loader: "js" };
     });
   },
 };
@@ -38,5 +40,10 @@ export async function loadScript(id) {
 }
 
 
+// Each beat's words, and (for films with a cast) whose voice says them.
 export const narration = script =>
-  script.scenes.flatMap((scene, si) => scene.beats.map((beat, bi) => ({ id: `s${si}b${bi}`, text: beat.voice ?? beat.say })));
+  script.scenes.flatMap((scene, si) => scene.beats.map((beat, bi) => {
+    const actor = beat.who ? script.cast?.[beat.who] : null;
+    if (beat.who && !actor) throw new Error(`${script.id}: no cast member "${beat.who}"`);
+    return { id: `s${si}b${bi}`, text: beat.voice ?? beat.say, voice: actor?.voice, speed: actor?.speed };
+  }));

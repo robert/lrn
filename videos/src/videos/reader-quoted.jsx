@@ -38,14 +38,14 @@ export default {
       ],
       render: s => (
         <>
-          <AskCard x={620} w={680} y={200} size={44} appear={rise(s.t, 18, 4)}
+          <AskCard x={460} w={1000} y={190} size={48} appear={rise(s.t, 18, 4)}
             text="The Badger says *Why, you must be perished.* What does he mean?" />
           <div style={{ opacity: window(s.t, s.at(1), s.at(2) + 8) }}>
             {["what it means", "how they feel", "why it's put that way"].map((w, j) => (
-              <Note key={w} x={420 + j * 380} y={470} size={34} appear={rise(s.t, 14, s.at(1) + s.speech(1) * (0.2 + j * 0.28))}>{w}</Note>
+              <Note key={w} x={400 + j * 390} y={430} size={34} appear={rise(s.t, 14, s.at(1) + s.speech(1) * (0.2 + j * 0.28))}>{w}</Note>
             ))}
           </div>
-          <StoryPage x={400} y={420} w={1120} t={s.t} appear={rise(s.t, 20, s.at(2) + 4)} size={34}
+          <StoryPage x={400} y={440} w={1120} t={s.t} appear={rise(s.t, 20, s.at(2) + 4)} size={34}
             paras={[{ n: 5, text: P5, marks: [{ text: "Why, you must be perished.", at: s.at(2) + s.speech(2) * 0.3 }] }]} />
         </>
       ),
@@ -82,7 +82,7 @@ export default {
       ],
       render: s => (
         <>
-          <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, s.at(1))}
+          <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, s.at(1))} size={35}
             paras={[
               { n: 4, text: P4, dim: rise(s.t, 16, s.at(1) + 20) },
               {
@@ -94,9 +94,9 @@ export default {
                 ],
               },
             ]} />
-          <Note x={PAGE.x + 380} y={660} size={36} appear={rise(s.t, 16, s.at(3) + s.speech(3) * 0.4)}>perished: frozen and worn out</Note>
+          <Note x={PAGE.x + 40} y={760} size={38} appear={rise(s.t, 16, s.at(3) + s.speech(3) * 0.4)}>perished: frozen and worn out</Note>
           <AskCard {...Q} appear={rise(s.t, 18, 4)} text="The Badger says *Why, you must be perished.* What does he mean?" />
-          <Choices x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={s.at(0) + 30} correct={1}
+          <Choices size={31} x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={s.at(0) + 30} correct={1}
             sealAt={s.at(5) + s.speech(5) * 0.3}
             strikes={{ 0: s.at(4) + s.speech(4) * 0.8, 2: s.at(4) + s.speech(4) * 0.88 }}
             options={[
@@ -121,19 +121,19 @@ export default {
       ],
       render: s => (
         <>
-          <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, s.at(1) - 10)} size={34}
+          <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, s.at(1) - 10)} size={37}
             paras={[{
               n: 10, ellipsisBefore: true, text: P10, focus: rise(s.t, 12, s.at(1)), marks: [
-                { text: "now in safe anchorage", at: s.at(1) + 6 },
                 { text: "warm and dry at last", kind: "underline", at: s.at(1) + s.speech(1) * 0.3 },
                 { text: "storm-driven animals", kind: "underline", at: s.at(1) + s.speech(1) * 0.5 },
+                { text: "now in safe anchorage", at: s.at(1) + 6 },
                 { text: "miles and miles away", kind: "underline", at: s.at(1) + s.speech(1) * 0.82 },
               ],
             }]} />
-          <Note x={PAGE.x + 150} y={640} size={36} appear={rise(s.t, 16, s.at(2) + s.speech(2) * 0.72)}>like a boat, safe out of the storm</Note>
-          <Note x={PAGE.x + 150} y={720} size={34} bg="#F3E9DF" color={C.mud} appear={rise(s.t, 16, s.at(3) + s.speech(3) * 0.75)}>the word-by-word trap</Note>
+          <Note x={PAGE.x + 40} y={640} size={38} appear={rise(s.t, 16, s.at(2) + s.speech(2) * 0.72)}>like a boat, safe out of the storm</Note>
+          <Note x={PAGE.x + 40} y={724} size={36} bg="#F3E9DF" color={C.mud} appear={rise(s.t, 16, s.at(3) + s.speech(3) * 0.75)}>the word-by-word trap</Note>
           <AskCard {...Q} appear={rise(s.t, 18, 4)} text="By the fire they are *now in safe anchorage*. What does that tell us?" />
-          <Choices x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={s.at(0) + 30} correct={3}
+          <Choices size={31} x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={s.at(0) + 30} correct={3}
             sealAt={s.at(5) + s.speech(5) * 0.3}
             strikes={{ 0: s.at(3) + s.speech(3) * 0.2, 1: s.at(3) + s.speech(3) * 0.28 }}
             dims={{ 2: s.at(4) + s.speech(4) * 0.55 }}
@@ -157,19 +157,19 @@ export default {
       ],
       render: s => (
         <>
-          <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, 10)} size={36}
+          <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, 10)} size={40}
             paras={[{
               n: 1, text: P13, marks: [
-                { text: "tried to look properly mournful", at: 40 },
                 { text: "basking in the firelight", kind: "underline", at: s.at(1) + s.speech(1) * 0.15 },
                 { text: "his heels higher than his head", kind: "underline", at: s.at(1) + s.speech(1) * 0.3 },
+                { text: "tried to look properly mournful", at: 40 },
               ],
             }]} />
           <div style={{ opacity: window(s.t, s.at(0) + s.speech(0), s.at(1)) }}>
             <Countdown x={PAGE.x + PAGE.w / 2} y={660} t={s.t} start={s.at(0) + s.speech(0)} seconds={6} size={170} />
           </div>
           <AskCard {...Q} appear={rise(s.t, 18, 4)} text="The Mole *tried to look properly mournful*. Does he really feel sad about Toad?" />
-          <Choices x={Q.x} y={ANS_Y + 40} w={Q.w} t={s.t} appearAt={30} correct={1}
+          <Choices size={31} x={Q.x} y={ANS_Y + 40} w={Q.w} t={s.t} appearAt={30} correct={1}
             sealAt={s.at(1) + s.speech(1) * 0.92}
             options={[
               "Yes, he is so upset about Toad that he can't stop crying.",
@@ -191,12 +191,17 @@ export default {
         { say: "Four. Choose the full sentence, not the little fragment." },
       ],
       render: s => (
-        <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={420} y={260} steps={[
+        <>
+        <div style={{ position: "absolute", left: 0, right: 0, top: 190, display: "flex", justifyContent: "center", opacity: rise(s.t, 18) }}>
+          <Emblem name="quote" size={72} />
+        </div>
+        <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={440} y={300} steps={[
           "Find the words in the story.",
           "Read the whole sentence around them.",
           "Ask what they mean here.",
           "Choose the full sentence.",
         ]} />
+        </>
       ),
     },
 

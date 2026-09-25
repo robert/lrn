@@ -318,15 +318,15 @@ export default {
           <>
             <Words x={260} y={170} w={1400} size={46} italic color={C.soft} align="center" appear={rise(s.t, 18, 6)}>Three lines of four</Words>
             {lines.map((line, li) => (
-              <div key={li} style={{ position: "absolute", left: 160, width: 1600, top: 290 + li * 140, display: "flex", justifyContent: "center", gap: 26 }}>
+              <div key={li} style={{ position: "absolute", left: 160, width: 1600, top: 300 + li * 130, display: "flex", justifyContent: "center", gap: 14 }}>
                 {line.map((w, wi) => {
                   const at = s.at(li + 1) + (s.speech(li + 1) * wi) / 4;
                   const k = rise(s.t, 14, at);
                   const hot = window(s.t, at, at + s.speech(li + 1) / 4 + 6, 6);
                   return (
                     <span key={wi} style={{
-                      fontFamily: SERIF, fontSize: 56, color: C.ink, opacity: k,
-                      padding: "6px 22px 10px", borderRadius: 12,
+                      fontFamily: SERIF, fontSize: 52, color: C.ink, opacity: k, whiteSpace: "nowrap",
+                      padding: "6px 18px 10px", borderRadius: 12,
                       background: hot > 0.05 ? `rgba(255,241,184,${hot})` : "transparent",
                       transform: `translateY(${(1 - k) * 14}px)`,
                     }}>
@@ -354,7 +354,7 @@ export default {
         { say: "Four. If something points the other way, ask: was it turned, or flipped?" },
       ],
       render: s => (
-        <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={330} y={250} steps={[
+        <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={380} y={280} steps={[
           "Name each shape by how it looks first.",
           "Sweep all twelve, top to bottom.",
           "Same or different, for every one.",

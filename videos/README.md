@@ -73,3 +73,26 @@ Add new building blocks to `lib/` only if several videos will use them. Otherwis
 - **Layout:** the paper page runs from about x 64 to 1856 and y 56 to 1024. The running head is at the top. Subtitles take the bottom ~190px, so keep content between y ≈ 140 and y ≈ 820. Centre compositions, and don't leave big empty areas.
 - **Look:** ink on paper, gilt for emphasis, highlight yellow for notes, mud (warm brown) for traps. No emoji, no bright colours, no clutter.
 - **Check your work:** run `node scripts/stills.js <id>`, tile the PNGs and look at every beat. Fix overlaps, clipping, empty areas and anything off-beat, then render.
+
+## Series 2: the cinema films
+
+Series 2 films are full-bleed short films in different genres. `SERIES2.md` has the line-up and status. `src/videos/s2-noir.jsx` is the model. Extra script fields:
+
+```js
+export default {
+  id: "s2-noir", order: 101, series: 2, title: "...",
+  frame: "none",                      // no paper page or cloth: the film draws its own world
+  push: 0.03,                         // slow push-in per scene (0 to switch off)
+  cast: { sharp: { name: "SHARP", voice: "bm_george", speed: 0.86 }, penny: { name: "PENNY", voice: "bf_isabella", speed: 1 } },
+  music: { src: "music/noir.wav", volume: 0.32, duck: 0.4 },  // looped bed, dips under speech
+  Overlay,                            // ({ frame, scene }) drawn over everything (grain, letterbox)
+  Backdrop,                           // ({ frame, scene }) drawn under the scenes
+  Subtitles,                          // ({ words, spoken, opacity, who, actor, frame }) your own caption style
+  scenes: [{ beats: [{ who: "sharp", say: "...", sfxs: [{ sfx: "rain", at: 0, volume: 0.4 }] }], render: s => ... }],
+};
+```
+
+- **Voices** (Kokoro, British unless noted). Female: `bf_emma`, `bf_isabella`, `bf_alice`, `bf_lily`. Male: `bm_george`, `bm_fable`, `bm_lewis`, `bm_daniel`. American, for a robot or arcade announcer: `am_michael`, `am_adam`, `af_nicole`, `af_sky`. Use `speed` for character.
+- **Music and sound effects** are composed in code: `music/synth.py` holds the instruments (epiano, bass, brush, ride, square, triangle, pad, reverb, `place`, `save`), and `music/noir.py` is an example score. Write `music/<film>.py`, run it with `tts/.venv/bin/python music/<film>.py`, and it writes `public/music/<film>.wav` and any `public/sfx/*.wav`. Name effects uniquely so films don't clash, e.g. `arcade-coin.wav`.
+- **Randomness:** use a seeded hash of the frame (see `hash` in the noir film), never `Math.random`.
+- **Fonts:** `@remotion/google-fonts/<Name>`, for example SpecialElite, Limelight, PressStart2P, VT323, Silkscreen, Caveat, CaveatBrush, PermanentMarker, Orbitron, Bangers, Chewy, Fredoka, Cinzel, IMFellEnglish, BebasNeue, Pacifico, Creepster.
