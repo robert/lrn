@@ -1,0 +1,55 @@
+{
+  "_note": "Which paragraphs of each chapter make each night. from/to are 1-based paragraph numbers in the chapter (see scripts/split-chapters.js). cut lists paragraphs left out. Nights marked done were played in the prototype and have no passage here.",
+  "chapters": [
+    { "num": 1, "nights": [
+      { "id": "ch1n1", "done": true }, { "id": "ch1n2", "done": true }, { "id": "ch1n3", "done": true },
+      { "id": "ch1n4", "done": true }, { "id": "ch1n5", "done": true }, { "id": "ch1n6", "done": true } ] },
+    { "num": 2, "nights": [
+      { "id": "ch2n1", "done": true }, { "id": "ch2n2", "done": true }, { "id": "ch2n3", "done": true } ] },
+    { "num": 3, "nights": [
+      { "id": "ch3n1", "done": true }, { "id": "ch3n2", "done": true },
+      { "id": "ch3n3", "from": 47, "to": 79 } ] },
+    { "num": 4, "nights": [
+      { "id": "ch4n1", "from": 1, "to": 12 },
+      { "id": "ch4n2", "from": 13, "to": 36 },
+      { "id": "ch4n3", "from": 37, "to": 48 },
+      { "id": "ch4n4", "from": 49, "to": 62 } ] },
+    { "num": 5, "nights": [
+      { "id": "ch5n1", "from": 1, "to": 11 },
+      { "id": "ch5n2", "from": 12, "to": 33 },
+      { "id": "ch5n3", "from": 34, "to": 49 },
+      { "id": "ch5n4", "from": 50, "to": 71 } ] },
+    { "num": 6, "nights": [
+      { "id": "ch6n1", "from": 1, "to": 37 },
+      { "id": "ch6n2", "from": 38, "to": 65 },
+      { "id": "ch6n3", "from": 66, "to": 83 } ] },
+    { "num": 8, "nights": [
+      { "id": "ch8n1", "from": 1, "to": 11 },
+      { "id": "ch8n2", "from": 12, "to": 29 },
+      { "id": "ch8n3", "from": 30, "to": 44 },
+      { "id": "ch8n4", "from": 45, "to": 60 } ] },
+    { "num": 9, "nights": [
+      { "id": "ch9n1", "from": 1, "to": 17 },
+      { "id": "ch9n2", "from": 18, "to": 34 },
+      { "id": "ch9n3", "from": 35, "to": 49 },
+      { "id": "ch9n4", "from": 50, "to": 57 },
+      { "id": "ch9n5", "from": 58, "to": 72 } ] },
+    { "num": 10, "nights": [
+      { "id": "ch10n1", "from": 1, "to": 21 },
+      { "id": "ch10n2", "from": 22, "to": 39 },
+      { "id": "ch10n3", "from": 40, "to": 52 },
+      { "id": "ch10n4", "from": 53, "to": 73 },
+      { "id": "ch10n5", "from": 74, "to": 97 } ] },
+    { "num": 11, "nights": [
+      { "id": "ch11n1", "from": 1, "to": 13 },
+      { "id": "ch11n2", "from": 14, "to": 39 },
+      { "id": "ch11n3", "from": 40, "to": 63 },
+      { "id": "ch11n4", "from": 64, "to": 86 },
+      { "id": "ch11n5", "from": 87, "to": 108 } ] },
+    { "num": 12, "nights": [
+      { "id": "ch12n1", "from": 1, "to": 22 },
+      { "id": "ch12n2", "from": 23, "to": 30 },
+      { "id": "ch12n3", "from": 31, "to": 49 },
+      { "id": "ch12n4", "from": 50, "to": 67 } ] }
+  ]
+}

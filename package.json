@@ -1,0 +1,10 @@
+{
+  "name": "mega-games",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "content": "node scripts/make-content.js",
+    "validate": "node scripts/validate.js",
+    "split": "node scripts/split-chapters.js"
+  }
+}

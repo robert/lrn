@@ -1,0 +1,29 @@
+{
+  "chapter": 1,
+  "nights": [
+    {
+      "id": "ch1n1",
+      "done": true
+    },
+    {
+      "id": "ch1n2",
+      "done": true
+    },
+    {
+      "id": "ch1n3",
+      "done": true
+    },
+    {
+      "id": "ch1n4",
+      "done": true
+    },
+    {
+      "id": "ch1n5",
+      "done": true
+    },
+    {
+      "id": "ch1n6",
+      "done": true
+    }
+  ]
+}

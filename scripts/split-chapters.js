@@ -1,15 +1,18 @@
 // Splits the Gutenberg text into chapters and paragraphs, then proposes
 // night boundaries of roughly 1,100 to 1,500 words at paragraph breaks.
 // Usage: node scripts/split-chapters.js [firstChapter]
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
-const SKIP = new Set(["VII"]);
+export const SKIP = new Set(["VII"]);
 // Aim for 1,100 to 1,500; the validator allows 1,000 to 1,600 when paragraphs force it.
 const MIN = 1000, MAX = 1600, TARGET = 1300;
 
-function loadChapters() {
+export function loadChapters() {
   const raw = fs.readFileSync(path.join(__dirname, "../source/wind-in-the-willows.txt"), "utf8");
   const body = raw.split("*** END OF THE PROJECT GUTENBERG")[0];
   const lines = body.split(/\r?\n/);
@@ -27,11 +30,11 @@ function loadChapters() {
   });
 }
 
-const words = p => p.split(/\s+/).filter(Boolean).length;
+export const words = p => p.split(/\s+/).filter(Boolean).length;
 
 // Dynamic programme: choose breaks so every night is within MIN..MAX and
 // total squared distance from TARGET is smallest.
-function split(paras, verse) {
+export function split(paras, verse) {
   const w = paras.map(words);
   const n = w.length;
   const best = Array(n + 1).fill(Infinity), prev = Array(n + 1).fill(-1);
@@ -53,9 +56,7 @@ function split(paras, verse) {
   return nights.map(([a, b]) => ({ from: a, to: b, words: w.slice(a, b).reduce((x, y) => x + y, 0) }));
 }
 
-module.exports = { loadChapters, split, words, SKIP };
-
-if (require.main === module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const first = Number(process.argv[2] || 4);
   let total = 0;
   for (const ch of loadChapters()) {
