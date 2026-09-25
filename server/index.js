@@ -1,6 +1,7 @@
 // One process serves everything: the JSON API, the pictures folder, and the
 // React app (through Vite's dev middleware). Run with: npm run dev
 import express from "express";
+import http from "node:http";
 import os from "node:os";
 import path from "node:path";
 import { createServer as createVite } from "vite";
@@ -28,10 +29,12 @@ app.use("/api", (err, req, res, next) => {
   res.status(500).json({ error: err.message });
 });
 
-const vite = await createVite({ root: ROOT, server: { middlewareMode: true }, appType: "spa" });
+// Vite's live-reload socket shares our port, so quick restarts never clash.
+const server = http.createServer(app);
+const vite = await createVite({ root: ROOT, server: { middlewareMode: true, hmr: { server } }, appType: "spa" });
 app.use(vite.middlewares);
 
-app.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`\n  Mega games are running!\n\n  On this computer:  http://localhost:${PORT}`);
   for (const addrs of Object.values(os.networkInterfaces())) {
     for (const a of addrs ?? []) {

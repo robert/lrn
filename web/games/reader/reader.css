@@ -1,0 +1,76 @@
+.reader-title { color: var(--green); }
+.reader-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.reader-tile { text-align: center; }
+.reader-tile-label { font-weight: 900; letter-spacing: 0.08em; color: var(--soft); font-size: 15px; }
+.reader-tile-big { font-size: 44px; font-weight: 900; }
+.reader-tile-rank { font-size: 22px; font-weight: 900; color: var(--green); }
+.reader-chapter { font-size: 20px; font-weight: 800; }
+.reader-results-link {
+  background: none; border: none; color: var(--rule); font-size: 14px; cursor: pointer; margin-top: 24px;
+}
+
+/* Sticky score and ladder while reading. */
+.reader-sticky {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: var(--paper); border-bottom: 2px solid var(--rule); padding: 8px 16px;
+}
+.reader-sticky .back { font-size: 28px; padding: 0 4px; }
+.reader-score { text-align: center; }
+.reader-score-label { font-size: 12px; font-weight: 800; color: var(--soft); text-transform: uppercase; }
+.reader-score-num { font-size: 28px; font-weight: 900; color: var(--green); line-height: 1; }
+.reader-ladder { display: flex; align-items: center; gap: 4px; flex: 1; min-width: 180px; flex-wrap: wrap; }
+.reader-rung { width: 18px; height: 18px; border-radius: 5px; background: var(--cover); border: 2px solid var(--rule); }
+.reader-rung.lit { background: var(--gold); border-color: var(--mud); }
+.reader-rung-name { font-weight: 900; margin-left: 6px; font-size: 16px; }
+.reader-jump { margin-left: auto; }
+
+/* The passage. */
+.reader-passage { padding: 24px clamp(16px, 4vw, 40px); }
+.reader-para {
+  position: relative; font-family: var(--story); font-size: clamp(20px, 2.6vw, 23px); line-height: 1.65;
+  margin: 0 0 1em; padding-left: 36px;
+}
+.reader-para-num {
+  position: absolute; left: 0; top: 0.35em; font-family: var(--ui); font-size: 13px; font-weight: 800;
+  color: var(--soft); background: var(--cover); border-radius: 8px; padding: 1px 6px;
+}
+.reader-para mark { background: var(--highlight); color: inherit; border-radius: 4px; box-shadow: 0 0 0 3px var(--highlight); }
+
+/* Questions. */
+.reader-q-text { font-family: var(--story); font-size: 22px; line-height: 1.45; font-weight: 600; }
+.reader-quote {
+  font: inherit; font-style: italic; color: var(--mud); background: none; border: none; padding: 0;
+  text-decoration: underline dotted; text-underline-offset: 4px; cursor: pointer;
+}
+.reader-option {
+  width: 100%; text-align: left; font-family: var(--story); font-size: 19px; line-height: 1.4;
+  background: var(--paper); border: 3px solid var(--rule); border-radius: 14px; padding: 14px 16px;
+  cursor: pointer; color: var(--ink);
+}
+.reader-option:hover:not(:disabled) { border-color: var(--green); }
+.reader-option.greyed { opacity: 0.35; text-decoration: line-through; }
+.reader-option.right { border-color: var(--green); background: #E4F3EA; font-weight: 600; }
+.reader-option:disabled { cursor: default; }
+.reader-feedback { background: #E4F3EA; border-radius: 14px; padding: 16px; }
+.reader-feedback p { margin: 8px 0; }
+.reader-praise { font-size: 22px; font-weight: 900; color: var(--green); }
+.reader-praise span { color: var(--mud); }
+.reader-rung-up { font-weight: 900; font-size: 20px; color: var(--mud); margin-bottom: 12px; }
+.reader-flaw { font-weight: 900; font-size: 20px; color: var(--mud); }
+
+/* Prediction round. */
+.reader-left, .reader-hint { background: var(--highlight); border-radius: 14px; padding: 14px 16px; font-family: var(--story); font-size: 19px; }
+.reader-left-label { font-family: var(--ui); font-weight: 900; font-size: 14px; text-transform: uppercase; color: var(--mud); margin-bottom: 4px; }
+.reader-predict-ask { font-size: 19px; font-weight: 700; }
+.reader-counter { display: flex; align-items: center; justify-content: center; gap: 24px; }
+.reader-counter .btn { width: 72px; font-size: 32px; }
+.reader-counter-num { font-size: 56px; font-weight: 900; min-width: 64px; text-align: center; }
+
+.reader-finish-score { font-size: 28px; font-weight: 900; color: var(--green); }
+.reader-finish-note { font-size: 19px; font-weight: 700; }
+
+.reader-results-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.reader-results-table th, .reader-results-table td { text-align: left; padding: 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.reader-results-table .tick { color: var(--green); font-weight: 900; }
+.reader-results-table .cross { color: var(--red); font-weight: 900; }

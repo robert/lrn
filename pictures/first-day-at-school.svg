@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#BFE3F5"/>
+  <circle cx="340" cy="50" r="28" fill="#FFD84D"/>
+  <rect y="240" width="400" height="60" fill="#9A9A9A"/>
+  <rect x="60" y="90" width="280" height="150" fill="#B8553A"/>
+  <polygon points="50,90 200,30 350,90" fill="#6B3A2A"/>
+  <rect x="140" y="98" width="120" height="26" rx="4" fill="white"/>
+  <text x="200" y="117" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#1B2A24">SCHOOL</text>
+  <g fill="#CFEFFF" stroke="white" stroke-width="3">
+    <rect x="80" y="140" width="40" height="36"/><rect x="280" y="140" width="40" height="36"/>
+    <rect x="80" y="190" width="40" height="36"/><rect x="280" y="190" width="40" height="36"/>
+  </g>
+  <rect x="175" y="170" width="50" height="70" fill="#2E5E8C"/>
+  <circle cx="215" cy="208" r="3" fill="#FFD84D"/>
+  <g>
+    <circle cx="120" cy="222" r="11" fill="#F2C9A0"/><path d="M109 219 q11 -12 22 0" fill="#6B4423"/>
+    <rect x="109" y="233" width="22" height="30" rx="5" fill="#8B1E2E"/>
+    <rect x="128" y="236" width="12" height="20" rx="3" fill="#2F8F5B"/>
+    <rect x="111" y="263" width="7" height="20" fill="#333"/><rect x="122" y="263" width="7" height="20" fill="#333"/>
+  </g>
+  <g>
+    <circle cx="80" cy="196" r="13" fill="#F2C9A0"/><path d="M67 193 q13 -16 26 0 v10 h-4 v-8 h-18 v8 h-4 z" fill="#C9A15B"/>
+    <rect x="66" y="209" width="28" height="50" rx="6" fill="#7B3F8C"/>
+    <rect x="68" y="259" width="9" height="24" fill="#333"/><rect x="83" y="259" width="9" height="24" fill="#333"/>
+    <line x1="94" y1="228" x2="110" y2="240" stroke="#F2C9A0" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

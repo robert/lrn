@@ -1,0 +1,37 @@
+.story-title { color: var(--mud); }
+.story-tagline { font-size: 20px; font-weight: 700; margin: 0 auto; max-width: 540px; }
+.story-go { min-height: 80px; font-size: 26px; }
+.story-stars { font-size: 56px; letter-spacing: 12px; color: var(--rule); }
+.story-stars span { display: inline-block; }
+.story-stars-note { font-weight: 700; }
+
+.story-idea { font-size: 20px; }
+.story-idea > * + * { margin-top: 8px; }
+.story-tag { display: inline-block; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 6px; padding: 2px 8px; color: white; margin-right: 6px; }
+.story-tag.problem { background: var(--red); }
+.story-tag.solution { background: var(--green); }
+
+.story-slot-label { font-size: 44px; font-weight: 900; color: var(--mud); }
+.story-slot-prompt { font-size: 21px; font-weight: 700; }
+.story-text, .story-input {
+  width: 100%; font-family: var(--story); font-size: 21px; padding: 12px;
+  border-radius: 12px; border: 2px solid var(--rule);
+}
+.story-input { flex: 1; width: auto; min-height: 48px; font-family: var(--ui); font-size: 18px; }
+.story-mic { background: var(--mud); }
+.story-mic.on { background: var(--red); animation: story-pulse 1.2s infinite; }
+@keyframes story-pulse { 50% { opacity: 0.75; } }
+.story-interim { font-style: italic; }
+
+.story-outline { padding: 8px 16px; }
+.story-outline-row { display: flex; gap: 12px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--cover); }
+.story-outline-row:first-child { border-top: none; }
+.story-outline-label {
+  flex: none; width: 110px; font-weight: 900; font-size: 18px; color: var(--soft);
+  background: var(--cover); border-radius: 8px; padding: 4px 8px; text-align: center;
+}
+.story-outline-row.filled .story-outline-label { background: var(--mud); color: white; }
+.story-outline-row.current .story-outline-label { background: var(--highlight); color: var(--ink); outline: 3px solid var(--gold); }
+.story-outline-row.missed .story-outline-label { background: var(--highlight); color: var(--ink); }
+.story-outline-row.missed .story-outline-text { color: var(--soft); }
+.story-outline-text { font-family: var(--story); font-size: 18px; min-height: 1em; }
