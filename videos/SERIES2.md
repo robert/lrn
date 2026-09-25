@@ -43,4 +43,4 @@ Series 1 is a consistent library of calm, bookish tutorials. Series 2 does the o
 - [ ] 9 sports (agent working)
 - [ ] 10 train (agent working)
 - [x] Films wired into the app (a "Cinema" shelf in the film library; each film appears when its mp4 exists)
-- [ ] Still to assign once agents free up: theatre (swapped words), bakeoff (balancing), heist (find the evidence)
+- [ ] theatre, bakeoff, heist (one agent working on all three)

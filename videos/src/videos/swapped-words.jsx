@@ -336,8 +336,8 @@ export default {
             <div style={{ opacity: cd }}>
               <Countdown x={960} y={700} t={s.t} start={s.at(0) + s.speech(0)} seconds={7} size={130} />
             </div>
-            <Seal x={1740} y={300} size={70} t={s.t} start={s.at(1) + s.speech(1) * 0.55} />
-            <Seal x={1740} y={480} size={70} t={s.t} start={s.at(2) + s.speech(2) * 0.55} />
+            <Seal x={140} y={318} size={70} t={s.t} start={s.at(1) + s.speech(1) * 0.55} />
+            <Seal x={140} y={498} size={70} t={s.t} start={s.at(2) + s.speech(2) * 0.55} />
           </>
         );
       },
@@ -353,12 +353,15 @@ export default {
         { say: "Four. Read it again to check it makes sense." },
       ],
       render: s => (
-        <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={500} y={260} steps={[
+        <>
+        <Words x={260} w={1400} y={170} size={46} italic color={C.soft} align="center" appear={rise(s.t, 18, 4)}>To fix a swapped sentence</Words>
+        <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={560} y={290} steps={[
           "Read it out loud.",
           "Find the silly part.",
           "Swap the two words.",
           "Read it again to check.",
         ]} />
+        </>
       ),
     },
 

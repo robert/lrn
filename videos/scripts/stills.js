@@ -15,14 +15,14 @@ if (!id) throw new Error("Usage: node scripts/stills.js <video id> [outDir]");
 fs.mkdirSync(outDir, { recursive: true });
 
 const serveUrl = await bundle({ entryPoint: path.join(ROOT, "src/index.jsx") });
-const composition = await selectComposition({ serveUrl, id });
+const composition = await selectComposition({ serveUrl, id, timeoutInMilliseconds: 240000 });
 const durations = JSON.parse(fs.readFileSync(path.join(ROOT, "src/generated/durations", `${id}.json`), "utf8"));
 const { scenes } = buildTimeline(await loadScript(id), durations);
 for (const scene of scenes) {
   for (const b of scene.beats) {
     const frame = Math.min(composition.durationInFrames - 1, b.start + Math.round(b.length * 0.85));
     const output = path.join(outDir, `${id}-${b.id}.png`);
-    await renderStill({ composition, serveUrl, output, frame, scale: 0.5 });
+    await renderStill({ composition, serveUrl, output, frame, scale: 0.5, timeoutInMilliseconds: 240000 });
     console.log(output);
   }
 }
