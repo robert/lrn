@@ -10,7 +10,8 @@ import OddOneOut from "./OddOneOut.jsx";
 import Codes from "./Codes.jsx";
 import Flashcards from "./Flashcards.jsx";
 import { Lesson, Mixed } from "./Questions.jsx";
-import { ANIMALS, Portrait } from "./animals.jsx";
+import { ANIMALS, Cameo } from "./animals.jsx";
+import Icon from "../../icons.jsx";
 
 // Each item has a weight: roughly how many "comparisons" it is worth.
 export function buildPlan(state) {
@@ -71,36 +72,42 @@ export default function Daily({ state, onFinished }) {
   );
 }
 
+// The promotion screen, laid out like a certificate.
 function Promotion({ promotion, onDone }) {
   if (promotion.again) {
     return (
-      <div className="card stack center pop">
-        <div style={{ fontSize: 56 }}>👀</div>
-        <h2 className="title">Extra round done!</h2>
-        <p>You've already climbed today. Come back tomorrow for your next animal.</p>
+      <div className="sheet stack center pop">
+        <Icon name="eye" size={48} strokeWidth={1.2} className="certificate-icon" />
+        <h2 className="display">Extra round done</h2>
+        <p className="lead">You've already climbed today. Come back tomorrow for your next animal.</p>
         <button className="btn wide" onClick={onDone}>Back</button>
       </div>
     );
   }
   const animal = ANIMALS[promotion.animal];
+  const a = /^[aeiou]/i.test(animal.name) ? "an" : "a";
   return (
-    <div className="card stack center pop promotion">
-      <Portrait animal={animal.key} size={160} />
-      {promotion.levelComplete ? (
-        <>
-          <h2 className="title">Level {promotion.level} complete: you're the kid nothing gets past.</h2>
-          <p className="lesson-line">You're an {animal.name}! {animal.fact}</p>
-          <p>Tomorrow Level {promotion.level + 1} begins, and you start again as a mole. Can you climb all the way again?</p>
-        </>
-      ) : (
-        <>
-          <h2 className="title">You're now {/^[aeiou]/i.test(animal.name) ? "an" : "a"} {animal.name}!</h2>
-          <p className="lesson-line">{animal.fact}</p>
-          <p><b>{animal.why}</b></p>
-        </>
-      )}
-      <button className="btn wide" onClick={onDone}>Brilliant!</button>
-      <button className="back" onClick={() => go("")}>‹ Home</button>
+    <div className="certificate pop">
+      <div className="certificate-frame stack center">
+        <p className="certificate-kicker">Today's challenge is complete</p>
+        <Cameo animal={animal.key} width={150} current />
+        {promotion.levelComplete ? (
+          <>
+            <h2 className="certificate-title">Level {promotion.level} complete: you're the kid nothing gets past.</h2>
+            <p className="certificate-fact">You're {a} {animal.name.toLowerCase()}. {animal.fact}</p>
+            <p className="certificate-why">Tomorrow Level {promotion.level + 1} begins, and you start again as a mole. Can you climb all the way again?</p>
+          </>
+        ) : (
+          <>
+            <h2 className="certificate-title">You're now {a} {animal.name}</h2>
+            <p className="certificate-fact">{animal.fact}</p>
+            <p className="certificate-why">{animal.why}</p>
+          </>
+        )}
+        <div className="flourish certificate-rule"><Icon name="sparkle" size={16} strokeWidth={1.3} /></div>
+        <button className="btn gold wide" onClick={onDone}>Brilliant!</button>
+        <button className="btn quiet" onClick={() => go("")}>Back to all the games</button>
+      </div>
     </div>
   );
 }

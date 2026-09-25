@@ -1,82 +1,232 @@
-/* Shared look for the whole suite. Palette and fonts from the reader prototype. */
+/*
+  The cloth-bound library. See DESIGN.md for the rules.
+  Home is a bottle-green book cover stamped in gilt; each game is a volume
+  with its own cloth colour; inside, content sits on pale sage-white paper.
+*/
 :root {
-  --cover: #DCE7E1;
-  --paper: #FFFFFF;
+  /* Cloth and gilt */
+  --cloth: #1E3B30;
+  --cloth-deep: #142820;
+  --gilt: #C9A24B;
+  --gilt-light: #EDD48F;
+  --gilt-dark: #8B6A27;
+
+  /* Paper and ink (the reader prototype's family) */
+  --ground: #DCE7E1;
+  --paper: #FAFBF8;
+  --rule: #C5D3CC;
+  --rule-soft: #E4ECE7;
   --ink: #1B2A24;
   --soft: #5F6F68;
-  --rule: #C5D3CC;
-  --red: #C8102E;
+  --faint: #93A29B;
   --green: #1F7A4D;
+  --red: #C8102E;
   --mud: #7A5C3E;
   --highlight: #FFF1B8;
-  --gold: #E8A317;
-  --sky: #2D6FA3;
-  --plum: #7B3F8C;
+
+  /* One cloth per volume */
+  --vol-reader: #1F5A40;
+  --vol-imagination: #3B3461;
+  --vol-story: #6D3A2B;
+  --vol-spotter: #1E3E5C;
+  --vol: var(--cloth);
+
   --story: "Fraunces", Georgia, serif;
   --ui: "Nunito", system-ui, sans-serif;
-  --radius: 18px;
-  --shadow: 0 4px 0 rgba(27, 42, 36, 0.15);
+
+  /* Type scale (roughly 1.25) */
+  --t-small: 15px;
+  --t-body: 18px;
+  --t-lead: 21px;
+  --t-h3: 24px;
+  --t-h2: 31px;
+  --t-h1: clamp(34px, 6vw, 46px);
+
+  --r-book: 6px;
+  --r-button: 14px;
+  --r-sheet: 10px;
+  --lift: 0 1px 0 rgba(27, 42, 36, 0.06), 0 10px 24px -14px rgba(27, 42, 36, 0.35);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {
-  background: var(--cover);
+  background: var(--ground);
   color: var(--ink);
   font-family: var(--ui);
-  font-size: 18px;
+  font-size: var(--t-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
-button { font-family: inherit; }
+button, input, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+img, svg { display: block; }
+:focus-visible { outline: 3px solid var(--gilt); outline-offset: 3px; border-radius: 6px; }
 
-.page { max-width: 880px; margin: 0 auto; padding: 16px 16px 64px; }
-.card {
-  background: var(--paper);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
+/* ---------- Surfaces ---------- */
+
+/* Woven book cloth: two faint cross-hatches over the volume colour. */
+.cloth {
+  background-color: var(--vol);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.07) 0 1px, transparent 1px 3px),
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.09), transparent 60%);
+  color: var(--paper);
 }
-.stack > * + * { margin-top: 16px; }
+
+/* Gilt foil text. */
+.gilt {
+  background: linear-gradient(100deg, var(--gilt-dark) 0%, var(--gilt) 22%, var(--gilt-light) 48%, var(--gilt) 70%, var(--gilt-dark) 100%);
+  background-size: 200% 100%;
+  background-position: 30% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page { max-width: 860px; margin: 0 auto; padding: 24px 20px 80px; }
+.sheet, .card {
+  background: var(--paper);
+  border-radius: var(--r-sheet);
+  padding: 24px;
+  box-shadow: var(--lift);
+}
+.stack > * + * { margin-top: 20px; }
 .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .center { text-align: center; }
 .soft { color: var(--soft); }
-.big-title { font-weight: 900; font-size: clamp(28px, 7vw, 48px); letter-spacing: 0.02em; line-height: 1.05; margin: 8px 0; }
-.title { font-weight: 900; font-size: 26px; margin: 0; }
+.faint { color: var(--faint); }
 
-/* Big friendly buttons that work with a finger. */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 56px; padding: 12px 24px;
-  border: none; border-radius: 16px;
-  background: var(--green); color: white;
-  font-size: 20px; font-weight: 800;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
-  cursor: pointer; user-select: none;
-  transition: transform 0.05s;
+/* ---------- Type ---------- */
+
+.big-title, .display {
+  font-family: var(--story);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: var(--t-h1);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0;
 }
-.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); }
-.btn:disabled { background: var(--rule); color: var(--soft); box-shadow: none; cursor: default; }
-.btn.secondary { background: var(--paper); color: var(--ink); border: 2px solid var(--rule); box-shadow: none; }
-.btn.red { background: var(--red); }
-.btn.mud { background: var(--mud); }
-.btn.wide { width: 100%; }
-.btn.small { min-height: 44px; font-size: 16px; padding: 8px 16px; }
+.title, h2.title, h1.title {
+  font-family: var(--story);
+  font-weight: 600;
+  font-size: var(--t-h3);
+  line-height: 1.2;
+  margin: 0;
+}
+.lead { font-family: var(--story); font-size: var(--t-lead); line-height: 1.45; font-style: italic; }
+.small { font-size: var(--t-small); }
 
+/* ---------- Game header: the volume's cloth band ---------- */
+
+.volume-band {
+  position: relative;
+  padding: 18px 20px 30px;
+  text-align: center;
+}
+.volume-band::after {
+  /* double gilt rule along the bottom edge, like a book's head band */
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 8px; height: 5px;
+  border-top: 1px solid rgba(201, 162, 75, 0.7);
+  border-bottom: 1px solid rgba(201, 162, 75, 0.4);
+}
+.volume-band-inner { max-width: 860px; margin: 0 auto; }
+.volume-band .home-link { position: absolute; left: 12px; top: 12px; }
+.volume-band .emblem { width: 44px; height: 44px; margin: 6px auto 8px; color: var(--gilt); }
+.volume-band .big-title { color: var(--paper); }
+.volume-band .lead { color: rgba(250, 251, 248, 0.82); margin: 8px auto 0; max-width: 34ch; text-wrap: balance; }
+
+.home-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: none; cursor: pointer;
+  color: inherit; opacity: 0.8;
+  font-weight: 700; font-size: 16px; padding: 10px 12px; border-radius: 10px;
+}
+.home-link:hover { opacity: 1; }
+.home-link svg { width: 18px; height: 18px; }
+/* Older screens use .back: same look on paper. */
 .back {
-  background: none; border: none; color: var(--soft);
-  font-size: 18px; font-weight: 800; padding: 8px 0; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: none; cursor: pointer;
+  color: var(--soft); font-weight: 700; font-size: 16px; padding: 10px 4px;
 }
 
-.progress { height: 18px; background: var(--rule); border-radius: 9px; overflow: hidden; }
-.progress > div { height: 100%; background: var(--green); border-radius: 9px; transition: width 0.4s; }
+/* ---------- Buttons ---------- */
 
-.pop { animation: pop 0.35s ease-out; }
-@keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 70% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
+.btn {
+  --btn: var(--vol, var(--cloth));
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 58px; padding: 14px 28px;
+  border: none; border-radius: var(--r-button);
+  background: var(--btn); color: var(--paper);
+  font-size: 19px; font-weight: 800; letter-spacing: 0.01em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 3px 0 rgba(0, 0, 0, 0.22), 0 10px 20px -12px rgba(0, 0, 0, 0.5);
+  cursor: pointer; user-select: none;
+  transition: transform 0.08s var(--ease), box-shadow 0.08s var(--ease), filter 0.15s;
+}
+.btn:hover { filter: brightness(1.06); }
+.btn:active { transform: translateY(2px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 1px 0 rgba(0, 0, 0, 0.22); }
+.btn:disabled { background: var(--rule-soft); color: var(--faint); box-shadow: none; cursor: default; filter: none; }
+.btn svg { width: 22px; height: 22px; }
+.btn.secondary {
+  background: var(--paper); color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--rule), 0 2px 0 rgba(27, 42, 36, 0.06);
+}
+.btn.secondary:active { box-shadow: inset 0 0 0 1.5px var(--rule); }
+.btn.gold { background: linear-gradient(180deg, var(--gilt-light), var(--gilt)); color: var(--cloth-deep); }
+.btn.red { --btn: var(--red); }
+.btn.mud { --btn: var(--mud); }
+.btn.wide { width: 100%; }
+.btn.small { min-height: 46px; font-size: 16px; padding: 10px 18px; border-radius: 12px; }
+.btn.quiet { background: none; color: var(--soft); box-shadow: none; }
+
+/* ---------- Progress, seals, feedback ---------- */
+
+.progress {
+  height: 14px; border-radius: 99px; overflow: hidden;
+  background: var(--rule-soft); box-shadow: inset 0 1px 2px rgba(27, 42, 36, 0.12);
+}
+.progress > div {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--gilt-dark), var(--gilt) 60%, var(--gilt-light));
+  transition: width 0.6s var(--ease);
+}
+
+/* A gilt wax-seal tick, used for "done today". */
+.seal {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--gilt-light), var(--gilt) 55%, var(--gilt-dark));
+  color: var(--cloth-deep);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+.seal svg { width: 22px; height: 22px; }
+
+.pop { animation: pop 0.45s var(--ease); }
+@keyframes pop { 0% { transform: scale(0.85); opacity: 0; } 60% { transform: scale(1.03); opacity: 1; } 100% { transform: scale(1); } }
 
 .overlay {
-  position: fixed; inset: 0; background: rgba(27, 42, 36, 0.55);
-  display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 50;
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(20, 40, 32, 0.55);
+  backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
 }
-.overlay > .card { max-width: 560px; width: 100%; max-height: 90vh; overflow: auto; }
+.overlay > .card, .overlay > .sheet { max-width: 560px; width: 100%; max-height: 90vh; overflow: auto; }
 
-.error { background: #FDE8EB; color: var(--red); border-radius: 12px; padding: 12px 16px; font-weight: 700; }
+.error {
+  background: #FBEDEF; color: #8E0C21;
+  border-left: 4px solid var(--red); border-radius: 8px;
+  padding: 14px 18px; font-weight: 700;
+}
+
+/* A hairline gilt rule with a small diamond, for separating sections. */
+.flourish { display: flex; align-items: center; gap: 12px; color: var(--gilt); margin: 8px 0; }
+.flourish::before, .flourish::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: 0.55; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

@@ -2,14 +2,16 @@
 export const MODES = {
   depth: {
     name: "Deep Dive",
-    icon: "🔍",
+    icon: "lens",
     blurb: "One picture. How many different problems and solutions can you find in it?",
+    length: "Three minutes, one picture",
     minutes: 3,
   },
   breadth: {
     name: "Lightning Round",
-    icon: "⚡",
-    blurb: "Picture after picture! One problem and one solution each, then tap Next.",
+    icon: "bolt",
+    blurb: "Picture after picture. One problem and one solution for each, then turn the page.",
+    length: "Five minutes, lots of pictures",
     minutes: 5,
   },
 };

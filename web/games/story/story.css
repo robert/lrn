@@ -1,37 +1,152 @@
-.story-title { color: var(--mud); }
-.story-tagline { font-size: 20px; font-weight: 700; margin: 0 auto; max-width: 540px; }
-.story-go { min-height: 80px; font-size: 26px; }
-.story-stars { font-size: 56px; letter-spacing: 12px; color: var(--rule); }
-.story-stars span { display: inline-block; }
-.story-stars-note { font-weight: 700; }
+/* Story Builder: an oxblood-bound planning notebook with ruled pages. */
 
-.story-idea { font-size: 20px; }
-.story-idea > * + * { margin-top: 8px; }
-.story-tag { display: inline-block; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 6px; padding: 2px 8px; color: white; margin-right: 6px; }
-.story-tag.problem { background: var(--red); }
-.story-tag.solution { background: var(--green); }
+/* Ruled lines: 40px apart, with a soft rule under each line of writing. */
+.story-page, .story-outline, .story-lines { --line: 40px; }
 
-.story-slot-label { font-size: 44px; font-weight: 900; color: var(--mud); }
-.story-slot-prompt { font-size: 21px; font-weight: 700; }
-.story-text, .story-input {
-  width: 100%; font-family: var(--story); font-size: 21px; padding: 12px;
-  border-radius: 12px; border: 2px solid var(--rule);
+/* ---------- Home ---------- */
+
+.sheet.story-stars-sheet { text-align: center; padding: 26px 24px 20px; }
+.story-stars { display: flex; justify-content: center; gap: clamp(14px, 4vw, 30px); }
+.story-star { color: var(--rule); display: inline-flex; }
+.story-star.lit { color: var(--gilt-dark); }
+.story-star.lit svg path { fill: var(--gilt); stroke: var(--gilt-dark); }
+.story-stars-note { margin: 12px 0 0; font-family: var(--story); font-style: italic; font-size: 19px; color: var(--soft); }
+
+.story-go { min-height: 68px; font-size: 21px; }
+
+.story-challenge { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.story-challenge p { margin: 0 0 6px; max-width: 34ch; }
+.story-challenge-icon { color: var(--gilt-dark); }
+
+.story-order { margin: 6px 0 0; text-align: center; font-size: 15px; color: var(--soft); }
+.story-order > span { white-space: nowrap; font-family: var(--story); font-style: italic; font-size: 17px; color: var(--vol); }
+/* a small gilt diamond between each step */
+.story-order-sep {
+  display: inline-block; width: 5px; height: 5px; margin: 0 10px 3px;
+  background: var(--gilt); transform: rotate(45deg); font-size: 0; vertical-align: middle;
 }
-.story-input { flex: 1; width: auto; min-height: 48px; font-family: var(--ui); font-size: 18px; }
-.story-mic { background: var(--mud); }
-.story-mic.on { background: var(--red); animation: story-pulse 1.2s infinite; }
-@keyframes story-pulse { 50% { opacity: 0.75; } }
-.story-interim { font-style: italic; }
 
-.story-outline { padding: 8px 16px; }
-.story-outline-row { display: flex; gap: 12px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--cover); }
-.story-outline-row:first-child { border-top: none; }
+/* ---------- The idea ---------- */
+
+.sheet.story-idea { padding: 28px 28px 24px; }
+.story-idea-when { margin: 0; font-weight: 800; font-size: 15px; color: var(--gilt-dark); }
+.story-idea-situation { margin: 6px 0 16px; font-family: var(--story); font-weight: 600; font-size: var(--t-h2); line-height: 1.15; }
+.story-idea-note { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--rule-soft); color: var(--soft); font-size: 16px; }
+
+/* Problem and solution joined by a gilt thread (as in the Imagination Engine). */
+.story-pair { border-left: 2px solid rgba(201, 162, 75, 0.55); padding-left: 16px; }
+.story-pair p { margin: 0; font-family: var(--story); font-size: 20px; line-height: 1.45; }
+.story-pair p + p { margin-top: 12px; }
+.story-pair-label { display: block; font-family: var(--ui); font-weight: 800; font-size: 14px; color: var(--vol); margin-bottom: 2px; }
+.story-pair-label.solution { color: var(--green); }
+
+/* ---------- Filling a slot ---------- */
+
+.story-bar { padding: 8px 12px 12px; position: sticky; top: 0; z-index: 10; }
+.story-bar::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 1px; background: rgba(201, 162, 75, 0.55); }
+.story-bar-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; gap: 8px; }
+.story-bar .home-link { flex: none; }
+/* The seven steps in their fixed order, like a book's contents line. */
+.story-steps {
+  list-style: none; margin: 0; padding: 0; flex: 1;
+  display: flex; justify-content: space-between; gap: 4px; overflow-x: auto;
+}
+.story-steps li {
+  flex: 1; text-align: center; padding: 8px 4px 6px;
+  font-family: var(--story); font-size: 16px; color: rgba(250, 251, 248, 0.5);
+  border-bottom: 2px solid transparent; white-space: nowrap;
+}
+.story-steps li.done { color: rgba(237, 212, 143, 0.85); }
+.story-steps li.current { color: var(--paper); font-weight: 600; border-bottom-color: var(--gilt); }
+@media (max-width: 560px) { .story-steps li { font-size: 13px; padding-inline: 2px; } }
+
+/* A notebook page: a margin rule down the left and ruled lines. */
+.sheet.story-page {
+  position: relative;
+  padding: 26px 26px 22px 58px;
+  animation: story-turn 0.4s var(--ease);
+}
+@keyframes story-turn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: none; } }
+.sheet.story-page::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 36px; width: 1px;
+  background: rgba(109, 58, 43, 0.35); box-shadow: 3px 0 0 rgba(109, 58, 43, 0.15);
+}
+.story-slot-label {
+  margin: 0; font-family: var(--story); font-weight: 600;
+  font-size: clamp(44px, 8vw, 64px); line-height: 1; color: var(--vol);
+}
+.story-slot-prompt { margin: 8px 0 14px; font-family: var(--story); font-style: italic; font-size: var(--t-lead); color: var(--soft); }
+.story-lines {
+  display: block; width: 100%; resize: none;
+  border: none; outline: none; padding: 0; margin: 0 0 18px;
+  font-family: var(--story); font-size: 22px; line-height: var(--line); color: var(--ink);
+  background: transparent;
+  background-image: repeating-linear-gradient(180deg, transparent 0 calc(var(--line) - 1px), var(--rule) calc(var(--line) - 1px) var(--line));
+  background-attachment: local;
+  min-height: calc(var(--line) * 3);
+}
+.story-lines::placeholder { color: var(--faint); font-style: italic; }
+.story-lines:focus { background-image: repeating-linear-gradient(180deg, transparent 0 calc(var(--line) - 1px), rgba(201, 162, 75, 0.75) calc(var(--line) - 1px) var(--line)); }
+
+.story-mic-wrap { display: flex; flex-direction: column; gap: 10px; }
+.story-mic { align-self: flex-start; min-width: 190px; position: relative; }
+.story-mic.on { background: var(--gilt-dark); }
+.story-mic-pulse {
+  position: absolute; inset: -4px; border-radius: 18px;
+  border: 2px solid var(--gilt); animation: story-ring 1.4s ease-out infinite; pointer-events: none;
+}
+@keyframes story-ring { from { opacity: 0.9; transform: scale(1); } to { opacity: 0; transform: scale(1.08); } }
+.story-interim { margin: 0; font-family: var(--story); font-style: italic; color: var(--faint); }
+
+.story-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.story-actions .btn { flex: 1; min-width: 220px; }
+
+/* ---------- The whole plan ---------- */
+
+.sheet.story-outline { padding: 18px 26px 14px; }
+.story-outline-title { margin: 0 0 4px; font-family: var(--story); font-weight: 600; font-size: 20px; color: var(--vol); }
+.story-outline-row {
+  display: flex; gap: 18px; align-items: baseline;
+  min-height: var(--line); padding: 8px 0 6px;
+  border-bottom: 1px solid var(--rule);
+}
+.story-outline-row:last-child { border-bottom: none; }
 .story-outline-label {
-  flex: none; width: 110px; font-weight: 900; font-size: 18px; color: var(--soft);
-  background: var(--cover); border-radius: 8px; padding: 4px 8px; text-align: center;
+  flex: none; width: 92px;
+  font-family: var(--story); font-style: italic; font-size: 18px; color: var(--faint);
 }
-.story-outline-row.filled .story-outline-label { background: var(--mud); color: white; }
-.story-outline-row.current .story-outline-label { background: var(--highlight); color: var(--ink); outline: 3px solid var(--gold); }
-.story-outline-row.missed .story-outline-label { background: var(--highlight); color: var(--ink); }
-.story-outline-row.missed .story-outline-text { color: var(--soft); }
-.story-outline-text { font-family: var(--story); font-size: 18px; min-height: 1em; }
+.story-outline-row.filled .story-outline-label { color: var(--vol); }
+.story-outline-row.current .story-outline-label { color: var(--gilt-dark); font-weight: 600; }
+.story-outline-row.current { border-bottom-color: var(--gilt); }
+.story-outline-text { flex: 1; font-family: var(--story); font-size: 18px; line-height: 1.45; }
+.story-outline-row.missed .story-outline-label { color: var(--mud); font-weight: 600; }
+.story-outline-row.missed .story-outline-text { color: var(--soft); font-style: italic; }
+.story-got { display: inline-block; vertical-align: -3px; margin-right: 6px; color: var(--green); }
+
+/* The blank plan in the memory challenge: labels are written in as he names them. */
+.story-blank .story-outline-row { min-height: 52px; }
+.story-blank-no { font-style: normal; font-family: var(--ui); font-weight: 700; font-size: 14px; color: var(--rule); }
+.story-written {
+  display: inline-block; color: var(--vol); font-weight: 600; font-style: italic; font-size: 20px;
+  animation: story-write 0.8s var(--ease) both;
+}
+@keyframes story-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+.story-answer { display: flex; flex-direction: column; gap: 14px; }
+.story-type { display: flex; align-items: center; gap: 10px; color: var(--soft); }
+.story-input {
+  flex: 1; min-width: 0; min-height: 48px; padding: 8px 14px;
+  font-family: var(--story); font-size: 19px;
+  border: 1px solid var(--rule); border-radius: 10px; background: white;
+}
+.story-input:focus { outline: none; border-color: var(--gilt); box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2); }
+
+/* ---------- Celebration ---------- */
+
+.story-done { padding-top: 6px; }
+.story-done-laurel { margin: 0 auto 4px; color: var(--gilt); }
+/* A gilt wreath with an emblem inside, for celebrations. */
+.story-wreath { position: relative; width: 150px; height: 134px; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; color: var(--gilt); }
+.story-wreath > svg:first-child { position: absolute; inset: 0; width: 100%; height: 100%; }
+.story-wreath > svg:last-child { position: relative; margin-top: 8px; color: var(--vol); }
+.story-done .lead { margin: 6px auto 0; max-width: 32ch; }

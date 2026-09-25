@@ -7,6 +7,7 @@ import { pick } from "./figure.js";
 import Fig, { zoomFor } from "./Figure.jsx";
 import { CodedFigures } from "./Codes.jsx";
 import { Feedback, praise } from "./parts.jsx";
+import Icon from "../../icons.jsx";
 
 const PROMPTS = {
   analogies: "Which one goes in the gap?",
@@ -18,8 +19,10 @@ const PROMPTS = {
 };
 
 function Gap() {
-  return <div className="gap-box">?</div>;
+  return <div className="gap-box"><span>?</span></div>;
 }
+
+const Arrow = () => <Icon name="next" size={26} strokeWidth={1.4} className="stem-arrow" />;
 
 // Every figure in a question, so they can all be zoomed the same way.
 function figuresOf(q) {
@@ -34,9 +37,9 @@ function Stem({ q }) {
   if (q.format === "analogies") {
     return (
       <div className="stem-row">
-        <Fig zoom={zoom} fig={q.a} /><span className="stem-arrow">→</span><Fig zoom={zoom} fig={q.b} />
+        <Fig zoom={zoom} fig={q.a} /><Arrow /><Fig zoom={zoom} fig={q.b} />
         <span className="stem-sep" />
-        <Fig zoom={zoom} fig={q.c} /><span className="stem-arrow">→</span><Gap />
+        <Fig zoom={zoom} fig={q.c} /><Arrow /><Gap />
       </div>
     );
   }
@@ -63,7 +66,7 @@ function Question({ q, onPick, slipped = [], reveal = false }) {
   return (
     <div className="stack">
       <Stem q={q} />
-      <p className="center big-q">{PROMPTS[q.format]}</p>
+      <p className="big-q">{PROMPTS[q.format]}</p>
       <div className={q.format === "codes" ? "code-options" : "option-row"}>
         {q.options.map((opt, i) => {
           const cls = `${slipped.includes(i) ? "slipped" : ""} ${reveal && i === q.answer ? "right" : ""}`;
@@ -71,8 +74,8 @@ function Question({ q, onPick, slipped = [], reveal = false }) {
             <button key={i} className={`btn secondary code-option ${cls}`} disabled={slipped.includes(i) || reveal} onClick={() => onPick(i)}>{opt}</button>
           ) : (
             <button key={i} className={`fig-btn ${cls}`} disabled={slipped.includes(i) || reveal} onClick={() => onPick(i)}>
-              <span className="option-letter">{"ABCDE"[i]}</span>
               <Fig fig={opt} zoom={zoom} />
+              <span className="option-letter">{"abcde"[i]}</span>
             </button>
           );
         })}
@@ -105,9 +108,9 @@ function Worked({ format, n, onNext }) {
   const [q] = useState(() => makeQuestion(Math.random, format));
   return (
     <div className="stack">
-      <div className="lesson-tag">Worked example {n}</div>
+      <p className="lesson-tag">Worked example {n} of 2</p>
       <Question q={q} onPick={() => {}} reveal />
-      <Feedback kind="great"><p>The answer is <b>{q.format === "codes" ? q.options[q.answer] : "ABCDE"[q.answer]}</b>. {q.explain}</p></Feedback>
+      <Feedback kind="great"><p>The answer is <b>{q.format === "codes" ? q.options[q.answer] : "abcde"[q.answer]}</b>. {q.explain}</p></Feedback>
       <button className="btn wide" onClick={onNext}>Got it!</button>
     </div>
   );
@@ -122,9 +125,10 @@ export function Lesson({ format, tries = 3, onDone }) {
 
   if (step === 0) {
     return (
-      <div className="card stack center pop">
-        <div className="lesson-tag">New question type</div>
-        <h2 className="title">{info.name}</h2>
+      <div className="sheet stack center pop lesson-intro">
+        <Icon name="book" size={44} strokeWidth={1.2} className="lesson-icon" />
+        <p className="lesson-tag">A new kind of puzzle</p>
+        <h2 className="display">{info.name}</h2>
         {info.intro.map(line => <p key={line} className="lesson-line">{line}</p>)}
         <button className="btn wide" onClick={next}>Show me how</button>
       </div>
@@ -134,7 +138,7 @@ export function Lesson({ format, tries = 3, onDone }) {
   if (step < 3 + tries) {
     return (
       <div className="stack">
-        <div className="lesson-tag">Your turn!</div>
+        <p className="lesson-tag">Your turn</p>
         <TryQuestion key={step} format={format} onDone={r => {
           setScore(s => ({ caught: s.caught + r.caught, missed: s.missed + r.missed }));
           next();
@@ -143,10 +147,10 @@ export function Lesson({ format, tries = 3, onDone }) {
     );
   }
   return (
-    <div className="card stack center pop">
-      <div style={{ fontSize: 56 }}>🎉</div>
-      <h2 className="title">You've met {info.name}!</h2>
-      <p>Next time you see one in the exam, you'll know exactly what to do.</p>
+    <div className="sheet stack center pop lesson-intro">
+      <Icon name="laurel" size={48} strokeWidth={1.2} className="lesson-icon" />
+      <h2 className="display">You've met {info.name}</h2>
+      <p className="lesson-line">Next time you see one in the exam, you'll know exactly what to do.</p>
       <button className="btn wide" onClick={() => onDone(score)}>Next</button>
     </div>
   );
@@ -164,7 +168,7 @@ export function Mixed({ onDone }) {
   if (!typed) {
     return (
       <div className="stack">
-        <p className="center big-q">Quick! What type of question is this?</p>
+        <p className="big-q">Quick! What type of question is this?</p>
         <div className="type-preview"><Stem q={q} />{q.format === "odd" && <div className="option-row">{q.options.map((f, i) => <div key={i} className="fig-btn"><Fig fig={f} zoom={zoomFor(q.options)} /></div>)}</div>}</div>
         <div className="type-buttons">
           {FORMATS.map(f => (

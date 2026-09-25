@@ -2,7 +2,9 @@
 // always in the same order, until planning becomes automatic.
 import { useEffect, useState } from "react";
 import { get } from "../../api.js";
-import { BackHome, ErrorBox, Loading } from "../../components.jsx";
+import { ErrorBox, Loading, Volume, VolumeHeader } from "../../components.jsx";
+import Icon from "../../icons.jsx";
+import { PLAN_SLOTS } from "../../../shared/storyPlan.js";
 import PlanFlow from "./PlanFlow.jsx";
 import Recall from "./Recall.jsx";
 import Stars from "./Stars.jsx";
@@ -23,7 +25,7 @@ export default function StoryApp() {
     load();
   }
 
-  if (error) return <div className="page"><BackHome /><ErrorBox error={error} /></div>;
+  if (error) return <Volume game="story"><VolumeHeader game="story" compact /><div className="page"><ErrorBox error={error} /></div></Volume>;
   if (!state) return <Loading />;
   if (view === "recall") return <Recall onDone={backHome} />;
   if (view === "plan") {
@@ -32,26 +34,31 @@ export default function StoryApp() {
   }
 
   return (
-    <div className="page stack">
-      <BackHome />
-      <header className="center">
-        <div className="big-title story-title">STORY BUILDER</div>
-        <p className="story-tagline">A good reader knows how good stories are built. Time to build some.</p>
-      </header>
+    <Volume game="story">
+      <VolumeHeader game="story" lead="A good reader knows how good stories are built. Time to build some." />
+      <div className="page stack">
+        <Stars count={state.plansToday} of={state.plansPerDay} />
 
-      <Stars count={state.plansToday} of={state.plansPerDay} />
+        {state.recallDue ? (
+          <section className="sheet story-challenge">
+            <Icon name="sparkle" size={30} strokeWidth={1.2} className="story-challenge-icon" />
+            <h2 className="title">A memory challenge first</h2>
+            <p className="soft">A blank plan with no labels. Can you name every part of it from memory?</p>
+            <button className="btn wide" onClick={() => setView("recall")}>I'm ready</button>
+          </section>
+        ) : (
+          <button className="btn wide story-go" onClick={() => setView("plan")}>
+            <Icon name="quill" />{state.plansToday === 0 ? "Build a plan" : "Build another plan"}
+          </button>
+        )}
 
-      {state.recallDue ? (
-        <div className="card stack center">
-          <div className="title">🧠 Memory challenge first!</div>
-          <p>A blank plan with no labels. Can you name every part from memory?</p>
-          <button className="btn mud wide" onClick={() => setView("recall")}>I'm ready</button>
-        </div>
-      ) : (
-        <button className="btn mud wide story-go" onClick={() => setView("plan")}>
-          {state.plansToday === 0 ? "Build a plan" : "Build another plan"}
-        </button>
-      )}
-    </div>
+        <p className="story-order">
+          Every plan, in the same order:{" "}
+          {PLAN_SLOTS.map((s, i) => (
+            <span key={s.id}>{s.label}{i < PLAN_SLOTS.length - 1 && <span className="story-order-sep" aria-hidden="true">·</span>}</span>
+          ))}
+        </p>
+      </div>
+    </Volume>
   );
 }

@@ -1,48 +1,218 @@
-.imag-title { color: var(--plum); }
-.imag-tagline { font-size: 20px; font-weight: 700; margin: 0 auto; max-width: 540px; }
-.imag-how { text-align: center; font-weight: 700; }
-.imag-say { font-family: var(--story); font-size: 24px; font-weight: 600; color: var(--plum); margin-top: 8px; text-align: center; }
-.imag-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 520px) { .imag-modes { grid-template-columns: 1fr; } }
-.imag-mode {
-  position: relative; border: none; border-radius: 22px; cursor: pointer; color: white;
-  background: var(--plum); padding: 24px 16px; min-height: 200px; text-align: center;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
-}
-.imag-mode:nth-child(2) { background: #B0467A; }
-.imag-mode:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25); }
-.imag-mode-icon { font-size: 48px; }
-.imag-mode-name { font-size: 24px; font-weight: 900; }
-.imag-mode-blurb { font-size: 17px; font-weight: 700; opacity: 0.95; }
+/* Imagination Engine: indigo cloth, pictures presented as plates in a fine book. */
 
-.imag-timer { display: flex; align-items: center; gap: 12px; }
-.imag-timer .progress { flex: 1; }
-.imag-clock { font-weight: 900; font-size: 22px; min-width: 60px; text-align: right; }
-.imag-prompt { background: var(--paper); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-.imag-prompt img { display: block; width: 100%; max-height: 55vh; object-fit: contain; background: var(--paper); }
-.imag-opener { font-family: var(--story); font-size: clamp(24px, 5vw, 34px); padding: 48px 24px; text-align: center; line-height: 1.3; }
-.imag-heard { min-height: 120px; }
-.imag-mic { font-size: 18px; margin-bottom: 8px; }
-.imag-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--rule); display: inline-block; }
-.imag-dot.on { background: var(--red); animation: imag-pulse 1.2s infinite; }
-@keyframes imag-pulse { 50% { opacity: 0.3; } }
-.imag-phrase { font-family: var(--story); font-size: 20px; padding: 4px 0; border-top: 1px solid var(--cover); }
-.imag-phrase.interim { color: var(--soft); font-style: italic; }
-.imag-input { flex: 1; min-height: 48px; font-size: 18px; font-family: inherit; padding: 8px 12px; border-radius: 12px; border: 2px solid var(--rule); }
-.imag-next { background: var(--plum); font-size: 24px; min-height: 72px; }
-
-.imag-count { font-size: 96px; font-weight: 900; color: var(--plum); line-height: 1; }
-.imag-praise { font-family: var(--story); font-size: 21px; background: var(--highlight); }
-.imag-pair { display: flex; gap: 14px; align-items: flex-start; }
-.imag-pair-num {
-  flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--plum); color: white;
-  font-weight: 900; font-size: 20px; display: flex; align-items: center; justify-content: center;
+/* The formula he says out loud. */
+.sheet.imag-formula { text-align: center; padding: 28px 24px 26px; }
+.imag-formula-lead { margin: 0; color: var(--soft); font-weight: 700; font-size: 16px; }
+.imag-formula-words {
+  margin: 10px 0 0;
+  font-family: var(--story); font-style: italic; font-weight: 500;
+  font-size: clamp(26px, 4.4vw, 36px); line-height: 1.2;
+  color: var(--vol);
 }
-.imag-pair-body { flex: 1; font-size: 19px; }
-.imag-pair-body > * + * { margin-top: 6px; }
-.imag-label { display: inline-block; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 6px; padding: 2px 8px; color: white; margin-right: 6px; }
-.imag-label.problem { background: var(--red); }
-.imag-label.solution { background: var(--green); }
-.imag-thumb { width: 140px; border-radius: 10px; display: block; }
-.imag-thumb-text { font-family: var(--story); font-style: italic; color: var(--soft); }
+.imag-formula-words span { color: var(--gilt-dark); }
+.imag-formula-foot {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--rule-soft);
+  color: var(--soft); font-size: 16px;
+}
+
+/* The two rounds, as two chapters to choose between. */
+.imag-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 560px) { .imag-modes { grid-template-columns: 1fr; } }
+.sheet.imag-mode {
+  position: relative; border: none; cursor: pointer; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 30px 22px 22px;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.imag-mode:hover { transform: translateY(-3px); }
+.imag-mode:active { transform: translateY(0); }
+.imag-mode-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gilt-light);
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 75, 0.6), inset 0 0 0 4px rgba(59, 52, 97, 1), inset 0 0 0 5px rgba(201, 162, 75, 0.35);
+}
+.imag-mode-name { font-family: var(--story); font-weight: 600; font-size: var(--t-h3); color: var(--ink); }
+.imag-mode-blurb { color: var(--soft); max-width: 30ch; }
+.imag-mode-length {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 6px;
+  padding-top: 12px; border-top: 1px solid var(--rule-soft);
+  font-size: 15px; font-weight: 700; color: var(--gilt-dark);
+}
+.imag-mode-seal { position: absolute; top: -12px; right: -12px; }
+
+.imag-note {
+  display: flex; align-items: center; justify-content: center; gap: 8px; margin: 4px 0 0;
+  font-family: var(--story); font-style: italic; font-size: 19px; color: var(--soft);
+}
+.imag-note svg { color: var(--gilt-dark); flex: none; }
+
+.imag-start { min-height: 68px; font-size: 21px; }
+
+/* ---------- Playing ---------- */
+
+.imag-bar { padding: 10px 16px; position: sticky; top: 0; z-index: 10; box-shadow: 0 6px 18px -12px rgba(0, 0, 0, 0.6); }
+.imag-bar::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 3px; height: 1px;
+  background: rgba(201, 162, 75, 0.55);
+}
+.imag-bar-inner { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
+.imag-bar-title {
+  display: flex; align-items: center; gap: 10px; flex: 1;
+  font-family: var(--story); font-weight: 600; font-size: 21px; color: var(--gilt-light);
+}
+.imag-bar-title svg { color: var(--gilt); }
+
+.imag-ring { position: relative; width: 56px; height: 56px; flex: none; }
+.imag-ring svg { width: 56px; height: 56px; }
+.imag-ring-track { fill: none; stroke: rgba(250, 251, 248, 0.14); stroke-width: 3; }
+.imag-ring-fill { fill: none; stroke: var(--gilt); stroke-width: 3; stroke-linecap: round; transition: stroke-dashoffset 0.3s linear; }
+.imag-ring span {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: rgba(250, 251, 248, 0.85);
+}
+
+.imag-listen { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: rgba(250, 251, 248, 0.6); }
+.imag-listen.on { color: var(--gilt-light); }
+.imag-bars { display: flex; align-items: center; gap: 3px; height: 22px; }
+.imag-bars i { display: block; width: 3px; height: 6px; border-radius: 2px; background: currentColor; opacity: 0.7; }
+.imag-listen.on .imag-bars i { animation: imag-sway 1.1s ease-in-out infinite; }
+.imag-listen.on .imag-bars i:nth-child(2) { animation-delay: 0.15s; }
+.imag-listen.on .imag-bars i:nth-child(3) { animation-delay: 0.3s; }
+.imag-listen.on .imag-bars i:nth-child(4) { animation-delay: 0.45s; }
+@keyframes imag-sway { 0%, 100% { height: 6px; } 50% { height: 20px; } }
+@media (max-width: 560px) { .imag-listen span:last-child { display: none; } }
+
+.imag-play {
+  max-width: 1040px;
+  display: grid; gap: 22px;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  grid-template-areas: "plate heard" "error error" "actions actions";
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .imag-play { grid-template-columns: 1fr; grid-template-areas: "plate" "heard" "error" "actions"; }
+}
+.imag-play > .error { grid-area: error; }
+
+/* The picture, mounted like a plate in a fine book. */
+.imag-plate { grid-area: plate; margin: 0; }
+.imag-plate-mount {
+  background: var(--paper);
+  padding: 18px;
+  border-radius: 4px;
+  box-shadow: var(--lift);
+  position: relative;
+}
+.imag-plate-mount::before {
+  /* thin gilt keyline inside the mount */
+  content: ""; position: absolute; inset: 9px;
+  border: 1px solid rgba(201, 162, 75, 0.7);
+  pointer-events: none;
+}
+.imag-plate-img {
+  display: block; width: 100%; height: auto; max-height: 58vh; object-fit: contain;
+  animation: imag-turn 0.5s var(--ease);
+}
+@keyframes imag-turn { from { opacity: 0; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+.imag-opener {
+  margin: 0; padding: clamp(36px, 7vw, 72px) clamp(20px, 5vw, 48px);
+  font-family: var(--story); font-style: italic; font-weight: 500;
+  font-size: clamp(24px, 3.4vw, 34px); line-height: 1.35; text-align: center;
+  animation: imag-turn 0.5s var(--ease);
+}
+.imag-plate figcaption {
+  margin-top: 12px; text-align: center;
+  font-family: var(--story); font-style: italic; font-size: 18px; color: var(--soft);
+}
+.imag-plate-no { font-style: normal; font-family: var(--ui); font-weight: 800; font-size: 14px; color: var(--gilt-dark); margin-right: 10px; }
+
+/* What he has said, written onto ruled lines. */
+.sheet.imag-heard { grid-area: heard; padding: 20px 22px 18px; }
+.imag-heard-title { margin: 0 0 6px; font-family: var(--story); font-weight: 600; font-size: 20px; color: var(--vol); }
+.imag-lines {
+  /* ruled like a notebook: every text line sits on a rule */
+  min-height: calc(38px * 5);
+  background-image: repeating-linear-gradient(180deg, transparent 0 37px, var(--rule) 37px 38px);
+}
+.imag-line {
+  margin: 0;
+  font-family: var(--story); font-style: italic; font-size: 20px; line-height: 38px;
+  color: var(--ink);
+}
+.imag-line.written { animation: imag-write 0.9s var(--ease) both; }
+@keyframes imag-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.imag-line.interim { color: var(--faint); }
+.imag-line.placeholder { color: var(--faint); }
+.imag-type {
+  display: flex; align-items: center; gap: 10px; margin-top: 14px;
+  padding-top: 14px; border-top: 1px solid var(--rule-soft); color: var(--soft);
+}
+.imag-input {
+  flex: 1; min-width: 0; min-height: 48px; padding: 8px 14px;
+  font-family: var(--story); font-size: 19px;
+  border: 1px solid var(--rule); border-radius: 10px; background: white;
+}
+.imag-input:focus { outline: none; border-color: var(--gilt); box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2); }
+
+.imag-actions { grid-area: actions; display: flex; gap: 14px; flex-wrap: wrap; }
+.imag-actions .btn { flex: 1; min-width: 200px; }
+.imag-next { min-height: 72px; font-size: 22px; flex: 2 !important; }
+.imag-sending {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0;
+  font-family: var(--story); font-style: italic; font-size: 21px; color: var(--vol);
+}
+.imag-sending svg { color: var(--gilt); animation: imag-glint 1.6s ease-in-out infinite; }
+@keyframes imag-glint { 50% { transform: rotate(45deg) scale(1.2); opacity: 0.6; } }
+
+/* ---------- Results ---------- */
+
+.imag-result-icon { margin: 0 auto; color: var(--gilt-dark); }
+.imag-tally { padding: 8px 0 0; }
+/* The number sits inside a big gilt laurel wreath. */
+.imag-tally-wreath { position: relative; width: 190px; height: 170px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+.imag-tally-laurel { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gilt); }
+.imag-tally-number {
+  position: relative;
+  font-family: var(--story); font-weight: 600; font-size: 96px; line-height: 1;
+  color: var(--vol); margin-top: 6px;
+}
+.imag-tally-words { font-family: var(--story); font-style: italic; font-size: var(--t-h3); color: var(--soft); max-width: 30ch; margin: 4px auto 0; }
+
+/* The praise as a pull quote between two gilt rules. */
+.imag-praise {
+  margin: 0; padding: 22px 8px;
+  border-top: 1px solid var(--gilt); border-bottom: 1px solid var(--gilt);
+  text-align: center;
+}
+.imag-praise p {
+  margin: 0 auto; max-width: 36ch;
+  font-family: var(--story); font-style: italic; font-size: var(--t-lead); line-height: 1.5; color: var(--ink);
+}
+.imag-praise p::before { content: "“"; color: var(--gilt-dark); }
+.imag-praise p::after { content: "”"; color: var(--gilt-dark); }
+
+.sheet.imag-ideas { list-style: none; margin: 0; padding: 6px 24px; }
+.imag-idea { display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid var(--rule-soft); }
+.imag-idea:first-child { border-top: none; }
+.imag-idea-num {
+  flex: none; width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--story); font-weight: 600; font-size: 17px;
+  color: var(--gilt-dark); box-shadow: inset 0 0 0 1px var(--gilt);
+}
+.imag-idea-body { flex: 1; min-width: 0; }
+.imag-idea-situation { margin: 4px 0 8px; font-family: var(--story); font-style: italic; color: var(--soft); }
+/* Problem and solution joined by a gilt thread down the left. */
+.imag-idea-pair { border-left: 2px solid rgba(201, 162, 75, 0.55); padding-left: 14px; }
+.imag-idea-pair p { margin: 0; font-family: var(--story); font-size: 19px; line-height: 1.45; }
+.imag-idea-pair p + p { margin-top: 10px; }
+.imag-idea-label {
+  display: block; font-family: var(--ui); font-weight: 800; font-size: 14px; color: var(--vol); margin-bottom: 2px;
+}
+.imag-idea-pair p + p .imag-idea-label { color: var(--green); }
+.imag-thumb { margin: 0 0 10px; display: flex; align-items: center; gap: 12px; }
+.imag-thumb img { width: 110px; border-radius: 3px; box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px rgba(201, 162, 75, 0.6); margin: 6px; }
+.imag-thumb figcaption { font-family: var(--story); font-style: italic; color: var(--soft); }
+.imag-thumb-text { margin: 0 0 10px; font-family: var(--story); font-style: italic; color: var(--soft); }

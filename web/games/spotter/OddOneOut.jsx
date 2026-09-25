@@ -27,7 +27,7 @@ export default function OddOneOut({ onDone }) {
 
   return (
     <div className="stack">
-      <p className="center big-q">{found ? "Why is it the odd one out?" : "Which one is the odd one out?"}</p>
+      <p className="big-q">{found ? "Why is it the odd one out?" : "Which one is the odd one out?"}</p>
       <div className="odd-row">
         {q.figures.map((fig, i) => (
           <button key={i} className={`fig-btn ${slippedFigs.includes(i) ? "slipped" : ""} ${found && i === q.odd ? "right" : ""}`} onClick={() => tapFigure(i)}>

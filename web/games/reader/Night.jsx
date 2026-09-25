@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { post } from "../../api.js";
 import { go } from "../../App.jsx";
 import { ErrorBox } from "../../components.jsx";
+import Icon from "../../icons.jsx";
 import { locate, parseItalics, quoteIn } from "../../../shared/text.js";
 import {
   RUNGS, rungFor, PRAISE, RUN_MESSAGES, FLAW_NAMES, NUDGES,
@@ -110,29 +111,44 @@ export default function Night({ night, data }) {
 
   return (
     <div className="reader-night">
-      <header className="reader-sticky">
-        <button className="back" onClick={() => go("reader")}>‹</button>
-        <div className="reader-score">
-          <div className="reader-score-label">Mega Reader Score</div>
-          <div className="reader-score-num">{score}</div>
+      <header className="reader-sticky cloth">
+        <div className="reader-sticky-inner">
+          <button className="reader-sticky-back" onClick={() => go("reader")} aria-label="Back to the reader home">
+            <Icon name="back" size={22} />
+          </button>
+          <div className="reader-score">
+            <div className="reader-score-label">Mega Reader Score</div>
+            <div className="reader-score-num gilt">{score}</div>
+          </div>
+          <div className="reader-ladder">
+            <div className="reader-rungs" aria-hidden="true">
+              {RUNGS.map((r, i) => (
+                <span key={r} className={`reader-rung ${i < litRungs ? "lit" : ""} ${i === litRungs - 1 ? "top" : ""}`}
+                  style={{ height: `${8 + i * 2.6}px` }} />
+              ))}
+            </div>
+            <div className="reader-rung-name" aria-live="polite">{litRungs ? RUNGS[litRungs - 1] : "Climb the ladder!"}</div>
+          </div>
+          {phase === "questions" && (
+            <button className="reader-jump" onClick={() => scrollToId("question")}>
+              Question<Icon name="next" size={16} strokeWidth={2} className="reader-jump-icon" />
+            </button>
+          )}
         </div>
-        <div className="reader-ladder" aria-label="Reader ladder">
-          {RUNGS.map((r, i) => (
-            <div key={r} className={`reader-rung ${i < litRungs ? "lit" : ""}`} title={r} />
-          ))}
-          <div className="reader-rung-name">{litRungs ? RUNGS[litRungs - 1] : "Climb the ladder!"}</div>
-        </div>
-        {phase === "questions" && (
-          <button className="btn small secondary reader-jump" onClick={() => scrollToId("question")}>Question ↓</button>
-        )}
       </header>
 
       <div className="page stack">
-        <article className="card reader-passage">
+        <article className="sheet reader-passage">
+          <header className="reader-passage-head">
+            <div className="reader-passage-chapter">Chapter {night.chapter}</div>
+            <h1 className="reader-passage-title">{night.title}</h1>
+          </header>
           {night.paras.map((p, i) => (
             <Paragraph key={i} n={i + 1} text={p} highlight={highlight?.para === i + 1 ? highlight : null} />
           ))}
-          <div ref={endRef} />
+          <div ref={endRef} className="reader-passage-end" aria-hidden="true">
+            <Icon name="sparkle" size={18} strokeWidth={1.2} />
+          </div>
         </article>
 
         {phase === "reading" && (
@@ -140,34 +156,44 @@ export default function Night({ night, data }) {
             setPhase("questions");
             setTimeout(() => scrollToId("question"), 50);
           }}>
-            {readToEnd ? "I've read it! Bring on the questions" : "Read to the end first…"}
+            {readToEnd ? "I've read it! Bring on the questions" : "Read to the end first"}
           </button>
         )}
 
         {phase === "questions" && (
-          <section id="question" className="card stack reader-question pop" key={qi}>
-            <div className="reader-q-text"><QuestionText text={q.q} onQuote={quote => showQuote(quote, q.para)} /></div>
-            <div className="stack">
+          <section id="question" className="sheet reader-question pop" key={qi}>
+            <p className="reader-q-text"><QuestionText text={q.q} onQuote={quote => showQuote(quote, q.para)} /></p>
+            <div className="reader-options">
               {options.map(opt => {
                 const tried = answer.tried.includes(opt.key);
                 const state = answer.solved && opt.correct ? "right" : tried ? "greyed" : "";
                 return (
                   <button key={opt.key} className={`reader-option ${state}`} disabled={tried || answer.solved} onClick={() => pick(opt)}>
-                    {opt.text}
+                    <span className="reader-option-mark" aria-hidden="true">
+                      {state === "right" && <Icon name="check" size={18} strokeWidth={2.4} />}
+                    </span>
+                    <span>{opt.text}</span>
                   </button>
                 );
               })}
             </div>
             {answer.tried.length > 0 && !answer.solved && (
-              <button className="btn small secondary" onClick={() => showClue(q.para)}>Show me the clue: paragraph {q.para}</button>
+              <button className="reader-clue" onClick={() => showClue(q.para)}>
+                <Icon name="lens" size={18} strokeWidth={1.8} />Show me the clue: paragraph {q.para}
+              </button>
             )}
             {feedback && (
               <div className="reader-feedback pop">
-                <div className="reader-praise">{feedback.praise} {feedback.runMessage && <span>{feedback.runMessage}</span>}</div>
-                <p>{feedback.why}</p>
-                <div className="reader-rung-up">You're now a {feedback.rung}!</div>
+                <div className="reader-praise">
+                  <Icon name="sparkle" size={22} strokeWidth={1.3} className="reader-praise-icon" />
+                  {feedback.praise}
+                </div>
+                {feedback.runMessage && <div className="reader-run">{feedback.runMessage}</div>}
+                <p className="reader-why">{feedback.why}</p>
+                <div className="reader-rung-up">You're now a <strong>{feedback.rung}</strong>!</div>
                 <button className="btn wide" onClick={nextQuestion}>
                   {qi + 1 < night.questions.length ? "Next question" : "What happens next?"}
+                  <Icon name="next" size={20} strokeWidth={2} />
                 </button>
               </div>
             )}
@@ -186,15 +212,17 @@ export default function Night({ night, data }) {
 
       {popup && (
         <div className="overlay" onClick={() => setPopup(null)}>
-          <div className="card stack pop" onClick={e => e.stopPropagation()}>
-            <div className="title">Try again!</div>
-            <div className="reader-flaw">{FLAW_NAMES[popup.flaw]}</div>
-            <p>{popup.why}</p>
-            <p className="soft">{NUDGES[answer.tried.length % NUDGES.length]}</p>
-            <button className="btn wide" onClick={() => { setPopup(null); showClue(q.para); }}>
-              Show me the clue in paragraph {q.para}
-            </button>
-            <button className="btn wide secondary" onClick={() => setPopup(null)}>I'll try again without looking</button>
+          <div className="sheet reader-popup pop" role="dialog" aria-labelledby="try-again" onClick={e => e.stopPropagation()}>
+            <h2 id="try-again" className="reader-popup-title">Try again!</h2>
+            <p className="reader-flaw">{FLAW_NAMES[popup.flaw]}</p>
+            <p className="reader-why">{popup.why}</p>
+            <p className="reader-nudge">{NUDGES[answer.tried.length % NUDGES.length]}</p>
+            <div className="reader-popup-actions">
+              <button className="btn wide" onClick={() => { setPopup(null); showClue(q.para); }}>
+                <Icon name="lens" strokeWidth={1.8} />Show me the clue in paragraph {q.para}
+              </button>
+              <button className="btn wide secondary" onClick={() => setPopup(null)}>I'll try again without looking</button>
+            </div>
           </div>
         </div>
       )}
@@ -236,20 +264,24 @@ function QuestionText({ text, onQuote }) {
 
 function Finish({ score, finish }) {
   return (
-    <div className="page stack center reader">
-      <div className="card stack pop">
-        <div style={{ fontSize: 64 }}>🏆</div>
+    <div className="reader-finish cloth">
+      <div className="reader-finish-frame pop">
+        <Icon name="laurel" size={76} strokeWidth={1.1} className="reader-finish-laurel" />
         <div className="reader-finish-score">{score} points</div>
-        <div className="big-title">{finishTitle(finish.firstTry)}</div>
-        <div className="reader-tile-big">🔥 {finish.streak}</div>
-        <div className="soft">{finish.streak === 1 ? "night" : "nights"} in a row</div>
+        <h1 className="reader-finish-title gilt">{finishTitle(finish.firstTry)}</h1>
+        <div className="reader-finish-streak">
+          <Icon name="flame" size={26} strokeWidth={1.4} />
+          <span>{finish.streak} {finish.streak === 1 ? "night" : "nights"} in a row</span>
+        </div>
         <p className="reader-finish-note">See if you can keep up your streak tomorrow with another Mega Reader challenge!</p>
-        <button className="btn wide" onClick={() => go("reader")}>Back to home</button>
-        {finish.next?.questions?.length > 0 && (
-          <button className="btn wide secondary" onClick={() => go(`reader/night/${finish.next.id}`)}>
-            I want more! Start the next night
-          </button>
-        )}
+        <div className="reader-finish-actions">
+          <button className="btn wide gold" onClick={() => go("reader")}>Back to home</button>
+          {finish.next?.questions?.length > 0 && (
+            <button className="btn wide quiet reader-finish-more" onClick={() => go(`reader/night/${finish.next.id}`)}>
+              I want more! Start the next night
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

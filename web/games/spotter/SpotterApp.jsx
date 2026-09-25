@@ -4,9 +4,10 @@
 import { useEffect, useState } from "react";
 import { get, post } from "../../api.js";
 import { go } from "../../App.jsx";
-import { BackHome, ErrorBox, Loading } from "../../components.jsx";
+import { ErrorBox, Loading, Seal, Volume, VolumeHeader } from "../../components.jsx";
+import Icon from "../../icons.jsx";
 import { FORMATS } from "./formats.js";
-import { ANIMALS, Portrait } from "./animals.jsx";
+import { ANIMALS, Cameo } from "./animals.jsx";
 import Daily from "./Daily.jsx";
 import SpotChange from "./SpotChange.jsx";
 import OddOneOut from "./OddOneOut.jsx";
@@ -14,6 +15,10 @@ import Codes from "./Codes.jsx";
 import Flashcards from "./Flashcards.jsx";
 import { Lesson, Mixed, TryQuestion } from "./Questions.jsx";
 import "./spotter.css";
+
+const PRACTICE_NAMES = { spot: "Spot the change", odd: "Odd one out", codes: "Codes", flash: "Name the twelve", mixed: "Mixed round" };
+// "a horse", "an owl": animal names in the middle of a sentence.
+const an = name => (/^[aeiou]/i.test(name) ? `an ${name.toLowerCase()}` : `a ${name.toLowerCase()}`);
 
 export default function SpotterApp({ sub }) {
   const [state, setState] = useState(null);
@@ -27,86 +32,117 @@ export default function SpotterApp({ sub }) {
   if (!state.introSeen) return <Intro onReady={() => post("/api/spotter/intro").then(setState, setError)} />;
 
   const [where, what] = sub;
-  let body;
-  if (where === "daily") body = <Daily state={state} onFinished={() => go("spotter")} />;
-  else if (where === "practice") body = <Practice mode={what} state={state} />;
-  else if (where === "types" && what) body = <TypePractice format={what} met={state.metFormats.includes(what)} />;
-  else if (where === "types") body = <TypesMenu state={state} />;
-  else body = <GameHome state={state} />;
+  let body, title;
+  if (where === "daily") {
+    title = "Today's challenge";
+    body = <Daily state={state} onFinished={() => go("spotter")} />;
+  } else if (where === "practice") {
+    title = PRACTICE_NAMES[what];
+    body = <Practice mode={what} state={state} />;
+  } else if (where === "types" && what) {
+    title = FORMATS.find(f => f.key === what)?.name;
+    body = <TypePractice format={what} met={state.metFormats.includes(what)} />;
+  } else if (where === "types") {
+    title = "Question types";
+    body = <TypesMenu state={state} />;
+  } else {
+    body = <GameHome state={state} />;
+  }
 
   return (
-    <div className="page stack spotter">
-      <BackHome to={where ? "spotter" : ""} label={where ? "‹ Back" : "‹ Home"} />
-      {body}
-    </div>
+    <Volume game="spotter">
+      {where
+        ? <VolumeHeader game="spotter" title={title} to={where === "types" && what ? "spotter/types" : "spotter"} backLabel="Back" compact />
+        : <VolumeHeader game="spotter" lead="Every day you finish the challenge, your eyes get sharper." />}
+      <div className="page stack spotter">{body}</div>
+    </Volume>
   );
 }
 
+// The first visit: a few punchy lines on the navy cloth.
 function Intro({ onReady }) {
   return (
-    <div className="page">
-      <div className="card stack center pop intro">
-        <div className="big-title">Are you the kid that nothing gets past?</div>
-        <p className="lesson-line">Every day you complete the challenge, your eyes get sharper.</p>
-        <p className="lesson-line"><b>Start as a mole. Finish as an eagle.</b></p>
-        <div className="ladder">{ANIMALS.map(a => <Portrait key={a.key} animal={a.key} size={52} />)}</div>
-        <button className="btn wide" onClick={onReady}>I'm ready!</button>
+    <Volume game="spotter">
+      <div className="spot-intro cloth">
+        <div className="spot-intro-frame">
+          <Icon name="eye" size={54} strokeWidth={1.1} className="spot-intro-emblem" />
+          <h1 className="spot-intro-title gilt">Are you the kid that nothing gets past?</h1>
+          <p className="spot-intro-line">Every day you complete the challenge, your eyes get sharper.</p>
+          <p className="spot-intro-line strong">Start as a mole. Finish as an eagle.</p>
+          <div className="cameo-row">
+            {ANIMALS.map(a => <Cameo key={a.key} animal={a.key} width={58} />)}
+          </div>
+          <button className="btn gold spot-intro-go" onClick={onReady}>I'm ready</button>
+        </div>
       </div>
-    </div>
+    </Volume>
   );
 }
 
-function Ladder({ state }) {
+// The seven animals as cameos; earned ones in colour, the rest as silhouettes.
+function Ladder({ rungs }) {
   return (
-    <div className="ladder">
+    <ol className="ladder">
       {ANIMALS.map((a, i) => (
-        <div key={a.key} className={`rung ${i < state.rungs ? "earned" : ""}`}>
-          <Portrait animal={a.key} silhouette={i >= state.rungs} size={64} />
-          <div className="rung-name">{i < state.rungs ? a.name : "?"}</div>
-        </div>
+        <li key={a.key} className="rung">
+          <Cameo animal={a.key} earned={i < rungs} current={i === rungs - 1} width={62} />
+          <span className={`rung-name ${i < rungs ? "earned" : ""}`}>{i < rungs ? a.name : "?"}</span>
+        </li>
       ))}
-    </div>
+    </ol>
   );
 }
 
 function GameHome({ state }) {
-  const current = state.rungs > 0 ? ANIMALS[state.rungs - 1] : null;
-  const next = state.rungs < 7 ? ANIMALS[state.rungs] : ANIMALS[0];
+  // After reaching the eagle, the next day starts a fresh climb.
+  const fresh = state.rungs === 7 && !state.doneToday;
+  const rungs = fresh ? 0 : state.rungs;
+  const level = fresh ? state.level + 1 : state.level;
+  const current = rungs > 0 ? ANIMALS[rungs - 1] : null;
+  const next = rungs < 7 ? ANIMALS[rungs] : null;
+
+  let status;
+  if (state.rungs === 7 && state.doneToday) status = "Level complete. You're the kid nothing gets past!";
+  else if (fresh) status = "A fresh climb! Finish today's challenge to become a mole again.";
+  else if (state.doneToday) status = `You're ${an(current.name)}. Come back tomorrow to become ${an(next.name)}.`;
+  else if (current) status = `You're ${an(current.name)}. Finish today's challenge to become ${an(next.name)}.`;
+  else status = "Finish today's challenge to become a mole.";
+
   return (
     <>
-      <header className="center">
-        <div className="big-title spotter-title">Are you the kid that nothing gets past?</div>
-      </header>
-      <section className="card stack center">
-        <div className="soft level-label">Level {state.rungs === 7 && !state.doneToday ? state.level + 1 : state.level}</div>
-        <Ladder state={state.rungs === 7 && !state.doneToday ? { ...state, rungs: 0 } : state} />
-        <p className="lesson-line">
-          {state.rungs === 7 && state.doneToday && "Level complete: you're the kid nothing gets past!"}
-          {state.rungs === 7 && !state.doneToday && "A fresh climb! Complete today's challenge to become a Mole."}
-          {state.rungs < 7 && current && `You're ${/^[aeiou]/i.test(current.name) ? "an" : "a"} ${current.name}! `}
-          {state.rungs < 7 && (state.doneToday ? `Come back tomorrow to become ${/^[aeiou]/i.test(next.name) ? "an" : "a"} ${next.name}.` : `Complete today's challenge to become ${/^[aeiou]/i.test(next.name) ? "an" : "a"} ${next.name}!`)}
-        </p>
+      <section className="sheet stack center ladder-sheet">
+        <p className="level-name">Level {level}</p>
+        <Ladder rungs={rungs} />
+        <p className="ladder-status">{status}</p>
         {state.doneToday ? (
           <>
-            <div className="done-today">✓ Today's challenge done!</div>
-            <button className="btn secondary wide" onClick={() => go("spotter/daily")}>Do it again for fun</button>
+            <div className="done-today"><Seal size={40} /> Today's challenge is done</div>
+            <button className="btn secondary wide" onClick={() => go("spotter/daily")}>Play it again for fun</button>
           </>
         ) : (
           <button className="btn wide big-start" onClick={() => go("spotter/daily")}>Start today's challenge</button>
         )}
       </section>
 
-      <section className="card stack">
+      <section className="sheet stack">
         <h2 className="title">Practice</h2>
         <div className="practice-grid">
-          <button className="btn secondary" onClick={() => go("spotter/practice/spot")}>Spot the Change</button>
-          <button className="btn secondary" onClick={() => go("spotter/practice/odd")}>Odd One Out</button>
-          <button className="btn secondary" onClick={() => go("spotter/practice/codes")}>Codes</button>
-          <button className="btn secondary" onClick={() => go("spotter/types")}>Question Types</button>
-          {state.flashcards && <button className="btn secondary" onClick={() => go("spotter/practice/flash")}>Name the twelve</button>}
+          <PracticeButton icon="lens" label="Spot the change" to="spotter/practice/spot" />
+          <PracticeButton icon="eye" label="Odd one out" to="spotter/practice/odd" />
+          <PracticeButton icon="sparkle" label="Codes" to="spotter/practice/codes" />
+          <PracticeButton icon="book" label="Question types" to="spotter/types" />
+          {state.flashcards && <PracticeButton icon="medal" label="Name the twelve" to="spotter/practice/flash" />}
         </div>
       </section>
     </>
+  );
+}
+
+function PracticeButton({ icon, label, to }) {
+  return (
+    <button className="btn secondary practice-btn" onClick={() => go(to)}>
+      <Icon name={icon} size={22} strokeWidth={1.5} />{label}
+    </button>
   );
 }
 
@@ -137,17 +173,20 @@ function Practice({ mode, state }) {
 function TypesMenu({ state }) {
   const allMet = FORMATS.every(f => state.metFormats.includes(f.key));
   return (
-    <section className="card stack">
-      <h2 className="title">Question Types</h2>
-      <p className="soft">The six kinds of puzzle in the exam. {allMet ? "You've met them all!" : "You'll meet a new one in your daily challenge."}</p>
-      <div className="practice-grid">
+    <section className="sheet stack">
+      <p className="lead soft types-lead">The six kinds of picture puzzle in the exam. {allMet ? "You've met them all!" : "You'll meet a new one in your daily challenge."}</p>
+      <ul className="types-list">
         {FORMATS.map(f => (
-          <button key={f.key} className="btn secondary" onClick={() => go(`spotter/types/${f.key}`)}>
-            {state.metFormats.includes(f.key) ? "✓ " : ""}{f.name}
-          </button>
+          <li key={f.key}>
+            <button className="types-row" onClick={() => go(`spotter/types/${f.key}`)}>
+              <span className="types-name">{f.name}</span>
+              {state.metFormats.includes(f.key) ? <Seal size={32} /> : <span className="types-new">New</span>}
+              <Icon name="next" size={20} className="types-chevron" />
+            </button>
+          </li>
         ))}
-        {allMet && <button className="btn" onClick={() => go("spotter/practice/mixed")}>Mixed round</button>}
-      </div>
+      </ul>
+      {allMet && <button className="btn wide" onClick={() => go("spotter/practice/mixed")}>Play a mixed round</button>}
     </section>
   );
 }
@@ -163,8 +202,7 @@ function TypePractice({ format, met }) {
   }
   return (
     <>
-      <div className="row" style={{ justifyContent: "space-between" }}>
-        <h2 className="title">{FORMATS.find(f => f.key === format).name}</h2>
+      <div className="row" style={{ justifyContent: "flex-end" }}>
         <button className="btn small secondary" onClick={() => setLearning(true)}>Show me how again</button>
       </div>
       <ErrorBox error={error} />

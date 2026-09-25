@@ -1,30 +1,123 @@
-.home-tagline { font-size: 20px; font-weight: 700; max-width: 520px; margin: 0 auto; }
-.mega-week-title { font-weight: 900; font-size: 20px; text-align: center; }
-.mega-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin: 12px 0 8px; }
-.mega-day {
-  aspect-ratio: 1; border-radius: 14px; background: var(--cover);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  border: 3px solid transparent;
+/* Home: the book cover. */
+.cover {
+  --vol: var(--cloth);
+  min-height: 100vh;
+  padding: 18px;
 }
-.mega-day.lit { background: var(--highlight); border-color: var(--gold); }
-.mega-day.today { border-color: var(--ink); }
-.mega-day-star { font-size: clamp(16px, 4vw, 28px); min-height: 1.2em; }
-.mega-day-letter { font-weight: 900; color: var(--soft); }
-.mega-week-note { text-align: center; font-weight: 700; }
-.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 520px) { .tiles { grid-template-columns: 1fr; } }
-.tile {
-  position: relative; border: none; border-radius: 22px; cursor: pointer;
-  background: var(--tile); color: white; padding: 24px 16px 20px; min-height: 190px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25); text-align: center;
+/* The gilt double frame stamped inside the cover's edge. */
+.cover-frame {
+  max-width: 1040px; margin: 0 auto; min-height: calc(100vh - 36px);
+  padding: 44px 28px 40px;
+  border: 1px solid rgba(201, 162, 75, 0.55);
+  outline: 1px solid rgba(201, 162, 75, 0.3);
+  outline-offset: -7px;
+  border-radius: 4px;
+  display: flex; flex-direction: column; gap: clamp(24px, 4vh, 40px);
 }
-.tile:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25); }
-.tile-icon { font-size: 48px; }
-.tile-name { font-size: 22px; font-weight: 900; line-height: 1.15; }
-.tile-streak { font-size: 18px; font-weight: 800; background: rgba(255, 255, 255, 0.2); border-radius: 99px; padding: 4px 14px; }
-.tile-tick {
-  position: absolute; top: 10px; right: 12px; width: 44px; height: 44px; border-radius: 50%;
-  background: white; color: var(--green); font-size: 30px; font-weight: 900;
+
+.crest { text-align: center; }
+.crest-sparkle { margin: 0 auto 6px; color: var(--gilt); }
+.crest-title {
+  font-family: var(--story);
+  font-weight: 600;
+  font-size: clamp(64px, min(15vw, 14vh), 132px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0;
+  animation: foil 2.4s var(--ease) 0.2s 1 both;
+}
+/* The one moment of motion: light sweeps across the foil as the cover opens. */
+@keyframes foil { from { background-position: 100% 0; } to { background-position: 30% 0; } }
+.crest-line {
+  font-family: var(--story); font-style: italic;
+  font-size: var(--t-lead); line-height: 1.4;
+  color: rgba(250, 251, 248, 0.86);
+  max-width: 30ch; margin: 14px auto 0;
+}
+
+/* This week's seals. */
+.week { text-align: center; }
+.week-title {
+  font-family: var(--story); font-weight: 500; font-style: italic;
+  font-size: 20px; color: var(--gilt-light); margin: 0 0 16px;
+}
+.week-seals {
+  list-style: none; padding: 0; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+  max-width: 560px;
+}
+.week-day { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.week-seal {
+  width: clamp(38px, 9vw, 56px); aspect-ratio: 1; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid rgba(201, 162, 75, 0.55);
+  color: var(--cloth-deep);
 }
+.week-day.today .week-seal { border-color: var(--gilt-light); box-shadow: 0 0 0 4px rgba(237, 212, 143, 0.14); }
+.week-day.lit .week-seal {
+  border: none;
+  background: radial-gradient(circle at 35% 30%, var(--gilt-light), var(--gilt) 55%, var(--gilt-dark));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+.week-name { font-size: 14px; font-weight: 700; color: rgba(250, 251, 248, 0.6); }
+.week-day.today .week-name { color: var(--gilt-light); }
+.week-note { margin: 16px 0 0; color: rgba(250, 251, 248, 0.72); font-size: 16px; }
+
+/* The shelf of four volumes. */
+.shelf {
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: auto;
+}
+@media (max-width: 900px) { .shelf { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .shelf { grid-template-columns: 1fr; } }
+
+.volume {
+  position: relative;
+  border: none; border-radius: 4px 8px 8px 4px; cursor: pointer;
+  padding: 12px; text-align: center;
+  aspect-ratio: 3 / 3.7;
+  /* the spine's shadow on the left edge, and a lift off the cover */
+  box-shadow:
+    inset 6px 0 0 rgba(0, 0, 0, 0.18),
+    inset 7px 0 0 rgba(255, 255, 255, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 30px -16px rgba(0, 0, 0, 0.7);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+@media (max-width: 900px) { .volume { aspect-ratio: 4 / 3.3; } }
+@media (max-width: 460px) { .volume { aspect-ratio: auto; min-height: 200px; } }
+.volume:hover { transform: translateY(-4px); }
+.volume:active { transform: translateY(0); }
+.volume-frame {
+  height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 18px 12px 16px;
+  border: 1px solid rgba(201, 162, 75, 0.6);
+  outline: 1px solid rgba(201, 162, 75, 0.3); outline-offset: -5px;
+  border-radius: 2px;
+}
+.volume-emblem { color: var(--gilt); margin-top: auto; }
+.volume-name {
+  font-family: var(--story); font-weight: 600;
+  font-size: clamp(19px, 2.2vw, 23px); line-height: 1.2;
+  color: var(--gilt-light);
+  max-width: 13ch;
+}
+.volume-streak {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: auto;
+  font-size: 15px; font-weight: 700; color: rgba(250, 251, 248, 0.78);
+}
+.volume-streak svg { color: var(--gilt); }
+.volume-done {
+  position: absolute; top: -10px; right: -10px;
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 35% 30%, var(--gilt-light), var(--gilt) 55%, var(--gilt-dark));
+  color: var(--cloth-deep);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45), inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.reward-icon { margin: 0 auto; color: var(--gilt-dark); }
+.reward-list { display: flex; flex-direction: column; gap: 10px; }

@@ -2,8 +2,13 @@
 import { useId } from "react";
 import { BOX, layout, pairOf } from "./figure.js";
 
-const FILLS = { white: "#FFFFFF", grey: "#A7B3AD", black: "#1B2A24" };
+// Refined ink on paper: crisp 2px lines at any size, fine hatching for
+// striped, a soft sage-grey, and the paper plate keylined like a book plate.
+const FILLS = { white: "#FFFFFF", grey: "#B4C2BA", black: "#1B2A24" };
 const INK = "#1B2A24";
+const PAPER = "#FFFFFF";
+const KEYLINE = "#CFDBD4";
+const LINE = 2; // screen pixels, whatever size the figure is drawn
 
 // Drawing order: big shapes that hold others first, then overlapping pairs
 // back to front, then everything else, then shapes sitting inside others.
@@ -23,51 +28,83 @@ function drawOrder(fig) {
 
 const toPoints = pts => pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
 
-// The inner outline of a double line: the same shape, a few pixels smaller.
-function shrink(pts, cx, cy, r) {
-  const k = Math.max(0.35, (r - 5) / r);
+// The same outline pulled in towards its centre by `by` units.
+function inset(pts, cx, cy, r, by) {
+  const k = Math.max(0.35, (r - by) / r);
   return pts.map(([x, y]) => [cx + (x - cx) * k, cy + (y - cy) * k]);
 }
 
+const crisp = { vectorEffect: "non-scaling-stroke", strokeLinejoin: "round", strokeLinecap: "round" };
+
 function Shape({ el, copy, r, stripes }) {
   const fill = el.shading === "striped" ? `url(#${stripes})` : FILLS[el.shading];
-  const stroke = { stroke: INK, strokeWidth: 3, strokeLinejoin: "round", strokeLinecap: "round" };
-  if (el.line === "dotted") Object.assign(stroke, { strokeDasharray: "0.5 5", strokeWidth: 4 });
+  const pts = toPoints(copy.pts);
+  if (el.line === "dotted") {
+    // The dots ride on a thin band of paper, so a dotted edge still reads
+    // clearly around a black or grey shape.
+    return (
+      <g>
+        <polygon points={pts} fill={fill} stroke={PAPER} strokeWidth={5} {...crisp} />
+        <polygon points={pts} fill="none" stroke={INK} strokeWidth={3.6} strokeDasharray="0 6.5" {...crisp} />
+      </g>
+    );
+  }
   return (
     <g>
-      <polygon points={toPoints(copy.pts)} fill={fill} {...stroke} />
+      <polygon points={pts} fill={fill} stroke={INK} strokeWidth={LINE} {...crisp} />
       {el.line === "double" && (
-        <polygon points={toPoints(shrink(copy.pts, copy.cx, copy.cy, r))} fill="none" stroke={el.shading === "black" ? "#FFFFFF" : INK} strokeWidth={2} strokeLinejoin="round" />
+        <polygon points={toPoints(inset(copy.pts, copy.cx, copy.cy, r, 5.5))} fill="none"
+          stroke={el.shading === "black" ? PAPER : INK} strokeWidth={1.6} {...crisp} />
       )}
     </g>
   );
 }
 
 // fig: the figure. highlight: ids to glow. tags: show letters A, B, C.
-// Figures with everything in the middle cell are shown zoomed in, so single
-// shapes are big and clear. Every figure in one question must zoom the same
-// way, so pass all of them here and give the result to each Figure.
-export const zoomFor = figs => figs.every(f => f.elements.every(e => e.cell === 4));
+// Every figure in one question is cropped to the same square: just big
+// enough to hold everything drawn in any of them, with room for the letter
+// tags. Positions still compare exactly (the crop is shared), but a lone
+// shape is shown large and clear instead of lost in an empty box.
+// Pass all of a question's figures here and give the result to each Figure.
+const PAD = 34;          // room around the shapes (tags sit just outside them)
+const MIN_VIEW = 140;    // never zoom in further than this
+
+export function zoomFor(figs) {
+  let x0 = BOX, y0 = BOX, x1 = 0, y1 = 0;
+  for (const fig of figs) {
+    const L = layout(fig);
+    for (const el of fig.elements) {
+      for (const c of L[el.id].copies) {
+        for (const [x, y] of c.pts) {
+          x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y);
+        }
+      }
+    }
+  }
+  const size = Math.min(BOX, Math.max(MIN_VIEW, x1 - x0 + 2 * PAD, y1 - y0 + 2 * PAD));
+  const clamp = v => Math.max(0, Math.min(BOX - size, v));
+  return { x: clamp((x0 + x1) / 2 - size / 2), y: clamp((y0 + y1) / 2 - size / 2), size };
+}
 
 export default function Figure({ fig, zoom = zoomFor([fig]), highlight = [], tags = false, className = "", label }) {
   const stripes = `stripes${useId().replace(/:/g, "")}`;
   const L = layout(fig);
-  const [vx, vs] = zoom ? [55, 190] : [0, BOX];
+  const { x: vx, y: vy, size: vs } = zoom;
   return (
-    <svg viewBox={`${vx} ${vx} ${vs} ${vs}`} className={`figure ${className}`} role="img" aria-label={label ?? "figure"}>
+    <svg viewBox={`${vx} ${vy} ${vs} ${vs}`} className={`figure ${className}`} role="img" aria-label={label ?? "figure"}>
       <defs>
-        <pattern id={stripes} patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="rotate(45)">
-          <rect width="9" height="9" fill="#FFFFFF" />
-          <line x1="0" y1="0" x2="0" y2="9" stroke={INK} strokeWidth="4" />
+        <pattern id={stripes} patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)">
+          <rect width="7" height="7" fill={PAPER} />
+          <line x1="0" y1="0" x2="0" y2="7" stroke={INK} strokeWidth="2.2" />
         </pattern>
       </defs>
-      <rect x={vx + 1.5} y={vx + 1.5} width={vs - 3} height={vs - 3} rx="14" fill="#FFFFFF" stroke="#C5D3CC" strokeWidth="3" />
+      <rect x={vx + 1} y={vy + 1} width={vs - 2} height={vs - 2} rx={vs * 0.045} fill={PAPER} stroke={KEYLINE} strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
       {highlight.map(id => {
         const l = L[id];
         const xs = l.copies.map(c => c.cx);
         const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
-        const rx = (Math.max(...xs) - Math.min(...xs)) / 2 + l.r + 12;
-        return <ellipse key={`h${id}`} cx={cx} cy={l.cy} rx={rx} ry={l.r + 12} className="glow" />;
+        const rx = (Math.max(...xs) - Math.min(...xs)) / 2 + l.r + 9;
+        return <ellipse key={`h${id}`} cx={cx} cy={l.cy} rx={rx} ry={l.r + 9} className="glow" vectorEffect="non-scaling-stroke" />;
       })}
       {drawOrder(fig).map(el => (
         <g key={el.id}>
@@ -86,8 +123,8 @@ export default function Figure({ fig, zoom = zoomFor([fig]), highlight = [], tag
         const y = el.inside ? l.cy : top ? l.cy - l.r - 14 : l.cy + l.r + 14;
         return (
           <g key={`t${el.id}`} className="tag">
-            <circle cx={x} cy={y} r="11" fill={INK} />
-            <text x={x} y={y + 5} textAnchor="middle" fill="#FFFFFF" fontSize="15" fontWeight="900" fontFamily="Nunito, sans-serif">{el.id}</text>
+            <circle cx={x} cy={y} r="11.5" fill={INK} />
+            <text x={x} y={y + 5} textAnchor="middle" fill={PAPER} fontSize="14" fontWeight="800" fontFamily="Nunito, sans-serif">{el.id}</text>
           </g>
         );
       })}

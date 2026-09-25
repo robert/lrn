@@ -146,3 +146,13 @@ const DRAWINGS = {
     </g>
   ),
 };
+
+// A portrait in an oval cameo frame with a gilt keyline, like a locket.
+// Unearned animals show as a grey silhouette on sage.
+export function Cameo({ animal, earned = true, current = false, width = 64 }) {
+  return (
+    <span className={`cameo ${earned ? "earned" : "unearned"} ${current ? "current" : ""}`} style={{ width, height: width * 1.25 }}>
+      <Portrait animal={animal} silhouette={!earned} size={width * 0.86} />
+    </span>
+  );
+}

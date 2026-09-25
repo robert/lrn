@@ -19,7 +19,7 @@ export function CodedFigures({ q, showTest }) {
       {showTest && (
         <div className="code-fig test">
           <Figure fig={q.test} zoom={zoom} />
-          <div className="code-label">??</div>
+          <div className="code-label mystery">? ?</div>
         </div>
       )}
     </div>
@@ -55,15 +55,15 @@ export default function Codes({ onDone }) {
       <CodedFigures q={q} showTest={step === 2} />
       {step < 2 ? (
         <>
-          <p className="center big-q">What does the {step === 0 ? "FIRST" : "SECOND"} letter stand for?</p>
-          <p className="center soft">Look at the figures that share a letter ({[...new Set(letters)].join(", ")}). What is the same about them?</p>
+          <p className="big-q">What does the {step === 0 ? "first" : "second"} letter stand for?</p>
+          <p className="center soft small-help">Look at the figures that share a letter ({[...new Set(letters)].join(", ")}). What is the same about them?</p>
           <AttributeButtons onPick={pickAttr} marks={marks} disabled={right} />
           {Object.values(marks).includes("slipped") && !right && <Feedback kind="ok">That one slipped past. Try another!</Feedback>}
           {right && <Feedback kind="great">{praise()} The {step === 0 ? "first" : "second"} letter is the {labelFor(q.attrs[step]).toLowerCase()}.</Feedback>}
         </>
       ) : (
         <>
-          <p className="center big-q">What is the code for the new picture?</p>
+          <p className="big-q">What is the code for the new picture?</p>
           <div className="code-options">
             {q.options.map(code => (
               <button key={code} className={`btn secondary code-option ${slippedCodes.includes(code) ? "slipped" : ""} ${right && code === q.answer ? "right" : ""}`}

@@ -45,13 +45,13 @@ export default function Flashcards({ onDone }) {
 
   return (
     <div className="stack">
-      <div className="card center">
-        <h2 className="title">Name the twelve things that can change</h2>
-        <p className="soft">In order, from memory!</p>
+      <div className="center">
+        <h2 className="display flash-title">Name the twelve things that can change</h2>
+        <p className="lead soft">In order, from memory.</p>
       </div>
       <ol className="flash-list">
         {ATTRIBUTES.map((a, i) => (
-          <li key={a.key} className={i < named ? "done pop" : i === named ? "next" : ""}>{i < named ? a.label : i === named ? "?" : ""}</li>
+          <li key={a.key} className={i < named ? "done pop" : i === named ? "next" : ""}><span className="flash-num">{i + 1}</span>{i < named ? a.label : i === named ? "?" : ""}</li>
         ))}
       </ol>
       {!finished && (

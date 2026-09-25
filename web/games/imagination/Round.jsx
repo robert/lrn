@@ -3,12 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { post } from "../../api.js";
 import { useSpeech } from "../../lib/useSpeech.js";
-import { ErrorBox } from "../../components.jsx";
+import { ErrorBox, Volume, VolumeHeader } from "../../components.jsx";
+import Icon from "../../icons.jsx";
 import { MODES } from "./modes.js";
 
 const OPENER_CHANCE = 0.2; // how often a sentence appears instead of a picture
 
 const shuffle = list => list.map(x => [Math.random(), x]).sort((a, b) => a[0] - b[0]).map(([, x]) => x);
+const capitalise = s => s.charAt(0).toUpperCase() + s.slice(1);
 
 // Turn the pictures folder into a shuffled list of prompts to show.
 function buildPrompts({ pictures, openers }) {
@@ -38,6 +40,7 @@ export default function Round({ mode, library, onFinish, onQuit }) {
 
   const prompt = prompts[index % prompts.length];
   promptRef.current = prompt;
+  const total = MODES[mode].minutes * 60_000;
 
   // Remember every prompt that was actually on screen during play.
   useEffect(() => {
@@ -60,7 +63,6 @@ export default function Round({ mode, library, onFinish, onQuit }) {
   // Countdown. When it runs out the round ends by itself.
   useEffect(() => {
     if (phase !== "playing") return;
-    const total = MODES[mode].minutes * 60_000;
     const timer = setInterval(() => {
       const left = total - (Date.now() - startRef.current);
       setRemaining(Math.max(0, left));
@@ -97,71 +99,137 @@ export default function Round({ mode, library, onFinish, onQuit }) {
     setTyping("");
   }
 
-  if (!prompt) return <div className="page"><ErrorBox error="There are no pictures in the pictures folder yet." /></div>;
+  if (!prompt) {
+    return (
+      <Volume game="imagination">
+        <VolumeHeader game="imagination" compact to="imagination" backLabel="Imagination Engine" />
+        <div className="page"><ErrorBox error="There are no pictures in the pictures folder yet." /></div>
+      </Volume>
+    );
+  }
+
+  const m = MODES[mode];
 
   if (phase === "ready") {
     return (
-      <div className="page stack center">
-        <button className="back" onClick={onQuit}>‹ Imagination Engine</button>
-        <div className="big-title">{MODES[mode].icon} {MODES[mode].name}</div>
-        <div className="card stack">
-          <p className="imag-tagline">{MODES[mode].blurb}</p>
-          <div className="imag-say">"The problem is… The solution is…"</div>
-          <p className="soft">Say every idea out loud. The engine is listening!</p>
+      <Volume game="imagination">
+        <header className="volume-band cloth">
+          <div className="volume-band-inner">
+            <button className="home-link" onClick={onQuit}><Icon name="back" />Imagination Engine</button>
+            <Icon name={m.icon} className="emblem" strokeWidth={1.3} />
+            <h1 className="big-title">{m.name}</h1>
+            <p className="lead">{m.blurb}</p>
+          </div>
+        </header>
+        <div className="page stack">
+          <section className="sheet imag-formula">
+            <p className="imag-formula-lead">Say every idea out loud, like this</p>
+            <p className="imag-formula-words">The problem is… <span>the solution is…</span></p>
+            <p className="imag-formula-foot"><Icon name="mic" size={18} />The engine listens the whole time. {m.length}.</p>
+          </section>
+          <button className="btn wide imag-start" onClick={start}>Start the engine</button>
         </div>
-        <button className="btn wide" onClick={start}>Start the engine!</button>
-      </div>
+      </Volume>
     );
   }
 
   const showTyping = !speech.supported || speech.error;
-  const recent = segments.filter(s => s.promptId === prompt.id).slice(-4);
-  const mins = Math.floor(remaining / 60_000);
-  const secs = String(Math.floor((remaining % 60_000) / 1000)).padStart(2, "0");
+  const recent = segments.filter(s => s.promptId === prompt.id).slice(-5);
+  const shownCount = index + 1;
 
   return (
-    <div className="page stack">
-      <div className="imag-timer">
-        <div className="progress"><div style={{ width: `${(remaining / (MODES[mode].minutes * 60_000)) * 100}%`, background: "var(--plum)" }} /></div>
-        <div className="imag-clock">{mins}:{secs}</div>
-      </div>
-
-      <div className="imag-prompt">
-        {prompt.type === "opener"
-          ? <div className="imag-opener">"{prompt.text}"</div>
-          : <img src={prompt.url} alt={prompt.label} />}
-      </div>
-
-      <div className="card imag-heard">
-        <div className="row imag-mic">
-          <span className={`imag-dot ${speech.listening ? "on" : ""}`} />
-          <b>{speech.listening ? "Listening…" : showTyping ? "Type your ideas" : "Microphone starting…"}</b>
+    <Volume game="imagination">
+      <header className="imag-bar cloth">
+        <div className="imag-bar-inner">
+          <div className="imag-bar-title">
+            <Icon name={m.icon} size={22} strokeWidth={1.4} />
+            <span>{m.name}</span>
+          </div>
+          <Listening on={speech.listening} typing={showTyping} />
+          <TimerRing remaining={remaining} total={total} />
         </div>
-        {speech.error && <div className="error">{speech.error}</div>}
-        {recent.map((s, i) => <div key={i} className="imag-phrase">{s.text}</div>)}
-        {speech.interim && <div className="imag-phrase interim">{speech.interim}</div>}
-        {showTyping && (
-          <form className="row" onSubmit={addTyped}>
-            <input className="imag-input" value={typing} onChange={e => setTyping(e.target.value)}
-              placeholder="The problem is… the solution is…" />
-            <button className="btn small">Add</button>
-          </form>
-        )}
-      </div>
+      </header>
 
-      <ErrorBox error={error} />
-      {phase === "sending" ? (
-        <div className="card center"><b>Counting your ideas… 🧠</b></div>
-      ) : phase === "unsent" ? (
-        <button className="btn wide" onClick={send}>Send my ideas again</button>
-      ) : (
-        <div className="row">
-          {mode === "breadth" && (
-            <button className="btn wide imag-next" onClick={() => setIndex(i => i + 1)}>Next picture ➜</button>
+      <div className="page imag-play">
+        <figure className="imag-plate">
+          <div className="imag-plate-mount">
+            {prompt.type === "opener"
+              ? <p className="imag-opener">“{prompt.text}”</p>
+              : <img key={prompt.id} className="imag-plate-img" src={prompt.url} alt={prompt.label} />}
+          </div>
+          <figcaption>
+            {mode === "breadth" && <span className="imag-plate-no">Plate {shownCount}</span>}
+            {prompt.type === "opener" ? "An opening sentence" : capitalise(prompt.label)}
+          </figcaption>
+        </figure>
+
+        <section className="imag-heard sheet">
+          <h2 className="imag-heard-title">Your ideas</h2>
+          {speech.error && <div className="error">{speech.error}</div>}
+          <div className="imag-lines">
+            {recent.length === 0 && !speech.interim && (
+              <p className="imag-line placeholder">The problem is… the solution is…</p>
+            )}
+            {recent.map((s, i) => <p key={`${s.t}-${i}`} className="imag-line written">{s.text}</p>)}
+            {speech.interim && <p className="imag-line interim">{speech.interim}</p>}
+          </div>
+          {showTyping && (
+            <form className="imag-type" onSubmit={addTyped}>
+              <Icon name="keys" size={22} />
+              <input className="imag-input" value={typing} onChange={e => setTyping(e.target.value)}
+                placeholder="Type an idea, then press Add" />
+              <button className="btn small">Add</button>
+            </form>
           )}
-          <button className="btn secondary wide" onClick={finish}>I'm finished</button>
+        </section>
+
+        <ErrorBox error={error} />
+        <div className="imag-actions">
+          {phase === "sending" ? (
+            <p className="imag-sending"><Icon name="sparkle" size={20} strokeWidth={1.3} />Gathering up your ideas…</p>
+          ) : phase === "unsent" ? (
+            <button className="btn wide" onClick={send}><Icon name="refresh" />Send my ideas again</button>
+          ) : (
+            <>
+              {mode === "breadth" && (
+                <button className="btn imag-next" onClick={() => setIndex(i => i + 1)}>
+                  Next picture<Icon name="next" />
+                </button>
+              )}
+              <button className="btn secondary" onClick={finish}>I'm finished</button>
+            </>
+          )}
         </div>
-      )}
+      </div>
+    </Volume>
+  );
+}
+
+// Gilt ring that empties as time runs out, with a quiet reading in the middle.
+function TimerRing({ remaining, total }) {
+  const r = 22;
+  const circ = 2 * Math.PI * r;
+  const frac = remaining / total;
+  const secs = Math.ceil(remaining / 1000);
+  const label = secs > 60 ? `${Math.ceil(secs / 60)} min` : `${secs}s`;
+  return (
+    <div className="imag-ring" role="timer" aria-label={`${label} left`}>
+      <svg viewBox="0 0 56 56" width="56" height="56">
+        <circle cx="28" cy="28" r={r} className="imag-ring-track" />
+        <circle cx="28" cy="28" r={r} className="imag-ring-fill"
+          strokeDasharray={circ} strokeDashoffset={circ * (1 - frac)} transform="rotate(-90 28 28)" />
+      </svg>
+      <span>{label}</span>
+    </div>
+  );
+}
+
+// Four gilt bars that sway while the microphone is listening.
+function Listening({ on, typing }) {
+  return (
+    <div className={`imag-listen ${on ? "on" : ""}`}>
+      <span className="imag-bars" aria-hidden="true"><i /><i /><i /><i /></span>
+      <span>{on ? "Listening" : typing ? "Type your ideas" : "Waking the microphone"}</span>
     </div>
   );
 }

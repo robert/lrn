@@ -12,7 +12,7 @@
 export const BOX = 300;
 export const CELL = 100;
 export const SIZES = ["small", "medium", "large"];
-export const SIZE_R = { small: 15, medium: 24, large: 36 };
+export const SIZE_R = { small: 20, medium: 27, large: 38 };
 export const SHADINGS = ["white", "grey", "black", "striped"];
 export const LINES = ["solid", "dotted", "double"];
 

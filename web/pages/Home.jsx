@@ -1,17 +1,14 @@
-// The home screen that unites all four games.
+// The home screen: a bottle-green book cover stamped in gilt, with the four
+// games as cloth-bound volumes on a shelf.
 import { useEffect, useState } from "react";
 import { get, post } from "../api.js";
 import { go } from "../App.jsx";
-import { ErrorBox, Loading } from "../components.jsx";
+import { ErrorBox, Loading, VOLUMES } from "../components.jsx";
+import Icon from "../icons.jsx";
 import "./home.css";
 
-const TILES = [
-  { game: "reader", name: "Mega Reader Challenge", icon: "📖", colour: "var(--green)" },
-  { game: "imagination", name: "Imagination Engine", icon: "💡", colour: "var(--plum)" },
-  { game: "story", name: "Story Builder", icon: "🏗️", colour: "var(--mud)" },
-  { game: "spotter", name: "Are you the kid that nothing gets past?", icon: "👁️", colour: "var(--sky)" },
-];
-const DAY_LETTERS = ["M", "T", "W", "T", "F", "S", "S"];
+const ORDER = ["reader", "imagination", "story", "spotter"];
+const DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export default function Home() {
   const [state, setState] = useState(null);
@@ -19,48 +16,70 @@ export default function Home() {
   const load = () => get("/api/home").then(setState, setError);
   useEffect(() => { load(); }, []);
 
-  if (error) return <div className="page"><ErrorBox error={error} /></div>;
-  if (!state) return <Loading />;
-  const litCount = state.week.days.filter(d => d.lit).length;
-
   return (
-    <div className="page stack">
-      <header className="center">
-        <div className="big-title">MEGA</div>
-        <p className="home-tagline">You're already a Mega Reader. This is where you prove you're mega at everything else too.</p>
+    <div className="cover cloth">
+      <div className="cover-frame">
+        {error && <ErrorBox error={error} />}
+        {!state && !error && <Loading />}
+        {state && <CoverContents state={state} onReload={load} />}
+      </div>
+    </div>
+  );
+}
+
+function CoverContents({ state, onReload }) {
+  const litCount = state.week.days.filter(d => d.lit).length;
+  return (
+    <>
+      <header className="crest">
+        <Icon name="sparkle" className="crest-sparkle" size={22} strokeWidth={1.2} />
+        <h1 className="crest-title gilt">Mega</h1>
+        <p className="crest-line">You're already a Mega Reader. Here's where you prove you're mega at everything else.</p>
       </header>
 
-      <section className="card mega-week">
-        <div className="mega-week-title">⚡ Mega Streak</div>
-        <div className="mega-days">
+      <section className="week" aria-label="This week's Mega Streak">
+        <h2 className="week-title">This week</h2>
+        <ol className="week-seals">
           {state.week.days.map((d, i) => (
-            <div key={d.date} className={`mega-day ${d.lit ? "lit" : ""} ${d.isToday ? "today" : ""}`}>
-              <div className="mega-day-star">{d.lit ? "⭐" : ""}</div>
-              <div className="mega-day-letter">{DAY_LETTERS[i]}</div>
-            </div>
+            <li key={d.date} className={`week-day ${d.lit ? "lit" : ""} ${d.isToday ? "today" : ""}`}>
+              <span className="week-seal">{d.lit && <Icon name="star" size={20} strokeWidth={1.4} />}</span>
+              <span className="week-name">{d.isToday ? "Today" : DAY_NAMES[i]}</span>
+            </li>
           ))}
-        </div>
-        <div className="soft mega-week-note">
-          {litCount === 0 ? "Finish all four games in a day to light it up!" : "Light up every day this week to win a reward!"}
-        </div>
+        </ol>
+        <p className="week-note">
+          {litCount === 7 ? "A whole Mega week!"
+            : litCount === 0 ? "Finish all four games in one day to light a seal."
+            : "Light every seal this week and you choose a reward."}
+        </p>
       </section>
 
-      <section className="tiles">
-        {TILES.map(t => {
-          const g = state.games[t.game];
+      <nav className="shelf">
+        {ORDER.map(game => {
+          const v = VOLUMES[game];
+          const g = state.games[game];
           return (
-            <button key={t.game} className="tile" style={{ "--tile": t.colour }} onClick={() => go(t.game)}>
-              {g.done && <div className="tile-tick pop">✓</div>}
-              <div className="tile-icon">{t.icon}</div>
-              <div className="tile-name">{t.name}</div>
-              <div className="tile-streak">🔥 {g.streak}</div>
+            <button key={game} className="volume cloth" style={{ "--vol": v.colour }} onClick={() => go(game)}>
+              <span className="volume-frame">
+                <Icon name={v.emblem} className="volume-emblem" size={46} strokeWidth={1.2} />
+                <span className="volume-name">{v.name}</span>
+                <span className="volume-streak">
+                  <Icon name="flame" size={18} strokeWidth={1.5} />
+                  {g.streak} {g.streak === 1 ? "day" : "days"}
+                </span>
+              </span>
+              {g.done && (
+                <span className="volume-done pop" title="Done today">
+                  <Icon name="check" size={20} strokeWidth={2.4} />
+                </span>
+              )}
             </button>
           );
         })}
-      </section>
+      </nav>
 
-      {state.rewardDue && <RewardPicker state={state} onDone={load} />}
-    </div>
+      {state.rewardDue && <RewardPicker state={state} onDone={onReload} />}
+    </>
   );
 }
 
@@ -72,21 +91,23 @@ function RewardPicker({ state, onDone }) {
   }
   return (
     <div className="overlay">
-      <div className="card stack center pop">
-        <div style={{ fontSize: 64 }}>🏆</div>
+      <div className="sheet stack center pop reward">
+        <Icon name="trophy" size={56} strokeWidth={1.2} className="reward-icon" />
         {chosen ? (
           <>
-            <div className="title">{chosen}!</div>
-            <p>A whole week of Mega days. You've earned it. Go and tell a grown-up!</p>
-            <button className="btn wide" onClick={onDone}>Brilliant!</button>
+            <h2 className="display">{chosen}</h2>
+            <p className="lead">Seven Mega days in a row. You earned it. Go and tell a grown-up!</p>
+            <button className="btn wide" onClick={onDone}>Back to the games</button>
           </>
         ) : (
           <>
-            <div className="title">A whole Mega week!</div>
-            <p>Every game, every day, all week. Pick your reward:</p>
-            {state.rewards.map(r => (
-              <button key={r} className="btn wide secondary" onClick={() => choose(r)}>{r}</button>
-            ))}
+            <h2 className="display">A whole Mega week</h2>
+            <p className="lead">Every game, every day, all week long. Choose your reward.</p>
+            <div className="reward-list">
+              {state.rewards.map(r => (
+                <button key={r} className="btn wide secondary" onClick={() => choose(r)}>{r}</button>
+              ))}
+            </div>
           </>
         )}
       </div>

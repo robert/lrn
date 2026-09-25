@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import { get, post } from "../api.js";
 import { go } from "../App.jsx";
-import { BackHome, ErrorBox, Loading } from "../components.jsx";
+import { ErrorBox, Loading } from "../components.jsx";
+import Icon from "../icons.jsx";
 
 const STREAKS = [
   ["reader", "Mega Reader"], ["imagination", "Imagination Engine"], ["story", "Story Builder"],
@@ -52,17 +53,24 @@ export default function Parent() {
   if (!settings) return error ? <div className="page"><ErrorBox error={error} /></div> : <Loading />;
 
   return (
+    <div style={{ "--vol": "var(--cloth)" }}>
+      <header className="volume-band cloth">
+        <div className="volume-band-inner">
+          <button className="home-link" onClick={() => go("")}><Icon name="back" />Home</button>
+          <Icon name="keys" className="emblem" strokeWidth={1.3} />
+          <h1 className="big-title">For grown-ups</h1>
+          <p className="lead">Rewards, pictures, streaks and reports.</p>
+        </div>
+      </header>
     <div className="page stack">
-      <BackHome />
-      <h1 className="title">Parent settings</h1>
       <ErrorBox error={error} />
-      {message && <div className="card">{message}</div>}
+      {message && <div className="sheet small" role="status">{message}</div>}
 
-      <section className="card stack">
+      <section className="sheet stack">
         <h2 className="title">Weekly rewards</h2>
         <p className="soft">One per line. He picks one after a full week of Mega days.</p>
         <textarea value={rewardsText} onChange={e => setRewardsText(e.target.value)} rows={8}
-          style={{ width: "100%", fontSize: 18, fontFamily: "inherit", padding: 12, borderRadius: 12, border: "2px solid var(--rule)" }} />
+          style={{ width: "100%", padding: 14, borderRadius: 10, border: "1px solid var(--rule)", background: "white", lineHeight: 1.6 }} />
         <button className="btn" onClick={saveRewards}>Save rewards</button>
         {Object.keys(settings.claimedWeeks).length > 0 && (
           <div className="soft">
@@ -71,7 +79,7 @@ export default function Parent() {
         )}
       </section>
 
-      <section className="card stack">
+      <section className="sheet stack">
         <h2 className="title">Imagination Engine pictures</h2>
         <p className="soft">
           Pictures live in the <code>pictures/</code> folder. Add more here or drop files straight into that folder.
@@ -81,14 +89,14 @@ export default function Parent() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: 8 }}>
           {pictures.map(p => (
             <figure key={p.id} style={{ margin: 0 }}>
-              <img src={p.url} alt={p.label} style={{ width: "100%", borderRadius: 8, background: "var(--cover)" }} />
+              <img src={p.url} alt={p.label} style={{ width: "100%", borderRadius: 6, background: "var(--ground)", boxShadow: "0 0 0 1px var(--rule-soft)" }} />
               <figcaption className="soft" style={{ fontSize: 14 }}>{p.label}</figcaption>
             </figure>
           ))}
         </div>
       </section>
 
-      <section className="card stack">
+      <section className="sheet stack">
         <h2 className="title">Reset a streak</h2>
         <div className="row">
           {STREAKS.map(([which, label]) => (
@@ -97,10 +105,11 @@ export default function Parent() {
         </div>
       </section>
 
-      <section className="card stack">
+      <section className="sheet stack">
         <h2 className="title">Reports</h2>
         <button className="btn secondary" onClick={() => go("reader/results")}>Mega Reader results</button>
       </section>
+    </div>
     </div>
   );
 }

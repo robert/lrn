@@ -2,7 +2,8 @@
 // and find out just how imaginative you are.
 import { useEffect, useState } from "react";
 import { get, post } from "../../api.js";
-import { BackHome, ErrorBox, Loading } from "../../components.jsx";
+import { ErrorBox, Loading, Seal, Volume, VolumeHeader } from "../../components.jsx";
+import Icon from "../../icons.jsx";
 import Round from "./Round.jsx";
 import { MODES } from "./modes.js";
 import "./imagination.css";
@@ -26,42 +27,40 @@ export default function ImaginationApp() {
     load();
   }
 
-  if (error) return <div className="page"><BackHome /><ErrorBox error={error} /></div>;
+  if (error) return <Volume game="imagination"><VolumeHeader game="imagination" compact /><div className="page"><ErrorBox error={error} /></div></Volume>;
   if (!state || !library) return <Loading />;
   if (playing) return <Round mode={playing} library={library} onFinish={finished} onQuit={() => setPlaying(null)} />;
   if (round) return <Results round={round} setRound={setRound} onBack={() => setRound(null)} />;
 
+  const bothDone = state.done.depth && state.done.breadth;
   return (
-    <div className="page stack">
-      <BackHome />
-      <header className="center">
-        <div className="big-title imag-title">IMAGINATION ENGINE</div>
-        <p className="imag-tagline">You already know you're imaginative. Time to prove <em>how</em> imaginative.</p>
-      </header>
+    <Volume game="imagination">
+      <VolumeHeader game="imagination" lead="You already know you're imaginative. Time to prove how imaginative." />
+      <div className="page stack">
+        <section className="sheet imag-formula">
+          <p className="imag-formula-lead">Look at the picture and say it out loud</p>
+          <p className="imag-formula-words">The problem is… <span>the solution is…</span></p>
+        </section>
 
-      <div className="card imag-how">
-        Look at the picture and say it out loud:
-        <div className="imag-say">"The problem is… The solution is…"</div>
+        <div className="imag-modes">
+          {Object.entries(MODES).map(([mode, m]) => (
+            <button key={mode} className="imag-mode sheet" onClick={() => setPlaying(mode)}>
+              {state.done[mode] && <span className="imag-mode-seal pop"><Seal size={40} /></span>}
+              <span className="imag-mode-icon cloth"><Icon name={m.icon} size={30} strokeWidth={1.4} /></span>
+              <span className="imag-mode-name">{m.name}</span>
+              <span className="imag-mode-blurb">{m.blurb}</span>
+              <span className="imag-mode-length"><Icon name="timer" size={16} />{m.length}</span>
+            </button>
+          ))}
+        </div>
+
+        {bothDone ? (
+          <p className="imag-note pop"><Icon name="sparkle" size={18} strokeWidth={1.3} />Both rounds done today. Your imagination is running hot.</p>
+        ) : state.pairCount > 0 ? (
+          <p className="imag-note"><Icon name="quill" size={18} strokeWidth={1.4} />Every idea you find is saved for Story Builder.</p>
+        ) : null}
       </div>
-
-      <div className="imag-modes">
-        {Object.entries(MODES).map(([mode, m]) => (
-          <button key={mode} className="imag-mode" onClick={() => setPlaying(mode)}>
-            {state.done[mode] && <div className="tile-tick pop">✓</div>}
-            <div className="imag-mode-icon">{m.icon}</div>
-            <div className="imag-mode-name">{m.name}</div>
-            <div className="imag-mode-blurb">{m.blurb}</div>
-          </button>
-        ))}
-      </div>
-
-      {state.done.depth && state.done.breadth && (
-        <div className="card center pop"><b>Both done today! Your imagination engine is running hot. 🔥</b></div>
-      )}
-      {state.pairCount > 0 && (
-        <p className="center soft"><b>Your idea bank is growing. Story Builder can use every one of them!</b></p>
-      )}
-    </div>
+    </Volume>
   );
 }
 
@@ -80,52 +79,81 @@ function Results({ round, setRound, onBack }) {
   const count = round.pairs.length;
 
   return (
-    <div className="page stack">
-      <button className="back" onClick={onBack}>‹ Imagination Engine</button>
-      <ErrorBox error={error} />
+    <Volume game="imagination">
+      <VolumeHeader game="imagination" title={MODES[round.mode]?.name ?? "Your ideas"} compact to="imagination" backLabel="Imagination Engine" />
+      <div className="page stack">
+        <ErrorBox error={error} />
 
-      {round.status === "pending" ? (
-        <div className="card stack center">
-          <div className="title">Every word is saved! 💾</div>
-          <p>We couldn't count your ideas just yet.</p>
-          <div className="error">{round.error}</div>
-          <button className="btn" disabled={retrying} onClick={retry}>{retrying ? "Counting…" : "Try again"}</button>
-        </div>
-      ) : (
-        <>
-          <div className="card center pop">
-            {count > 0 ? (
-              <>
-                <div className="imag-count">{count}</div>
-                <div className="title">{count === 1 ? "brilliant idea!" : "brilliant ideas!"}</div>
-              </>
-            ) : (
-              <div className="title">Warm-up done! Next time, say "The problem is… the solution is…" out loud.</div>
+        {round.status === "pending" ? (
+          <section className="sheet stack center">
+            <Icon name="quill" size={40} strokeWidth={1.3} className="imag-result-icon" />
+            <h2 className="display">Every word is saved</h2>
+            <p className="lead soft">The engine couldn't sort your ideas just yet. Nothing is lost.</p>
+            <div className="error" style={{ textAlign: "left" }}>{round.error}</div>
+            <button className="btn" disabled={retrying} onClick={retry}>
+              <Icon name="refresh" />{retrying ? "Sorting your ideas…" : "Try again"}
+            </button>
+          </section>
+        ) : (
+          <>
+            <section className="imag-tally center pop">
+              {count > 0 ? (
+                <>
+                  <div className="imag-tally-wreath">
+                    <Icon name="laurel" size={190} strokeWidth={0.7} className="imag-tally-laurel" />
+                    <div className="imag-tally-number">{count}</div>
+                  </div>
+                  <div className="imag-tally-words">{count === 1 ? "brilliant idea" : "brilliant ideas"}</div>
+                </>
+              ) : (
+                <>
+                  <Icon name="laurel" size={96} strokeWidth={0.9} className="imag-result-icon" />
+                  <div className="imag-tally-words">Warm-up done. Next time, say “The problem is… the solution is…” out loud.</div>
+                </>
+              )}
+            </section>
+
+            {round.praise && (
+              <blockquote className="imag-praise">
+                <p>{round.praise}</p>
+              </blockquote>
             )}
-          </div>
-          {round.praise && <div className="card imag-praise">⭐ {round.praise}</div>}
-          {round.pairs.map((pair, i) => {
-            const prompt = promptFor(pair.promptId);
-            return (
-              <div key={pair.id} className="card imag-pair">
-                <div className="imag-pair-num">{i + 1}</div>
-                <div className="stack imag-pair-body">
-                  {round.mode === "breadth" && prompt && <PromptThumb prompt={prompt} />}
-                  {pair.situation && <div className="soft">{pair.situation}</div>}
-                  <div><b className="imag-label problem">Problem</b> {pair.problem}</div>
-                  {pair.solution && <div><b className="imag-label solution">Solution</b> {pair.solution}</div>}
-                </div>
-              </div>
-            );
-          })}
-        </>
-      )}
-      <button className="btn wide" onClick={onBack}>Back to the Imagination Engine</button>
-    </div>
+
+            {count > 0 && (
+              <ol className="imag-ideas sheet">
+                {round.pairs.map((pair, i) => {
+                  const prompt = promptFor(pair.promptId);
+                  return (
+                    <li key={pair.id} className="imag-idea">
+                      <span className="imag-idea-num">{i + 1}</span>
+                      <div className="imag-idea-body">
+                        {round.mode === "breadth" && prompt && <PromptThumb prompt={prompt} />}
+                        {pair.situation && <p className="imag-idea-situation">{pair.situation}</p>}
+                        <div className="imag-idea-pair">
+                          <p><span className="imag-idea-label">Problem</span>{pair.problem}</p>
+                          {pair.solution && <p><span className="imag-idea-label">Solution</span>{pair.solution}</p>}
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+          </>
+        )}
+        <button className="btn wide" onClick={onBack}>Back to the Imagination Engine</button>
+      </div>
+    </Volume>
   );
 }
 
 function PromptThumb({ prompt }) {
-  if (prompt.type === "opener") return <div className="imag-thumb-text">"{prompt.text}"</div>;
-  return <img className="imag-thumb" src={prompt.url} alt={prompt.label} />;
+  if (prompt.type === "opener") return <p className="imag-thumb-text">“{prompt.text}”</p>;
+  return (
+    <figure className="imag-thumb">
+      <img src={prompt.url} alt={prompt.label} />
+      <figcaption>{prompt.label.charAt(0).toUpperCase() + prompt.label.slice(1)}</figcaption>
+    </figure>
+  );
 }
+
