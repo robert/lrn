@@ -8,6 +8,8 @@ import Fig, { zoomFor } from "./Figure.jsx";
 import { CodedFigures } from "./Codes.jsx";
 import { Feedback, praise } from "./parts.jsx";
 import Icon from "../../icons.jsx";
+import { FilmButton } from "../../Film.jsx";
+import { FILM_FOR_FORMAT } from "../../../shared/videos.js";
 
 const PROMPTS = {
   analogies: "Which one goes in the gap?",
@@ -130,6 +132,7 @@ export function Lesson({ format, tries = 3, onDone }) {
         <p className="lesson-tag">A new kind of puzzle</p>
         <h2 className="display">{info.name}</h2>
         {info.intro.map(line => <p key={line} className="lesson-line">{line}</p>)}
+        <FilmButton id={FILM_FOR_FORMAT[format]} />
         <button className="btn wide" onClick={next}>Show me how</button>
       </div>
     );

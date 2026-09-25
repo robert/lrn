@@ -100,9 +100,10 @@ function roundView(data, roundId) {
   return { ...round, pairs };
 }
 
+// A round only counts towards today's challenge if he actually said something.
 function todayDone(data) {
   const d = today();
-  return Object.fromEntries(MODES.map(m => [m, data.rounds.some(r => r.date === d && r.mode === m)]));
+  return Object.fromEntries(MODES.map(m => [m, data.rounds.some(r => r.date === d && r.mode === m && r.segments.length > 0)]));
 }
 
 router.get("/", (req, res) => {

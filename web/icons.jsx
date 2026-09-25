@@ -79,6 +79,11 @@ const PATHS = {
   </>,
   // A rounded square: stop listening.
   stop: <rect x="6" y="6" width="12" height="12" rx="2.5" />,
+  // A play triangle in a circle, for films.
+  play: <>
+    <circle cx="12" cy="12" r="9.5" />
+    <path d="M10 8.3v7.4l6-3.7-6-3.7Z" />
+  </>,
 };
 
 export default function Icon({ name, size = 24, strokeWidth = 1.6, className, title }) {

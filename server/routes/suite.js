@@ -7,6 +7,7 @@ import { today } from "../dates.js";
 import { GAMES, isDone, gameStreak, megaWeek } from "../daily.js";
 import { getSettings, updateSettings } from "../settings.js";
 import { readerStreak } from "./reader.js";
+import { FILMS } from "../../shared/videos.js";
 
 const router = express.Router();
 const PICTURES = path.join(ROOT, "pictures");
@@ -70,6 +71,11 @@ router.post("/pictures", (req, res) => {
   if (!IMAGE_EXT.test(safe)) throw new Error("Picture must be png, jpg, gif, webp or svg");
   fs.writeFileSync(path.join(PICTURES, safe), Buffer.from(m[1], "base64"));
   res.json({ ok: true, id: safe });
+});
+
+// The explainer films, with whether each one has been rendered yet.
+router.get("/videos", (req, res) => {
+  res.json(FILMS.map(f => ({ ...f, ready: fs.existsSync(path.join(ROOT, "public-videos", `${f.id}.mp4`)) })));
 });
 
 export default router;

@@ -1,0 +1,22 @@
+// The explainer films (made in videos/, rendered to public-videos/<id>.mp4).
+export const FILMS = [
+  { id: "spot-the-change", title: "Spot the Change", group: "Shapes and patterns", blurb: "The twelve things that can change, and how to catch every one." },
+  { id: "analogies", title: "Analogies", group: "Shapes and patterns", blurb: "Say the change as a rule, then do exactly the same again." },
+  { id: "odd-one-out", title: "Odd One Out", group: "Shapes and patterns", blurb: "Find what four share, and name why the fifth doesn't." },
+  { id: "codes", title: "Codes", group: "Shapes and patterns", blurb: "Every letter is a secret message. Crack them all." },
+  { id: "similarities", title: "Most Alike", group: "Shapes and patterns", blurb: "What do the two really share? Ignore the lookalikes." },
+  { id: "sequences", title: "Sequences", group: "Shapes and patterns", blurb: "Follow one change at a time along the row." },
+  { id: "grids", title: "Grids", group: "Shapes and patterns", blurb: "Read across, read down, then fill the gap." },
+  { id: "swapped-words", title: "Swapped Words", group: "Words and logic", blurb: "Two words are in each other's places. Swap them back." },
+  { id: "weights", title: "Balancing Puzzles", group: "Words and logic", blurb: "Turn everything into the same animal, one balance at a time." },
+  { id: "reader-quoted", title: "What Do the Words Mean?", group: "Mega Reader questions", blurb: "What do the words mean here, not word by word?" },
+  { id: "reader-search", title: "Find the Evidence", group: "Mega Reader questions", blurb: "Hunt down the clue yourself." },
+  { id: "reader-across", title: "Two Places at Once", group: "Mega Reader questions", blurb: "Hold two parts of the story together." },
+  { id: "reader-character", title: "Word and Proof", group: "Mega Reader questions", blurb: "Check the proof first, then the word." },
+];
+
+// Which film goes with each question type in "nothing gets past you".
+export const FILM_FOR_FORMAT = {
+  analogies: "analogies", odd: "odd-one-out", similar: "similarities",
+  codes: "codes", sequences: "sequences", grids: "grids",
+};

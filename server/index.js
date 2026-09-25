@@ -22,6 +22,7 @@ app.use("/api/imagination", imagination);
 app.use("/api/story", story);
 app.use("/api/spotter", spotter);
 app.use("/pictures", express.static(path.join(ROOT, "pictures")));
+app.use("/videos", express.static(path.join(ROOT, "public-videos")));
 
 // Any error in an API route comes back as JSON with the message, loudly.
 app.use("/api", (err, req, res, next) => {

@@ -1,0 +1,12 @@
+/* Film player: the video mounted like a plate, framed in gilt. */
+.film-overlay { background: rgba(14, 26, 21, 0.82); }
+.film-frame {
+  width: min(1100px, 100%);
+  padding: 10px; border-radius: 10px;
+  background: var(--cloth-deep);
+  box-shadow: 0 0 0 1px rgba(201, 162, 75, 0.6), 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+}
+.film-video { width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; background: black; }
+.film-caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 6px 4px; }
+.film-caption-title { font-family: var(--story); font-size: 22px; color: var(--gilt-light); }
+.film-button svg { color: var(--vol); }

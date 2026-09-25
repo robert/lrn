@@ -78,6 +78,11 @@ function CoverContents({ state, onReload }) {
         })}
       </nav>
 
+      <button className="films-link" onClick={() => go("watch")}>
+        <Icon name="play" size={22} strokeWidth={1.4} />
+        How to crack every kind of question
+      </button>
+
       {state.rewardDue && <RewardPicker state={state} onDone={onReload} />}
     </>
   );

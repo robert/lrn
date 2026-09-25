@@ -121,3 +121,12 @@
 
 .reward-icon { margin: 0 auto; color: var(--gilt-dark); }
 .reward-list { display: flex; flex-direction: column; gap: 10px; }
+
+/* A quiet gilt link under the shelf to the film library. */
+.films-link {
+  align-self: center; display: inline-flex; align-items: center; gap: 10px;
+  background: none; border: none; cursor: pointer; padding: 10px 16px; border-radius: 10px;
+  font-family: var(--story); font-style: italic; font-size: 20px; color: var(--gilt-light);
+}
+.films-link svg { color: var(--gilt); }
+.films-link:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
