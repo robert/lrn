@@ -286,7 +286,7 @@ function OddWall({ P, r, sweepAt }) {
         const odd = i === P.odd;
         const dy = i === P.wrongIndex ? wrongPress : odd ? out * 520 : 0;
         return (
-          <Tile key={i} x={x} y={y + dy} size={size} glow={sweepAt(i)} opacity={odd ? 1 - sr(r, T.right + 1, 0.6) : 1} lit={odd && r > T.right - 0.3 && r < T.right + 1 ? 1 : 0}>
+          <Tile key={i} x={x} y={y + dy} size={size} glow={i === 0 ? 0.5 * sr(r, T.think, 0.5) * (1 - sr(r, T.thinkEnd, 0.5)) : ghostOn(i)} opacity={odd ? 1 - sr(r, T.right + 1, 0.6) : 1} lit={odd && r > T.right - 0.3 && r < T.right + 1 ? 1 : 0}>
             <Shape kind="flag" r={56} rot={P.tiles[i].rot} flip={!!P.tiles[i].flip} x={0} y={0} />
             {/* The turning ghost: the first flag, spun to match this tile if it can. */}
             {r > T.think && r < T.thinkEnd && i > 0 && ghostOn(i) > 0 && (

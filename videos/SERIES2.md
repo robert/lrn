@@ -104,3 +104,11 @@ Listening comprehension through inference. The story is carried by voices and so
 # Series 15: personalised, generated films
 
 - [x] The Mega News (`#/news`). A news bulletin written fresh from his real progress each time it opens (`server/routes/news.js`), voiced on this Mac with Kokoro and cached, and played live. It has an owl newsreader, breaking-news streaks, the week seals, a weather forecast from his spotter animal, a puzzle of the day, and a ticker of his records.
+
+# Series 14: wordless
+
+- [x] `s14-quiet`: Doors. No words at all: a scarfed hero passes four pastel rooms sealed by a sequence, a grid, a flipped-flag odd one out and an analogy, trying a wrong piece before the right one. Rendered, 2:26.
+
+# Series 16: exam technique
+
+- [ ] `s16-flight`: Cleared for Take-off: Exam Day. A cockpit checklist of exam habits. (Agent working.)
