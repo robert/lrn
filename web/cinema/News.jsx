@@ -10,7 +10,7 @@ import "./playalong.css";
 
 const FPS = 30;
 const LEAD = 70;          // frames of opening titles before the first line
-const GAP = 18;           // frames of breath between lines
+const GAP = 36;           // frames of breath between lines, time to think
 const NAVY = "#0E1B3D", RED = "#D7263D", GOLD = "#F2C14E", PAPER = "#F7F4EC";
 
 // Frame timings for every line.

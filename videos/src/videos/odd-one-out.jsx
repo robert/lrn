@@ -99,16 +99,16 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Odd One Out. Four belong together. One doesn't. And you'll say exactly why.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Odd One Out" strap="Four belong. One doesn't. Say why." emblem="odd" />,
+      beats: [{ say: "Odd One Out. Four of the figures belong together and one does not. You need to find that one and say why.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Picture puzzles" title="Odd One Out" strap="Find the one that does not belong, and say why." emblem="odd" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "In an odd one out question, you see five figures in a row." },
-        { say: "Four of them belong together. One of them doesn't." },
-        { say: "Your job is to find the odd one out, and say why. The reason matters just as much as the answer." },
+        { say: "Four of them belong together, and one of them does not." },
+        { say: "You need to find the odd one out and say why. The reason is just as important as the answer." },
       ],
       render: s => {
         const grouped = rise(s.t, 20, s.at(1) + s.speech(1) * 0.3);
@@ -130,20 +130,20 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. Don't hunt for what's different. First, find what four of them share." },
-        { say: "Then check that the fifth one breaks that rule." },
-        { say: "And name the reason, using the twelve things that can change." },
+        { say: "Start by finding something that four of them have in common." },
+        { say: "Then check that the fifth one does not follow that rule." },
+        { say: "Last, give the reason, using the twelve things that can change." },
       ],
       render: s => (
         <>
           <div style={{ position: "absolute", left: 0, right: 0, top: 170, display: "flex", justifyContent: "center", opacity: rise(s.t, 18) }}>
             <Emblem name="odd" size={84} />
           </div>
-          <Words x={210} w={1500} y={280} size={72} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.5)}>
-            Find what four share.
+          <Words x={210} w={1500} y={280} size={72} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.3)}>
+            Find what four have in common.
           </Words>
           <Words x={210} w={1500} y={390} size={72} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>
-            Check the fifth breaks it.
+            Check the fifth is different.
           </Words>
           <Chips s={s} appearAt={s.at(2) + 6} />
         </>
@@ -153,10 +153,10 @@ export default {
     // Worked example 1: shading.
     {
       beats: [
-        { say: "Here's one. A circle, a triangle, a square, a star and a heart." },
-        { say: "Is it shape? Every one is a different shape, so shape can't pick out just one." },
-        { say: "So what do four of them share? Look inside them. Four are striped." },
-        { say: "But c is solid black. It breaks the rule." },
+        { say: "Here is one. There is a circle, a triangle, a square, a star and a heart." },
+        { say: "Every one is a different shape, so shape cannot be the reason. It does not pick out just one." },
+        { say: "Look inside the shapes to see what four of them share. Four of them are striped." },
+        { say: "But c is solid black, so it does not follow the rule." },
         { say: "So c is the odd one out, and the reason is shading.", sfx: "chime", sfxAt: 0.8 },
       ],
       render: s => {
@@ -181,11 +181,11 @@ export default {
     // Worked example 2: the mirror trap, with size as a red herring.
     {
       beats: [
-        { say: "Now a trickier one. Five L shapes, turned different ways. And some are big, some are small." },
-        { say: "Is it size? Two are big and three are small. That doesn't pick out just one, so size isn't the answer." },
-        { say: "Let's turn the first one. A quarter turn, and it matches b. Another quarter, and it matches c. Once more, and it matches e." },
-        { say: "But d never matches, however you turn it. It's been flipped. It's a mirror image." },
-        { say: "So d is the odd one out, because it's flipped. Every one is turned, so rotation doesn't matter here.", sfx: "chime", sfxAt: 1.6 },
+        { say: "This one is harder. There are five L shapes, turned different ways. Some are big and some are small." },
+        { say: "Two are big and three are small. That does not pick out just one, so size is not the reason." },
+        { say: "Let's turn the first one. After a quarter turn, it matches b. After another quarter turn, it matches c. After one more, it matches e." },
+        { say: "But d never matches, however you turn it. That is because it has been flipped, so it is a mirror image." },
+        { say: "So d is the odd one out, because it is flipped. All of them are turned, so rotation is not the reason here.", sfx: "chime", sfxAt: 1.6 },
       ],
       render: s => {
         // The ghost of a turns in quarter steps, landing as each match is named.
@@ -197,7 +197,7 @@ export default {
         // Over d, a ghost that keeps turning and never fits.
         const wobble = rise(s.t, Math.max(1, s.speech(3) * 0.5), s.at(3)) * 360;
         const dGhost = window(s.t, s.at(3), s.at(3) + s.speech(3) * 0.6, 8);
-        const sizeNote = window(s.t, s.at(1) + s.speech(1) * 0.25, s.at(2) + 6);
+        const sizeNote = window(s.t, s.at(1) + s.speech(1) * 0.05, s.at(2) + 6);
         return (
           <>
             <Row s={s} figures={EX2} extra={[
@@ -223,12 +223,12 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Which is the odd one out, and why? Pause the video if you'd like more time.", hold: 6 },
-        { say: "It's c. Count the sides. Every other shape has four sides, and c has five. The shading is different on lots of them, so that's not it.", sfx: "chime", sfxAt: 0.5 },
-        { say: "The reason is shape: the number of sides. Brilliant spotting." },
+        { say: "Now it's your turn. Which is the odd one out, and why? Pause the video if you would like more time.", hold: 6 },
+        { say: "The answer is c. Count the sides. Every other shape has four sides, but c has five. The shading is different on lots of them, so the reason is not shading.", sfx: "chime", sfxAt: 0.7 },
+        { say: "So the reason is shape, because c has a different number of sides." },
       ],
       render: s => {
-        const counted = s.at(1) + s.speech(1) * 0.25;
+        const counted = s.at(1) + s.speech(1) * 0.28;
         return (
           <>
             <Row s={s} figures={TRY} />
@@ -258,16 +258,16 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, to find the odd one out." },
-        { say: "One. Find what four of them share." },
-        { say: "Two. Check the fifth one breaks the rule." },
-        { say: "Three. Name the reason, using the twelve things that can change." },
-        { say: "Four. Watch out for mirror images. Turned is fine. Flipped is odd." },
+        { say: "Here is how to find the odd one out." },
+        { say: "First, find what four of them share." },
+        { say: "Next, check that the fifth one does not follow the rule." },
+        { say: "Then give the reason, using the twelve things that can change." },
+        { say: "Last, watch out for mirror images. A turned shape can still belong with the others, but a flipped one may be the odd one out." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={380} y={280} steps={[
           "Find what four of them share.",
-          "Check the fifth breaks the rule.",
+          "Check the fifth does not follow it.",
           "Name the reason from the twelve.",
           "Watch for mirror images.",
         ]} />
@@ -276,9 +276,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Odd one found, and you know exactly why. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you can find the odd one out and say why. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Spotted" strap="And you know exactly why." emblem="eye" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Find the odd one out, and say why." emblem="eye" />,
     },
   ],
 };

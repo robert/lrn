@@ -365,13 +365,13 @@ export default {
     {
       beats: [
         { who: "host", say: "How to play! Each sprite has a two letter code. Every letter stands for one thing about the sprite.", sfxs: [{ sfx: "arcade-blip", at: 0.1 }] },
-        { who: "byte", say: "Step one. Find two sprites that share a letter. Step two. See what those two sprites have in common. That's what the letter means!" },
-        { who: "byte", say: "Step three. Build the code for the mystery sprite, one letter at a time." },
+        { who: "byte", say: "First, find two sprites that share a letter. Then see what those two sprites have in common. That is what the letter means!" },
+        { who: "byte", say: "Last, build the code for the mystery sprite, one letter at a time." },
         { who: "host", say: "But watch out for decoys! Some things change, but they're not in the code at all." },
       ],
       render: s => {
         const lines = ["1. FIND 2 SPRITES", "   THAT SHARE A LETTER", "2. WHAT DO THEY SHARE?", "   THAT'S THE MEANING", "3. BUILD THE NEW CODE"];
-        const times = [at(s, 1, 0.05), at(s, 1, 0.2), at(s, 1, 0.55), at(s, 1, 0.8), at(s, 2, 0.1)];
+        const times = [at(s, 1, 0.05), at(s, 1, 0.2), at(s, 1, 0.4), at(s, 1, 0.76), at(s, 2, 0.1)];
         return (
           <AbsoluteFill>
             <PText x={0} y={140} width={1920} align="center" size={56} color={PINK}>HOW TO PLAY</PText>
@@ -391,19 +391,19 @@ export default {
     // LEVEL 1 splash.
     {
       beats: [{ who: "host", say: "Level one!", sfxs: [{ sfx: "arcade-levelup", at: 0, volume: 0.8 }], hold: 0.4 }],
-      render: s => <Splash t={s.t} text="LEVEL 1" sub="THE HEART OF THE CODE" color={PINK} />,
+      render: s => <Splash t={s.t} text="LEVEL 1" sub="HEARTS AND DIAMONDS" color={PINK} />,
     },
 
     // LEVEL 1.
     {
       beats: [
-        { who: "host", say: "Three sprites, three codes. And one mystery sprite with no code at all!" },
-        { who: "byte", say: "First letters. Sprites one and two both start with A. Scanning..." },
+        { who: "host", say: "Here are three sprites and their codes. There is also a mystery sprite with no code at all!" },
+        { who: "byte", say: "Look at the first letters. Sprites one and two both start with A. Scanning..." },
         { who: "byte", say: "They're both hearts! So A means heart. That means B, on the diamond, means diamond." },
-        { who: "byte", say: "Second letters. Sprites one and three both end with X. Scanning... they're both solid! X means solid, so Y means hollow." },
-        { who: "host", say: "Now crack the mystery! It's a diamond, so B. It's hollow, so Y. B, Y!" },
-        { who: "byte", say: "Warning! Warning! Answer b is Y B. The right letters in the wrong order. Shape comes first!", sfxs: [{ sfx: "arcade-wrong", at: 0.2, volume: 0.7 }] },
-        { who: "host", say: "The answer is c! B, Y! One thousand points!", sfxs: [{ sfx: "arcade-win", at: 1.4, volume: 0.8 }] },
+        { who: "byte", say: "Now the second letters. Sprites one and three both end with X. Scanning... they're both solid! So X means solid, and Y means hollow." },
+        { who: "host", say: "The mystery sprite is a diamond, so B. It's hollow, so Y. That makes B Y." },
+        { who: "byte", say: "Warning! Warning! Answer b is Y B. It has the right letters in the wrong order. The shape letter comes first!", sfxs: [{ sfx: "arcade-wrong", at: 0.2, volume: 0.7 }] },
+        { who: "host", say: "The answer is c, B Y! One thousand points!", sfxs: [{ sfx: "arcade-win", at: 1.4, volume: 0.8 }] },
       ],
       render: s => {
         const glow = {
@@ -412,16 +412,16 @@ export default {
           "01": window(s.t, s.at(3) + 10, s.at(4)) > 0.5 ? 1 : 0,
           "21": window(s.t, s.at(3) + 10, s.at(4)) > 0.5 ? 1 : 0,
         };
-        const scan = s.t >= at(s, 1, 0.6) && s.t < s.at(3) ? [0, 1] : s.t >= at(s, 3, 0.45) && s.t < s.at(4) ? [0, 2] : [];
+        const scan = s.t >= at(s, 1, 0.66) && s.t < s.at(3) ? [0, 1] : s.t >= at(s, 3, 0.47) && s.t < s.at(4) ? [0, 2] : [];
         return (
           <AbsoluteFill>
             <Board s={s} sprites={L1.sprites} glow={glow} scan={scan} />
-            <Mystery s={s} sprite={L1.mystery} appear={12} built="BY" buildAt={[at(s, 4, 0.4), at(s, 4, 0.72)]} />
+            <Mystery s={s} sprite={L1.mystery} appear={12} built="BY" buildAt={[at(s, 4, 0.32), at(s, 4, 0.61)]} />
             <Legend s={s} rows={[
               { k: "A", v: "HEART", at: at(s, 2, 0.3) }, { k: "B", v: "DIAMOND", at: at(s, 2, 0.85) },
-              { k: "X", v: "SOLID", at: at(s, 3, 0.75) }, { k: "Y", v: "HOLLOW", at: at(s, 3, 0.92) },
+              { k: "X", v: "SOLID", at: at(s, 3, 0.77) }, { k: "Y", v: "HOLLOW", at: at(s, 3, 0.93) },
             ]} />
-            <Options s={s} options={L1.options} appear={at(s, 4, 0.9)} correct={L1.correct} winAt={at(s, 6, 0.3)} boomAt={at(s, 5, 0.5)} boomIndex={1} />
+            <Options s={s} options={L1.options} appear={at(s, 4, 0.9)} correct={L1.correct} winAt={at(s, 6, 0.3)} boomAt={at(s, 5, 0.46)} boomIndex={1} />
             <Byte x={1600} y={560} t={s.t} talking={[1, 2, 3, 5].includes(s.beat)} scale={0.9} />
           </AbsoluteFill>
         );
@@ -433,31 +433,31 @@ export default {
       beats: [
         { who: "host", say: "Level two! These arrows point different ways, they're solid or speckled, and they're all different colours!", sfxs: [{ sfx: "arcade-levelup", at: 0, volume: 0.7 }] },
         { who: "byte", say: "Sprites one and three both start with P. Both point up! But look, they're different colours. So colour can't be what P means. P means pointing up." },
-        { who: "byte", say: "So Q means pointing down. And the second letter: M is solid, N is speckled." },
-        { who: "host", say: "The mystery arrow points down, so Q. It's speckled, so N. Q, N! Answer d!", sfxs: [{ sfx: "arcade-win", at: 3.6, volume: 0.8 }] },
-        { who: "byte", say: "And its green colour? Doesn't matter one bit. Colour was a decoy!" },
+        { who: "byte", say: "So Q means pointing down. For the second letter, M means solid and N means speckled." },
+        { who: "host", say: "The mystery arrow points down, so Q. It's speckled, so N. That makes Q N, which is answer d!", sfxs: [{ sfx: "arcade-win", at: 4.7, volume: 0.8 }] },
+        { who: "byte", say: "Its green colour doesn't matter at all. Colour was a decoy!" },
       ],
       render: s => {
         const glow = {
           "00": window(s.t, at(s, 1, 0.1), s.at(2)) > 0.5 ? 1 : 0,
           "20": window(s.t, at(s, 1, 0.1), s.at(2)) > 0.5 ? 1 : 0,
-          "01": window(s.t, at(s, 2, 0.5), s.at(3)) > 0.5 ? 1 : 0,
-          "11": window(s.t, at(s, 2, 0.5), s.at(3)) > 0.5 ? 1 : 0,
-          "21": window(s.t, at(s, 2, 0.8), s.at(3)) > 0.5 ? 1 : 0,
+          "01": window(s.t, at(s, 2, 0.45), s.at(3)) > 0.5 ? 1 : 0,
+          "11": window(s.t, at(s, 2, 0.45), s.at(3)) > 0.5 ? 1 : 0,
+          "21": window(s.t, at(s, 2, 0.79), s.at(3)) > 0.5 ? 1 : 0,
         };
         const decoy = window(s.t, at(s, 1, 0.4), s.at(2) + 10) + window(s.t, s.at(4), s.at(4) + s.speech(4) + 20);
         return (
           <AbsoluteFill>
             <Board s={s} sprites={L2.sprites} glow={glow} scan={s.t >= at(s, 1, 0.25) && s.t < s.at(2) ? [0, 2] : []} />
-            <Mystery s={s} sprite={L2.mystery} appear={12} built="QN" buildAt={[at(s, 3, 0.35), at(s, 3, 0.62)]} />
+            <Mystery s={s} sprite={L2.mystery} appear={12} built="QN" buildAt={[at(s, 3, 0.28), at(s, 3, 0.5)]} />
             <Legend s={s} rows={[
               { k: "P", v: "UP", at: at(s, 1, 0.9) }, { k: "Q", v: "DOWN", at: at(s, 2, 0.2) },
-              { k: "M", v: "SOLID", at: at(s, 2, 0.6) }, { k: "N", v: "SPECKLED", at: at(s, 2, 0.85) },
+              { k: "M", v: "SOLID", at: at(s, 2, 0.55) }, { k: "N", v: "SPECKLED", at: at(s, 2, 0.84) },
             ]} />
             {decoy > 0 && (
               <PText x={140} y={140} size={30} color={ORANGE} opacity={Math.min(1, decoy) * (blink(s.t, 8) ? 1 : 0.5)}>DECOY: COLOUR IS NOT IN THE CODE</PText>
             )}
-            <Options s={s} options={L2.options} appear={at(s, 3, 0.1)} correct={L2.correct} winAt={at(s, 3, 0.85)} boomAt={99999} boomIndex={-1} />
+            <Options s={s} options={L2.options} appear={at(s, 3, 0.1)} correct={L2.correct} winAt={at(s, 3, 0.87)} boomAt={99999} boomIndex={-1} />
             <Byte x={1600} y={560} t={s.t} talking={[1, 2, 4].includes(s.beat)} scale={0.9} />
           </AbsoluteFill>
         );
@@ -469,7 +469,7 @@ export default {
       beats: [
         { who: "host", say: "BONUS ROUND! This one's all yours, Player One. Crack the mystery code before the timer runs out!", sfxs: [{ sfx: "arcade-powerup", at: 0.1, volume: 0.6 }], hold: 6,
         },
-        { who: "byte", say: "Time's up! K means star and L means cross. R means solid and S means speckled. So it's L, S. Answer c!", sfxs: [{ sfx: "arcade-win", at: 6.4, volume: 0.8 }] },
+        { who: "byte", say: "Time's up! K means star and L means cross. R means solid and S means speckled. So the code is L S, which is answer c!", sfxs: [{ sfx: "arcade-win", at: 7.4, volume: 0.8 }] },
         { who: "host", say: "Five thousand bonus points!" },
       ],
       render: s => {
@@ -479,13 +479,13 @@ export default {
         return (
           <AbsoluteFill>
             <Board s={s} sprites={BONUS.sprites} />
-            <Mystery s={s} sprite={BONUS.mystery} appear={12} built="LS" buildAt={[at(s, 1, 0.62), at(s, 1, 0.75)]} />
-            <Options s={s} options={BONUS.options} appear={20} correct={BONUS.correct} winAt={at(s, 1, 0.85)} boomAt={99999} boomIndex={-1} prize="+5000" />
+            <Mystery s={s} sprite={BONUS.mystery} appear={12} built="LS" buildAt={[at(s, 1, 0.58), at(s, 1, 0.71)]} />
+            <Options s={s} options={BONUS.options} appear={20} correct={BONUS.correct} winAt={at(s, 1, 0.86)} boomAt={99999} boomIndex={-1} prize="+5000" />
             <PText x={1470} y={210} size={30} color={ORANGE} opacity={s.t < s.at(1) ? 1 : 0}>BONUS</PText>
             <PText x={1470} y={270} size={96} color={left <= 2 ? PINK : YELLOW} opacity={ticking ? 1 : 0}>{left}</PText>
             {s.t >= s.at(1) && <Legend s={s} rows={[
-              { k: "K", v: "STAR", at: at(s, 1, 0.1) }, { k: "L", v: "CROSS", at: at(s, 1, 0.2) },
-              { k: "R", v: "SOLID", at: at(s, 1, 0.33) }, { k: "S", v: "SPECKLED", at: at(s, 1, 0.45) },
+              { k: "K", v: "STAR", at: at(s, 1, 0.08) }, { k: "L", v: "CROSS", at: at(s, 1, 0.18) },
+              { k: "R", v: "SOLID", at: at(s, 1, 0.29) }, { k: "S", v: "SPECKLED", at: at(s, 1, 0.39) },
             ]} />}
             <Byte x={1600} y={560} t={s.t} talking={s.beat === 1} scale={0.9} />
           </AbsoluteFill>
@@ -497,8 +497,8 @@ export default {
     {
       beats: [
         { who: "host", say: "NEW HIGH SCORE! Enter your initials, code breaker!", sfxs: [{ sfx: "arcade-levelup", at: 0, volume: 0.7 }, ...[1.6, 2.2, 2.8].map(a => ({ sfx: "arcade-key", at: a }))] },
-        { who: "byte", say: "Remember, Player One. Find two sprites that share a letter. See what they share. Build the new code, and watch the order!" },
-        { who: "host", say: "And never trust a decoy! Game over... just kidding. You win!", sfxs: [{ sfx: "arcade-win", at: 3.2, volume: 0.9 }] },
+        { who: "byte", say: "This is how to win, Player One. Find two sprites that share a letter. See what they have in common. Then build the new code, and keep the letters in the right order!" },
+        { who: "host", say: "And watch out for decoys! Game over... only joking. You win!", sfxs: [{ sfx: "arcade-win", at: 3.2, volume: 0.9 }] },
       ],
       tail: 1.5,
       render: s => {
@@ -519,7 +519,7 @@ export default {
               </PText>
             ))}
             {tips.map((tip, i) => (
-              <PText key={i} x={0} y={580 + i * 56} width={1920} align="center" size={30} color="#fff" opacity={rise(s.t, 6, at(s, 1, 0.1 + i * 0.3))}>{`${i + 1}. ${tip}`}</PText>
+              <PText key={i} x={0} y={580 + i * 56} width={1920} align="center" size={30} color="#fff" opacity={rise(s.t, 6, at(s, 1, 0.1 + i * 0.25))}>{`${i + 1}. ${tip}`}</PText>
             ))}
             <Byte x={1560} y={330} t={s.t} talking={s.beat === 1} />
             <Fireworks t={s.t} start={at(s, 2, 0.75)} />

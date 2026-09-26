@@ -385,8 +385,8 @@ export default {
       next: "ogre-appears",
       beats: [
         { who: "narrator", say: "Far away stands the Library of Sharp Eyes. Every book in the world is inside." },
-        { who: "sage", say: "Hoo! Young hero. Three monsters guard the road. Each one asks a riddle. Answer right, and your attack hits for sure." },
-        { who: "sage", say: "Choose your attack by tapping it. Ready? Here comes the first!" },
+        { who: "sage", say: "Hoo! Hello, young hero. Three monsters guard the road, and each one asks a riddle. If you answer correctly, your attack will hit." },
+        { who: "sage", say: "Tap an attack to choose it. Here comes the first monster!" },
       ],
       render: s => {
         const walk = Math.min(1, s.t / (s.length * 0.7));
@@ -408,7 +408,7 @@ export default {
       next: "ogre",
       beats: [
         { who: "narrator", say: "A wild Odd Ogre appeared!", sfxs: [{ sfx: "quest-appear", at: 0 }] },
-        { who: "ogre", say: "Hur hur! Four boxes of dots. Three belong together. One does not. Which is the odd one out?" },
+        { who: "ogre", say: "Hur hur! Here are four boxes of dots. Three of them go together, and one does not. Which is the odd one out?" },
       ],
       render: s => <><Battle t={s.t} {...OGRE_B} /><Encounter t={s.t} /></>,
     },
@@ -420,18 +420,18 @@ export default {
     },
     { id: "ogre-slip-a", ...slip("ogre", OGRE_B, [
       { who: "ogre", say: "Ha! Missed! That box has three dots, just like two others.", sfxs: [{ sfx: "quest-hurt", at: 0 }] },
-      { who: "sage", say: "Hoo. Don't look at where the dots are. Count them!" },
+      { who: "sage", say: "Hoo. It doesn't matter where the dots are. Count how many dots are in each box." },
     ]) },
     { id: "ogre-slip-b", ...slip("ogre", OGRE_B, [
       { who: "ogre", say: "Ha! Those dots are a different shade, but so what? Missed!", sfxs: [{ sfx: "quest-hurt", at: 0 }] },
-      { who: "sage", say: "Shading is a red herring here. Count how many dots are in each box." },
+      { who: "sage", say: "The shading doesn't matter here. Count how many dots are in each box." },
     ]) },
     {
       id: "ogre-win",
       next: "goblin-appears",
       beats: [
-        { who: "narrator", say: "Critical hit! Box C has four dots. All the others have three!", sfxs: [{ sfx: "quest-hit", at: 0.3 }] },
-        { who: "ogre", say: "Ooof! How many... was the secret. Hurr..." },
+        { who: "narrator", say: "Critical hit! Box C has four dots, and all the others have three.", sfxs: [{ sfx: "quest-hit", at: 0.3 }] },
+        { who: "ogre", say: "Ooof! You counted the dots. Hurr..." },
         { who: "narrator", say: "The Odd Ogre was defeated! You gained 50 experience.", sfxs: [{ sfx: "quest-victory", at: 0 }] },
       ],
       render: s => <Battle t={s.t} {...OGRE_B} pointer={2} hit={10} />,
@@ -443,14 +443,14 @@ export default {
       next: "goblin",
       beats: [
         { who: "narrator", say: "A sneaky Code Goblin appeared!", sfxs: [{ sfx: "quest-appear", at: 0 }] },
-        { who: "goblin", say: "Hee hee! Every shape has a secret code. Circle black is R X. Circle white is R Y. Square black is T X. What's the code for the white square?", voice: "Hee hee! Every shape has a secret code. Circle black is R, X. Circle white is R, Y. Square black is T, X. What's the code for the white square?" },
+        { who: "goblin", say: "Hee hee! Every shape has a code. The black circle is R X. The white circle is R Y. The black square is T X. What's the code for the white square?", voice: "Hee hee! Every shape has a code. The black circle is R, X. The white circle is R, Y. The black square is T, X. What's the code for the white square?" },
       ],
       render: s => <><Battle t={s.t} {...GOBLIN_B} /><Encounter t={s.t} /></>,
     },
     {
       id: "goblin",
       choice: { prompt: "Tap your attack", next: "goblin-win", options: menuSpots(GOBLIN_B.menu, 0, [null, "goblin-slip-tx", "goblin-slip-ry", "goblin-slip-yt"]) },
-      beats: [{ who: "sage", say: "Find two shapes that share a letter. What else do they share?" }],
+      beats: [{ who: "sage", say: "Find two shapes that have the same letter. What else is the same about them?" }],
       render: s => <Battle t={s.t} {...GOBLIN_B} pointer={0} />,
     },
     { id: "goblin-slip-tx", ...slip("goblin", GOBLIN_B, [
@@ -462,14 +462,14 @@ export default {
       { who: "sage", say: "R means circle. So which letter means square?" },
     ]) },
     { id: "goblin-slip-yt", ...slip("goblin", GOBLIN_B, [
-      { who: "goblin", say: "Hee hee! Right letters, wrong order! The shape letter comes first!", sfxs: [{ sfx: "quest-hurt", at: 0 }] },
-      { who: "sage", say: "So close, hero. Shape first, then shading." },
+      { who: "goblin", say: "Hee hee! Those are the right letters in the wrong order. The shape letter comes first! Missed!", sfxs: [{ sfx: "quest-hurt", at: 0 }] },
+      { who: "sage", say: "You were very close, hero. The letter for the shape comes first, then the letter for the shading." },
     ]) },
     {
       id: "goblin-win",
       next: "wraith-appears",
       beats: [
-        { who: "narrator", say: "Critical hit! T means square, and Y means white. T, Y!", sfxs: [{ sfx: "quest-hit", at: 0.3 }] },
+        { who: "narrator", say: "Critical hit! T means square and Y means white, so the code is T, Y.", sfxs: [{ sfx: "quest-hit", at: 0.3 }] },
         { who: "goblin", say: "Nooo! My code is cracked!" },
         { who: "narrator", say: "The Code Goblin ran away! Just one monster left.", sfxs: [{ sfx: "quest-victory", at: 0 }] },
       ],
@@ -482,7 +482,7 @@ export default {
       next: "wraith",
       beats: [
         { who: "narrator", say: "The air goes cold. The Mirror Wraith appeared!", sfxs: [{ sfx: "quest-appear", at: 0 }] },
-        { who: "wraith", say: "Four flags... three are only turned... one of them is flipped, like a reflection in my mirror. Which one?" },
+        { who: "wraith", say: "Here are four flags... Three are only turned, but one is flipped, like a reflection in my mirror. Which one is it?" },
       ],
       render: s => <><Battle t={s.t} {...WRAITH_B} /><Encounter t={s.t} /></>,
     },
@@ -493,12 +493,12 @@ export default {
       render: s => <Battle t={s.t} {...WRAITH_B} pointer={0} />,
     },
     { id: "wraith-slip-upside", ...slip("wraith", WRAITH_B, [
-      { who: "wraith", say: "Upside down... is only turned... Missed...", sfxs: [{ sfx: "quest-hurt", at: 0 }] },
-      { who: "sage", say: "Spin flag B halfway round and it's the same as a normal flag. Turned, not flipped!" },
+      { who: "wraith", say: "Upside down is only turned... Missed...", sfxs: [{ sfx: "quest-hurt", at: 0 }] },
+      { who: "sage", say: "If you turn flag B halfway round, it looks the same as the other flags. So flag B is only turned." },
     ]) },
     { id: "wraith-slip-turned", ...slip("wraith", WRAITH_B, [
       { who: "wraith", say: "That one is only turned... Missed...", sfxs: [{ sfx: "quest-hurt", at: 0 }] },
-      { who: "sage", say: "Turn it until the pole stands up. Does the flag point right, like the others? Then it's only turned." },
+      { who: "sage", say: "Turn it until the pole stands up. If the flag then points right, like the others, it is only turned." },
     ]) },
     {
       id: "wraith-win",
@@ -513,8 +513,8 @@ export default {
     {
       id: "level-up",
       beats: [
-        { who: "narrator", say: "Level up! You are now: Nothing Gets Past You, level two!", sfxs: [{ sfx: "quest-levelup", at: 0.4 }] },
-        { who: "sage", say: "Hoo hoo! Welcome to the Library of Sharp Eyes, hero. The end... of this quest." },
+        { who: "narrator", say: "Level up! You are now Nothing Gets Past You, level two!", sfxs: [{ sfx: "quest-levelup", at: 0.4 }] },
+        { who: "sage", say: "Hoo hoo! Welcome to the Library of Sharp Eyes, hero. That is the end of this quest." },
       ],
       render: s => (
         <AbsoluteFill style={{ background: BG }}>

@@ -270,21 +270,21 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Balancing puzzles. Who weighs the same as who? Let's find out.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Balancing Puzzles" strap="Swap until everything matches." emblem="scales" />,
+      beats: [{ say: "Balancing Puzzles. In these questions, you work out which things weigh the same.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Number puzzles" title="Balancing Puzzles" strap="Swap things that weigh the same." emblem="scales" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "Balancing puzzles tell you which animals weigh the same." },
-        { say: "Two mice weigh as much as one cat. So on a scale, they balance perfectly." },
-        { say: "Then they ask you a question, like: how many mice weigh as much as something else?" },
+        { say: "For example, two mice weigh as much as one cat. So on a scale, they balance." },
+        { say: "Then the question asks you something like how many mice weigh as much as another animal." },
       ],
       render: s => {
         const b1 = s.at(1);
-        const mice = { kind: "mouse", n: 2, r: 36, slot: 0, in: b1 + s.speech(1) * 0.1 };
-        const cat = { kind: "cat", n: 1, r: 54, slot: 0, in: b1 + s.speech(1) * 0.45 };
+        const mice = { kind: "mouse", n: 2, r: 36, slot: 0, in: b1 + s.speech(1) * 0.22 };
+        const cat = { kind: "cat", n: 1, r: 54, slot: 0, in: b1 + s.speech(1) * 0.6 };
         return (
           <>
             <Words x={260} w={1400} y={170} size={50} align="center" appear={rise(s.t, 18, b1)}>Two mice weigh as much as one cat.</Words>
@@ -301,14 +301,14 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. Draw each fact as a balance." },
-        { say: "Then swap things for things that weigh just the same, until it's all the same animal." },
+        { say: "Start by drawing each fact as a balance." },
+        { say: "Then swap animals for other animals that weigh the same, until there is only one kind of animal left on that side." },
         { say: "Swapping never changes the weight, so the scale stays balanced." },
       ],
       render: s => {
         const mice = { kind: "mouse", n: 2, r: 32, slot: 0, in: s.at(0) + s.speech(0) * 0.4 };
-        const cat = { kind: "cat", n: 1, r: 50, slot: 0, in: s.at(0) + s.speech(0) * 0.7, out: s.at(1) + s.speech(1) * 0.35 };
-        const twoMore = { kind: "mouse", n: 2, r: 32, slot: 0, in: s.at(1) + s.speech(1) * 0.35 + 10 };
+        const cat = { kind: "cat", n: 1, r: 50, slot: 0, in: s.at(0) + s.speech(0) * 0.7, out: s.at(1) + s.speech(1) * 0.3 };
+        const twoMore = { kind: "mouse", n: 2, r: 32, slot: 0, in: s.at(1) + s.speech(1) * 0.3 + 10 };
         return (
           <>
             <Words x={170} w={760} y={250} size={60} appear={rise(s.t, 20, s.at(0) + 6)}>Draw each fact as a balance.</Words>
@@ -317,7 +317,7 @@ export default {
             <Balance t={s.t} cx={1370} pivot={360} len={440} appear={rise(s.t, 20, s.at(0) + 10)}
               left={[mice]} right={[cat, twoMore]} tips={[{ at: mice.in + 6, to: -10 }, { at: cat.in + 6, to: 0 }]}
               glow={window(s.t, s.at(2), s.length, 16)} />
-            <Note x={1250} y={180} size={32} appear={window(s.t, s.at(1) + s.speech(1) * 0.4, s.at(2) + 10)}>1 cat = 2 mice</Note>
+            <Note x={1250} y={180} size={32} appear={window(s.t, s.at(1) + s.speech(1) * 0.35, s.at(2) + 10)}>1 cat = 2 mice</Note>
           </>
         );
       },
@@ -326,19 +326,19 @@ export default {
     // Worked example 1: two steps.
     {
       beats: [
-        { say: "Try this one. Three rabbits weigh as much as one goat." },
+        { say: "Let's try one. Three rabbits weigh as much as one goat." },
         { say: "Two goats weigh as much as one pony." },
         { say: "How many rabbits weigh as much as a pony?" },
-        { say: "The pony's scale has goats on it, but we want rabbits. So let's swap." },
+        { say: "The pony's scale has goats on it, but the question asks about rabbits. So we swap the goats for rabbits." },
         { say: "Each goat weighs the same as three rabbits. So swap the first goat for three rabbits." },
-        { say: "And the second goat for three more." },
-        { say: "Now count them. One, two, three, four, five, six. Six rabbits balance one pony! The answer is six.", sfx: "chime", sfxAt: 5.6 },
+        { say: "Then swap the second goat for three more rabbits." },
+        { say: "Now count them. One, two, three, four, five, six. Six rabbits balance one pony, so the answer is six.", sfx: "chime", sfxAt: 5.6 },
       ],
       render: s => {
         const a0 = s.at(0), a1 = s.at(1);
         const rabbitsA = { kind: "rabbit", n: 3, r: 30, slot: 0, in: a0 + s.speech(0) * 0.35 };
         const goatA = { kind: "goat", n: 1, r: 48, slot: 0, in: a0 + s.speech(0) * 0.8 };
-        const swap1 = s.at(4) + s.speech(4) * 0.62, swap2 = s.at(5) + s.speech(5) * 0.3;
+        const swap1 = s.at(4) + s.speech(4) * 0.62, swap2 = s.at(5) + s.speech(5) * 0.35;
         const goat1 = { kind: "goat", n: 1, r: 42, slot: 0, in: a1 + s.speech(1) * 0.2, out: swap1 };
         const goat2 = { kind: "goat", n: 1, r: 42, slot: 1, in: a1 + s.speech(1) * 0.3, out: swap2 };
         const r1 = { kind: "rabbit", n: 3, r: 26, slot: 0, in: swap1 + 8 };
@@ -356,7 +356,7 @@ export default {
             <Balance t={s.t} cx={R} pivot={PIVOT} appear={rise(s.t, 20, a1)} slots={[2, 1]}
               left={[goat1, goat2, r1, r2]} right={[pony]} tips={[{ at: goat1.in + 6, to: -8 }, { at: pony.in + 6, to: 0 }]}
               count={{ side: "left", start: countStart, gap: countGap }} />
-            <Ring x={R - 210} y={PIVOT + 90} w={260} h={170} progress={rise(s.t, 22, s.at(3) + s.speech(3) * 0.3) * (1 - rise(s.t, 10, s.at(4)))} />
+            <Ring x={R - 210} y={PIVOT + 90} w={260} h={170} progress={rise(s.t, 22, s.at(3) + s.speech(3) * 0.2) * (1 - rise(s.t, 10, s.at(4)))} />
             <Note x={L - 90} y={PIVOT + 196} size={30} appear={window(s.t, s.at(4) + 10, s.at(6))}>1 goat = 3 rabbits</Note>
             <Question s={s} text="How many rabbits weigh as much as a pony?" appear={rise(s.t, 18, s.at(2))}
               answer="6" answerAt={s.at(6) + s.speech(6) * 0.72} />
@@ -368,12 +368,12 @@ export default {
     // Worked example 2: "half as much", and the trap.
     {
       beats: [
-        { say: "Here's a trickier one. Four mice weigh as much as one cat." },
+        { say: "This one is harder. Four mice weigh as much as one cat." },
         { say: "A cat weighs half as much as a dog." },
-        { say: "Careful, here's the trap. Which is heavier, the cat or the dog?" },
-        { say: "The cat weighs only half as much, so the dog is the heavy one. It takes two cats to balance one dog." },
-        { say: "If you read it the wrong way round, you'd think one cat balances two dogs, and you'd get the answer two. That's the trap!" },
-        { say: "Now swap each cat for four mice. Four, and four more." },
+        { say: "Be careful here, and work out which is heavier, the cat or the dog." },
+        { say: "The cat weighs only half as much, so the dog is heavier. It takes two cats to balance one dog." },
+        { say: "If you read it the wrong way round, you would think one cat balances two dogs, and you would get the answer two. That answer is wrong." },
+        { say: "Now swap each cat for four mice. That gives four mice, and then four more." },
         { say: "Eight mice balance one dog. The answer is eight.", sfx: "chime", sfxAt: 1.2 },
       ],
       render: s => {
@@ -381,7 +381,7 @@ export default {
         const miceA = { kind: "mouse", n: 4, r: 25, slot: 0, in: a0 + s.speech(0) * 0.45 };
         const catA = { kind: "cat", n: 1, r: 48, slot: 0, in: a0 + s.speech(0) * 0.85 };
         const dog = { kind: "dog", n: 1, r: 56, slot: 0, in: a3 + s.speech(3) * 0.3 };
-        const swap1 = s.at(5) + s.speech(5) * 0.45, swap2 = s.at(5) + s.speech(5) * 0.75;
+        const swap1 = s.at(5) + s.speech(5) * 0.4, swap2 = s.at(5) + s.speech(5) * 0.8;
         const cat1 = { kind: "cat", n: 1, r: 42, slot: 0, in: a3 + s.speech(3) * 0.62, out: swap1 };
         const cat2 = { kind: "cat", n: 1, r: 42, slot: 1, in: a3 + s.speech(3) * 0.72, out: swap2 };
         const m1 = { kind: "mouse", n: 4, r: 22, slot: 0, in: swap1 + 8 };
@@ -404,7 +404,7 @@ export default {
             <Note x={R - 140} y={PIVOT + 200} size={32} appear={window(s.t, s.at(4), s.at(5), 12)}>1 dog = 2 cats</Note>
             <Note x={L - 90} y={PIVOT + 200} size={30} appear={window(s.t, s.at(5), s.at(6) + 20)}>1 cat = 4 mice</Note>
             <Question s={s} text="How many mice weigh as much as a dog?" appear={rise(s.t, 18, s.at(2))}
-              answer="8" answerAt={s.at(6) + s.speech(6) * 0.72} wrong="2" wrongAt={s.at(4) + s.speech(4) * 0.62} />
+              answer="8" answerAt={s.at(6) + s.speech(6) * 0.72} wrong="2" wrongAt={s.at(4) + s.speech(4) * 0.6} />
           </>
         );
       },
@@ -413,15 +413,15 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Three ducks weigh as much as one goose. A goose weighs half as much as a dog. How many ducks weigh as much as a dog? Pause the video if you'd like more time.", hold: 7 },
-        { say: "Did you get six? The dog is the heavy one, so it balances two geese." },
-        { say: "Swap each goose for three ducks. Three and three make six!", sfx: "chime", sfxAt: 2.8 },
+        { say: "Now it's your turn. Three ducks weigh as much as one goose. A goose weighs half as much as a dog. How many ducks weigh as much as a dog? Pause the video if you would like more time.", hold: 7 },
+        { say: "The answer is six. The dog is heavier, so it balances two geese." },
+        { say: "Swap each goose for three ducks. Three and three make six.", sfx: "chime", sfxAt: 2.8 },
       ],
       render: s => {
         const b1 = s.at(1), b2 = s.at(2);
         const ducksA = { kind: "duck", n: 3, r: 30, slot: 0, in: b1 + 4 };
         const gooseA = { kind: "goose", n: 1, r: 48, slot: 0, in: b1 + 14 };
-        const dog = { kind: "dog", n: 1, r: 56, slot: 0, in: b1 + s.speech(1) * 0.35 };
+        const dog = { kind: "dog", n: 1, r: 56, slot: 0, in: b1 + s.speech(1) * 0.38 };
         const swap1 = b2 + s.speech(2) * 0.3, swap2 = b2 + s.speech(2) * 0.5;
         const g1 = { kind: "goose", n: 1, r: 42, slot: 0, in: b1 + s.speech(1) * 0.7, out: swap1 };
         const g2 = { kind: "goose", n: 1, r: 42, slot: 1, in: b1 + s.speech(1) * 0.8, out: swap2 };
@@ -431,10 +431,10 @@ export default {
         return (
           <>
             <Words x={L - 380} w={760} y={180} size={38} align="center" appear={rise(s.t, 18, 10)}>Three ducks weigh as much as one goose.</Words>
-            <Words x={R - 380} w={760} y={180} size={38} align="center" appear={rise(s.t, 18, s.at(0) + s.speech(0) * 0.25)}>A goose weighs half as much as a dog.</Words>
+            <Words x={R - 380} w={760} y={180} size={38} align="center" appear={rise(s.t, 18, s.at(0) + s.speech(0) * 0.28)}>A goose weighs half as much as a dog.</Words>
             <Balance t={s.t} cx={L} pivot={PIVOT} appear={rise(s.t, 20, 14)}
               left={[ducksA]} right={[gooseA]} tips={[{ at: ducksA.in + 6, to: -10 }, { at: gooseA.in + 6, to: 0 }]} />
-            <Balance t={s.t} cx={R} pivot={PIVOT} appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.3)} slots={[2, 1]}
+            <Balance t={s.t} cx={R} pivot={PIVOT} appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.33)} slots={[2, 1]}
               left={[g1, g2, d1, d2]} right={[dog]}
               tips={[{ at: dog.in + 6, to: 12 }, { at: g1.in + 6, to: 5 }, { at: g2.in + 6, to: 0 }]}
               count={{ side: "left", start: b2 + s.speech(2) * 0.62, gap: 5 }} />
@@ -451,11 +451,11 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, to solve any balancing puzzle." },
-        { say: "One. Draw each fact as a balance." },
-        { say: "Two. Work out which is heavier. Half as much means the other one is twice as heavy." },
-        { say: "Three. Swap until everything is the same animal." },
-        { say: "Four. Count them up." },
+        { say: "Here is how to solve any balancing puzzle." },
+        { say: "First, draw each fact as a balance." },
+        { say: "Next, work out which is heavier. If one weighs half as much, the other one is twice as heavy." },
+        { say: "Then swap until everything is the same animal." },
+        { say: "Last, count them up." },
       ],
       render: s => (
         <>
@@ -472,9 +472,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Perfectly balanced. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to solve balancing puzzles. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Balanced" strap="Nothing gets past you." emblem="scales" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Swap things that weigh the same." emblem="scales" />,
     },
   ],
 };

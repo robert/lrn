@@ -330,7 +330,7 @@ export default {
       beats: [
         { who: "maestro", say: "Ladies and gentlemen, boys and girls! Welcome to the Grand Word Theatre!", sfxs: [{ sfx: "theatre-applause", at: 3.8, volume: 0.6 }] },
         { who: "lil", say: "Get on with it!" },
-        { who: "maestro", say: "Tonight's performance... The Great Word Swap!", voice: "Tonight's performance. The Great Word Swap!", sfxs: [{ sfx: "theatre-tada", at: 2.2, volume: 0.8 }] },
+        { who: "maestro", say: "Tonight's show is called The Great Word Swap!", sfxs: [{ sfx: "theatre-tada", at: 2.2, volume: 0.8 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -352,7 +352,7 @@ export default {
       beats: [
         { who: "maestro", say: "In this theatre, every word is an actor, and every actor has a place in the line.", sfxs: [{ sfx: "theatre-curtain", at: 0, volume: 0.8 }] },
         { who: "maestro", say: "But tonight, disaster! Two of our actors have swapped places. And now the sentence sounds silly." },
-        { who: "lil", say: "Swapped? So how do we find them?" },
+        { who: "lil", say: "Oh no! So how do we find them?" },
       ],
       render: s => (
         <AbsoluteFill>
@@ -366,11 +366,11 @@ export default {
     // The secret, on a playbill.
     {
       beats: [
-        { who: "maestro", say: "Here's how the finest detectives of the stage do it." },
-        { who: "maestro", say: "One. Read the sentence out loud." },
-        { who: "maestro", say: "Two. Listen for the silly bit, where it stops making sense." },
-        { who: "maestro", say: "Three. Find the word in the wrong place, and its partner. Swap them." },
-        { who: "maestro", say: "Four. Read it again, to check it makes sense." },
+        { who: "maestro", say: "There are four steps to finding them." },
+        { who: "maestro", say: "First, read the sentence out loud." },
+        { who: "maestro", say: "Next, listen for the silly bit, where it stops making sense." },
+        { who: "maestro", say: "Then find the word in the wrong place, and the word it swapped with. Swap them back." },
+        { who: "maestro", say: "Last, read it again to check that it makes sense." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -386,9 +386,9 @@ export default {
       beats: [
         { who: "maestro", say: "Act one! The cheese nibbled the mouse in the kitchen." },
         { who: "lil", say: "Ha! Cheese can't nibble anything. Cheese doesn't even have teeth!" },
-        { who: "maestro", say: "Exactly! That's the silly bit. Mice nibble. So the cheese is standing in the mouse's place..." },
-        { who: "maestro", say: "...and the mouse is standing in the cheese's place. Swap them back!", sfxs: swapSfx(2.6) },
-        { who: "maestro", say: "Now read it again. The mouse nibbled the cheese in the kitchen. Perfect sense!", sfxs: [{ sfx: "theatre-tada", at: 4.6, volume: 0.7 }, { sfx: "theatre-applause", at: 4.8, volume: 0.5 }] },
+        { who: "maestro", say: "Yes, that's the silly bit. Mice nibble cheese. So the cheese is standing in the mouse's place." },
+        { who: "maestro", say: "And the mouse is standing in the cheese's place. Swap them back!", sfxs: swapSfx(2.6) },
+        { who: "maestro", say: "Now read it again. The mouse nibbled the cheese in the kitchen. That makes sense!", sfxs: [{ sfx: "theatre-tada", at: 4.6, volume: 0.7 }, { sfx: "theatre-applause", at: 4.8, volume: 0.5 }] },
       ],
       render: s => {
         const swapAt = s.at(3) + s.speech(3) * 0.62;
@@ -397,7 +397,7 @@ export default {
             <Backdrop />
             <Sentence t={s.t} words={S1} order0={ids(S1.length)} enter={0}
               read={{ at: s.at(0) + s.speech(0) * 0.25, dur: s.speech(0) * 0.7 }}
-              lit={{ 1: window(s.t, s.at(1), s.at(4) + 20), 4: window(s.t, s.at(2) + s.speech(2) * 0.4, s.at(4) + 20) }}
+              lit={{ 1: window(s.t, s.at(1), s.at(4) + 20), 4: window(s.t, s.at(2) + s.speech(2) * 0.3, s.at(4) + 20) }}
               moves={[{ order: S1_FIXED, at: swapAt, dur: 40 }]} />
             <Banner text={said(S1, S1_FIXED)} appear={rise(s.t, 16, s.at(4) + 20)} good />
             <Stage t={s.t} open={1} />
@@ -442,8 +442,8 @@ export default {
     // Your turn.
     {
       beats: [
-        { who: "maestro", say: "And now, the grand finale is yours! Which two actors have swapped? Pause if you need more time.", hold: 6 },
-        { who: "maestro", say: "Teacher and pupil! It's the pupil who puts up her hand, to ask the teacher a question.", sfxs: swapSfx(1.4) },
+        { who: "maestro", say: "Now it's your turn. Which two actors have swapped places? Pause if you need more time.", hold: 6 },
+        { who: "maestro", say: "Teacher and pupil have swapped. The pupil is the one who puts up her hand to ask the teacher a question.", sfxs: swapSfx(2.0) },
         { who: "lil", say: "The pupil put up her hand to ask the teacher a question. Bravo! Bravo!", sfxs: [{ sfx: "theatre-applause", at: 2.0, volume: 0.6 }] },
       ],
       render: s => (
@@ -452,7 +452,7 @@ export default {
           <Sentence t={s.t} words={S3} order0={ids(S3.length)} enter={0}
             read={{ at: 20, dur: s.speech(0) * 0.5 }}
             lit={{ 1: window(s.t, s.at(1), s.at(2) + 40), 9: window(s.t, s.at(1), s.at(2) + 40) }}
-            moves={[{ order: S3_FIXED, at: s.at(1) + s.speech(1) * 0.3, dur: 50 }]} />
+            moves={[{ order: S3_FIXED, at: s.at(1) + s.speech(1) * 0.31, dur: 50 }]} />
           <Sandglass t={s.t} at={s.at(0) + s.speech(0)} seconds={6} />
           <Banner text={said(S3, S3_FIXED)} appear={rise(s.t, 16, s.at(2) + 10)} good />
           <Stage t={s.t} open={1} />
@@ -463,7 +463,7 @@ export default {
     // Curtain call.
     {
       beats: [
-        { who: "maestro", say: "So remember, my friends. Read it out loud, find the silly bit, swap the pair, and read it again." },
+        { who: "maestro", say: "So, my friends, read it out loud, find the silly bit, swap the pair back, and read it again to check." },
         { who: "lil", say: "Encore! Encore!" },
         { who: "maestro", say: "Goodnight, and thank you! Nothing gets past you.", sfxs: [{ sfx: "theatre-applause", at: 0.4, volume: 0.7 }, { sfx: "theatre-curtain", at: 2.0, volume: 0.7 }] },
       ],

@@ -295,7 +295,7 @@ export default {
       beats: [
         { who: "prof", say: "Ahem! Good morning, class. Or rather, good morning, Lily. You are the class.", sfxs: [erase, scratch(1.0), scratch(2.0)] },
         { who: "lily", say: "Good morning, Professor Chalk!" },
-        { who: "prof", say: "Today's lesson is my very favourite. Magic changes!", sfxs: [{ sfx: "chalk-tap", at: 2.4 }] },
+        { who: "prof", say: "Today's lesson is my favourite one. It is called Magic Changes.", sfxs: [{ sfx: "chalk-tap", at: 2.4 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -313,10 +313,10 @@ export default {
     // What an analogy asks: a spell to spot and cast again.
     {
       beats: [
-        { who: "prof", say: "Here's how it works. The first picture changes into the second one, as if by magic.", sfxs: [erase] },
+        { who: "prof", say: "The first picture changes into the second one, as if by magic.", sfxs: [erase] },
         { who: "prof", say: "Your job is to spot the spell, then cast exactly the same spell on the third picture." },
         { who: "lily", say: "Like a real spell?" },
-        { who: "prof", say: "Precisely like a real spell. And the secret is this. First, say the spell out loud, as a rule. Then cast the whole of it." },
+        { who: "prof", say: "Just like a real spell. First, say the spell out loud as a rule. Then cast the whole of it." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -339,8 +339,8 @@ export default {
           </svg>
           <Written t={s.t} at={60} x={SLOTS.A - 60} y={ROW_Y - 200} size={46} colour={BLUE}>the spell</Written>
           <Written t={s.t} at={s.at(1) + 50} x={SLOTS.C - 30} y={ROW_Y - 200} size={46} colour={BLUE}>cast it again</Written>
-          <Written t={s.t} at={at(s, 3, 0.35)} x={430} y={560} size={70}>1. Say the spell as a rule.</Written>
-          <Written t={s.t} at={at(s, 3, 0.8)} x={430} y={660} size={70}>2. Cast <span style={{ color: YELLOW }}>all</span> of it.</Written>
+          <Written t={s.t} at={at(s, 3, 0.27)} x={430} y={560} size={70}>1. Say the spell as a rule.</Written>
+          <Written t={s.t} at={at(s, 3, 0.72)} x={430} y={660} size={70}>2. Cast <span style={{ color: YELLOW }}>all</span> of it.</Written>
           <EraserWipe t={s.t} />
         </AbsoluteFill>
       ),
@@ -352,10 +352,10 @@ export default {
         { who: "prof", say: "Watch closely. This circle...", sfxs: [erase, scratch(0.6)] },
         { who: "prof", say: "becomes this circle. What's the spell, Lily?", sfxs: [scratch(0.2)] },
         { who: "lily", say: "It got coloured in!" },
-        { who: "prof", say: "Splendid! The spell is: colour it in. Nothing else changed. Same shape, same size, same way up.", sfxs: [scratch(1.2)] },
+        { who: "prof", say: "Yes. The spell is to colour it in. Nothing else changes. The shape, the size and the way it faces all stay the same.", sfxs: [scratch(1.2)] },
         { who: "prof", say: "So now we cast it on the triangle. Colour it in, and change nothing else.", sfxs: [scratch(1.0)] },
-        { who: "lily", say: "Answer a! The coloured-in triangle!", sfxs: [{ sfx: "chalk-ding", at: 1.0, volume: 0.8 }] },
-        { who: "prof", say: "Bravo. And answer c? A coloured square. But our spell never changed the shape. Half marks for chalk, none for magic!", sfxs: [{ sfx: "chalk-bonk", at: 1.2, volume: 0.7 }] },
+        { who: "lily", say: "Answer a! The triangle that is coloured in!", sfxs: [{ sfx: "chalk-ding", at: 1.0, volume: 0.8 }] },
+        { who: "prof", say: "Well done. Answer c is a coloured square, but our spell never changes the shape. So answer c is wrong.", sfxs: [{ sfx: "chalk-bonk", at: 1.2, volume: 0.7 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -368,7 +368,7 @@ export default {
           <Written t={s.t} at={at(s, 3, 0.2)} x={0} width={1920} align="center" y={120} size={62} colour={YELLOW}>Spell: colour it in</Written>
           <Options t={s.t} appear={at(s, 4, 0.55)} opts={[
             { kind: "triangle", fill: "solid" }, { kind: "triangle" }, { kind: "square", fill: "solid" }, { kind: "triangle", fill: "striped" },
-          ]} chosen={0} chosenAt={at(s, 5, 0.2)} crossed={{ 2: at(s, 6, 0.25) }} />
+          ]} chosen={0} chosenAt={at(s, 5, 0.2)} crossed={{ 2: at(s, 6, 0.2) }} />
           <EraserWipe t={s.t} />
         </AbsoluteFill>
       ),
@@ -379,12 +379,12 @@ export default {
       beats: [
         { who: "prof", say: "Now, a trickier spell. What happened to this arrow?", sfxs: [erase, scratch(1.5)] },
         { who: "lily", say: "It turned! A quarter turn, clockwise." },
-        { who: "prof", say: "Yes... and?" },
+        { who: "prof", say: "Yes. Did anything else change?" },
         { who: "lily", say: "Oh! It got stripes as well!" },
-        { who: "prof", say: "Two changes, one spell. A quarter turn clockwise, and stripes. Now cast both on the flag.", sfxs: [scratch(1.0), scratch(2.6)] },
-        { who: "prof", say: "Beware the half-spells! Answer a only did the turn. Answer b only did the stripes. Half a spell is no spell at all.", sfxs: [{ sfx: "chalk-bonk", at: 1.8, volume: 0.7 }, { sfx: "chalk-bonk", at: 3.4, volume: 0.7 }] },
+        { who: "prof", say: "So the spell has two changes. The arrow turns a quarter of the way round, clockwise, and it gets stripes. Now we do both to the flag.", sfxs: [scratch(1.0), scratch(2.6)] },
+        { who: "prof", say: "Watch out for half spells. Answer a only did the turn. Answer b only did the stripes. Doing only half the spell is wrong.", sfxs: [{ sfx: "chalk-bonk", at: 2.0, volume: 0.7 }, { sfx: "chalk-bonk", at: 3.5, volume: 0.7 }] },
         { who: "lily", say: "And answer d has stripes, but the flag's been flipped over, not turned!", sfxs: [{ sfx: "chalk-bonk", at: 2.4, volume: 0.7 }] },
-        { who: "prof", say: "Mischief indeed. So it's answer c. Turned, and striped. The whole spell.", sfxs: [{ sfx: "chalk-ding", at: 1.6, volume: 0.8 }] },
+        { who: "prof", say: "So the answer is c. It is turned and it has stripes, so it does the whole spell.", sfxs: [{ sfx: "chalk-ding", at: 1.2, volume: 0.8 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -392,8 +392,8 @@ export default {
           <Doodles t={s.t} speaking={[1, 3, 6].includes(s.beat) ? "lily" : "prof"} />
           <Analogy t={s.t}
             A={{ kind: "arrow", rot: -90 }} B={{ kind: "arrow", rot: 0, fill: "striped" }} C={{ kind: "flag" }}
-            drawA={rise(s.t, 30, 20)} drawB={rise(s.t, 36, 60)} drawC={rise(s.t, 30, at(s, 4, 0.7))} drawQ={rise(s.t, 12, at(s, 4, 0.85))}
-            answer={{ kind: "flag", rot: 90, fill: "striped" }} answerDraw={rise(s.t, 30, at(s, 7, 0.45))} />
+            drawA={rise(s.t, 30, 20)} drawB={rise(s.t, 36, 60)} drawC={rise(s.t, 30, at(s, 4, 0.8))} drawQ={rise(s.t, 12, at(s, 4, 0.9))}
+            answer={{ kind: "flag", rot: 90, fill: "striped" }} answerDraw={rise(s.t, 30, at(s, 7, 0.3))} />
           <Written t={s.t} at={at(s, 4, 0.15)} x={0} width={1920} align="center" y={120} size={62} colour={YELLOW}>
             Spell: a quarter turn <span style={{ color: CHALK }}>+</span> stripes
           </Written>
@@ -404,7 +404,7 @@ export default {
           </svg>
           <Options t={s.t} appear={at(s, 5, 0.05)} opts={[
             { kind: "flag", rot: 90 }, { kind: "flag", fill: "striped" }, { kind: "flag", rot: 90, fill: "striped" }, { kind: "flag", rot: 90, flip: true, fill: "striped" },
-          ]} crossed={{ 0: at(s, 5, 0.35), 1: at(s, 5, 0.6), 3: at(s, 6, 0.5) }} chosen={2} chosenAt={at(s, 7, 0.35)} />
+          ]} crossed={{ 0: at(s, 5, 0.4), 1: at(s, 5, 0.64), 3: at(s, 6, 0.5) }} chosen={2} chosenAt={at(s, 7, 0.22)} />
           <EraserWipe t={s.t} />
         </AbsoluteFill>
       ),
@@ -414,8 +414,8 @@ export default {
     {
       beats: [
         { who: "prof", say: "Your turn, clever clogs. What is the spell, and which answer casts all of it? Pause if you need a moment.", sfxs: [erase], hold: 6 },
-        { who: "lily", say: "The heart grew bigger, and it got coloured in. Two changes!" },
-        { who: "prof", say: "So the star must grow and be coloured in. That's answer b. Answer a grew but forgot the colour, and answer c was coloured but never grew. Half-spells, both!", sfxs: [{ sfx: "chalk-ding", at: 2.4, volume: 0.8 }] },
+        { who: "lily", say: "The heart grew bigger, and it got coloured in. That is two changes!" },
+        { who: "prof", say: "So the star must grow and be coloured in. That's answer b. Answer a grew but was not coloured in. Answer c was coloured in but did not grow. They both do only half the spell.", sfxs: [{ sfx: "chalk-ding", at: 2.4, volume: 0.8 }] },
       ],
       render: s => {
         const clock = at(s, 0, 1);
@@ -432,13 +432,13 @@ export default {
               <circle cx={(SLOTS.B + SLOTS.C) / 2} cy={ROW_Y + 22} r={7} fill={CHALK} filter="url(#chalk)" />
               <ChalkShape kind="star" x={SLOTS.C} y={ROW_Y} r={52} draw={rise(s.t, 30, 90)} seed={3} />
               <ChalkLine x1={SLOTS.C + 120} y1={ROW_Y} x2={SLOTS.Q - 120} y2={ROW_Y} draw={rise(s.t, 12, 110)} head />
-              {s.t < at(s, 2, 0.4)
+              {s.t < at(s, 2, 0.36)
                 ? <text x={SLOTS.Q} y={ROW_Y + 44} textAnchor="middle" fontFamily={HAND} fontSize={150} fill={CHALK} filter="url(#chalk)" opacity={rise(s.t, 10, 110)}>?</text>
-                : <ChalkShape kind="star" x={SLOTS.Q} y={ROW_Y} r={100} fill="solid" draw={rise(s.t, 30, at(s, 2, 0.4))} seed={9} colour={YELLOW} />}
+                : <ChalkShape kind="star" x={SLOTS.Q} y={ROW_Y} r={100} fill="solid" draw={rise(s.t, 30, at(s, 2, 0.36))} seed={9} colour={YELLOW} />}
             </svg>
             <Options t={s.t} appear={120} opts={[
               { kind: "star", r: 84 }, { kind: "star", r: 84, fill: "solid" }, { kind: "star", r: 42, fill: "solid" }, { kind: "heart", r: 84, fill: "solid" },
-            ]} chosen={s.t >= at(s, 2, 0.45) ? 1 : undefined} chosenAt={at(s, 2, 0.45)} crossed={s.t >= at(s, 2, 0.7) ? { 0: at(s, 2, 0.7) } : {}} />
+            ]} chosen={s.t >= at(s, 2, 0.38) ? 1 : undefined} chosenAt={at(s, 2, 0.38)} crossed={{ 0: at(s, 2, 0.5), 2: at(s, 2, 0.72) }} />
             {/* Six tally marks, rubbed out one per second. */}
             {s.t >= clock && s.t < s.at(1) && (
               <Written t={s.t} at={clock} dur={1} x={0} width={1920} align="center" y={110} size={84} colour={YELLOW}>
@@ -454,10 +454,10 @@ export default {
     // Recap and farewell.
     {
       beats: [
-        { who: "prof", say: "So. The Magic Changes method.", sfxs: [erase] },
-        { who: "lily", say: "One. Say the spell out loud, as a rule.", sfxs: [scratch(0.3)] },
-        { who: "lily", say: "Two. Check if there's more than one change.", sfxs: [scratch(0.3)] },
-        { who: "lily", say: "Three. Cast the whole spell. No half-spells!", sfxs: [scratch(0.3)] },
+        { who: "prof", say: "Let's go over the Magic Changes method.", sfxs: [erase] },
+        { who: "lily", say: "First, say the spell out loud as a rule.", sfxs: [scratch(0.3)] },
+        { who: "lily", say: "Next, check whether there is more than one change.", sfxs: [scratch(0.3)] },
+        { who: "lily", say: "Last, cast the whole spell on the third picture.", sfxs: [scratch(0.3)] },
         { who: "prof", say: "Top marks, Lily. Class dismissed!", sfxs: [{ sfx: "chalk-ding", at: 1.0, volume: 0.8 }] },
       ],
       tail: 1.5,

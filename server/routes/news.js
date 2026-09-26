@@ -22,12 +22,12 @@ const NAMES = { reader: "the Mega Reader Challenge", imagination: "the Imaginati
 
 // A puzzle of the day, chosen by date so it changes each day.
 const PUZZLES = [
-  { q: "Which is the odd one out? A triangle, a square, a pentagon, and a circle.", a: "The circle. It's the only one with no straight sides." },
-  { q: "If K means black and L means white, what's the code for a white shape?", a: "L. The letter for white." },
-  { q: "An arrow points up, then right, then down. Where does it point next?", a: "Left. A quarter turn clockwise each time." },
-  { q: "Two words have swapped: the soup drank the girl. Which two?", a: "Soup and girl. The girl drank the soup." },
-  { q: "Two cats weigh the same as one dog. How many cats weigh the same as three dogs?", a: "Six cats. Two for every dog." },
-  { q: "A flag is turned upside down. Is it flipped, or rotated?", a: "Rotated. Flipped means a mirror image." },
+  { q: "Which is the odd one out? A triangle, a square, a pentagon, and a circle.", a: "The answer is the circle, because it's the only one with no straight sides." },
+  { q: "If K means black and L means white, what's the code for a white shape?", a: "The answer is L, because L means white." },
+  { q: "An arrow points up, then right, then down. Where does it point next?", a: "The answer is left, because the arrow turns a quarter of the way round, clockwise, each time." },
+  { q: "Two words have swapped places in this sentence. The soup drank the girl. Which two words are they?", a: "The answer is soup and girl. It should say, the girl drank the soup." },
+  { q: "Two cats weigh the same as one dog. How many cats weigh the same as three dogs?", a: "The answer is six cats, because each dog weighs the same as two cats." },
+  { q: "A flag is turned upside down. Is it flipped, or rotated?", a: "The answer is rotated, because it has only been turned round. Flipped would mean a mirror image." },
 ];
 
 function dayNumber(date) {
@@ -55,13 +55,13 @@ function writeScript() {
       ? { kind: "story", figure: 4, text: "In other news, all four games have been completed today. That lights another seal in this week's Mega Streak." }
       : done.length > 0
         ? { kind: "story", figure: done.length, text: `Today, ${done.map(g => NAMES[g]).join(" and ")} ${done.length === 1 ? "has" : "have"} already been done. ${GAMES.length - done.length === 1 ? "Just one more game" : `${GAMES.length - done.length} more games`} to light today's seal.` }
-        : { kind: "story", figure: 0, text: "Today's games are all still waiting. Four games, one mega day. Who will go first?" },
+        : { kind: "story", figure: 0, text: "None of today's four games has been played yet. Which one will be first?" },
     { kind: "story", figure: lit, text: lit > 0 ? `This week's Mega Streak stands at ${lit} ${lit === 1 ? "seal" : "seals"}. Seven seals win a reward.` : "This week's Mega Streak is waiting for its first seal. Seven seals win a reward." },
-    { kind: "story", figure: imagination.pairs.length, text: imagination.pairs.length > 0 ? `Over at the Imagination Engine, ${imagination.pairs.length} brilliant story ideas are safely stored.` : "The Imagination Engine is warmed up, and waiting for its first ideas." },
-    { kind: "weather", figure: ANIMALS[Math.min(6, spotter.rungs ?? 0)], text: `And now the weather. Tomorrow will be sharp, with excellent visibility. Our spotter is currently a ${ANIMALS[Math.min(6, spotter.rungs ?? 0)]}, and the forecast is for sharper eyes still.` },
+    { kind: "story", figure: imagination.pairs.length, text: imagination.pairs.length > 0 ? `Over at the Imagination Engine, ${imagination.pairs.length} story ideas are safely stored.` : "The Imagination Engine is ready for its first story ideas." },
+    { kind: "weather", figure: ANIMALS[Math.min(6, spotter.rungs ?? 0)], text: `And now the weather. Tomorrow will be clear, so it will be easy to see things. Our spotter is currently a ${ANIMALS[Math.min(6, spotter.rungs ?? 0)]}, and we expect even sharper eyes soon.` },
     { kind: "puzzle", text: `Time for the puzzle of the day. ${puzzle.q}` },
-    { kind: "answer", text: `The answer: ${puzzle.a}` },
-    { kind: "close", text: "That's all from the Mega News. Remember: nothing gets past you. Goodnight." },
+    { kind: "answer", text: puzzle.a },
+    { kind: "close", text: "That's all from the Mega News. Remember that nothing gets past you. Goodnight." },
   ];
   const ticker = [
     `READING STREAK: ${nightStreak}`,

@@ -297,7 +297,7 @@ export default {
         <AbsoluteFill style={{ background: "radial-gradient(ellipse 900px 520px at 50% 48%, #3A3833 0%, #121212 70%, #050505 100%)" }}>
           <Typed t={s.t} at={18} text={TITLE} x={0} y={440} width={1920} align="center" size={96} color={PAPER} perChar={3} />
           <div style={{ position: "absolute", left: 0, right: 0, top: 580, textAlign: "center", fontFamily: TYPE, fontSize: 34, color: AMBER, opacity: rise(s.t, 20, 110), letterSpacing: 8 }}>
-            A NOTHING GETS PAST MYSTERY
+            AN INSPECTOR SHARP MYSTERY
           </div>
         </AbsoluteFill>
       ),
@@ -308,13 +308,13 @@ export default {
       beats: [
         { who: "penny", say: "Inspector! Five suspects in the line-up. The chief says one of them doesn't belong.", sfxs: [{ sfx: "rain", at: 0, volume: 0.18 }] },
         { who: "sharp", say: "Four of them share a secret, Penny. The odd one out is the one that doesn't." },
-        { who: "sharp", say: "So we find what the four have in common. We find the one that breaks it. And we say why." },
+        { who: "sharp", say: "So first we find what four of them have in common. Then we find the one that's different. Then we say why." },
         { who: "penny", say: "Say why?" },
-        { who: "sharp", say: "Always say why. A hunch isn't evidence." },
+        { who: "sharp", say: "Yes, always say why. A guess isn't evidence." },
       ],
       render: s => {
         const open = rise(s.t, 26, s.at(1) + 10);
-        const rules = ["1. Find what four share.", "2. Find the one that breaks it.", "3. Say why."];
+        const rules = ["1. Find what four share.", "2. Find the one that's different.", "3. Say why."];
         return (
           <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 30%, #3C3A35, #111 75%)" }}>
             {/* Desk lamp pool of light and the case file. */}
@@ -327,11 +327,11 @@ export default {
                 <div style={{ fontFamily: TYPE, fontSize: 52, color: INK, marginTop: 10 }}>The Odd One Out</div>
                 <div style={{ height: 2, background: "#999", margin: "22px 0 30px" }} />
                 {rules.map((r, i) => (
-                  <Typed key={i} t={s.t} at={s.at(2) + s.speech(2) * (0.1 + i * 0.3)} text={r} x={40} y={200 + i * 72} size={44} perChar={1.5} />
+                  <Typed key={i} t={s.t} at={s.at(2) + s.speech(2) * (0.05 + i * 0.39)} text={r} x={40} y={200 + i * 72} size={44} perChar={1.5} />
                 ))}
               </div>
             </div>
-            <Stamp t={s.t} at={s.at(4) + s.speech(4) * 0.6} x={1250} y={640} text="SAY WHY" size={42} rot={-12} />
+            <Stamp t={s.t} at={s.at(4) + s.speech(4) * 0.4} x={1250} y={640} text="SAY WHY" size={42} rot={-12} />
             <Rain t={s.t} amount={0.25} />
           </AbsoluteFill>
         );
@@ -343,8 +343,8 @@ export default {
       beats: [
         { who: "sharp", say: "Bring them in.", sfxs: [{ sfx: "spotlight", at: 0.4, volume: 0.8 }] },
         { who: "penny", say: "Number three! The big black one. He looks guilty to me." },
-        { who: "sharp", say: "Big, small, black, white, stripy. Red herrings. They're all different sizes and colours, so that can't be their secret." },
-        { who: "sharp", say: "Count their corners, Penny. Every one." },
+        { who: "sharp", say: "Some are big and some are small. Some are black, some white, some stripy. The sizes and colours are all mixed up, so that can't be their secret." },
+        { who: "sharp", say: "Count the corners on each one, Penny." },
         { who: "penny", say: "Three, three, three... four! And three." },
         { who: "sharp", say: "Number four has four sides. Everyone else has three. That's our odd one out.", sfxs: [{ sfx: "stamp", at: 4.6 }] },
       ],
@@ -366,11 +366,11 @@ export default {
     {
       beats: [
         { who: "penny", say: "Next line-up, guv. Five flags. And look, number three's upside down! Got him!", sfxs: [{ sfx: "spotlight", at: 0.2, volume: 0.7 }] },
-        { who: "sharp", say: "Not so fast. Turning round isn't a crime. Watch." },
-        { who: "sharp", say: "Spin number three the right way up, and it's the same flag as number one. Innocent." },
+        { who: "sharp", say: "Not so fast. If a shape has only been turned round, it's still the same shape. Watch." },
+        { who: "sharp", say: "If we turn number three the right way up, it's the same flag as number one. So it's innocent." },
         { who: "sharp", say: "Now watch number two. I can turn it all night long, and it will never match." },
-        { who: "sharp", say: "Because it isn't turned. It's flipped. A mirror image. That's our odd one out.", sfxs: [{ sfx: "stamp", at: 4.2 }] },
-        { who: "penny", say: "So turning doesn't count... but flipping does." },
+        { who: "sharp", say: "That's because number two has been flipped over, like a reflection in a mirror. That's our odd one out.", sfxs: [{ sfx: "stamp", at: 5.2 }] },
+        { who: "penny", say: "So a turned shape still matches, but a flipped shape doesn't." },
         { who: "sharp", say: "Now you're thinking like a detective." },
       ],
       render: s => {
@@ -400,7 +400,7 @@ export default {
             <div style={{ position: "absolute", left: XS[1] - 150, top: 250, width: 300, textAlign: "center", fontFamily: TYPE, fontSize: 30, color: AMBER, opacity: ghost }}>
               {settle > 0.9 ? "a perfect match!" : "no match..."}
             </div>
-            <Stamp t={s.t} at={s.at(4) + s.speech(4) * 0.8} x={XS[1]} y={FLOOR - 290} text="FLIPPED" />
+            <Stamp t={s.t} at={s.at(4) + s.speech(4) * 0.75} x={XS[1]} y={FLOOR - 290} text="FLIPPED" />
           </AbsoluteFill>
         );
       },
@@ -411,8 +411,8 @@ export default {
       beats: [
         { who: "sharp", say: "One more line-up. This one's yours, detective. What do four of them share? Pause if you need more time.", hold: 6.5,
           sfxs: Array.from({ length: 6 }, (_, i) => ({ sfx: "tick", at: 0 + i, volume: 0.9 })) },
-        { who: "sharp", say: "Number five. Every other circle keeps its little square inside. Number five's square is outside.", sfxs: [{ sfx: "stamp", at: 5.4 }] },
-        { who: "penny", say: "Inside or outside. One of the twelve things that can change!" },
+        { who: "sharp", say: "It's number five. In the other four, the little square is inside the circle. In number five, the square is outside.", sfxs: [{ sfx: "stamp", at: 6.0 }] },
+        { who: "penny", say: "So inside or outside is one of the twelve things that can change!" },
       ],
       render: s => {
         const light = s.t < s.at(1) ? [1, 1, 1, 1, 1] : [0.3, 0.3, 0.3, 0.3, 1];
@@ -430,8 +430,8 @@ export default {
     // Case closed: the rain stops and the sun comes up.
     {
       beats: [
-        { who: "sharp", say: "Four share a secret. One doesn't. Find it, and say why." },
-        { who: "penny", say: "And never trust a mirror image!" },
+        { who: "sharp", say: "Find what four of them share. Find the one that's different. Then say why." },
+        { who: "penny", say: "And watch out for shapes that have been flipped!" },
         { who: "sharp", say: "Case closed, Penny. Nothing gets past us.", sfxs: [{ sfx: "stamp", at: 2.2 }, { sfx: "chime", at: 2.4, volume: 0.6 }] },
       ],
       tail: 1.5,
@@ -444,7 +444,7 @@ export default {
             <Skyline t={s.t} />
             <Rain t={s.t} amount={1 - dawn} />
             <div style={{ position: "absolute", left: 0, right: 0, top: 330, textAlign: "center", fontFamily: TYPE, fontSize: 60, color: PAPER, opacity: rise(s.t, 20, s.at(0)) }}>
-              Four share a secret.<br />One doesn't.<br /><span style={{ color: AMBER }}>Say why.</span>
+              Find what four share.<br />Find the one that's different.<br /><span style={{ color: AMBER }}>Say why.</span>
             </div>
             <Stamp t={s.t} at={s.at(2) + s.speech(2) * 0.75} x={960} y={250} text="CASE CLOSED" size={64} rot={-6} />
           </AbsoluteFill>

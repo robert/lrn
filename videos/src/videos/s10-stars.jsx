@@ -124,67 +124,67 @@ export default {
         </AbsoluteFill>
       ),
     },
-    thing("one", "Shape", "One. Shape. Three stars make a triangle. Add one more, and it becomes a square. The shape has changed.", s => {
-      const m = rise(s.t, 60, s.speech(0) * 0.5);
+    thing("one", "Shape", "Number one is shape. Three stars make a triangle. Add one more star, and they make a square. The shape has changed.", s => {
+      const m = rise(s.t, 60, s.speech(0) * 0.55);
       return <>
         <Constellation {...TRI} t={s.t} cx={960} cy={560} scale={1.7} opacity={1 - m} />
-        <Constellation {...SQUARE} t={s.t} at={s.speech(0) * 0.5} cx={960} cy={560} scale={1.7} opacity={m} />
+        <Constellation {...SQUARE} t={s.t} at={s.speech(0) * 0.55} cx={960} cy={560} scale={1.7} opacity={m} />
       </>;
     }),
-    thing("two", "How many", "Two. How many. One star on its own... then two... then three. The number has changed.", s => (
+    thing("two", "How many", "Number two is how many. First there is one star on its own, then two stars, then three. The number has changed.", s => (
       <svg width="1920" height="1080" style={{ position: "absolute", inset: 0 }}>
-        {[0, 1, 2].map(i => <g key={i} opacity={rise(s.t, 30, 20 + i * s.speech(0) * 0.28)}><circle cx={760 + i * 200} cy={560} r={34} fill={STAR} opacity={0.2} /><circle cx={760 + i * 200} cy={560} r={11} fill={STAR} /></g>)}
+        {[0, 1, 2].map(i => <g key={i} opacity={rise(s.t, 30, s.speech(0) * [0.33, 0.57, 0.71][i])}><circle cx={760 + i * 200} cy={560} r={34} fill={STAR} opacity={0.2} /><circle cx={760 + i * 200} cy={560} r={11} fill={STAR} /></g>)}
       </svg>
     )),
-    thing("three", "Size", "Three. Size. The moon rises big and golden near the hills, then looks small and silver high in the sky.", s => {
+    thing("three", "Size", "Number three is size. The moon rises big and golden near the hills, then looks small and silver high in the sky.", s => {
       const up = rise(s.t, s.speech(0) * 0.9, 20);
       return <Moon x={lerp(560, 1300, up)} y={lerp(820, 380, up)} r={lerp(170, 70, up)} phase={1} />;
     }),
-    thing("four", "Shading", "Four. Shading. Night after night, the moon fills with light. A thin sliver, then half, then full and bright.", s => (
+    thing("four", "Shading", "Number four is shading. First the moon is a thin sliver of light, then it is half lit, then it is full. Each night, more of it is lit up.", s => (
       <>{[0.15, 0.5, 1].map((p, i) => (
-        <div key={i} style={{ position: "absolute", inset: 0, opacity: rise(s.t, 30, 20 + i * s.speech(0) * 0.3) }}>
+        <div key={i} style={{ position: "absolute", inset: 0, opacity: rise(s.t, 30, s.speech(0) * [0.3, 0.54, 0.7][i]) }}>
           <Moon x={620 + i * 340} y={560} r={100} phase={p} />
         </div>
       ))}</>
     )),
-    thing("five", "Rotation", "Five. Rotation. All night long, the Plough turns slowly around the Pole Star, like the hand of a giant clock.", s => {
+    thing("five", "Rotation", "Number five is rotation. All night long, the Plough turns slowly round the Pole Star, like the hand of a giant clock.", s => {
       const turn = rise(s.t, s.speech(0) + 40, 10) * 70;
       return <>
         <svg width="1920" height="1080" style={{ position: "absolute", inset: 0 }}><circle cx={960} cy={520} r={9} fill={GOLD} /><circle cx={960} cy={520} r={26} fill={GOLD} opacity={0.25} /></svg>
         <Constellation {...PLOUGH} t={s.t} cx={960} cy={500} rot={turn} off={[-40, 260]} scale={1.3} />
       </>;
     }),
-    thing("six", "Flipped", "Six. Flipped. On the still lake below, the stars shine back upside down and the wrong way round. A mirror image.", s => (
+    thing("six", "Flipped", "Number six is flipped. The stars shine back from the still lake below, upside down. The lake makes a mirror image.", s => (
       <>
         <Constellation {...FLAG} t={s.t} cx={960} cy={390} scale={1.5} />
         <div style={{ position: "absolute", left: 0, right: 0, top: 620, bottom: 0, background: "linear-gradient(#0A1030, #10183C)" }} />
-        <div style={{ position: "absolute", inset: 0, transform: "scaleY(-1)", transformOrigin: "50% 57.4%", opacity: 0.75 * rise(s.t, 40, s.speech(0) * 0.35), filter: "blur(0.6px)" }}>
+        <div style={{ position: "absolute", inset: 0, transform: "scaleY(-1)", transformOrigin: "50% 57.4%", opacity: 0.75 * rise(s.t, 40, s.speech(0) * 0.4), filter: "blur(0.6px)" }}>
           <Constellation {...FLAG} t={s.t} cx={960} cy={390} scale={1.5} />
         </div>
       </>
     )),
-    thing("seven", "Position on screen", "Seven. Position. A bright planet wanders slowly across the sky, from one side to the other.", s => {
+    thing("seven", "Position on screen", "Number seven is position. A bright planet wanders slowly across the sky, from one side to the other.", s => {
       const p = rise(s.t, s.speech(0) + 30, 10);
       return <svg width="1920" height="1080" style={{ position: "absolute", inset: 0 }}>
         <path d="M 400 700 Q 960 300 1520 700" stroke="rgba(242,213,140,0.25)" strokeWidth="2" strokeDasharray="4 12" fill="none" />
         <circle cx={lerp(400, 1520, p)} cy={700 - Math.sin(p * Math.PI) * 400 * 0.75 - 0} r={16} fill={GOLD} /><circle cx={lerp(400, 1520, p)} cy={700 - Math.sin(p * Math.PI) * 300} r={40} fill={GOLD} opacity={0.2} />
       </svg>;
     }),
-    thing("eight", "In front or behind", "Eight. In front or behind. The moon glides across the sky, and passes in front of a star. The star hides behind it, then peeps out again.", s => {
+    thing("eight", "In front or behind", "Number eight is in front or behind. The moon glides across the sky, and passes in front of a star. For a moment the star is hidden behind the moon, and then we can see it again.", s => {
       const p = rise(s.t, s.speech(0) + 30, 10);
       return <>
         <svg width="1920" height="1080" style={{ position: "absolute", inset: 0 }}><circle cx={960} cy={540} r={12} fill={STAR} /><circle cx={960} cy={540} r={34} fill={STAR} opacity={0.25} /></svg>
         <Moon x={lerp(600, 1320, p)} y={540} r={120} phase={1} />
       </>;
     }),
-    thing("nine", "Line style", "Nine. Line style. A shooting star leaves a bright, solid trail. A far-off comet leaves a trail of little dots.", s => {
-      const a = rise(s.t, 25, 30), b = rise(s.t, 60, s.speech(0) * 0.5);
+    thing("nine", "Line style", "Number nine is line style. A shooting star leaves a bright, solid trail. A distant comet leaves a trail of little dots.", s => {
+      const a = rise(s.t, 25, 30), b = rise(s.t, 60, s.speech(0) * 0.58);
       return <svg width="1920" height="1080" style={{ position: "absolute", inset: 0 }}>
         <line x1={500} y1={300} x2={lerp(500, 1000, a)} y2={lerp(300, 520, a)} stroke={STAR} strokeWidth="5" strokeLinecap="round" opacity={1 - rise(s.t, 30, 70)} />
         <line x1={900} y1={700} x2={lerp(900, 1450, b)} y2={lerp(700, 420, b)} stroke={GOLD} strokeWidth="7" strokeDasharray="1 18" strokeLinecap="round" />
       </svg>;
     }),
-    thing("ten", "Touching", "Ten. Touching. Two little star clusters drift closer and closer... until they just touch.", s => {
+    thing("ten", "Touching", "Number ten is touching. Two little star clusters drift closer and closer, until they just touch.", s => {
       const p = rise(s.t, s.speech(0) * 0.9, 10);
       return <svg width="1920" height="1080" style={{ position: "absolute", inset: 0 }}>
         {[-1, 1].map(side => <g key={side} transform={`translate(${960 + side * lerp(330, 100, p)} 540)`}>
@@ -193,8 +193,8 @@ export default {
         </g>)}
       </svg>;
     }),
-    thing("eleven", "Pointing at", "Eleven. Pointing at. The two end stars of the Plough are called the pointers. Follow them, and they point right at the North Star.", s => {
-      const g = rise(s.t, 50, s.speech(0) * 0.55);
+    thing("eleven", "Pointing at", "Number eleven is pointing at. The two end stars of the Plough are called the pointers. Follow them, and they point right at the North Star.", s => {
+      const g = rise(s.t, 50, s.speech(0) * 0.6);
       const sc = 1.5, cx = 820, cy = 760;
       const [ax, ay] = [cx + PLOUGH.pts[5][0] * sc, cy + PLOUGH.pts[5][1] * sc];
       const [bx, by] = [cx + PLOUGH.pts[6][0] * sc, cy + PLOUGH.pts[6][1] * sc];
@@ -207,10 +207,10 @@ export default {
         </svg>
       </>;
     }),
-    thing("twelve", "Inside or outside", "Twelve. Inside or outside. On a frosty night, a ring of light forms round the moon. One star sits inside the ring. Another sits outside.", s => (
+    thing("twelve", "Inside or outside", "Number twelve is inside or outside. On a frosty night, a ring of light forms round the moon. One star sits inside the ring. Another sits outside.", s => (
       <>
         <Moon x={960} y={540} r={90} phase={1} halo={rise(s.t, 50, 20)} />
-        <svg width="1920" height="1080" style={{ position: "absolute", inset: 0, opacity: rise(s.t, 40, s.speech(0) * 0.5) }}>
+        <svg width="1920" height="1080" style={{ position: "absolute", inset: 0, opacity: rise(s.t, 40, s.speech(0) * 0.6) }}>
           <circle cx={1090} cy={470} r={8} fill={STAR} /><circle cx={1300} cy={330} r={8} fill={STAR} />
         </svg>
       </>
@@ -219,7 +219,7 @@ export default {
       beats: [
         { who: "night", say: "Shape. How many. Size. Shading. Rotation. Flipped." },
         { who: "night", say: "Position. In front or behind. Line style. Touching. Pointing at. Inside or outside." },
-        { who: "night", say: "Twelve things, written in the stars. Nothing gets past you. Not even in your dreams. Goodnight." },
+        { who: "night", say: "Those are the twelve things that can change. Now it is time to close your eyes. Goodnight." },
       ],
       tail: 3,
       render: s => (

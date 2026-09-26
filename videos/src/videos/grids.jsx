@@ -126,15 +126,15 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Grids. One square is missing, and you're going to find exactly what belongs there.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Grids" strap="Find the missing square." emblem="grid" />,
+      beats: [{ say: "Grids. One square in the grid is missing, and you need to work out what belongs there.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Picture puzzles" title="Grids" strap="Find the missing square." emblem="grid" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "In a grids question, you see a grid of squares, with one square missing." },
-        { say: "Beside it are some answers. Your job is to choose the one that fits the gap." },
+        { say: "Beside it are some answers. You need to choose the one that fits the gap." },
       ],
       render: s => (
         <>
@@ -150,8 +150,8 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. A grid is a pattern that works in two directions." },
-        { say: "Read across the rows. Then read down the columns. And check from corner to corner too." },
+        { say: "The pattern in a grid works in two directions." },
+        { say: "Read across the rows, and then read down the columns. You should also check from corner to corner." },
         { say: "Find the rule, and make sure your answer fits it both ways." },
       ],
       render: s => (
@@ -160,9 +160,9 @@ export default {
             <Emblem name="grid" size={84} />
           </div>
           <Words x={210} w={1500} y={360} size={74} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>
-            Read across. Read down.
+            Read across, then read down.
           </Words>
-          <Words x={210} w={1500} y={470} size={52} italic color={C.soft} align="center" appear={rise(s.t, 20, s.at(1) + s.speech(1) * 0.7)}>
+          <Words x={210} w={1500} y={470} size={52} italic color={C.soft} align="center" appear={rise(s.t, 20, s.at(1) + s.speech(1) * 0.6)}>
             Check from corner to corner too.
           </Words>
           <Words x={210} w={1500} y={590} size={74} align="center" appear={rise(s.t, 20, s.at(2) + s.speech(2) * 0.45)}>
@@ -179,9 +179,9 @@ export default {
         { say: "Read across the top row. The arrow points up, and then it points right." },
         { say: "So going across, it turns a quarter turn, clockwise." },
         { say: "The bottom row starts with an arrow pointing left. A quarter turn clockwise from left is up." },
-        { say: "Now check down the columns. On the left, up turns into left. That's a quarter turn the other way." },
+        { say: "Now check down the columns. On the left, up turns into left. That is a quarter turn the other way." },
         { say: "So on the right, the arrow pointing right turns the other way too, into up." },
-        { say: "Across and down both say up. That's answer b.", sfx: "chime", sfxAt: 1.8 },
+        { say: "Reading across and reading down both give an arrow pointing up. That's answer b.", sfx: "chime", sfxAt: 4.0 },
       ],
       render: s => {
         const row0 = window(s.t, s.at(1) + 10, s.at(3), 12);
@@ -197,7 +197,7 @@ export default {
             <Side x={right} y={B1.y + 1.5 * B1.cell - 26} appear={window(s.t, s.at(3) + s.speech(3) * 0.6, s.at(4) + 6)}>left becomes up</Side>
             <Side x={B1.x} y={B1.y + 2 * B1.cell + 18} appear={window(s.t, s.at(4) + s.speech(4) * 0.6, s.at(5) + 6)}>¼ turn back</Side>
             <Side x={B1.x + B1.cell} y={B1.y + 2 * B1.cell + 18} appear={window(s.t, s.at(5) + s.speech(5) * 0.6, s.length)}>right becomes up</Side>
-            <Options s={s} {...O1} options={EX1.options} appearAt={s.at(0) + 24} correct={EX1.correct} sealAt={s.at(6) + s.speech(6) * 0.75} />
+            <Options s={s} {...O1} options={EX1.options} appearAt={s.at(0) + 24} correct={EX1.correct} sealAt={s.at(6) + s.speech(6) * 0.85} />
           </>
         );
       },
@@ -206,13 +206,13 @@ export default {
     // Worked example 2: a 3 by 3 grid with two rules and a trap.
     {
       beats: [
-        { say: "Now a bigger one. Three rows, three columns, and the last square is missing." },
+        { say: "Here is a bigger one. It has three rows and three columns, and the last square is missing." },
         { say: "Read across each row. The top row is all grey. The middle row is all black." },
-        { say: "And the bottom row is white. So the missing square must be white." },
+        { say: "The bottom row is white, so the missing square must be white." },
         { say: "Now look from corner to corner. Circles and triangles take turns, like the squares on a chessboard." },
         { say: "The missing square is at the end of the circles' diagonal, so it needs a circle." },
-        { say: "White, and a circle. That's answer c.", sfx: "chime", sfxAt: 1.4 },
-        { say: "Answer a is the trap. It's the right shape, but the wrong shading. It follows one rule, but not both." },
+        { say: "So the answer is a white circle. That's answer c.", sfx: "chime", sfxAt: 2.2 },
+        { say: "Be careful with answer a. It has the right shape but the wrong shading, so it follows only one of the two rules." },
       ],
       render: s => {
         const r0 = window(s.t, s.at(1) + s.speech(1) * 0.2, s.at(3), 12);
@@ -233,9 +233,9 @@ export default {
                 progress={rise(s.t, 18, (i < 2 ? s.at(3) + s.speech(3) * (0.35 + i * 0.12) : s.at(4) + s.speech(4) * 0.4)) * (1 - rise(s.t, 8, s.at(6)))} />
             ))}
             <Options s={s} {...O2} options={EX2.options} appearAt={s.at(0) + 30} correct={EX2.correct}
-              sealAt={s.at(5) + s.speech(5) * 0.7} strikes={{ 0: s.at(6) + s.speech(6) * 0.2 }} />
+              sealAt={s.at(5) + s.speech(5) * 0.72} strikes={{ 0: s.at(6) + s.speech(6) * 0.2 }} />
             <Note x={O2.x - 10} y={O2.y + 230} size={32} bg="#F3E9DF" color={C.mud}
-              appear={rise(s.t, 16, s.at(6) + s.speech(6) * 0.5)}>right shape, wrong shading</Note>
+              appear={rise(s.t, 16, s.at(6) + s.speech(6) * 0.35)}>right shape, wrong shading</Note>
           </>
         );
       },
@@ -244,9 +244,9 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Which answer completes the grid? Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you get it? Across each row, one square becomes two. Down each column, black becomes white." },
-        { say: "So the gap needs two white squares. Answer d.", sfx: "chime", sfxAt: 2.0 },
+        { say: "Now it's your turn. Which answer completes the grid? Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. Across each row, one square becomes two. Down each column, black becomes white." },
+        { say: "So the gap needs two white squares. That's answer d.", sfx: "chime", sfxAt: 2.0 },
       ],
       render: s => {
         const right = B1.x + 2 * B1.cell + 26;
@@ -268,11 +268,11 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, for any grid." },
-        { say: "One. Read across every row." },
-        { say: "Two. Read down every column." },
-        { say: "Three. Check from corner to corner." },
-        { say: "Four. Choose the answer that fits both ways." },
+        { say: "Here is what to do for any grid." },
+        { say: "First, read across every row." },
+        { say: "Next, read down every column." },
+        { say: "Then check from corner to corner." },
+        { say: "Last, choose the answer that fits both ways." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={440} y={250} steps={[
@@ -286,9 +286,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Grids complete. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to find the missing square in a grid. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Complete" strap="Nothing gets past you." emblem="eye" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Read across, then read down." emblem="eye" />,
     },
   ],
 };

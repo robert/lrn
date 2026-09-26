@@ -6,7 +6,7 @@ import { FPS, sec } from "./timelineConst.js";
 
 export const beatId = (si, bi) => `s${si}b${bi}`;
 
-const BREATH = 0.45; // seconds of quiet after each line
+export const BREATH = 1.2; // seconds of quiet after each line, time to think
 const SCENE_LEAD = 0.35; // seconds before the first line of a scene
 
 // `durations` is this video's { beatId: seconds } from scripts/voice.js.

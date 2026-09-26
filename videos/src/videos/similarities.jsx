@@ -154,15 +154,15 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Most alike. Two figures share a secret. Can you find the one that shares it too?", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Most Alike" strap="Share the rule, not just the look." emblem="twins" />,
+      beats: [{ say: "Most Alike. Two figures have something in common. You need to find another figure that has the same thing.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Picture puzzles" title="Most Alike" strap="Find the figure that has the same thing in common." emblem="twins" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "In a most alike question, the two figures on the left are similar to each other in some way." },
-        { say: "Your job is to find the figure on the right that is most like the two on the left." },
+        { say: "You need to find the figure on the right that is most like the two on the left." },
         { say: "To do that, you need to work out exactly what makes them alike." },
       ],
       render: s => (
@@ -182,9 +182,9 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. First, say what the two figures share." },
-        { say: "Then notice what's different between them. Those things don't count." },
-        { say: "Now find the answer that shares the same thing. Don't be fooled by answers that just look alike." },
+        { say: "First, say what the two figures have in common." },
+        { say: "Then look at what is different between them. You can ignore those things." },
+        { say: "Now find the answer that has the same thing in common. Be careful, because some answers look similar but do not share it." },
       ],
       render: s => (
         <>
@@ -192,13 +192,13 @@ export default {
             <Emblem name="twins" size={84} />
           </div>
           <Words x={210} w={1500} y={350} size={70} align="center" appear={rise(s.t, 20, s.at(0) + 6)}>
-            Say what they share.
+            Say what they have in common.
           </Words>
           <Words x={210} w={1500} y={462} size={70} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>
-            Ignore what's different.
+            Ignore what is different.
           </Words>
           <Words x={210} w={1500} y={600} size={50} italic color={C.mud} align="center" appear={rise(s.t, 20, s.at(2) + s.speech(2) * 0.5)}>
-            Match the rule, not the look.
+            Some answers only look similar.
           </Words>
         </>
       ),
@@ -208,10 +208,10 @@ export default {
     {
       beats: [
         { say: "Let's try one. Here are the two figures on the left." },
-        { say: "What do they share? Each has a big shape on the outside. Inside, there are three small shapes, and they're all black." },
-        { say: "What's different? The big shapes are different, and so are the small ones. So the shapes themselves don't matter." },
-        { say: "Now check each answer. Answer b has only two small circles. Answer c has three, but they're white. And answer d has no big shape around them." },
-        { say: "Answer a has a big shape with three small black shapes inside. It's the one most like the two on the left.", sfx: "chime", sfxAt: 0.6 },
+        { say: "Each one has a big shape on the outside. Inside it, there are three small shapes, and they are all black." },
+        { say: "The big shapes are different from each other, and so are the small ones. So the kinds of shape do not matter." },
+        { say: "Now check each answer. Answer b has only two small circles. Answer c has three, but they are white. Answer d has no big shape around them." },
+        { say: "Answer a has a big shape with three small black shapes inside. It is the one most like the two on the left.", sfx: "chime", sfxAt: 0.6 },
       ],
       render: s => (
         <>
@@ -219,8 +219,8 @@ export default {
           <Ring {...pairCentre(0)} w={P + 12} h={P + 12} progress={rise(s.t, 24, s.at(0) + 20) * (1 - rise(s.t, 8, s.at(2)))} />
           <Ring {...pairCentre(1)} w={P + 12} h={P + 12} progress={rise(s.t, 24, s.at(0) + 32) * (1 - rise(s.t, 8, s.at(2)))} />
           <ShareCard s={s} appearAt={s.at(1)} rows={[
-            { text: "a big shape outside", at: s.at(1) + s.speech(1) * 0.3 },
-            { text: "three small shapes inside", at: s.at(1) + s.speech(1) * 0.62 },
+            { text: "a big shape outside", at: s.at(1) + s.speech(1) * 0.22 },
+            { text: "three small shapes inside", at: s.at(1) + s.speech(1) * 0.55 },
             { text: "the small ones are black", at: s.at(1) + s.speech(1) * 0.9 },
           ]} />
           <Note x={SHARE.x} y={SHARE.y + 232} size={30} bg="#F3E9DF" color={C.mud}
@@ -234,12 +234,12 @@ export default {
     // Worked example 2: the lookalike trap.
     {
       beats: [
-        { say: "Here's one with a trap. Two figures again." },
+        { say: "This one has a trap. Here are two more figures." },
         { say: "Each one is two shapes of the same kind, and they overlap." },
-        { say: "Now, answer c might catch your eye. Two circles, just like the first figure! But look. They don't overlap. So it breaks the rule." },
-        { say: "Answer a overlaps, but its two shapes are different. And answer d is only one shape." },
-        { say: "Answer b is two triangles, the same kind, overlapping. That's the answer.", sfx: "chime", sfxAt: 2.8 },
-        { say: "Remember, it's not about looking alike. It's about sharing the same thing." },
+        { say: "Answer c might look right at first, because it has two circles, just like the first figure. But the circles do not overlap, so it does not follow the rule." },
+        { say: "Answer a overlaps, but its two shapes are different kinds. Answer d is only one shape." },
+        { say: "Answer b has two triangles of the same kind, and they overlap. So b is the answer.", sfx: "chime", sfxAt: 3.2 },
+        { say: "So look for the answer that has the same thing in common, even if it does not look like the others." },
       ],
       render: s => (
         <>
@@ -249,13 +249,13 @@ export default {
             { text: "the same kind", at: s.at(1) + s.speech(1) * 0.55 },
             { text: "overlapping", at: s.at(1) + s.speech(1) * 0.88 },
           ]} />
-          <Options s={s} ex={EX2} appearAt={s.at(2) - 10} sealAt={s.at(4) + s.speech(4) * 0.72}
+          <Options s={s} ex={EX2} appearAt={s.at(2) - 10} sealAt={s.at(4) + s.speech(4) * 0.76}
             rings={{ 2: [s.at(2) + s.speech(2) * 0.15, s.at(2) + s.speech(2) * 0.75] }}
             strikes={{ 2: s.at(2) + s.speech(2) * 0.8, 0: s.at(3) + s.speech(3) * 0.4, 3: s.at(3) + s.speech(3) * 0.85 }} />
           <Note x={optX(2) - 60} y={NOTE_Y} size={30} bg="#F3E9DF" color={C.mud}
-            appear={window(s.t, s.at(2) + s.speech(2) * 0.55, s.at(4), 12)}>looks alike, but no overlap</Note>
+            appear={window(s.t, s.at(2) + s.speech(2) * 0.6, s.at(4), 12)}>looks alike, but no overlap</Note>
           <Words x={760} y={NOTE_Y + 10} w={900} size={46} italic align="center" color={C.soft}
-            appear={rise(s.t, 20, s.at(5) + 8)}>Share the rule, not just the look.</Words>
+            appear={rise(s.t, 20, s.at(5) + 8)}>Match what they have in common.</Words>
         </>
       ),
     },
@@ -263,8 +263,8 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Find the figure most like the two on the left. Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you get it? Both figures on the left have a dotted line. Their shapes and colours are different, so those don't matter. Only answer b has a dotted line. The answer is b.", sfx: "chime", sfxAt: 9.6 },
+        { say: "Now it's your turn. Find the figure most like the two on the left. Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. Both figures on the left have a dotted line. Their shapes and colours are different, so those do not matter. Only answer b has a dotted line, so the answer is b.", sfx: "chime", sfxAt: 9.9 },
       ],
       render: s => (
         <>
@@ -285,27 +285,27 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, to find the most alike." },
-        { say: "One. Say what the two figures share." },
-        { say: "Two. Notice what's different, and ignore it." },
-        { say: "Three. Find the answer that shares the same thing." },
-        { say: "Four. Don't be fooled by lookalikes." },
+        { say: "Here is how to find the figure that is most alike." },
+        { say: "First, say what the two figures share." },
+        { say: "Next, look at what is different, and ignore it." },
+        { say: "Then find the answer that shares the same thing." },
+        { say: "Last, be careful with answers that only look similar." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={400} y={250} steps={[
           "Say what the two figures share.",
-          "Notice what's different, and ignore it.",
+          "Look at what is different, and ignore it.",
           "Find the answer that shares the same thing.",
-          "Don't be fooled by lookalikes.",
+          "Watch out for answers that only look similar.",
         ]} />
       ),
     },
 
     {
       bg: "cloth",
-      beats: [{ say: "Lookalikes can't fool you. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you can find the figure that is most alike. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Alike" strap="Nothing gets past you." emblem="eye" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Match what the figures have in common." emblem="eye" />,
     },
   ],
 };

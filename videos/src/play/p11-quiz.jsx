@@ -2,7 +2,7 @@
 // Saturday-night TV quiz show. Seven rounds of mixed reasoning questions; the
 // viewer taps one of four answer panels. Clever Trevor, the rival, sometimes
 // blurts a wrong answer that has to be beaten. Right answers bring lights,
-// confetti and points; a slip gets a kind "Ooh, so close!" and a reason.
+// confetti and points; a slip gets a kind explanation.
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { loadFont as loadBebas } from "@remotion/google-fonts/BebasNeue";
@@ -359,7 +359,7 @@ export default {
       id: "open", next: "rules",
       beats: [
         { who: "voice", say: "Live from Studio One, it's Saturday night, and it's time for... Nothing Gets Past: The Big Quiz!", sfxs: [{ sfx: "quiz-drumroll", at: 0 }, { sfx: "quiz-sting", at: 3.6 }, { sfx: "quiz-applause", at: 4.2, volume: 0.7 }] },
-        { who: "host", say: "Good evening, and welcome! Tonight's challenger is you! And your opponent, the champion for three weeks running... Clever Trevor!" },
+        { who: "host", say: "Good evening, and welcome! Tonight's challenger is you. Your opponent has been our champion for three weeks running. It's Clever Trevor!" },
         { who: "trevor", say: "Hello, everyone. I never lose. It's simply not possible." },
       ],
       render: s => {
@@ -381,8 +381,8 @@ export default {
     {
       id: "rules", next: "r1",
       beats: [
-        { who: "host", say: "Trevor starts with three hundred points from last week. Seven rounds, a hundred points each. Tap the answer panel you think is right." },
-        { who: "host", say: "And remember our motto. Nothing gets past you! Let's play!", sfxs: [{ sfx: "quiz-sting", at: 2.8 }] },
+        { who: "host", say: "Trevor starts with three hundred points from last week. There are seven rounds, and each one is worth a hundred points. Tap the answer panel you think is right." },
+        { who: "host", say: "Our show's motto is nothing gets past you. Let's play!", sfxs: [{ sfx: "quiz-sting", at: 2.8 }] },
       ],
       render: s => <Studio s={s} beats={[{ who: "host" }, { who: "host" }]} round="The rules" you={0} trevor={300} wall={<Wall title="Seven rounds"><text x={500} y={230} textAnchor="middle" fontFamily={BEBAS} fontSize={110} fill={Q.white}>100 POINTS EACH</text></Wall>} />,
     },
@@ -390,9 +390,9 @@ export default {
     ...round({
       n: 1, name: "Odd one out", answers: R1, correct: 2, you: 0,
       wall: <text x={500} y={240} textAnchor="middle" fontFamily={ROUND} fontWeight={600} fontSize={62} fill={Q.white}>Which one doesn't belong?</text>,
-      ask: [{ who: "host", say: "Round one! Odd one out. Four shapes on your panels. Three of them share a secret. Which one is the odd one out?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] }],
+      ask: [{ who: "host", say: "Round one is odd one out. There are four shapes on your panels. Three of them are the same in one way. Which one is the odd one out?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] }],
       slips: [
-        { id: "count", beats: [{ who: "host", say: "Ooh, so close! That's a hexagon, like two others. Shading and turning are just decoys. Count the sides on every shape!", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "count", beats: [{ who: "host", say: "Not that one. It's a hexagon, like two of the others. The shading and turning don't matter here. Count the sides on every shape.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
         { id: "count", beats: [] }, null,
         { id: "count", beats: [] },
       ],
@@ -406,31 +406,31 @@ export default {
       n: 2, name: "Crack the code", answers: R2, correct: 1, you: 100, blurt: 2,
       wall: <CodeWall />,
       ask: [
-        { who: "host", say: "Round two! Crack the code. What is the code for the white triangle?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] },
+        { who: "host", say: "Round two is crack the code. What is the code for the white triangle?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] },
         { who: "trevor", say: "Easy! Y N! I buzz first, I win!", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] },
-        { who: "host", say: "Ooh, Trevor's answer was wrong! Over to you. Can you crack it?" },
+        { who: "host", say: "Trevor's answer was wrong! Now it's your turn. What is the code?" },
       ],
       slips: [
-        { id: "letters", beats: [{ who: "host", say: "Not quite! M goes with the circles. This one's a triangle. Find the letter the triangle shares.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "letters", beats: [{ who: "host", say: "Not quite. M goes with the circles, but this shape is a triangle. Find the letter that the two triangles share.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
         null,
-        { id: "order", beats: [{ who: "host", say: "Ha! That's Trevor's answer. Right letters, wrong order! The shape letter always comes first.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
-        { id: "shade", beats: [{ who: "host", say: "Close! N is right for the triangle. But X means black, and this triangle is white.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "order", beats: [{ who: "host", say: "That's Trevor's answer. It has the right letters in the wrong order. The letter for the shape always comes first.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "shade", beats: [{ who: "host", say: "Nearly. N is right for the triangle, but X means black, and this triangle is white.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
       ],
-      win: [{ who: "host", say: "N for the triangle, Y for white. N, Y! Trevor had the letters back to front!", sfxs: DING }],
+      win: [{ who: "host", say: "Yes! N is for the triangle and Y is for white, so the code is N, Y. Trevor had the letters the wrong way round!", sfxs: DING }],
       after: "r3",
     }),
     ...round({
       n: 3, name: "Fill the grid", answers: R3, correct: 2, you: 200,
       wall: <GridWall />, winWall: <GridWall solved />,
-      ask: [{ who: "host", say: "Round three! Fill the grid. Read across the rows, then down the columns. What goes in the gap?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] }],
+      ask: [{ who: "host", say: "Round three is fill the grid. Read across the rows, then down the columns. What goes in the gap?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] }],
       slips: [
-        { id: "small", beats: [{ who: "host", say: "So close! Right shape, but read across. Each row goes from small to big.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
-        { id: "down", beats: [{ who: "host", say: "Ooh! Right size, but read down. The bottom row is squares, not circles.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "small", beats: [{ who: "host", say: "Not quite. That is the right shape, but read across the row. Each row goes from small to big.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "down", beats: [{ who: "host", say: "Not quite. That is the right size, but read down the column. The bottom row has squares, not circles.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
         null,
         { id: "down", beats: [] },
       ],
       win: [
-        { who: "host", say: "A big square! It fits across, and it fits down. And that means... you've drawn level with Trevor!", sfxs: DING },
+        { who: "host", say: "Yes, a big square! It fits across the row and down the column. That means you now have the same points as Trevor!", sfxs: DING },
         { who: "trevor", say: "What? Impossible!" },
       ],
       after: "r4",
@@ -440,20 +440,20 @@ export default {
       wall: <SentenceWall />, winWall: <SentenceWall fixed />,
       ask: [{ who: "host", say: "Round four! Two words in this sentence have swapped places. Which two need to swap back?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] }],
       slips: [
-        { id: "silly", beats: [{ who: "host", say: "Ooh, not those! Read it out loud. Where does it get silly? Who's doing the baking?", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "silly", beats: [{ who: "host", say: "Not those two. Read the sentence out loud and find the part that doesn't make sense. Who is doing the baking?", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
         { id: "silly", beats: [] },
         { id: "silly", beats: [] },
         null,
       ],
-      win: [{ who: "host", say: "The grandma baked the cake! Much better. The cake can't bake anybody!", sfxs: DING }],
+      win: [{ who: "host", say: "Yes! The grandma baked the cake. Now it makes sense, because a cake can't bake anybody!", sfxs: DING }],
       after: "friend",
     }),
     {
       id: "friend", next: "r5",
       beats: [
         { who: "host", say: "Now, round five is tricky, so we're giving you a lifeline. Let's phone a friend! Hello, Granny Bea?", sfxs: [{ sfx: "quiz-phone", at: 3.4 }] },
-        { who: "granny", say: "Hello, dear! Here's my tip. When a shape changes, check every change. Do the whole change, not just half of it." },
-        { who: "host", say: "Thank you, Granny Bea! Remember that. Here comes round five." },
+        { who: "granny", say: "Hello, dear! When a shape changes, look for every way it has changed. Then make exactly those changes, and nothing else." },
+        { who: "host", say: "Thank you, Granny Bea! Here comes round five." },
       ],
       render: s => (
         <Studio s={s} beats={[{ who: "host" }, { who: "granny" }, { who: "host" }]} round="Lifeline" you={400} trevor={300}
@@ -469,12 +469,12 @@ export default {
       wall: <AnalogyWall />,
       ask: [{ who: "host", say: "Round five! The small triangle changes into the big triangle. Change the small black heart in exactly the same way.", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] }],
       slips: [
-        { id: "grow", beats: [{ who: "host", say: "Ooh! That heart hasn't changed at all. What happened to the triangle? It grew!", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
-        { id: "colour", beats: [{ who: "host", say: "So close! It grew, yes. But did the triangle change colour? No! So the heart should stay black.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
-        { id: "shape", beats: [{ who: "host", say: "Careful! The triangle stayed a triangle. So the heart must stay a heart.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "grow", beats: [{ who: "host", say: "That heart hasn't changed at all. Look at the triangle. It grew bigger, so the heart must grow too.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "colour", beats: [{ who: "host", say: "That heart grew, which is right. But the triangle didn't change colour, so the heart should stay black.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "shape", beats: [{ who: "host", say: "Careful. The triangle stayed a triangle, so the heart must stay a heart.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
         null,
       ],
-      win: [{ who: "host", say: "A big black heart! It grew, and nothing else changed. Just like Granny Bea said: the whole change, and only the change!", sfxs: DING }],
+      win: [{ who: "host", say: "Yes, a big black heart! It grew, and nothing else changed, just like the triangle. Granny Bea's tip worked!", sfxs: DING }],
       after: "r6",
     }),
     ...round({
@@ -483,15 +483,15 @@ export default {
       ask: [
         { who: "host", say: "Round six! Two apples weigh the same as one pear. Two pears weigh the same as one melon. How many apples weigh the same as a melon?", sfxs: [{ sfx: "quiz-whoosh", at: 0 }] },
         { who: "trevor", say: "Two apples! Obviously!", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] },
-        { who: "host", say: "Sorry Trevor, that's only one pear's worth. Your turn!" },
+        { who: "host", say: "Sorry, Trevor. Two apples only weigh the same as one pear. Now it's your turn!" },
       ],
       slips: [
-        { id: "pear", beats: [{ who: "host", say: "That's Trevor's answer! Two apples is only one pear. A melon needs two pears.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
-        { id: "swap", beats: [{ who: "host", say: "Ooh! Swap each pear for two apples. Two pears, two apples each. How many is that?", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "pear", beats: [{ who: "host", say: "That's Trevor's answer. Two apples weigh the same as one pear, but a melon weighs the same as two pears.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "swap", beats: [{ who: "host", say: "Not quite. A melon weighs the same as two pears. Swap each pear for two apples. How many apples is that altogether?", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
         null,
         { id: "swap", beats: [] },
       ],
-      win: [{ who: "host", say: "Four apples! Two pears, and each pear is two apples. Two and two make four!", sfxs: DING }],
+      win: [{ who: "host", say: "Yes, four apples! A melon is two pears, and each pear is two apples. Two and two make four.", sfxs: DING }],
       after: "jackpot",
     }),
     {
@@ -505,13 +505,13 @@ export default {
     ...round({
       n: 7, name: "Which one is flipped?", answers: R7, correct: 2, you: 600,
       wall: <FlagWall />,
-      ask: [{ who: "host", say: "Which flag has been flipped? Take your time... and tap it!", sfxs: [{ sfx: "quiz-tick", at: 0, volume: 0.7 }] }],
+      ask: [{ who: "host", say: "Which flag has been flipped? Take your time, then tap it.", sfxs: [{ sfx: "quiz-tick", at: 0, volume: 0.7 }] }],
       slips: [
-        { id: "turned", beats: [{ who: "host", say: "Ooh! Spin that one round, and it matches the original. It's only turned. Find the one that never matches, however you spin it.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
+        { id: "turned", beats: [{ who: "host", say: "Not that one. If you turn it round, it matches the original flag, so it is only turned. Find the flag that never matches, however far you turn it.", sfxs: [{ sfx: "quiz-buzzer", at: 0 }] }] },
         { id: "turned", beats: [] }, null,
         { id: "turned", beats: [] },
       ],
-      win: [{ who: "host", say: "Flipped! A mirror image! However you turn it, it never matches the original. That's the jackpot!", sfxs: [{ sfx: "quiz-drumroll", at: 0 }, ...DING.map(d => ({ ...d, at: d.at + 1.2 }))] }],
+      win: [{ who: "host", say: "Yes! That flag is flipped, so it is a mirror image. However you turn it, it never matches the original. You've won the jackpot!", sfxs: [{ sfx: "quiz-drumroll", at: 0 }, ...DING.map(d => ({ ...d, at: d.at + 1.2 }))] }],
       after: "champion",
     }),
     {
@@ -519,7 +519,7 @@ export default {
       beats: [
         { who: "host", say: "Ladies and gentlemen, with seven hundred points, we have a new champion!", sfxs: [{ sfx: "quiz-sting", at: 0 }, { sfx: "quiz-applause", at: 0.4 }] },
         { who: "trevor", say: "Well played. I suppose... nothing gets past you." },
-        { who: "host", say: "Nothing gets past you! Goodnight, everybody!", sfxs: [{ sfx: "quiz-applause", at: 0.2 }] },
+        { who: "host", say: "Well done, champion! Goodnight, everybody!", sfxs: [{ sfx: "quiz-applause", at: 0.2 }] },
       ],
       render: s => {
         const k = pop(s.t, 20);

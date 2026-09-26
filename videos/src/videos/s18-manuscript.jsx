@@ -819,11 +819,11 @@ const film = {
     // 0. The title pages, and the cast.
     {
       beats: [
-        { who: "owl", say: "Ahem. Quiet in the scriptorium. I am Brother Quill, the scribe.", sfxs: [{ sfx: "manuscript-bell", at: 0, volume: 0.6 }] },
+        { who: "owl", say: "Ahem. Quiet in the writing room, please. I am Brother Quill, the scribe.", sfxs: [{ sfx: "manuscript-bell", at: 0, volume: 0.6 }] },
         { who: "owl", say: "And this is the Riddle Book of Brother Snail." },
         { who: "snail", say: "Sir Snail, if you please. I have a helmet now." },
         { who: "rabbit", say: "And I'm Tansy! I'm very fast.", hold: 1.1, sfxs: [{ sfx: "manuscript-toot", at: said(0, 3, 1) + 0.1, volume: 0.7 }] },
-        { who: "owl", say: "Fast is not the same as right. Say the rule, test every answer, then check. Turn the page." },
+        { who: "owl", say: "Being fast is no good if your answer is wrong. So say the rule, test every answer, and then check. Now turn the page." },
       ],
       render: none,
       left: s => (
@@ -837,7 +837,7 @@ const film = {
         const [a, b] = writeKs(s.t, W(s, 1, 0.1), s.speech(1) * 0.6, ["The Riddle", "Book"]);
         const of = rise(s.t, 24, W(s, 1, 0.65));
         const fix = rise(s.t, 20, W(s, 2, 0.35));
-        const motto = writeKs(s.t, W(s, 4, 0.3), s.speech(4) * 0.55, ["Say the rule.", "Test every answer.", "Then check."]);
+        const motto = writeKs(s.t, W(s, 4, 0.42), s.speech(4) * 0.4, ["Say the rule.", "Test every answer.", "Then check."]);
         return (
           <>
             <Ink x={355} y={200} size={80} font={UNCIAL} color={BLUE} anchor="middle" k={a}>The Riddle</Ink>
@@ -873,9 +873,9 @@ const film = {
         { who: "owl", say: "They go together. But first, say the rule for the quill and the scribe." },
         { who: "snail", say: "A quill is the tool that a scribe uses.", sfxs: [scratch(0.3)] },
         { who: "owl", say: "Now test each answer in that sentence. A brush is the tool that a picture uses?" },
-        { who: "rabbit", say: "Oh. No. Pictures don't use anything." },
-        { who: "snail", say: "Bristles? No, they are part of the brush. A wall? No, a wall just gets painted." },
-        { who: "owl", say: "A brush is the tool that a painter uses. Yes! Tool and user, both times. The answer is painter.", sfxs: [chime(1, 7, 0.8)] },
+        { who: "rabbit", say: "Oh. No, pictures don't use anything." },
+        { who: "snail", say: "Bristles are part of the brush, so that's wrong. A wall just gets painted, so that's wrong too." },
+        { who: "owl", say: "A brush is the tool that a painter uses. That's right! It is a tool and its user both times, so the answer is painter.", sfxs: [chime(1, 7, 0.86)] },
         { who: "rabbit", say: "So picture was a trap. It goes with brush, but not in the same way." },
       ],
       render: none,
@@ -883,7 +883,7 @@ const film = {
         const ks = writeKs(s.t, TURN + 16, Math.max(40, W(s, 0, 0.95) - TURN - 16), ["s the quill is to", "the scribe,", "so the brush is to the"]);
         const key = rise(s.t, 12, W(s, 2, 0.7));
         const keyCol = key > 0.5 ? RED : INK;
-        const answer = rise(s.t, 26, W(s, 7, 0.72));
+        const answer = rise(s.t, 26, W(s, 7, 0.8));
         return (
           <>
             <Heading s={s} title="The First Riddle" sub="an analogy" />
@@ -908,9 +908,9 @@ const film = {
           writeKs(s.t, W(s, 4, 0.55), s.speech(4) * 0.4, [ANALOGY_TESTS[0]])[0],
           writeKs(s.t, W(s, 6, 0.0), s.speech(6) * 0.2, [ANALOGY_TESTS[1]])[0],
           writeKs(s.t, W(s, 7, 0.0), s.speech(7) * 0.3, [ANALOGY_TESTS[2]])[0],
-          writeKs(s.t, W(s, 6, 0.55), s.speech(6) * 0.2, [ANALOGY_TESTS[3]])[0],
+          writeKs(s.t, W(s, 6, 0.52), s.speech(6) * 0.2, [ANALOGY_TESTS[3]])[0],
         ];
-        const strikes = [rise(s.t, 12, W(s, 5, 0.15)), rise(s.t, 12, W(s, 6, 0.3)), 0, rise(s.t, 12, W(s, 6, 0.85))];
+        const strikes = [rise(s.t, 12, W(s, 5, 0.15)), rise(s.t, 12, W(s, 6, 0.3)), 0, rise(s.t, 12, W(s, 6, 0.8))];
         const guess = rise(s.t, 12, W(s, 1, 0.2)) * (1 - rise(s.t, 12, W(s, 5, 0.1)));
         return (
           <>
@@ -929,8 +929,8 @@ const film = {
             })}
             <Guess cx={148 + wordW("picture") / 2} cy={optY(0) - 17} rx={wordW("picture") / 2 + 36} ry={44} o={guess} />
             <Tick x={200 + wordW("painter")} y={optY(2) - 20} k={rise(s.t, 12, W(s, 7, 0.28))} />
-            <Ring cx={150 + wordW("painter") / 2} cy={optY(2) - 21} rx={wordW("painter") / 2 + 40} ry={40} k={rise(s.t, 22, W(s, 7, 0.8))} />
-            <Manicule x={560} y={optY(2) - 20} k={rise(s.t, 16, W(s, 7, 0.9))} />
+            <Ring cx={150 + wordW("painter") / 2} cy={optY(2) - 21} rx={wordW("painter") / 2 + 40} ry={40} k={rise(s.t, 22, W(s, 7, 0.86))} />
+            <Manicule x={560} y={optY(2) - 20} k={rise(s.t, 16, W(s, 7, 0.93))} />
             <Ink x={410} y={optY(0) - 10} size={38} italic color={BLUE} k={rise(s.t, 20, W(s, 8, 0.15))}>a trap!</Ink>
           </>
         );
@@ -942,10 +942,10 @@ const film = {
       beats: [
         { who: "owl", say: "The second riddle. Which one is the odd one out?", sfxs: [turnSfx] },
         { who: "rabbit", say: "The blue one!" },
-        { who: "owl", say: "Which blue one? There are two. A rule has to split four from one." },
+        { who: "owl", say: "Which blue one? There are two. The rule must be true for four of them, and false for one." },
         { who: "snail", say: "Let me count, slowly. The triangle has three sides, and three dots." },
-        { who: "owl", say: "So here is a rule to test. The dots match the sides.", sfxs: [scratch(0.8)] },
-        { who: "owl", say: "The square, four and four. The pentagon, five and five. The diamond, four and four." },
+        { who: "owl", say: "So here is a rule to test. The number of dots matches the number of sides.", sfxs: [scratch(0.8)] },
+        { who: "owl", say: "The square has four and four. The pentagon has five and five. The diamond has four and four." },
         { who: "snail", say: "But the hexagon has six sides, and only five dots!" },
         { who: "owl", say: "Four follow the rule, and one breaks it. The hexagon is the odd one out.", sfxs: [chime(2, 7, 0.75)] },
       ],
@@ -959,7 +959,7 @@ const film = {
             <Ink x={404} y={244} size={52} k={ks[0]}>our figures are</Ink>
             <Ink x={404} y={312} size={52} k={ks[1]}>alike. Which one</Ink>
             <Ink x={232} y={380} size={52} k={ks[2]}>is the odd one out?</Ink>
-            <Rule x={232} y={478} lines={["The number of dots", "matches the number", "of sides."]} t={s.t} start={W(s, 4, 0.3)} dur={s.speech(4) * 0.7} size={48} gap={60} />
+            <Rule x={232} y={478} lines={["The number of dots", "matches the number", "of sides."]} t={s.t} start={W(s, 4, 0.33)} dur={s.speech(4) * 0.62} size={48} gap={60} />
           </>
         );
       },
@@ -1002,18 +1002,18 @@ const film = {
       beats: [
         { who: "owl", say: "The third riddle. Which answer is most like these two?", sfxs: [turnSfx] },
         { who: "rabbit", say: "This one! It has a triangle and a circle, just like them!" },
-        { who: "owl", say: "It only borrows their shapes. What do the two really share?" },
-        { who: "snail", say: "A small circle inside a big circle. And a small triangle inside a big triangle." },
-        { who: "owl", say: "So the rule is: the inside shape matches the outside shape. Test each one.", sfxs: [scratch(0.6)] },
-        { who: "snail", say: "A circle in a triangle? No. A square in a square? Yes!" },
-        { who: "rabbit", say: "A triangle in a circle? No. A square in a pentagon? No." },
-        { who: "owl", say: "Only one follows the rule. The square in the square, with no circles or triangles at all.", sfxs: [chime(3, 7, 0.4)] },
+        { who: "owl", say: "It has the same shapes, but that is not enough. Let's see what the two really have in common." },
+        { who: "snail", say: "One has a small circle inside a big circle. The other has a small triangle inside a big triangle." },
+        { who: "owl", say: "So the rule is that the inside shape matches the outside shape. Let's test each one.", sfxs: [scratch(0.6)] },
+        { who: "snail", say: "A circle in a triangle doesn't match. A square in a square does!" },
+        { who: "rabbit", say: "A triangle in a circle doesn't match, and a square in a pentagon doesn't either." },
+        { who: "owl", say: "Only one follows the rule. It's the square in the square, even though it has no circles or triangles at all.", sfxs: [chime(3, 7, 0.4)] },
       ],
       render: none,
       left: s => {
         const ks = writeKs(s.t, TURN + 16, Math.max(40, W(s, 0, 0.95) - TURN - 16), ["hich answer is", "most like these", "two?"]);
-        const glow1 = Math.min(rise(s.t, 12, W(s, 3, 0.05)), 1 - rise(s.t, 12, W(s, 3, 0.5)));
-        const glow2 = Math.min(rise(s.t, 12, W(s, 3, 0.52)), 1 - rise(s.t, 12, W(s, 4, 0.1)));
+        const glow1 = Math.min(rise(s.t, 12, W(s, 3, 0.05)), 1 - rise(s.t, 12, W(s, 3, 0.45)));
+        const glow2 = Math.min(rise(s.t, 12, W(s, 3, 0.47)), 1 - rise(s.t, 12, W(s, 4, 0.1)));
         const pairO = i => rise(s.t, 18, W(s, 0, 0.55 + i * 0.12));
         return (
           <>
@@ -1035,7 +1035,7 @@ const film = {
         const ruleStart = W(s, 4, 0.1);
         const ks = writeKs(s.t, ruleStart + 6, s.speech(4) * 0.7, ["The inside shape matches", "the outside shape."]);
         const q = rise(s.t, 20, TURN - 4) * (1 - rise(s.t, 10, ruleStart));
-        const strikes = [W(s, 5, 0.3), null, W(s, 6, 0.3), W(s, 6, 0.85)];
+        const strikes = [W(s, 5, 0.36), null, W(s, 6, 0.3), W(s, 6, 0.88)];
         const guess = rise(s.t, 10, W(s, 1, 0.2)) * (1 - rise(s.t, 12, W(s, 2, 0.9)));
         return (
           <>
@@ -1051,7 +1051,7 @@ const film = {
                 {strikes[i] !== null && <Strike x1={f.cx - 80} y1={f.cy + 70} x2={f.cx + 80} y2={f.cy - 72} k={rise(s.t, 12, strikes[i])} />}
               </g>
             ))}
-            <Tick x={ALIKE[1].cx + 80} y={ALIKE[1].cy - 80} k={rise(s.t, 10, W(s, 5, 0.85))} />
+            <Tick x={ALIKE[1].cx + 80} y={ALIKE[1].cy - 80} k={rise(s.t, 10, W(s, 5, 0.88))} />
             <Guess cx={ALIKE[0].cx} cy={ALIKE[0].cy} rx={112} ry={112} o={guess} />
             <Ring cx={ALIKE[1].cx} cy={ALIKE[1].cy} rx={114} ry={114} k={rise(s.t, 22, W(s, 7, 0.35))} />
           </>
@@ -1069,7 +1069,7 @@ const film = {
         { who: "owl", say: "So every letter moves two steps forward. Now use it on OWL.", voice: "So every letter moves two steps forward. Now use it on owl.", sfxs: [scratch(0.2)] },
         { who: "snail", say: "O, P, Q. W, X, Y. L, M, N. That makes QYN!", voice: "O, P, Q. W, X, Y. L, M, N. That makes Q. Y. N!" },
         { who: "owl", say: "Check it backwards. Each letter goes back two steps, and QYN spells OWL. It works.", voice: "Check it backwards. Each letter goes back two steps, and Q. Y. N. spells owl. It works.", sfxs: [chime(4, 6, 0.9)] },
-        { who: "rabbit", say: "So MUJ went the wrong way, and QYM slipped on the last letter. More traps!", voice: "So M. U. J. went the wrong way, and Q. Y. M. slipped on the last letter. More traps!" },
+        { who: "rabbit", say: "So MUJ went the wrong way, and QYM got the last letter wrong. Those were traps too.", voice: "So M. U. J. went the wrong way, and Q. Y. M. got the last letter wrong. Those were traps too." },
       ],
       render: none,
       left: s => {
@@ -1141,11 +1141,11 @@ const film = {
       turn: true,
       tail: 1.2,
       beats: [
-        { who: "owl", say: "Four riddles, and one way to crack them all.", sfxs: [turnSfx] },
-        { who: "owl", say: "Say the rule. Test every answer. Then check." },
-        { who: "snail", say: "Slow and steady wins the riddle." },
+        { who: "owl", say: "We solved four riddles, and we used the same steps for all of them.", sfxs: [turnSfx] },
+        { who: "owl", say: "First, say the rule. Next, test every answer. Then check." },
+        { who: "snail", say: "I go slowly and carefully, and I get it right." },
         { who: "rabbit", say: "And fast is fine, as long as you check!", hold: 1.1, sfxs: [{ sfx: "manuscript-toot", at: said(5, 3, 1) + 0.1, volume: 0.7 }] },
-        { who: "owl", say: "Here ends the Riddle Book. Well done, scholar. Nothing gets past you.", sfxs: [{ sfx: "manuscript-bell", at: said(5, 4, 1) + 0.2, volume: 0.6 }] },
+        { who: "owl", say: "Here ends the Riddle Book. Well done, scholar. Now you know the steps.", sfxs: [{ sfx: "manuscript-bell", at: said(5, 4, 1) + 0.2, volume: 0.6 }] },
       ],
       render: none,
       left: s => {
@@ -1154,7 +1154,7 @@ const film = {
           <>
             <Heading s={s} title="The Scribe's Three Rules" sub="for every riddle" />
             {items.map((m, i) => {
-              const at = W(s, 1, i * 0.33);
+              const at = W(s, 1, [0.1, 0.37, 0.8][i]);
               return (
                 <g key={m}>
                   <Initial x={240} y={214 + i * 160} size={110} letter={["I", "II", "III"][i]} font={BODY} fontSize={[64, 58, 48][i]} start={at - 8} t={s.t} frame={s.frame} ground={i === 1 ? "url(#ms-rose)" : "url(#ms-lapis)"} />
@@ -1177,7 +1177,7 @@ const film = {
               <path d="M 355 350 L 369 364 L 355 378 L 341 364 Z" fill="url(#ms-gold)" stroke={INK} strokeWidth="1.2" />
             </g>
             <Ink x={355} y={460} size={50} italic anchor="middle" k={rise(s.t, 26, W(s, 4, 0.35))}>Well done, scholar.</Ink>
-            <Ink x={355} y={530} size={50} italic color={RED} anchor="middle" k={rise(s.t, 26, W(s, 4, 0.6))}>Nothing gets past you.</Ink>
+            <Ink x={355} y={530} size={50} italic color={RED} anchor="middle" k={rise(s.t, 26, W(s, 4, 0.6))}>Now you know the steps.</Ink>
             <Initial x={305} y={580} size={100} glyph="M 0 -30 L 8 -8 L 30 0 L 8 8 L 0 30 L -8 8 L -30 0 L -8 -8 Z" start={W(s, 4, 0.75)} t={s.t} frame={s.frame} />
           </>
         );

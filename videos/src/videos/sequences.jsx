@@ -140,16 +140,16 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Sequences. Every row is a little story, and you're going to tell what happens next.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Sequences" strap="What comes next?" emblem="sequence" />,
+      beats: [{ say: "Sequences. In these questions, the pictures change step by step along a row, and you work out what comes next.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Picture puzzles" title="Sequences" strap="What comes next?" emblem="sequence" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "In a sequences question, you see a row of squares." },
-        { say: "Each square changes a little from the one before, like steps along a path." },
-        { say: "Your job is to work out what belongs in the empty square at the end." },
+        { say: "Each square changes a little from the one before it." },
+        { say: "You need to work out what belongs in the empty square at the end." },
       ],
       render: s => (
         <>
@@ -165,9 +165,9 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. Don't try to watch everything at once." },
-        { say: "Follow one thing at a time, all the way along the row. What turns? What grows? What swaps back and forth?" },
-        { say: "Then follow the next thing. The right answer gets every one of them right." },
+        { say: "It is hard to follow everything at once." },
+        { say: "So follow one thing at a time, all the way along the row. For example, look for something that turns, something that grows, or something that swaps back and forth." },
+        { say: "Then follow the next thing. The right answer must fit every one of these changes." },
       ],
       render: s => (
         <>
@@ -177,11 +177,11 @@ export default {
           <Words x={210} w={1500} y={360} size={74} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>
             Follow one thing at a time.
           </Words>
-          <Words x={210} w={1500} y={470} size={52} italic color={C.soft} align="center" appear={rise(s.t, 20, s.at(1) + s.speech(1) * 0.55)}>
-            What turns? What grows? What swaps?
+          <Words x={210} w={1500} y={470} size={52} italic color={C.soft} align="center" appear={rise(s.t, 20, s.at(1) + s.speech(1) * 0.4)}>
+            Does it turn, grow or swap?
           </Words>
           <Words x={210} w={1500} y={590} size={74} align="center" appear={rise(s.t, 20, s.at(2) + s.speech(2) * 0.4)}>
-            The answer gets them all right.
+            The answer must fit every change.
           </Words>
         </>
       ),
@@ -192,11 +192,11 @@ export default {
       beats: [
         { say: "Let's try one. Here's a row of arrows. Which arrow comes next?" },
         { say: "Follow just the arrow's point. It starts pointing straight up." },
-        { say: "Next it points up and to the right. Then right. Then down and to the right." },
+        { say: "Next it points up and to the right. Then it points right, and then down and to the right." },
         { say: "So each time, it turns an eighth of a turn, clockwise." },
-        { say: "One more eighth of a turn, and it will point straight down." },
+        { say: "After one more eighth of a turn, it will point straight down." },
         { say: "Straight down is answer b.", sfx: "chime", sfxAt: 0.5 },
-        { say: "Careful with answer a. It's the last arrow again, with no turn at all. The pattern never stops." },
+        { say: "Be careful with answer a. It is the same as the last arrow, with no turn at all. But the arrow keeps turning each time, so it cannot be a." },
       ],
       render: s => {
         const fade = 1 - rise(s.t, 10, s.at(3));
@@ -206,7 +206,7 @@ export default {
             <Ring {...plateCentre(0)} w={RP + 14} h={RP + 14} progress={rise(s.t, 22, s.at(1) + s.speech(1) * 0.5) * fade} />
             {[1, 2, 3].map((i, j) => (
               <Ring key={i} {...plateCentre(i)} w={RP + 14} h={RP + 14}
-                progress={rise(s.t, 22, s.at(2) + s.speech(2) * [0.1, 0.55, 0.72][j]) * fade} />
+                progress={rise(s.t, 22, s.at(2) + s.speech(2) * [0.1, 0.42, 0.7][j]) * fade} />
             ))}
             {[0, 1, 2].map(i => <StepArc key={i} from={i} progress={rise(s.t, 16, s.at(3) + s.speech(3) * 0.3 + i * 12)} />)}
             <StepArc from={3} progress={rise(s.t, 16, s.at(4) + s.speech(4) * 0.3)} />
@@ -224,20 +224,20 @@ export default {
     // Worked example 2: two changes at once.
     {
       beats: [
-        { say: "This one is trickier. Two things are changing at the same time." },
-        { say: "Follow one thing first: the number of dots. One. Two. Three. Four." },
+        { say: "This one is harder. Two things change at the same time." },
+        { say: "First, follow the number of dots. There is one, then two, then three, then four." },
         { say: "So the next square needs five dots." },
-        { say: "Now follow the next thing: the colour. Black, white, black, white." },
+        { say: "Now follow the colour. It goes black, white, black, white." },
         { say: "So the next square needs to be black." },
-        { say: "Five dots, and black. That's answer c.", sfx: "chime", sfxAt: 1.6 },
-        { say: "Answers a and b are traps. Each one gets one thing right, and the other thing wrong. You need both." },
+        { say: "So the answer has five dots and is black. That's answer c.", sfx: "chime", sfxAt: 3.0 },
+        { say: "Answers a and b each get one of these things right and the other wrong. The answer must get both right." },
       ],
       render: s => {
-        const count = [0.38, 0.55, 0.72, 0.88];
-        const colour = [0.52, 0.66, 0.8, 0.94];
+        const count = [0.52, 0.64, 0.77, 0.92];
+        const colour = [0.5, 0.64, 0.77, 0.9];
         return (
           <>
-            <Row s={s} figs={EX2.figs} answer={EX2.answer} answerAt={s.at(5) + s.speech(5) * 0.35} />
+            <Row s={s} figs={EX2.figs} answer={EX2.answer} answerAt={s.at(5) + s.speech(5) * 0.3} />
             {[0, 1, 2, 3].map(i => (
               <Under key={`n${i}`} i={i} gilt size={44} appear={rise(s.t, 12, s.at(1) + s.speech(1) * count[i])}>{i + 1}</Under>
             ))}
@@ -257,9 +257,9 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Which star comes next? Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you get it? Each star grows one more point, so the next one has eight points. And the colour goes grey, white, grey, white, so next comes grey." },
-        { say: "Eight points, and grey. Answer d.", sfx: "chime", sfxAt: 1.4 },
+        { say: "Now it's your turn. Which star comes next? Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. Each star has one more point than the one before, so the next one has eight points. The colour goes grey, white, grey, white, so next comes grey." },
+        { say: "So the answer has eight points and is grey. That's answer d.", sfx: "chime", sfxAt: 2.6 },
       ],
       render: s => (
         <>
@@ -267,12 +267,12 @@ export default {
           {[4, 5, 6, 7].map((n, i) => (
             <Under key={`n${i}`} i={i} gilt size={40} appear={rise(s.t, 12, s.at(1) + s.speech(1) * (0.1 + i * 0.06))}>{n}</Under>
           ))}
-          <Under i={4} gilt size={40} appear={rise(s.t, 12, s.at(1) + s.speech(1) * 0.42)}>8</Under>
+          <Under i={4} gilt size={40} appear={rise(s.t, 12, s.at(1) + s.speech(1) * 0.52)}>8</Under>
           {["grey", "white", "grey", "white"].map((w, i) => (
-            <Under key={`c${i}`} i={i} line={1} size={36} appear={rise(s.t, 12, s.at(1) + s.speech(1) * (0.62 + i * 0.07))}>{w}</Under>
+            <Under key={`c${i}`} i={i} line={1} size={36} appear={rise(s.t, 12, s.at(1) + s.speech(1) * (0.7 + i * 0.04))}>{w}</Under>
           ))}
           <Under i={4} line={1} size={36} appear={rise(s.t, 12, s.at(1) + s.speech(1) * 0.94)}>grey</Under>
-          <Options s={s} options={TRY.options} appearAt={40} correct={TRY.correct} sealAt={s.at(2) + s.speech(2) * 0.6} />
+          <Options s={s} options={TRY.options} appearAt={40} correct={TRY.correct} sealAt={s.at(2) + s.speech(2) * 0.72} />
           <div style={{ opacity: window(s.t, s.at(0) + s.speech(0), s.at(1)) }}>
             <Countdown x={1620} y={OPTS.y + OP / 2} t={s.t} start={s.at(0) + s.speech(0)} seconds={6} size={150} />
           </div>
@@ -284,11 +284,11 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, for any sequence." },
-        { say: "One. Pick one thing, and follow it along the row." },
-        { say: "Two. Say what will happen to it next." },
-        { say: "Three. Do the same for every other thing that changes." },
-        { say: "Four. Choose the answer that gets them all right." },
+        { say: "Here is what to do for any sequence." },
+        { say: "First, pick one thing and follow it along the row." },
+        { say: "Next, work out what will happen to it in the empty square." },
+        { say: "Then do the same for every other thing that changes." },
+        { say: "Last, choose the answer that gets them all right." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={400} y={250} steps={[
@@ -302,9 +302,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Sequences solved. You always know what comes next.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to work out what comes next. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Solved" strap="You always know what comes next." emblem="eye" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Follow one change at a time." emblem="eye" />,
     },
   ],
 };

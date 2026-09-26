@@ -10,6 +10,7 @@ import { rise, pop, lerp } from "../lib/anim.js";
 import { Shape } from "../lib/shapes.jsx";
 import { SERIF, SANS } from "../lib/theme.js";
 import DURATIONS from "../lib/durations.js";
+import { BREATH } from "../lib/timeline.js";
 
 const { fontFamily: FLAP } = loadOswald("normal", { weights: ["500", "600"], subsets: ["latin"] });
 const { fontFamily: GILT } = loadCinzel("normal", { weights: ["700"], subsets: ["latin"] });
@@ -337,12 +338,12 @@ const ARRIVALS = [
   { q: "SWAPPED WORDS", say: "Swapped words!", plat: 3, hold: 2.7, card: "swap1", call: "Platform three, please..." },
   { q: "BALANCING", say: "A balancing puzzle!", plat: 11, hold: 2.6, card: "balance1", call: "Now approaching platform eleven..." },
   { q: "SIMILARITIES", say: "Similarities!", plat: 5, hold: 2.5, card: "sim1", call: "Platform five. Careful now...",
-    tip: PORTER_TIP("Careful! Two shapes set apart at the start means similarities. Find the one most like them.", ["TWO SET APART?", "SIMILARITIES"]) },
+    tip: PORTER_TIP("Be careful here. When two shapes are set apart at the start, it is a similarities question. You need to find the option that is most like them.", ["TWO SHAPES SET APART", "MEANS SIMILARITIES"]) },
   { q: "QUOTED WORDS", say: "Quoted words!", plat: 8, hold: 2.5, card: "quote1", call: "Platform eight...",
-    tip: PORTER_TIP("Words in quotes? Find them in the story first, then read the lines around them.", ["WORDS IN QUOTES?", "FIND THEM FIRST"]) },
+    tip: PORTER_TIP("When a question has words in quotation marks, find those words in the story first. Then read the lines around them.", ["WORDS IN QUOTES", "FIND THEM FIRST"]) },
   { q: "SEQUENCE", say: "A sequence!", plat: 6, hold: 2.4, card: "seqDots", call: "Platform six..." },
   { q: "GRID", say: "A grid!", plat: 10, hold: 2.4, card: "grid2", call: "Platform ten. Look closely...",
-    tip: PORTER_TIP("Tricky! A sequence runs along one line. A grid has rows and columns, so check across and down.", ["ROWS AND COLUMNS?", "IT'S A GRID"]) },
+    tip: PORTER_TIP("This one is tricky. A sequence goes along one line, but this has rows and columns, so it is a grid. Check across and down.", ["ROWS AND COLUMNS", "MEANS A GRID"]) },
   { q: "ANALOGY", say: "An analogy!", plat: 1, hold: 2.2, card: "analogyWords", call: "Platform one..." },
   { q: "ODD ONE OUT", say: "An odd one out!", plat: 12, hold: 2.0, card: "oddWords", call: "Platform twelve!" },
   { q: "SIMILARITIES", say: "Similarities!", plat: 4, hold: 2.0, card: "sim2", call: "Platform four!" },
@@ -762,7 +763,7 @@ function Subtitles({ words, spoken, opacity, actor }) {
 // ---------- The film ----------
 const ticks = (si, text, hold) => {
   const s = speechSeconds(si, 0, text);
-  const n = Math.floor(hold + 0.45);
+  const n = Math.floor(hold + BREATH);
   return Array.from({ length: n }, (_, j) => ({ sfx: "departures-tick", at: s + 0.12 + j, volume: 0.8 }));
 };
 const OPEN_FIRST = "Evening! Busy night at the station tonight.";
@@ -790,7 +791,7 @@ const scenes = [
   {
     beats: [
       { who: "porter", say: END_FIRST, hold: 1.4, sfxs: [{ sfx: "departures-whistle", at: 0, volume: 0.35 }, { sfx: "departures-flap", at: 0.2, volume: 0.6 }, { sfx: "departures-chime", at: speechSeconds(TOTAL + 1, 0, END_FIRST) + 0.2, volume: 0.6 }] },
-      { who: "announcer", say: "All questions have arrived. Nothing gets past you.", hold: 1.2 },
+      { who: "announcer", say: "All the questions have arrived. Goodnight!", hold: 1.2 },
     ],
     tail: 2,
     render: () => null,

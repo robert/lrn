@@ -40,8 +40,8 @@ const TRY = [
 function PlanPage({ s }) {
   const lines = 11;
   const one = 2, two = 8;
-  const k1 = rise(s.t, 22, s.at(1) + s.speech(1) * 0.3);
-  const k2 = rise(s.t, 22, s.at(1) + s.speech(1) * 0.7);
+  const k1 = rise(s.t, 22, s.at(1) + s.speech(1) * 0.4);
+  const k2 = rise(s.t, 22, s.at(1) + s.speech(1) * 0.75);
   const th = rise(s.t, 30, s.at(2) + s.speech(2) * 0.35);
   const x = 560, y = 170, w = 800;
   return (
@@ -77,16 +77,16 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Two places at once. Some of the best clues come in pairs, and Mega Readers can hold both in their head.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <BookTitle t={s.t} kicker="Mega Reader" title="Two Places at Once" strap="The best clues come in pairs." emblem="bridge" />,
+      beats: [{ say: "Two places at once. For some questions, you need to find two parts of the story and put them together.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <BookTitle t={s.t} kicker="Mega Reader" title="Two Places at Once" strap="Find two places and join them." emblem="bridge" />,
     },
 
     // What the question asks.
     {
       beats: [
-        { say: "Some reading questions can't be answered from just one spot in the story." },
-        { say: "They need two places at once. Something near the start, and something later on." },
-        { say: "And the answer is hiding in between. What joins the two places together?" },
+        { say: "Some reading questions cannot be answered from just one place in the story." },
+        { say: "You need two places at once, one near the start and one later on." },
+        { say: "The answer comes from what joins the two places together." },
       ],
       render: s => <PlanPage s={s} />,
     },
@@ -94,18 +94,18 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. First, find place one. The question usually tells you where it is." },
-        { say: "Then hunt for place two, a little later in the story." },
-        { say: "Last, ask what joins them. Maybe something has changed. Maybe one explains the other. Or maybe the second place proves the first one right." },
+        { say: "First, find place one. The question usually tells you where it is." },
+        { say: "Then look for place two, a little later in the story." },
+        { say: "Last, work out what joins them. Something might have changed, one place might explain the other, or the second place might prove the first one right." },
       ],
       render: s => (
         <>
           <div style={{ position: "absolute", left: 0, right: 0, top: 230, display: "flex", justifyContent: "center", opacity: rise(s.t, 18) }}>
             <Emblem name="bridge" size={84} />
           </div>
-          <Words x={210} w={1500} y={350} size={72} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.3)}>Find place one.</Words>
-          <Words x={210} w={1500} y={460} size={72} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>Hunt for place two.</Words>
-          <Words x={210} w={1500} y={570} size={72} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>Ask what joins them.</Words>
+          <Words x={210} w={1500} y={350} size={72} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.05)}>Find place one.</Words>
+          <Words x={210} w={1500} y={460} size={72} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>Look for place two.</Words>
+          <Words x={210} w={1500} y={570} size={72} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>Work out what joins them.</Words>
           <Words x={210} w={1500} y={690} size={44} italic color={C.soft} align="center" appear={rise(s.t, 20, s.at(2) + s.speech(2) * 0.4)}>
             A change, a reason, or a proof.
           </Words>
@@ -117,23 +117,23 @@ export default {
     {
       beats: [
         { say: "Let's try one. The Mole says, never mind what done it. What does the Rat dig up a little later that proves the Mole should have minded?" },
-        { say: "Place one. The Mole has cut his leg in the snow, and he says, never mind what done it. He doesn't care." },
+        { say: "Here is place one. The Mole has cut his leg in the snow, and he says, never mind what done it. He does not care how it happened." },
         { say: "But the Rat does care. He says the cut looks as if it was made by a sharp edge of something in metal." },
-        { say: "Now hunt for place two, a few paragraphs later. The Rat digs in the snow, and finds a door-scraper!" },
-        { say: "So what joins them? A door-scraper is a sharp piece of metal. That's what cut the Mole's leg. And door-scrapers sit outside front doors." },
-        { say: "So the answer is a. A door-scraper, which means someone's front door is close by.", sfx: "chime", sfxAt: 0.5 },
-        { say: "And the others? The story never mentions a knife, the Rat says it was never a branch, and d isn't even a full sentence." },
+        { say: "Now look for place two, a few paragraphs later. The Rat digs in the snow and finds a door scraper." },
+        { say: "Here is what joins them. A door scraper is a sharp piece of metal, so that is what cut the Mole's leg. Door scrapers are kept outside front doors." },
+        { say: "So the answer is a. It is a door scraper, which means someone's front door is close by.", sfx: "chime", sfxAt: 0.5 },
+        { say: "The other answers are wrong. The story never mentions a knife, the Rat says it was never a branch, and d is not a full sentence." },
       ],
       render: s => (
         <>
           <BookPage {...PAGE} appear={rise(s.t, 20, s.at(0) + 40)} paras={EX1}
             marks={[
-              { n: 11, phrase: "never mind what done it", k: sweep(s, s.at(1) + s.speech(1) * 0.35) },
+              { n: 11, phrase: "never mind what done it", k: sweep(s, s.at(1) + s.speech(1) * 0.3) },
               { n: 10, phrase: "made by a sharp edge of something in metal", kind: "both", k: sweep(s, s.at(2) + s.speech(2) * 0.45) },
-              { n: 17, phrase: "A door-scraper!", k: sweep(s, s.at(3) + s.speech(3) * 0.75) },
+              { n: 17, phrase: "A door-scraper!", k: sweep(s, s.at(3) + s.speech(3) * 0.8) },
             ]}
             thread={{ from: 11, to: 17, k: rise(s.t, 36, s.at(3) + s.speech(3) * 0.25) }} />
-          <Note x={PAGE.x + 360} y={PAGE.y + 612} size={34} appear={rise(s.t, 18, s.at(4) + s.speech(4) * 0.3)}>sharp metal: the scraper cut him!</Note>
+          <Note x={PAGE.x + 360} y={PAGE.y + 612} size={34} appear={rise(s.t, 18, s.at(4) + s.speech(4) * 0.3)}>sharp metal, so the scraper cut him</Note>
           <QuestionCard {...Q} appear={rise(s.t, 18, 6)}>
             The Mole says <i style={{ color: C.mud }}>“never mind what done it”</i>. What does the Rat dig up a little later that proves the Mole should have minded?
           </QuestionCard>
@@ -145,7 +145,7 @@ export default {
               { text: "a door-mat" },
             ]}
             seal={{ index: 0, at: s.at(5) + s.speech(5) * 0.25 }}
-            strikes={{ 2: s.at(6) + s.speech(6) * 0.25, 1: s.at(6) + s.speech(6) * 0.55, 3: s.at(6) + s.speech(6) * 0.85 }} />
+            strikes={{ 2: s.at(6) + s.speech(6) * 0.33, 1: s.at(6) + s.speech(6) * 0.6, 3: s.at(6) + s.speech(6) * 0.88 }} />
         </>
       ),
     },
@@ -153,27 +153,27 @@ export default {
     // Worked example 2: the one-place trap.
     {
       beats: [
-        { say: "Here's a trickier one. At the door, the Mole guesses what the footsteps sound like. What do we find out a little later that proves he was right?" },
-        { say: "Place one is right at the start. The Mole says it's like someone walking in carpet slippers that are too big, and down at heel." },
-        { say: "Now hunt for place two. Here it is. The Badger's slippers were indeed very down at heel." },
-        { say: "Look at that little word, indeed. It means, yes, really. The Mole's guess was right!" },
+        { say: "This one is harder. At the door, the Mole guesses what the footsteps sound like. What do we find out a little later that proves he was right?" },
+        { say: "Place one is right at the start. The Mole says it is like someone walking in carpet slippers that are too big, and down at heel." },
+        { say: "Now look for place two. Here it is. The Badger's slippers were indeed very down at heel." },
+        { say: "Look at the word indeed. It means yes, really. So the Mole's guess was right." },
         { say: "So the answer is b. The Badger's slippers really are worn down at the heel.", sfx: "chime", sfxAt: 0.5 },
-        { say: "Now watch out for a. It's true, the footsteps did shuffle. But it only uses place one. It doesn't prove anything. An across answer needs both places." },
-        { say: "And c? The Badger carries a candlestick, not a lantern. And d isn't a full sentence." },
+        { say: "Be careful with a. The footsteps did shuffle, but this answer only uses place one, so it does not prove anything. The answer to this kind of question needs both places." },
+        { say: "Answer c is wrong, because the Badger carries a candlestick, not a lantern. And d is not a full sentence." },
       ],
       render: s => (
         <>
           <BookPage {...PAGE} appear={rise(s.t, 20, s.at(0) + 40)} paras={EX2}
             marks={[
-              { n: 1, phrase: "slow shuffling footsteps", kind: "soft", k: sweep(s, s.at(5) + s.speech(5) * 0.2) },
+              { n: 1, phrase: "slow shuffling footsteps", kind: "soft", k: sweep(s, s.at(5) + s.speech(5) * 0.12) },
               { n: 1, phrase: "carpet slippers that were too large for him and down at heel", k: sweep(s, s.at(1) + s.speech(1) * 0.45) },
               { n: 7, phrase: "slippers were", k: sweep(s, s.at(2) + s.speech(2) * 0.55) },
-              { n: 7, phrase: "indeed", kind: "both", k: sweep(s, s.at(3) + s.speech(3) * 0.2) },
+              { n: 7, phrase: "indeed", kind: "both", k: sweep(s, s.at(3) + s.speech(3) * 0.15) },
               { n: 7, phrase: "very down at heel", k: sweep(s, s.at(2) + s.speech(2) * 0.72) },
-              { n: 7, phrase: "a flat candlestick", kind: "underline", k: sweep(s, s.at(6) + s.speech(6) * 0.3) },
+              { n: 7, phrase: "a flat candlestick", kind: "underline", k: sweep(s, s.at(6) + s.speech(6) * 0.42) },
             ]}
             thread={{ from: 1, to: 7, k: rise(s.t, 36, s.at(2) + s.speech(2) * 0.2) }} />
-          <Note x={PAGE.x + 430} y={PAGE.y + 560} size={34} appear={rise(s.t, 18, s.at(3) + s.speech(3) * 0.45)}>indeed: yes, really!</Note>
+          <Note x={PAGE.x + 430} y={PAGE.y + 560} size={34} appear={rise(s.t, 18, s.at(3) + s.speech(3) * 0.38)}>indeed means yes, really</Note>
           <QuestionCard {...Q} appear={rise(s.t, 18, 6)}>
             At the door, the Mole guesses what the footsteps sound like. What do we find out a little later that proves he was right?
           </QuestionCard>
@@ -185,8 +185,8 @@ export default {
               { text: "floppy slippers" },
             ]}
             seal={{ index: 1, at: s.at(4) + s.speech(4) * 0.3 }}
-            tags={{ 0: { text: "only one place", tone: "trap", at: s.at(5) + s.speech(5) * 0.45 } }}
-            strikes={{ 0: s.at(5) + s.speech(5) * 0.75, 2: s.at(6) + s.speech(6) * 0.3, 3: s.at(6) + s.speech(6) * 0.8 }} />
+            tags={{ 0: { text: "only one place", tone: "trap", at: s.at(5) + s.speech(5) * 0.38 } }}
+            strikes={{ 0: s.at(5) + s.speech(5) * 0.62, 2: s.at(6) + s.speech(6) * 0.42, 3: s.at(6) + s.speech(6) * 0.85 }} />
         </>
       ),
     },
@@ -194,22 +194,22 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. The Badger says he can't do anything about Toad right now. What does he say a little later that tells us when he will? Pause the video if you'd like more time.", hold: 6 },
-        { say: "Place one: I can't do anything now. Place two: when the year has really turned, and the nights are shorter, and he feels fidgety. That's spring! The answer is c.", sfx: "chime", sfxAt: 9.2 },
+        { say: "Now it's your turn. The Badger says he cannot do anything about Toad right now. What does he say a little later that tells us when he will? Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. Place one is, I can't do anything now. Place two is, when the year has really turned, and the nights are shorter, and he feels fidgety. That means spring. The answer is c.", sfx: "chime", sfxAt: 11.2 },
       ],
       render: s => (
         <>
           <BookPage {...PAGE} appear={rise(s.t, 20, 8)} paras={TRY}
             marks={[
-              { n: 6, phrase: "I can’t do anything now?", k: sweep(s, s.at(1) + s.speech(1) * 0.08) },
-              { n: 8, phrase: "when once the year has really turned, and the nights are shorter", k: sweep(s, s.at(1) + s.speech(1) * 0.3) },
-              { n: 8, phrase: "feels fidgety", kind: "both", k: sweep(s, s.at(1) + s.speech(1) * 0.52) },
+              { n: 6, phrase: "I can’t do anything now?", k: sweep(s, s.at(1) + s.speech(1) * 0.18) },
+              { n: 8, phrase: "when once the year has really turned, and the nights are shorter", k: sweep(s, s.at(1) + s.speech(1) * 0.38) },
+              { n: 8, phrase: "feels fidgety", kind: "both", k: sweep(s, s.at(1) + s.speech(1) * 0.6) },
             ]}
-            thread={{ from: 6, to: 8, k: rise(s.t, 36, s.at(1) + s.speech(1) * 0.2) }} />
+            thread={{ from: 6, to: 8, k: rise(s.t, 36, s.at(1) + s.speech(1) * 0.3) }} />
           <div style={{ opacity: window(s.t, s.at(0) + s.speech(0), s.at(1)) }}>
             <Countdown x={PAGE.x + PAGE.w / 2} y={PAGE.y + 590} t={s.t} start={s.at(0) + s.speech(0)} seconds={6} size={150} />
           </div>
-          <Note x={PAGE.x + 360} y={PAGE.y + 600} size={34} appear={rise(s.t, 18, s.at(1) + s.speech(1) * 0.7)}>that's spring!</Note>
+          <Note x={PAGE.x + 360} y={PAGE.y + 600} size={34} appear={rise(s.t, 18, s.at(1) + s.speech(1) * 0.8)}>that means spring</Note>
           <QuestionCard {...Q} appear={rise(s.t, 18, 6)}>
             The Badger says he can’t do anything about Toad right now. What does he say a little later that tells us when he will?
           </QuestionCard>
@@ -228,17 +228,17 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, when a question needs two places at once." },
-        { say: "One. Find place one. The question points you there." },
-        { say: "Two. Hunt for place two, later in the story." },
-        { say: "Three. Ask what joins them: a change, a reason, or a proof." },
-        { say: "Four. Choose the answer that uses both places, not just one." },
+        { say: "Here is what to do when a question needs two places at once." },
+        { say: "First, find place one. The question tells you where to look." },
+        { say: "Next, look for place two, later in the story." },
+        { say: "Then work out what joins them. It might be a change, a reason or a proof." },
+        { say: "Last, choose the answer that uses both places, not just one." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={400} y={250} steps={[
           "Find place one.",
-          "Hunt for place two, later on.",
-          "Ask what joins them.",
+          "Look for place two, later on.",
+          "Work out what joins them.",
           "Choose the answer that uses both.",
         ]} />
       ),
@@ -246,9 +246,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Two places, one clue, and nothing gets past you. That's a Mega Reader.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to join two places in a story. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <BookTitle t={s.t} title="Joined Up" strap="Two places, one clue." emblem="book" size={170} />,
+      render: s => <BookTitle t={s.t} title="Joined Up" strap="Find two places and join them." emblem="book" size={170} />,
     },
   ],
 };

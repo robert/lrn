@@ -321,7 +321,7 @@ export default {
     {
       beats: [
         { who: "lewis", say: "Good evening, and welcome to Match of the Day. Most Alike!", sfxs: [{ sfx: "sports-crowd", at: 0, volume: 0.6 }, { sfx: "sports-sting", at: 0.1, volume: 0.9 }] },
-        { who: "izzy", say: "Tonight: two teammates, four hopefuls, and only one of them really belongs in the team." },
+        { who: "izzy", say: "Tonight we have two teammates and four hopefuls. Only one of the hopefuls really belongs in the team." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -337,9 +337,9 @@ export default {
     // The rules, in the studio.
     {
       beats: [
-        { who: "lewis", say: "Here's how it works. The two figures on the left are teammates. They're alike in some secret way.", sfxs: [{ sfx: "sports-swoosh", at: 0.1 }] },
-        { who: "izzy", say: "Our job is to find the one on the right that's most like them. Not the one that looks a bit similar. The one that shares their secret." },
-        { who: "lewis", say: "So we ask: what do the two teammates really share? We write it on the team sheet. Then we check every hopeful against it." },
+        { who: "lewis", say: "The two figures on the left are teammates. They have something in common.", sfxs: [{ sfx: "sports-swoosh", at: 0.1 }] },
+        { who: "izzy", say: "Our job is to find the hopeful on the right that is most like them. It must have the same thing in common, even if another one looks more similar." },
+        { who: "lewis", say: "First we work out what the two teammates have in common, and write it on the team sheet. Then we check every hopeful against the sheet." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -360,20 +360,20 @@ export default {
     // Match one.
     {
       beats: [
-        { who: "lewis", say: "Kick off! Teammate one: a big circle, with three little black triangles inside.", sfxs: [{ sfx: "sports-whistle", at: 0.2 }] },
-        { who: "izzy", say: "Teammate two: a big square, with three little black circles inside." },
-        { who: "lewis", say: "Different big shapes. Different little shapes. So what do they share?" },
-        { who: "izzy", say: "Three little shapes. All black. All inside!", sfxs: [{ sfx: "sports-swoosh", at: 0.2, volume: 0.6 }] },
+        { who: "lewis", say: "Kick off! Teammate one is a big circle with three little black triangles inside.", sfxs: [{ sfx: "sports-whistle", at: 0.2 }] },
+        { who: "izzy", say: "Teammate two is a big square with three little black circles inside." },
+        { who: "lewis", say: "The big shapes are different, and so are the little shapes. So what do they have in common?" },
+        { who: "izzy", say: "Each one has three little shapes. They are all black, and they are all inside.", sfxs: [{ sfx: "sports-swoosh", at: 0.2, volume: 0.6 }] },
         { who: "lewis", say: "A has only two little shapes. Red card!" },
         { who: "izzy", say: "C looks just like teammate one. But its triangles are white, not black. Off you go!" },
         { who: "lewis", say: "D has three black circles, but they're outside the square. Off!" },
-        { who: "izzy", say: "And B. Three little shapes, black, and inside. That's our player!", sfxs: [{ sfx: "sports-cheer", at: 3.0, volume: 0.9 }] },
+        { who: "izzy", say: "And B has three little shapes, all black and all inside. That's our player!", sfxs: [{ sfx: "sports-cheer", at: 3.4, volume: 0.9 }] },
       ],
       render: s => {
         const sheet = [
-          { text: "Three little shapes", at: s.at(3) + s.speech(3) * 0.2 },
-          { text: "All black", at: s.at(3) + s.speech(3) * 0.55 },
-          { text: "All inside", at: s.at(3) + s.speech(3) * 0.85 },
+          { text: "Three little shapes", at: s.at(3) + s.speech(3) * 0.3 },
+          { text: "All black", at: s.at(3) + s.speech(3) * 0.6 },
+          { text: "All inside", at: s.at(3) + s.speech(3) * 0.88 },
         ];
         const off = (i, beat, f) => s.at(beat) + s.speech(beat) * f;
         const goalAt = s.at(7) + s.speech(7) * 0.75;
@@ -405,8 +405,8 @@ export default {
     {
       beats: [
         { who: "lewis", say: "Let's see that again in slow motion.", sfxs: [{ sfx: "sports-swoosh", at: 0.1 }] },
-        { who: "izzy", say: "Look at C. Same big circle as teammate one. Same triangles. It looks like a twin!" },
-        { who: "lewis", say: "But the team sheet says black, and C's triangles are white. It looks alike, but it doesn't share the secret." },
+        { who: "izzy", say: "Look at C. It has the same big circle as teammate one, and the same triangles. It looks like a twin!" },
+        { who: "lewis", say: "But the team sheet says black, and C's triangles are white. So C looks alike, but it doesn't have what the teammates share." },
         { who: "izzy", say: "Don't be fooled by lookalikes. Check the team sheet!" },
       ],
       render: s => (
@@ -416,13 +416,13 @@ export default {
             <Lineup t={s.t} match={MATCH1} at={-100} hopeAt={-100} dim={[0, 3]} glow={[]} />
           </AbsoluteFill>
           <div style={{ position: "absolute", right: 70, top: 50, fontFamily: BEBAS, fontSize: 48, color: WHITE, background: RED, padding: "4px 18px 0", letterSpacing: 4, opacity: rise(s.t, 10, 20) }}>REPLAY</div>
-          <Pen t={s.t} at={s.at(1) + s.speech(1) * 0.25} {...teamCentre(0)} w={180} h={180} />
-          <Pen t={s.t} at={s.at(1) + s.speech(1) * 0.35} {...cardCentre(2)} w={170} h={180} />
-          <PenArrow t={s.t} at={s.at(1) + s.speech(1) * 0.7} x1={teamCentre(0).x + 60} y1={CARD_Y + 30} x2={cardCentre(2).x - 40} y2={CARD_Y + 30} />
+          <Pen t={s.t} at={s.at(1) + s.speech(1) * 0.42} {...teamCentre(0)} w={180} h={180} />
+          <Pen t={s.t} at={s.at(1) + s.speech(1) * 0.1} {...cardCentre(2)} w={170} h={180} />
+          <PenArrow t={s.t} at={s.at(1) + s.speech(1) * 0.62} x1={teamCentre(0).x + 60} y1={CARD_Y + 30} x2={cardCentre(2).x - 40} y2={CARD_Y + 30} />
           <div style={{ position: "absolute", left: 760, top: 600, width: 1060, textAlign: "center", fontFamily: BEBAS, fontSize: 70, color: YELLOW, letterSpacing: 2, opacity: rise(s.t, 12, s.at(1) + s.speech(1) * 0.85) }}>
             LOOKS LIKE A TWIN...
           </div>
-          <div style={{ position: "absolute", left: 760, top: 680, width: 1060, textAlign: "center", fontFamily: BEBAS, fontSize: 70, color: RED, letterSpacing: 2, opacity: rise(s.t, 12, s.at(2) + s.speech(2) * 0.5), textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}>
+          <div style={{ position: "absolute", left: 760, top: 680, width: 1060, textAlign: "center", fontFamily: BEBAS, fontSize: 70, color: RED, letterSpacing: 2, opacity: rise(s.t, 12, s.at(2) + s.speech(2) * 0.45), textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}>
             ...BUT WHITE, NOT BLACK
           </div>
           <div style={{ position: "absolute", left: 0, right: 0, top: 820, textAlign: "center", fontFamily: BEBAS, fontSize: 64, color: WHITE, letterSpacing: 4, opacity: rise(s.t, 14, s.at(3)) }}>
@@ -436,18 +436,18 @@ export default {
     // Match two: the second half, with two lookalikes.
     {
       beats: [
-        { who: "izzy", say: "Second half! Teammate one: a striped pentagon, with a little black circle touching its edge.", sfxs: [{ sfx: "sports-whistle", at: 0.2 }] },
-        { who: "lewis", say: "Teammate two: a striped triangle, with a little black square touching its edge." },
-        { who: "izzy", say: "Team sheet! A big striped shape. And a little shape, touching the outside edge.", sfxs: [{ sfx: "sports-swoosh", at: 0.3, volume: 0.6 }] },
+        { who: "izzy", say: "Second half! Teammate one is a striped pentagon with a little black circle touching its edge.", sfxs: [{ sfx: "sports-whistle", at: 0.2 }] },
+        { who: "lewis", say: "Teammate two is a striped triangle with a little black square touching its edge." },
+        { who: "izzy", say: "So the team sheet says they both have a big striped shape, with a little shape touching the outside edge.", sfxs: [{ sfx: "sports-swoosh", at: 0.3, volume: 0.6 }] },
         { who: "lewis", say: "Careful now. Two of these hopefuls look just like teammate one." },
         { who: "izzy", say: "B is a pentagon with a circle on top. But it isn't striped. Red card!" },
-        { who: "lewis", say: "D is a striped pentagon with a circle. But look, there's a gap. They're not touching. Off!" },
+        { who: "lewis", say: "D is a striped pentagon with a circle. But look, there's a gap, so they aren't touching. Off!" },
         { who: "izzy", say: "A's circle is inside the heart, not touching the edge. Off!" },
-        { who: "lewis", say: "Which leaves C. Striped cross, little star, touching the edge. What a player!", sfxs: [{ sfx: "sports-cheer", at: 3.4, volume: 0.9 }] },
+        { who: "lewis", say: "That leaves C. It's a striped cross with a little star touching the edge. What a player!", sfxs: [{ sfx: "sports-cheer", at: 3.8, volume: 0.9 }] },
       ],
       render: s => {
         const off = (beat, f) => s.at(beat) + s.speech(beat) * f;
-        const goalAt = off(7, 0.8);
+        const goalAt = off(7, 0.82);
         return (
           <AbsoluteFill>
             <Studio t={s.t} />
@@ -456,8 +456,8 @@ export default {
               dim={[s.t > off(4, 0.85) ? 1 : -1, s.t > off(5, 0.85) ? 3 : -1, s.t > off(6, 0.85) ? 0 : -1]}
               glow={s.t > goalAt ? [2] : []} />
             <TeamSheet t={s.t} x={TEAM_X[0]} y={620} w={530} lines={[
-              { text: "A big striped shape", at: off(2, 0.3) },
-              { text: "A little shape", at: off(2, 0.6) },
+              { text: "A big striped shape", at: off(2, 0.45) },
+              { text: "A little shape", at: off(2, 0.65) },
               { text: "Touching the outside edge", at: off(2, 0.85) },
             ]} />
             <PenArrow t={s.t} at={off(3, 0.5)} x1={teamCentre(0).x} y1={CARD_Y + 20} x2={cardCentre(1).x} y2={CARD_Y + 20} />
@@ -511,10 +511,10 @@ export default {
     // Post-match analysis on the tactics board, then goodnight.
     {
       beats: [
-        { who: "lewis", say: "Post-match analysis. How do you win at Most Alike?", sfxs: [{ sfx: "sports-swoosh", at: 0.1 }] },
-        { who: "izzy", say: "One. Write down what the two teammates really share." },
-        { who: "lewis", say: "Two. Check every hopeful against the team sheet." },
-        { who: "izzy", say: "Three. Don't be fooled by lookalikes." },
+        { who: "lewis", say: "Time for the post-match analysis. This is how to win at Most Alike.", sfxs: [{ sfx: "sports-swoosh", at: 0.1 }] },
+        { who: "izzy", say: "First, write down what the two teammates have in common." },
+        { who: "lewis", say: "Next, check every hopeful against the team sheet." },
+        { who: "izzy", say: "Last, don't be fooled by lookalikes." },
         { who: "lewis", say: "That's all from us. Goodnight!", sfxs: [{ sfx: "sports-sting", at: 1.0, volume: 0.9 }] },
       ],
       tail: 2,

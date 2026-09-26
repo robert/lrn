@@ -299,7 +299,7 @@ export default {
     // Cold open: an alarm on the bridge.
     {
       beats: [
-        { who: "orbit", say: "Warning. Star map incomplete. Three sectors are missing.", sfxs: [{ sfx: "space-beep", at: 0.1 }, { sfx: "space-beep", at: 0.5 }] },
+        { who: "orbit", say: "Warning. The star map is not complete. Three sectors are missing.", sfxs: [{ sfx: "space-beep", at: 0.1 }, { sfx: "space-beep", at: 0.5 }] },
         { who: "captain", say: "Missing? Without the whole map, we can't jump home!" },
         { who: "bolt", say: "Captain, look. The map is made of grids. Each missing square has to follow the pattern of the squares around it." },
         { who: "captain", say: "Then we'll find every one of them. Orbit, show us the map." },
@@ -351,7 +351,7 @@ export default {
         { who: "orbit", say: "In a grid puzzle, one square is empty. All the other squares follow a pattern.", sfxs: [{ sfx: "space-holo", at: 0 }] },
         { who: "captain", say: "So first we read across the rows, like reading a book.", sfxs: [{ sfx: "space-scan", at: 0.8, volume: 0.6 }] },
         { who: "bolt", say: "Then we read down the columns, from top to bottom.", sfxs: [{ sfx: "space-scan", at: 0.6, volume: 0.6 }] },
-        { who: "orbit", say: "Correct. And the missing square must fit both ways. Across, and down." },
+        { who: "orbit", say: "Correct. And the missing square must fit both ways, across and down." },
       ],
       render: s => {
         const row = s.t >= s.at(1) && s.t < s.at(2) ? { i: Math.min(2, Math.floor((s.t - s.at(1)) / 30)), k: ((s.t - s.at(1)) % 30) / 30 * 1.2 } : null;
@@ -373,12 +373,12 @@ export default {
     // Sector one: a 2x2 of turning arrows.
     {
       beats: [
-        { who: "orbit", say: "Sector one. Four squares. One is missing.", sfxs: [{ sfx: "space-holo", at: 0 }] },
+        { who: "orbit", say: "This is sector one. It has four squares, and one is missing.", sfxs: [{ sfx: "space-holo", at: 0 }] },
         { who: "bolt", say: "Top row. The arrow points up, then it points right." },
         { who: "captain", say: "So going across, it turns a quarter turn, clockwise." },
-        { who: "captain", say: "Now down the left side. Up becomes down. That's a half turn." },
+        { who: "captain", say: "Now read down the left side. The arrow goes from up to down. That's a half turn." },
         { who: "bolt", say: "So along the bottom row, the down arrow turns a quarter turn clockwise... and points left!" },
-        { who: "orbit", say: "Check it down the right column. Right, half turn, left. It fits both ways. Sector one restored.", sfxs: [{ sfx: "space-confirm", at: 4.6 }] },
+        { who: "orbit", say: "Now check the right column. It goes from right to left, a half turn. So it fits both ways. Sector one is restored.", sfxs: [{ sfx: "space-confirm", at: 5.5 }] },
       ],
       render: s => {
         const row0 = window(s.t, s.at(1), s.at(3)) ? { i: 0, k: rise(s.t, 30, s.at(1) + 10) } : null;
@@ -389,12 +389,12 @@ export default {
         return (
           <AbsoluteFill>
             <Bridge t={s.t} />
-            <StarMap t={s.t} restored={0} lightAt={s.at(5) + s.speech(5) * 0.85} />
+            <StarMap t={s.t} restored={0} lightAt={s.at(5) + s.speech(5) * 0.88} />
             <HoloGrid t={s.t} {...G2} appear={rise(s.t, 24, 6)} scanRow={row0 ?? row1} scanCol={col0 ?? col1}
               cells={SECTOR1} fill fillAt={pickAt} fillItems={SECTOR1_OPTS[0]} />
             <Choices t={s.t} x={1050} y={320} cell={150} options={SECTOR1_OPTS} appearAt={30} pick={0} pickAt={pickAt} />
             <Chip x={G2.x} y={G2.y - 90} text="ACROSS: QUARTER TURN" appear={window(s.t, s.at(2) + s.speech(2) * 0.5, s.at(3) + 6)} />
-            <Chip x={20} y={G2.y + 196} text="DOWN: HALF TURN" appear={window(s.t, s.at(3) + s.speech(3) * 0.6, s.at(5))} />
+            <Chip x={20} y={G2.y + 196} text="DOWN: HALF TURN" appear={window(s.t, s.at(3) + s.speech(3) * 0.65, s.at(5))} />
             <Chip x={G2.x} y={G2.y + 2 * G2.cell + 40} text="FITS BOTH WAYS" color={AMBER} appear={rise(s.t, 16, s.at(5) + s.speech(5) * 0.6)} />
           </AbsoluteFill>
         );
@@ -404,13 +404,13 @@ export default {
     // Sector two: a 3x3 with the trap. Right shape, wrong shading.
     {
       beats: [
-        { who: "orbit", say: "Sector two. Nine squares.", sfxs: [{ sfx: "space-holo", at: 0 }] },
-        { who: "bolt", say: "Easy! The bottom row goes circle, triangle... so it's a circle. This solid one! Jump!" },
+        { who: "orbit", say: "This is sector two. It has nine squares.", sfxs: [{ sfx: "space-holo", at: 0 }] },
+        { who: "bolt", say: "Easy! The bottom row goes circle, triangle... so it's a circle. It must be this solid one. Let's jump!" },
         { who: "orbit", say: "Negative. The shape is correct. The shading is not.", sfxs: [{ sfx: "space-nope", at: 0.1 }] },
         { who: "captain", say: "Read across properly, Bolt. Each row keeps one shading. The top row is all hollow, the middle row all solid, and the bottom row all striped." },
         { who: "captain", say: "Now read down the right-hand column. Circle, triangle, circle. So the gap needs a striped circle." },
-        { who: "orbit", say: "Confirmed. It fits across, and it fits down. Sector two restored.", sfxs: [{ sfx: "space-confirm", at: 2.6 }] },
-        { who: "bolt", say: "Right shape, wrong shading. I'll remember that one." },
+        { who: "orbit", say: "Confirmed. It fits across, and it fits down. Sector two is restored.", sfxs: [{ sfx: "space-confirm", at: 2.6 }] },
+        { who: "bolt", say: "I picked the right shape, but the wrong shading. I'll remember that." },
       ],
       render: s => {
         const sweep = i => ({ i, k: 1 });
@@ -439,16 +439,16 @@ export default {
     // Your turn: the final sector.
     {
       beats: [
-        { who: "orbit", say: "Final sector. Captain, the whole crew is watching." },
+        { who: "orbit", say: "This is the final sector. Captain, the whole crew is watching." },
         { who: "captain", say: "Over to you, cadet. Read across, then read down. Pause the video if you need more time.", hold: 6.5,
           sfxs: Array.from({ length: 6 }, (_, i) => ({ sfx: "space-beep", at: 5.2 + i, volume: 0.5 })) },
-        { who: "captain", say: "Across, one star becomes two stars. Down, small stars become big stars. So the gap is two big stars. Answer c!", sfxs: [{ sfx: "space-confirm", at: 6.4 }] },
-        { who: "orbit", say: "Star map complete." },
+        { who: "captain", say: "Going across, one star becomes two stars. Going down, small stars become big stars. So the gap has two big stars. The answer is c.", sfxs: [{ sfx: "space-confirm", at: 7.7 }] },
+        { who: "orbit", say: "The star map is complete." },
       ],
       render: s => {
-        const pickAt = s.at(2) + s.speech(2) * 0.85;
-        const row = s.t >= s.at(2) && s.t < s.at(2) + s.speech(2) * 0.4 ? { i: 0, k: rise(s.t, 30, s.at(2) + 6) } : null;
-        const col = s.t >= s.at(2) + s.speech(2) * 0.4 && s.t < pickAt ? { i: 0, k: rise(s.t, 30, s.at(2) + s.speech(2) * 0.4) } : null;
+        const pickAt = s.at(2) + s.speech(2) * 0.87;
+        const row = s.t >= s.at(2) && s.t < s.at(2) + s.speech(2) * 0.35 ? { i: 0, k: rise(s.t, 30, s.at(2) + 6) } : null;
+        const col = s.t >= s.at(2) + s.speech(2) * 0.35 && s.t < pickAt ? { i: 0, k: rise(s.t, 30, s.at(2) + s.speech(2) * 0.35) } : null;
         return (
           <AbsoluteFill>
             <Bridge t={s.t} />
@@ -467,12 +467,12 @@ export default {
       beats: [
         { who: "orbit", say: "Jump coordinates locked. Engaging hyperdrive." },
         { who: "bolt", say: "Hold on to something!" },
-        { who: "captain", say: "Read across. Read down. Check it fits both ways. Punch it!", sfxs: [{ sfx: "space-warp", at: 2.2, volume: 0.9 }] },
+        { who: "captain", say: "Read across, then read down, and check that it fits both ways. Punch it!", sfxs: [{ sfx: "space-warp", at: 2.8, volume: 0.9 }] },
         { who: "orbit", say: "Welcome home, crew. Nothing gets past you.", hold: 1.4 },
       ],
       tail: 1.5,
       render: s => {
-        const go = rise(s.t, 70, s.at(2) + s.speech(2) * 0.8);
+        const go = rise(s.t, 70, s.at(2) + s.speech(2) * 0.85);
         const flash = window(s.t, s.at(3) - 12, s.at(3) + 20, 10);
         const home = rise(s.t, 30, s.at(3));
         return (

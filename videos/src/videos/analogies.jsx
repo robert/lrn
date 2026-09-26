@@ -151,16 +151,16 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Analogies. One change, copied perfectly. Let's learn how.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Analogies" strap="Spot the change. Copy it exactly." emblem="arrow" />,
+      beats: [{ say: "Analogies. In these questions, you spot how one figure changes, then make the same change to another figure.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Picture puzzles" title="Analogies" strap="Spot the change, then copy it exactly." emblem="arrow" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "In an analogy question, the first figure changes to become the second." },
-        { say: "Then comes a third figure. Your job is to change it in exactly the same way." },
-        { say: "So first, work out the change. Then do it again." },
+        { say: "Then there is a third figure. You need to change it in exactly the same way." },
+        { say: "So first you work out the change, and then you make the same change again." },
       ],
       render: s => (
         <>
@@ -169,7 +169,7 @@ export default {
           <Note x={XS.c + P - 60} y={ROW_Y + P + 34} appear={rise(s.t, 16, s.at(1) + s.speech(1) * 0.6)} size={32}>the same change</Note>
           <Ring {...plateCentre("q")} w={P + 12} h={P + 12} progress={rise(s.t, 24, s.at(1) + s.speech(1) * 0.7)} />
           <Words x={260} w={1400} y={560} size={60} align="center" appear={rise(s.t, 20, s.at(2) + 8)}>
-            Work out the change. Then do it again.
+            Work out the change, then do it again.
           </Words>
         </>
       ),
@@ -178,9 +178,9 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. Say the change out loud, as a rule." },
-        { say: "Something like: it turns a quarter turn, and it goes black." },
-        { say: "Then apply the whole rule to the third figure. Every part of it." },
+        { say: "It helps to say the change out loud, as a rule." },
+        { say: "For example, you might say that it turns a quarter turn and it goes black." },
+        { say: "Then use the whole rule on the third figure, not just part of it." },
       ],
       render: s => (
         <>
@@ -194,7 +194,7 @@ export default {
             “It turns a quarter turn, and it goes black.”
           </Words>
           <Words x={210} w={1500} y={590} size={74} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>
-            Apply the whole rule.
+            Use the whole rule.
           </Words>
         </>
       ),
@@ -204,15 +204,15 @@ export default {
     {
       beats: [
         { say: "Let's try one. Here's a flag, and here's what it changes into." },
-        { say: "What happened? It's the same flag, the same colour, the same size. But it has turned a quarter turn, clockwise, like the hand of a clock." },
-        { say: "So that's our rule. Now apply it to the arrow. It points up. A quarter turn clockwise, and now it points to the right." },
+        { say: "It is the same flag, with the same colour and the same size. But it has turned a quarter turn clockwise, the way the hands of a clock go round." },
+        { say: "So that is our rule. Now use it on the arrow. The arrow points up. After a quarter turn clockwise, it points to the right." },
         { say: "That's answer b.", sfx: "chime", sfxAt: 0.2 },
-        { say: "Answer a turned the wrong way. Answer c turned too far. And answer d didn't turn at all. It just changed colour." },
+        { say: "Answer a turned the wrong way. Answer c turned too far. Answer d did not turn at all, and only changed colour." },
       ],
       render: s => {
-        const turn = rise(s.t, 34, s.at(2) + s.speech(2) * 0.55);
-        const solved = s.t >= s.at(2) + s.speech(2) * 0.45;
-        const spin = rise(s.t, 30, s.at(1) + s.speech(1) * 0.55);
+        const turn = rise(s.t, 34, s.at(2) + s.speech(2) * 0.57);
+        const solved = s.t >= s.at(2) + s.speech(2) * 0.47;
+        const spin = rise(s.t, 30, s.at(1) + s.speech(1) * 0.49);
         return (
           <>
             <Row s={s} ex={EX1} qGlow={solved ? 0.6 : 0}
@@ -222,8 +222,8 @@ export default {
             <Ring {...plateCentre("a")} w={P + 12} h={P + 12} progress={rise(s.t, 24, s.at(1) + 10) * (1 - rise(s.t, 8, s.at(2)))} />
             <Ring {...plateCentre("b")} w={P + 12} h={P + 12} progress={rise(s.t, 24, s.at(1) + 22) * (1 - rise(s.t, 8, s.at(2)))} />
             <Ring {...plateCentre("c")} w={P + 12} h={P + 12} progress={rise(s.t, 24, s.at(2) + s.speech(2) * 0.3) * (1 - rise(s.t, 8, s.at(3)))} />
-            <RuleCard s={s} appearAt={s.at(1) + s.speech(1) * 0.55} rows={[
-              { text: "turns a quarter turn, clockwise", at: s.at(1) + s.speech(1) * 0.62 },
+            <RuleCard s={s} appearAt={s.at(1) + s.speech(1) * 0.49} rows={[
+              { text: "turns a quarter turn, clockwise", at: s.at(1) + s.speech(1) * 0.56 },
             ]} />
             <Options s={s} options={EX1.options} appearAt={s.at(2) + s.speech(2) * 0.2} correct={EX1.correct}
               sealAt={s.at(3) + 6}
@@ -236,13 +236,13 @@ export default {
     // Worked example 2: two changes, and the traps that copy only one.
     {
       beats: [
-        { say: "Here's a trickier one. Watch the triangle carefully." },
-        { say: "Two things have changed. It has turned upside down. And it has become striped." },
+        { say: "This one is harder. Look carefully at the triangle." },
+        { say: "Two things have changed. It has turned upside down, and it has become striped." },
         { say: "So the rule has two parts. The pentagon must turn upside down, and it must become striped." },
-        { say: "Answer a is striped, but it hasn't turned. That's only half the rule." },
-        { say: "Answer b has turned, but it isn't striped. Half the rule again." },
-        { say: "And answer d has changed into a triangle. The shape should stay a pentagon." },
-        { say: "So the answer is c. Both changes, and nothing else.", sfx: "chime", sfxAt: 1.3 },
+        { say: "Answer a is striped, but it has not turned. It only follows half the rule." },
+        { say: "Answer b has turned, but it is not striped, so it also follows only half the rule." },
+        { say: "Answer d has changed into a triangle, but the shape should stay a pentagon." },
+        { say: "So the answer is c. It has both changes and nothing else.", sfx: "chime", sfxAt: 1.3 },
       ],
       render: s => {
         const turn = rise(s.t, 34, s.at(2) + s.speech(2) * 0.4);
@@ -264,7 +264,7 @@ export default {
             <Note x={optX(0) - 30} y={OPT.y + OPT.size + 70} size={30} bg="#F3E9DF" color={C.mud}
               appear={window(s.t, s.at(3) + s.speech(3) * 0.6, s.at(4), 12)}>only half the rule</Note>
             <Note x={optX(1) + 10} y={OPT.y + OPT.size + 70} size={30} bg="#F3E9DF" color={C.mud}
-              appear={window(s.t, s.at(4) + s.speech(4) * 0.4, s.at(5), 12)}>half again</Note>
+              appear={window(s.t, s.at(4) + s.speech(4) * 0.55, s.at(5), 12)}>only half the rule</Note>
             <Note x={optX(3) - 50} y={OPT.y + OPT.size + 70} size={30} bg="#F3E9DF" color={C.mud}
               appear={window(s.t, s.at(5) + s.speech(5) * 0.6, s.at(6) + s.speech(6), 12)}>wrong shape</Note>
           </>
@@ -275,8 +275,8 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Work out the rule, then find the answer. Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you get it? The hexagon grew bigger, and its line became double. So the heart must grow bigger, with a double line. That's d.", sfx: "chime", sfxAt: 7.4 },
+        { say: "Now it's your turn. Work out the rule, then find the answer. Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. The hexagon grew bigger, and its line became double. So the heart must grow bigger and have a double line. That's answer d.", sfx: "chime", sfxAt: 7.8 },
       ],
       render: s => {
         const solved = s.t >= s.at(1) + s.speech(1) * 0.6;
@@ -284,7 +284,7 @@ export default {
           <>
             <Row s={s} ex={TRY} qGlow={solved ? 0.6 : 0}
               answer={solved ? <Shape {...TRY.options[3]} draw={rise(s.t, 30, s.at(1) + s.speech(1) * 0.6)} /> : undefined} />
-            <Options s={s} options={TRY.options} appearAt={30} correct={TRY.correct} sealAt={s.at(1) + s.speech(1) * 0.9} />
+            <Options s={s} options={TRY.options} appearAt={30} correct={TRY.correct} sealAt={s.at(1) + s.speech(1) * 0.88} />
             <Words x={RULE.x} y={RULE.y + 10} w={RULE.w} size={46} italic color={C.soft} align="center" appear={window(s.t, 10, s.at(1))}>Your turn</Words>
             <div style={{ opacity: window(s.t, s.at(0) + s.speech(0), s.at(1)) }}>
               <Countdown x={RULE.x + RULE.w / 2} y={RULE.y + 200} t={s.t} start={s.at(0) + s.speech(0)} seconds={6} size={170} />
@@ -301,17 +301,17 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, for every analogy." },
-        { say: "One. Look at what changed from the first figure to the second." },
-        { say: "Two. Say the change as a rule." },
-        { say: "Three. Apply the whole rule to the third figure." },
-        { say: "Four. Check that nothing else has changed." },
+        { say: "Here is what to do for every analogy." },
+        { say: "First, look at what changed from the first figure to the second." },
+        { say: "Next, say the change as a rule." },
+        { say: "Then use the whole rule on the third figure." },
+        { say: "Last, check that nothing else has changed." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={400} y={250} steps={[
           "Look at what changed.",
           "Say the change as a rule.",
-          "Apply the whole rule to the third figure.",
+          "Use the whole rule on the third figure.",
           "Check that nothing else has changed.",
         ]} />
       ),
@@ -319,9 +319,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Every change, copied perfectly. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to copy a change exactly. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Copied" strap="Nothing gets past you." emblem="eye" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Spot the change, then copy it exactly." emblem="eye" />,
     },
   ],
 };

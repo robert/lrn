@@ -327,7 +327,7 @@ export default {
               <div style={{ fontFamily: SCRIPT, fontSize: 150, color: P.red, lineHeight: 1.2, textShadow: `5px 5px 0 ${P.cream}` }}>The Sequence Express</div>
             </div>
             <div style={{ position: "absolute", left: 0, right: 0, top: 520, textAlign: "center", opacity: b, fontFamily: POSTER, fontSize: 56, letterSpacing: 6, color: P.cream, textShadow: `3px 3px 0 ${P.navy}` }}>
-              One change at a time, all the way
+              Follow one change at a time
             </div>
           </AbsoluteFill>
         );
@@ -337,10 +337,10 @@ export default {
     // Rule Junction: the secret.
     {
       beats: [
-        { who: "guard", say: "Here's the secret of every sequence. It can change more than one thing at once.", sfxs: [{ sfx: "train-ding", at: 0 }] },
-        { who: "guard", say: "So follow one change at a time. Carriage by carriage, from the front of the train to the back." },
-        { who: "maisie", say: "One change, then the next change, then put them together!" },
-        { who: "guard", say: "Exactly. Next stop, the first puzzle." },
+        { who: "guard", say: "In a sequence, more than one thing can change at the same time.", sfxs: [{ sfx: "train-ding", at: 0 }] },
+        { who: "guard", say: "So follow one change at a time. Look at each carriage in turn, from the front of the train to the back." },
+        { who: "maisie", say: "So I follow one change, then the next change, and then I put them together!" },
+        { who: "guard", say: "That's right. Next stop, the first puzzle." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -355,7 +355,7 @@ export default {
           <Sign x={660} y={225} w={600} size={70} appear={rise(s.t, 20, 6)} bg={P.cream}>Rule Junction</Sign>
           <div style={{ position: "absolute", left: 480, top: 360, width: 960, background: P.ink, borderRadius: 14, padding: "28px 44px", border: `8px solid ${P.brass}` }}>
             {["One change at a time", "Then the next change", "Put them together"].map((line, i) => {
-              const k = rise(s.t, 16, i === 0 ? s.at(1) + s.speech(1) * 0.1 : s.at(2) + s.speech(2) * (0.05 + (i - 1) * 0.4));
+              const k = rise(s.t, 16, i === 0 ? s.at(1) + s.speech(1) * 0.1 : s.at(2) + s.speech(2) * (i === 1 ? 0.3 : 0.58));
               return (
                 <div key={line} style={{ display: "flex", gap: 30, alignItems: "baseline", opacity: k, fontFamily: POSTER, fontSize: 64, color: P.cream, letterSpacing: 3 }}>
                   <span style={{ color: P.sun, width: 40 }}>{i + 1}</span>{line}
@@ -370,7 +370,7 @@ export default {
     // Journey one: a single change.
     {
       beats: [
-        { who: "guard", say: "First puzzle. Look in the windows. A dot is travelling round the corners.", sfxs: [{ sfx: "train-whistle", at: 0, volume: 0.6 }] },
+        { who: "guard", say: "Here is the first puzzle. Look in the windows. A dot moves round the corners, one corner each time.", sfxs: [{ sfx: "train-whistle", at: 0, volume: 0.6 }] },
         { who: "maisie", say: "Top left, top right, bottom right, bottom left. It's going round clockwise!" },
         { who: "guard", say: "So which corner comes next?" },
         { who: "maisie", say: "Round again, back to the top left. That's c!" },
@@ -399,13 +399,13 @@ export default {
     // Journey two: two changes at once, and the trap.
     {
       beats: [
-        { who: "guard", say: "Second puzzle. This one's trickier. Two things are changing.", sfxs: [{ sfx: "train-chuff", at: 0.2 }] },
+        { who: "guard", say: "Here is the second puzzle. It is harder, because two things are changing.", sfxs: [{ sfx: "train-chuff", at: 0.2 }] },
         { who: "maisie", say: "I can count them. One dot, two, three, four. So next is five dots. Answer a!" },
-        { who: "guard", say: "Ah, hold your horses! You've followed one change. But what about the colour?", sfxs: [{ sfx: "train-ding", at: 0.3 }] },
-        { who: "maisie", say: "Black, white, black, white... so next is black!" },
-        { who: "guard", say: "Now put them together. Five dots, and black." },
+        { who: "guard", say: "Hold your horses! You've only followed one change. The colour is changing too.", sfxs: [{ sfx: "train-ding", at: 0.3 }] },
+        { who: "maisie", say: "Black, white, black, white. So next is black!" },
+        { who: "guard", say: "Now put the two changes together. The next carriage needs five dots, and they must be black." },
         { who: "maisie", say: "Five black dots. Answer c!", sfxs: [{ sfx: "train-clank", at: 1.4 }] },
-        { who: "guard", say: "Answer a only got the counting right, and b only got the colour right. Follow every change, and you'll never be caught out." },
+        { who: "guard", say: "Answer a only got the counting right, and b only got the colour right. Follow every change, and you won't be caught out." },
       ],
       render: s => {
         const count = window(s.t, s.at(1), s.at(3));
@@ -468,7 +468,7 @@ export default {
     {
       beats: [
         { who: "guard", say: "Sequence Express, arriving at Nothing Gets Past, bang on time!", sfxs: [{ sfx: "train-whistle", at: 0 }, { sfx: "train-ding", at: 2.4 }] },
-        { who: "maisie", say: "One change at a time, then put them together!" },
+        { who: "maisie", say: "Follow one change at a time, then put them together!" },
         { who: "guard", say: "And not a single step got past you. All change, please!", hold: 1.2 },
       ],
       tail: 1.5,

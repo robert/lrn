@@ -25,8 +25,8 @@ const hash = n => { const x = Math.sin(n * 91.345 + 12.9898) * 43758.5453; retur
 // Stop-motion runs "on twos and threes": hold each pose for 2.5 frames.
 const STEP = 2.5;
 const held = t => Math.floor(t / STEP) * STEP;
-// A tiny hand-placed wobble that changes only when the pose changes.
-const jig = (t, seed, amt = 0.012) => (hash(Math.floor(t / STEP) * 7.3 + seed) - 0.5) * amt;
+// No hand-placed wobble: the parent found it distracting, so everything holds still.
+const jig = () => 0;
 
 // ---------- Clay materials ----------
 
@@ -203,7 +203,7 @@ function Camera({ pos, look }) {
 
 // Felt backdrop, card table, warm studio lamps with a flicker.
 function Stage({ t, cam = [0, 5.4, 8.6], look = [0, 0.5, 0], children }) {
-  const flicker = 1 + (hash(Math.floor(t / STEP) * 3.1) - 0.5) * 0.05;
+  const flicker = 1;
   const felt = useClayTexture();
   return (
     <ThreeCanvas width={1920} height={1080} shadows camera={{ fov: 34, position: cam }} style={{ position: "absolute", inset: 0 }}>
@@ -309,7 +309,7 @@ const cast = {
 scenes.push({
   beats: [
     { who: "hoot", say: "Welcome, welcome, to the Clay Workshop! I'm Professor Hoot.", sfxs: [{ sfx: "clay-plop", at: 0.3 }, { sfx: "clay-plop", at: 0.7 }, { sfx: "clay-plop", at: 1.1 }] },
-    { who: "wiggle", say: "And I'm Wiggle! Today we're squishing sequences and grids!", sfxs: [{ sfx: "clay-squelch", at: 0.2 }] },
+    { who: "wiggle", say: "And I'm Wiggle! Today we're learning about sequences and grids!", sfxs: [{ sfx: "clay-squelch", at: 0.2 }] },
   ],
   render(s) {
     const sc = this;
@@ -361,9 +361,9 @@ scenes.push({
 // Scene 3: the secret.
 scenes.push({
   beats: [
-    { who: "hoot", say: "Here's my secret. Never try to see everything at once." },
-    { who: "hoot", say: "Follow just one change at a time. Then put the changes together." },
-    { who: "wiggle", say: "One at a time. Then together. Got it!", sfxs: [{ sfx: "clay-pop", at: 0.2 }] },
+    { who: "hoot", say: "Here is my advice. Don't try to look at everything at once." },
+    { who: "hoot", say: "Follow just one change at a time. When you have done that, put the changes together." },
+    { who: "wiggle", say: "So I follow one change at a time, and then I put them together.", sfxs: [{ sfx: "clay-pop", at: 0.2 }] },
   ],
   render(s) {
     const sc = this;
@@ -374,7 +374,7 @@ scenes.push({
           <Worm x={1.6} z={0.6} t={s.t} talking={talking(s, sc, "wiggle")} excited={s.beat === 2} />
         </Stage>
         <Chip t={s.t} at={s.at(1) + s.speech(1) * 0.15} x={960} y={170} text="1. one change at a time" size={64} rot={-2} />
-        <Chip t={s.t} at={s.at(1) + s.speech(1) * 0.7} x={960} y={290} text="2. then put them together" size={64} rot={1.5} />
+        <Chip t={s.t} at={s.at(1) + s.speech(1) * 0.65} x={960} y={290} text="2. then put them together" size={64} rot={1.5} />
       </AbsoluteFill>
     );
   },
@@ -383,11 +383,11 @@ scenes.push({
 // Scene 4: worked example on the row.
 scenes.push({
   beats: [
-    { who: "hoot", say: "Here's a row of clay tiles. First, let's follow just the number of balls." },
+    { who: "hoot", say: "This is a row of clay tiles. First, let's follow just the number of balls." },
     { who: "wiggle", say: "One, two, three, four! It goes up by one each time. So next there'll be five." },
     { who: "hoot", say: "Splendid. Now forget the counting, and follow just the colour." },
     { who: "wiggle", say: "Red, blue, red, blue... so next comes red!" },
-    { who: "hoot", say: "Put them together. Five balls, and red. That's answer b.", sfxs: [{ sfx: "clay-plop", at: 3.2 }, { sfx: "chime", at: 3.6, volume: 0.6 }] },
+    { who: "hoot", say: "Put them together, and you get five red balls. That's answer b.", sfxs: [{ sfx: "clay-plop", at: 4.2 }, { sfx: "chime", at: 4.6, volume: 0.6 }] },
     { who: "hoot", say: "Watch out for answer a. It has five balls, but they're blue. It only follows one of the changes." },
   ],
   render(s) {
@@ -395,7 +395,7 @@ scenes.push({
     const counting = s.beat >= 1 && s.beat < 2;
     const colouring = s.beat === 3;
     const optsIn = s.at(4) + 4;
-    const winAt = s.at(4) + s.speech(4) * 0.6;
+    const winAt = s.at(4) + s.speech(4) * 0.7;
     return (
       <AbsoluteFill>
         <Stage t={s.t} cam={RCAM} look={RLOOK}>
@@ -530,9 +530,9 @@ scenes.push({
 // Scene 7: recap.
 scenes.push({
   beats: [
-    { who: "hoot", say: "So, class. One. Follow one change at a time." },
-    { who: "hoot", say: "Two. Put the changes together." },
-    { who: "hoot", say: "Three. In a grid, check across and down. The answer must fit both ways." },
+    { who: "hoot", say: "So, class, here is what to do. First, follow one change at a time." },
+    { who: "hoot", say: "Second, put the changes together." },
+    { who: "hoot", say: "Third, in a grid, check across and down. The answer must fit both ways." },
   ],
   render(s) {
     const sc = this;
@@ -553,7 +553,7 @@ scenes.push({
 // Scene 8: close.
 scenes.push({
   beats: [
-    { who: "wiggle", say: "Nothing gets past us!", sfxs: [{ sfx: "clay-pop", at: 0.1 }] },
+    { who: "wiggle", say: "Now we can solve sequences and grids!", sfxs: [{ sfx: "clay-pop", at: 0.1 }] },
     { who: "hoot", say: "Class dismissed!", sfxs: [{ sfx: "clay-plop", at: 0.3 }, { sfx: "chime", at: 0.8, volume: 0.6 }] },
   ],
   tail: 1.5,
@@ -566,7 +566,7 @@ scenes.push({
           <Worm x={1.7} z={0.8} t={s.t} talking={talking(s, sc, "wiggle")} excited />
           {[COL.red, COL.yellow, COL.blue, COL.green].map((c, i) => <Piece key={i} kind={["ball", "cube", "cone", "ball"][i]} colour={c} x={-1.5 + i} z={2} size={0.3} t={s.t} at={10 + i * 6} seed={400 + i} />)}
         </Stage>
-        <Title t={s.t} text="Class dismissed!" sub="nothing gets past you" />
+        <Title t={s.t} text="Class dismissed!" sub="one change at a time" />
       </AbsoluteFill>
     );
   },

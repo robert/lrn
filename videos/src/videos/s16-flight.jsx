@@ -115,10 +115,10 @@ const Needle = ({ angle, colour }) => <line x1="0" y1="14" x2="0" y2="-84" strok
 const CHECKS = [
   "Read every instruction",
   "Look at the example first",
-  "Stuck? Star it, skip it, come back",
+  "If stuck, star it and come back",
   "Check the clock at halfway",
   "Check every answer at the end",
-  "Breathe. Stay calm.",
+  "Breathe slowly and stay calm",
 ];
 function Clipboard({ t, ticks, appear = 1 }) {
   return (
@@ -226,9 +226,9 @@ export default {
     // Dawn on the runway.
     {
       beats: [
-        { who: "captain", say: "Good morning, First Officer. That's you. Today's flight is a special one: exam day.", sfxs: [{ sfx: "flight-hum", at: 0, volume: 0.4 }, { sfx: "flight-chime", at: 0.4, volume: 0.6 }] },
+        { who: "captain", say: "Good morning, First Officer. That's you. Today's flight is a special one, because it is exam day.", sfxs: [{ sfx: "flight-hum", at: 0, volume: 0.4 }, { sfx: "flight-chime", at: 0.4, volume: 0.6 }] },
         { who: "fo", say: "Ready when you are, Captain!" },
-        { who: "captain", say: "Good. Every great flight starts with the same thing. Our pre-flight checks." },
+        { who: "captain", say: "Good. Every flight starts with our pre-flight checks." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -244,12 +244,12 @@ export default {
     // The checklist.
     {
       beats: [
-        { who: "captain", say: "Check one. Read every instruction, every time. Different sections ask for different things.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
+        { who: "captain", say: "Check one. Always read the instructions carefully, because different sections ask you to do different things.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
         { who: "captain", say: "Check two. If there's a worked example, look at it first. It shows you exactly what to do.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
-        { who: "captain", say: "Check three. Stuck on one? Don't circle round it for ages. Put a star by it, skip it, and come back.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
-        { who: "captain", say: "Check four. At halfway, glance at the clock, and keep a steady pace.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
+        { who: "captain", say: "Check three. If you get stuck on a question, don't spend ages on it. Put a star next to it, move on, and come back to it later.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
+        { who: "captain", say: "Check four. When half the time has gone, look at the clock, and keep working at a steady speed.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
         { who: "captain", say: "Check five. At the end, go back and check every answer.", sfxs: [{ sfx: "flight-tick", at: 1.2 }] },
-        { who: "captain", say: "And check six. Breathe. Stay calm. You've trained for this.", sfxs: [{ sfx: "flight-tick", at: 1.0 }] },
+        { who: "captain", say: "And check six. Take a slow breath and stay calm. You have practised for this.", sfxs: [{ sfx: "flight-tick", at: 1.0 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -264,11 +264,11 @@ export default {
       beats: [
         { who: "tower", say: "Flight Mega One, runway clear. You are cleared for take-off.", sfxs: [{ sfx: "flight-squelch", at: 0, volume: 0.8 }] },
         { who: "fo", say: "My tummy's gone all fluttery, Captain.", sfxs: [{ sfx: "flight-spool", at: 0.4, volume: 0.8 }] },
-        { who: "captain", say: "That's just your engines warming up. Every good pilot feels it. Breathe in slowly... and out. Here we go." },
+        { who: "captain", say: "That feeling is just nerves. Every good pilot feels it. Breathe in slowly, and then breathe out. Here we go." },
       ],
       render: s => {
         const roll = rise(s.t, s.at(2) + s.speech(2) - s.at(1), s.at(1));
-        const lift = rise(s.t, 80, s.at(2) + s.speech(2) * 0.7);
+        const lift = rise(s.t, 80, s.at(2) + s.speech(2) * 0.75);
         const breath = Math.sin(Math.max(0, s.t - s.at(2)) / 22);
         return (
           <AbsoluteFill>
@@ -282,7 +282,7 @@ export default {
     // Question one: the instruction matters.
     {
       beats: [
-        { who: "captain", say: "We're airborne. Here's our first question. What does it want?" },
+        { who: "captain", say: "We're in the air. Here is our first question. Let's read what it asks us to do." },
         { who: "fo", say: "Easy! The biscuit's in the wrong place. I'll circle it!" },
         { who: "captain", say: "Hold on. Read the instruction again. It says underline, not circle. And it says two words." },
         { who: "fo", say: "Oh! Biscuit and Grandad have swapped. I'll underline them both." },
@@ -317,9 +317,9 @@ export default {
     // Question two: the storm cloud, starred and skipped.
     {
       beats: [
-        { who: "fo", say: "Question two looks tricky. A grid with a gap. I've been staring at it for ages." },
-        { who: "captain", say: "That's a storm cloud. We don't circle round a storm for ages, burning fuel. Put a star next to it, and fly on." },
-        { who: "fo", say: "Star it, skip it, come back. Got it!" },
+        { who: "fo", say: "Question two looks tricky. It's a grid with a gap, and I've been staring at it for ages." },
+        { who: "captain", say: "That question is like a storm cloud. A pilot doesn't circle round a storm for ages, wasting fuel. Put a star next to the question, and move on to the next one." },
+        { who: "fo", say: "So I star it, skip it, and come back to it later." },
       ],
       render: s => {
         const a = rise(s.t, 30, 0);
@@ -341,9 +341,9 @@ export default {
                   </svg>
                 </div>
                 <Options figures={[{ kind: "circle", r: 44, fill: "white" }, { kind: "triangle", r: 44, fill: "white" }, { kind: "square", r: 44, fill: "black" }, { kind: "circle", r: 44, fill: "black" }]} x={620} y={220} gap={170} />
-                <Pen kind="star" x={30} y={170} progress={rise(s.t, 20, s.at(1) + s.speech(1) * 0.6)} />
+                <Pen kind="star" x={30} y={170} progress={rise(s.t, 20, s.at(1) + s.speech(1) * 0.65)} />
                 {/* Storm clouds hang over it while he stares. */}
-                <div style={{ position: "absolute", left: 100, top: 170, width: 460, height: 420, borderRadius: 80, background: "radial-gradient(rgba(70,80,95,0.35), transparent 70%)", opacity: 1 - rise(s.t, 20, s.at(1) + s.speech(1) * 0.6) }} />
+                <div style={{ position: "absolute", left: 100, top: 170, width: 460, height: 420, borderRadius: 80, background: "radial-gradient(rgba(70,80,95,0.35), transparent 70%)", opacity: 1 - rise(s.t, 20, s.at(1) + s.speech(1) * 0.65) }} />
               </Paper>
             </div>
           </AbsoluteFill>
@@ -353,15 +353,15 @@ export default {
     // Halfway: check the clock.
     {
       beats: [
-        { who: "captain", say: "Now, halfway. Glance at the time gauge. Half the time used, and we're more than halfway through. Steady as she goes." },
-        { who: "fo", say: "Steady as she goes!" },
+        { who: "captain", say: "We're halfway now. Look at the time gauge. Half the time has gone, and we've done more than half the questions. So we're on time." },
+        { who: "fo", say: "Nice and steady, Captain!" },
       ],
       render: s => {
         const drop = lerp(0.75, 0.5, rise(s.t, 50, 20));
         return (
           <AbsoluteFill>
             <Sky t={s.t} phase={2} />
-            <Cockpit t={s.t} alt={0.9} heading={75} time={drop} timeGlow={rise(s.t, 20, s.speech(0) * 0.2)} />
+            <Cockpit t={s.t} alt={0.9} heading={75} time={drop} timeGlow={rise(s.t, 20, s.speech(0) * 0.15)} />
             <div style={{ position: "absolute", left: 990, width: 400, textAlign: "center", top: 630, fontFamily: DISPLAY, fontWeight: 700, fontSize: 40, color: AMBER, opacity: rise(s.t, 20, s.speech(0) * 0.35), textShadow: `0 0 20px ${AMBER}` }}>HALFWAY: ON TIME</div>
           </AbsoluteFill>
         );
@@ -370,9 +370,9 @@ export default {
     // Back to the starred question with fresh eyes.
     {
       beats: [
-        { who: "captain", say: "Plenty of time left, so back to the starred one. With fresh eyes, the storm has cleared." },
-        { who: "fo", say: "Each row has one circle, one triangle and one square. The bottom row is missing a triangle! And the shading goes white, black, white... so a white triangle. That's b!" },
-        { who: "captain", say: "Lovely flying. Skipping it wasn't giving up. It was saving time for it." },
+        { who: "captain", say: "We have plenty of time left, so let's go back to the starred question. Now that we are looking at it again, it seems much easier." },
+        { who: "fo", say: "Each row has one circle, one triangle and one square, so the bottom row needs a triangle. The shading takes turns, white then black then white, so it's a white triangle. That's b!" },
+        { who: "captain", say: "Well done. Skipping the question saved you time, so you could come back to it later with a clear head." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -399,9 +399,9 @@ export default {
     // Final checks: catching a slip.
     {
       beats: [
-        { who: "captain", say: "We're coming in to land. Final checks. Let's look back over every answer." },
+        { who: "captain", say: "We're coming in to land, so it's time for our final checks. Let's look back over every answer." },
         { who: "captain", say: "Look at question four. Your working says d. But which letter did you circle?" },
-        { who: "fo", say: "B! I worked it out right, and circled the wrong one. Fixing it now!" },
+        { who: "fo", say: "I circled b! I worked it out right, but I circled the wrong letter. I'll fix it now." },
         { who: "captain", say: "That's why we check. The answer was right in your head. Now it's right on the paper too." },
       ],
       render: s => (
@@ -423,20 +423,20 @@ export default {
     {
       beats: [
         { who: "tower", say: "Flight Mega One, you are cleared to land.", sfxs: [{ sfx: "flight-squelch", at: 0, volume: 0.8 }] },
-        { who: "captain", say: "Every instruction read. The storm cloud skipped, then solved. The clock checked. Every answer checked.", sfxs: [{ sfx: "flight-touchdown", at: 5.6, volume: 0.8 }] },
-        { who: "captain", say: "Smooth landing, First Officer. Nothing gets past you.", sfxs: [{ sfx: "flight-chime", at: 2.4, volume: 0.6 }] },
+        { who: "captain", say: "We read every instruction. We skipped the hard question and then solved it. We checked the clock, and we checked every answer.", sfxs: [{ sfx: "flight-touchdown", at: 6.3, volume: 0.8 }] },
+        { who: "captain", say: "Smooth landing, First Officer. Well done.", sfxs: [{ sfx: "flight-chime", at: 2.2, volume: 0.6 }] },
       ],
       tail: 1.5,
       render: s => {
         const down = rise(s.t, s.at(1) + s.speech(1) * 0.9, 0);
-        const done = rise(s.t, 30, s.at(2) + s.speech(2) * 0.6);
+        const done = rise(s.t, 30, s.at(2) + s.speech(2) * 0.72);
         return (
           <AbsoluteFill>
             <Sky t={s.t} phase={lerp(1.2, 0, down)} speed={lerp(30, 0, done)} landing={1} />
             <Cockpit t={s.t} alt={lerp(0.4, 0, down)} heading={100} time={0.05} />
             <div style={{ position: "absolute", left: 0, right: 0, top: 160, textAlign: "center", opacity: done }}>
               <div style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 84, color: "#FFF7E6", textShadow: "0 6px 30px rgba(0,0,0,0.6)", letterSpacing: 4 }}>SMOOTH LANDING</div>
-              <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 50, color: AMBER, marginTop: 8 }}>nothing gets past you</div>
+              <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 50, color: AMBER, marginTop: 8 }}>well done, First Officer</div>
             </div>
           </AbsoluteFill>
         );

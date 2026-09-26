@@ -176,7 +176,7 @@ export default {
   scenes: [
     {
       beats: [
-        { who: "teller", say: "Every good story is made from the same seven ingredients. Like a recipe. Let's cook one up together." },
+        { who: "teller", say: "A good story is made from seven parts, like the ingredients in a recipe. Let's make one together." },
       ],
       render: s => (
         <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
@@ -187,23 +187,23 @@ export default {
     },
     {
       beats: [
-        { who: "teller", say: "First, who? Our story is about Maya, and her dog, Biscuit." },
-        { who: "teller", say: "What are they doing? Building a sandcastle, for a competition." },
-        { who: "teller", say: "When? On a windy Saturday morning." },
-        { who: "teller", say: "And where? At the seaside." },
-        { who: "teller", say: "Now, if we stopped here, it would just be a nice day at the beach. Nothing happens! A story needs something to go wrong." },
+        { who: "teller", say: "First, we choose who the story is about. Our story is about Maya and her dog, Biscuit." },
+        { who: "teller", say: "Next, we say what they are doing. They are building a sandcastle for a competition." },
+        { who: "teller", say: "Then we say when it happens. It is a windy Saturday morning." },
+        { who: "teller", say: "And we say where it happens. They are at the seaside." },
+        { who: "teller", say: "If we stopped here, it would just be a nice day at the beach, and nothing would happen. A story needs something to go wrong." },
       ],
       render: s => {
-        const show = { ...ALL, who: s.at(0) + 30, what: s.at(1) + 30, when: s.at(2) + 20, where: s.at(3) + 20, problem: NEVER, solution: NEVER, ending: NEVER };
+        const show = { ...ALL, who: s.at(0) + s.speech(0) * 0.48, what: s.at(1) + s.speech(1) * 0.41, when: s.at(2) + s.speech(2) * 0.48, where: s.at(3) + s.speech(3) * 0.55, problem: NEVER, solution: NEVER, ending: NEVER };
         return <><Painting t={s.t} show={show} /><Recipe t={s.t} show={show} /></>;
       },
     },
     {
       beats: [
-        { who: "teller", say: "So here comes the problem. A huge wave rolls up the beach... and washes the sandcastle away!", sfxs: [{ sfx: "recipe-wave", at: 2.4, volume: 0.7 }] },
-        { who: "teller", say: "Maya could cry. Or she could give up. But good characters find a way." },
-        { who: "teller", say: "Here's the solution. They rebuild the castle higher up the beach, where the waves can't reach, and decorate it with shells." },
-        { who: "teller", say: "And the ending: the judges give them a rosette for the most determined builders. And ice creams all round. Maya feels proud." },
+        { who: "teller", say: "Next comes the problem. A huge wave rolls up the beach and washes the sandcastle away.", sfxs: [{ sfx: "recipe-wave", at: 2.4, volume: 0.7 }] },
+        { who: "teller", say: "Maya feels like crying, or giving up. But in a good story, the characters find a way to fix the problem." },
+        { who: "teller", say: "Then comes the solution. They rebuild the castle higher up the beach, where the waves can't reach, and decorate it with shells." },
+        { who: "teller", say: "Last comes the ending. The judges give them a rosette for being the most determined builders, and everyone gets an ice cream. Maya feels proud." },
       ],
       render: s => {
         const show = { ...ALL, problem: s.at(0) + s.speech(0) * 0.35, solution: s.at(2) + s.speech(2) * 0.3, ending: s.at(3) + s.speech(3) * 0.4 };
@@ -214,8 +214,8 @@ export default {
     },
     {
       beats: [
-        { who: "teller", say: "Look at the recipe. The problem and the solution are the heart of it. They're what make it a story." },
-        { who: "teller", say: "So in the exam, before you write a single sentence, plan your recipe. And think of your problem and your solution first." },
+        { who: "teller", say: "Look at the recipe. The problem and the solution are the most important parts. Without them, it would not be a story." },
+        { who: "teller", say: "So in the exam, plan your recipe before you start writing. Think of your problem and your solution first." },
       ],
       render: s => {
         const show = ALL;
@@ -228,9 +228,9 @@ export default {
     },
     {
       beats: [
-        { who: "teller", say: "Your turn. Here's a picnic in the park. What could go wrong? And how could it be fixed? Pause, and think of a problem and a solution.", hold: 6 },
-        { who: "teller", say: "Here are two ideas. Problem: it starts to pour with rain. Solution: everyone squashes under the bandstand, and has the picnic there." },
-        { who: "teller", say: "Or. Problem: a greedy goose steals the sandwiches. Solution: they trade the goose a crust for the rest back. Any idea works, as long as it has a problem and a way out." },
+        { who: "teller", say: "Now it's your turn. Here is a picnic in the park. Think of something that could go wrong, and how it could be fixed. Pause the video if you need more time.", hold: 6 },
+        { who: "teller", say: "Here are two ideas. The problem could be that it starts to pour with rain. The solution is that everyone squashes under the bandstand and has the picnic there." },
+        { who: "teller", say: "Or the problem could be that a greedy goose steals the sandwiches. The solution is that they give the goose a crust instead, and get their sandwiches back. Any idea is fine, as long as it has a problem and a solution." },
       ],
       render: s => {
         const k = rise(s.t, 30, 10);
@@ -253,7 +253,7 @@ export default {
               <div style={{ fontFamily: HAND, fontWeight: 700, fontSize: 60, color: "#B5563D" }}>Your turn</div>
               {s.t < s.at(1) && s.t > s.at(0) + s.speech(0) && <div style={{ fontFamily: SERIF, fontSize: 160, color: "#B5563D", textAlign: "center", marginTop: 120 }}>{left || ""}</div>}
               {s.t >= s.at(1) && <div style={{ fontFamily: HAND, fontSize: 42, color: INK, marginTop: 20, lineHeight: 1.15, opacity: rise(s.t, 20, s.at(1)) }}><b style={{ color: "#B5563D" }}>Problem:</b> pouring rain<br /><b style={{ color: "#B5563D" }}>Solution:</b> picnic under the bandstand</div>}
-              {s.t >= s.at(2) && <div style={{ fontFamily: HAND, fontSize: 42, color: INK, marginTop: 40, lineHeight: 1.15, opacity: rise(s.t, 20, s.at(2)) }}><b style={{ color: "#B5563D" }}>Problem:</b> a greedy goose<br /><b style={{ color: "#B5563D" }}>Solution:</b> trade it a crust</div>}
+              {s.t >= s.at(2) && <div style={{ fontFamily: HAND, fontSize: 42, color: INK, marginTop: 40, lineHeight: 1.15, opacity: rise(s.t, 20, s.at(2)) }}><b style={{ color: "#B5563D" }}>Problem:</b> a greedy goose<br /><b style={{ color: "#B5563D" }}>Solution:</b> give it a crust</div>}
             </div>
           </AbsoluteFill>
         );
@@ -261,16 +261,16 @@ export default {
     },
     {
       beats: [
-        { who: "teller", say: "So remember the recipe. Who. What. When. Where." },
-        { who: "teller", say: "Problem. Solution. Ending." },
-        { who: "teller", say: "Seven ingredients, every time. Now go and cook up a story of your own." },
+        { who: "teller", say: "So the recipe is who, what, when and where." },
+        { who: "teller", say: "Then the problem, the solution and the ending." },
+        { who: "teller", say: "Use all seven ingredients every time, in that order. Now try making up a story of your own." },
       ],
       tail: 1.5,
       render: s => (
         <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
           <div style={{ display: "flex", gap: 26, flexWrap: "wrap", justifyContent: "center", maxWidth: 1600 }}>
             {SLOTS.map(([label], i) => {
-              const at = i < 4 ? s.at(0) + (i / 4) * s.speech(0) : s.at(1) + ((i - 4) / 3) * s.speech(1);
+              const at = i < 4 ? s.at(0) + [0.4, 0.51, 0.65, 0.86][i] * s.speech(0) : s.at(1) + [0.2, 0.46, 0.82][i - 4] * s.speech(1);
               const k = pop(s.t, at);
               const key = label === "Problem" || label === "Solution";
               return <div key={label} style={{ fontFamily: HAND, fontWeight: 700, fontSize: 90, color: key ? "#B5563D" : INK, opacity: Math.min(1, k * 2), transform: `translateY(${(1 - Math.min(1, k)) * 30}px) rotate(${(i % 2 ? 2 : -2)}deg)` }}>{label}</div>;

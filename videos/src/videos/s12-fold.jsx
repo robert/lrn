@@ -190,7 +190,7 @@ function Seal({ t, at, x, y }) {
   if (k <= 0) return null;
   return (
     <div style={{ position: "absolute", left: x - 90, top: y - 90, width: 180, height: 180, borderRadius: 16, border: `7px solid ${VERMILION}`, background: "rgba(245,238,223,0.08)", color: VERMILION, fontFamily: SERIF, fontWeight: 600, fontSize: 34, lineHeight: 1.05, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", transform: `scale(${lerp(1.6, 1, Math.min(1, k))}) rotate(-6deg)`, opacity: Math.min(1, k * 1.5) }}>
-      nothing<br />gets<br />past
+      well<br />done
     </div>
   );
 }
@@ -246,7 +246,7 @@ export default {
     // Title: the camera settles over a blank sheet.
     {
       beats: [
-        { who: "teller", say: "A sheet of paper. A little ink. And one careful fold. That's all we need to understand a mirror image." },
+        { who: "teller", say: "With a sheet of paper, a little ink and one careful fold, we can find out what a mirror image is." },
       ],
       render: s => {
         const k = rise(s.t, s.length - 10, 0);
@@ -264,10 +264,10 @@ export default {
     // The flag: paint, fold, press, unfold. A reflection has been printed.
     {
       beats: [
-        { who: "teller", say: "On the right half, we paint a flag, still wet with ink." },
-        { who: "teller", say: "Now fold the paper along the middle, right over... and press it flat.", sfxs: [{ sfx: "fold-fold", at: 1.2 }, { sfx: "fold-press", at: 2.6 }, { sfx: "fold-crease", at: 2.7, volume: 0.6 }] },
-        { who: "teller", say: "Carefully unfold it... and look.", sfxs: [{ sfx: "fold-unfold", at: 0.1 }] },
-        { who: "teller", say: "The wet ink has printed a second flag. But this one points the other way. It's a mirror image. That's what flipped means.", sfxs: [{ sfx: "fold-bell", at: 0.4, volume: 0.6 }] },
+        { who: "teller", say: "On the right half of the paper, we paint a flag in wet ink." },
+        { who: "teller", say: "Now we fold the paper along the middle, right over, and press it flat.", sfxs: [{ sfx: "fold-fold", at: 1.2 }, { sfx: "fold-press", at: 2.6 }, { sfx: "fold-crease", at: 2.7, volume: 0.6 }] },
+        { who: "teller", say: "Now we carefully unfold it and look.", sfxs: [{ sfx: "fold-unfold", at: 0.1 }] },
+        { who: "teller", say: "The wet ink has printed a second flag. This one points the other way. It is a mirror image of the first flag. When a shape is turned into its mirror image, we say it has been flipped.", sfxs: [{ sfx: "fold-bell", at: 0.4, volume: 0.6 }] },
       ],
       render: s => {
         const paint = rise(s.t, 40, s.at(0) + 10);
@@ -282,8 +282,8 @@ export default {
                 right={[{ kind: "flag", px: FX, size: 1.05, opacity: paint }]}
                 left={[{ kind: "flag", px: -FX, size: 1.05, mirror: true, opacity: print, colour: "#2A2733" }]} />
             </Stage>
-            <Label t={s.t} at={s.at(3) + s.speech(3) * 0.3} x={560} y={180} text="the print" colour={GOLD} />
-            <Label t={s.t} at={s.at(3) + s.speech(3) * 0.3} x={1360} y={180} text="the flag" />
+            <Label t={s.t} at={s.at(3) + s.speech(3) * 0.2} x={560} y={180} text="the print" colour={GOLD} />
+            <Label t={s.t} at={s.at(3) + s.speech(3) * 0.2} x={1360} y={180} text="the flag" />
           </AbsoluteFill>
         );
       },
@@ -292,9 +292,9 @@ export default {
     // Turning can't do it: spin a copy of the flag flat, and it never matches.
     {
       beats: [
-        { who: "teller", say: "Could we make that printed flag just by turning, flat on the table, without folding?" },
-        { who: "teller", say: "Here's a paper flag. Turn it, and turn it, all the way round. It never fits the print.", sfxs: [{ sfx: "fold-unfold", at: 1.5, volume: 0.5 }] },
-        { who: "teller", say: "Turning only spins a shape round. To get its mirror image, you have to flip it. Just like folding the paper over." },
+        { who: "teller", say: "Let's see if we can make that printed flag just by turning a flag round, flat on the table, without folding." },
+        { who: "teller", say: "Here is a paper flag. We turn it all the way round, but it never fits the print.", sfxs: [{ sfx: "fold-unfold", at: 1.5, volume: 0.5 }] },
+        { who: "teller", say: "Turning only spins a shape round. To get its mirror image, you have to flip it over, the way we folded the paper." },
       ],
       render: s => {
         const spin = rise(s.t, s.at(2) - s.at(1) - 10, s.at(1) + 10) * 360;
@@ -309,9 +309,9 @@ export default {
               <group position={[-FX, 0.18 * card, 0]} rotation={[0, (-spin * Math.PI) / 180, 0]}>
                 <Ink kind="flag" size={1.05} colour={VERMILION} opacity={0.72 * card} lift={0} />
               </group>
-              <Ring px={-FX} pz={0} r={1.25} opacity={0.6 * rise(s.t, 20, s.at(1) + s.speech(1) * 0.7)} />
+              <Ring px={-FX} pz={0} r={1.25} opacity={0.6 * rise(s.t, 20, s.at(1) + s.speech(1) * 0.65)} />
             </Stage>
-            <Label t={s.t} at={s.at(1) + s.speech(1) * 0.75} x={960} y={170} text="never fits" colour="#F0A08A" out={s.at(2) + 20} />
+            <Label t={s.t} at={s.at(1) + s.speech(1) * 0.7} x={960} y={170} text="never fits" colour="#F0A08A" out={s.at(2) + 20} />
           </AbsoluteFill>
         );
       },
@@ -320,10 +320,10 @@ export default {
     // The heart: painted across the crease, it folds exactly onto itself.
     {
       beats: [
-        { who: "teller", say: "A fresh sheet. This time we paint a heart, right across the middle of the fold." },
-        { who: "teller", say: "Fold it over... and look how it lands. Every part of the heart lands exactly on itself.", sfxs: [{ sfx: "fold-fold", at: 0.8 }, { sfx: "fold-press", at: 2.2 }] },
-        { who: "teller", say: "That's called being symmetrical. So if you flip a heart, it looks exactly the same.", sfxs: [{ sfx: "fold-bell", at: 1.0, volume: 0.5 }] },
-        { who: "teller", say: "Flipping only shows up on shapes that aren't symmetrical. Shapes like flags, and L shapes. Those are the ones the exam uses.", sfxs: [{ sfx: "fold-unfold", at: 0.3, volume: 0.6 }] },
+        { who: "teller", say: "Here is a fresh sheet of paper. This time we paint a heart right across the middle, where the fold will be." },
+        { who: "teller", say: "We fold it over. Look at where the heart lands. Every part of the heart lands exactly on itself.", sfxs: [{ sfx: "fold-fold", at: 0.8 }, { sfx: "fold-press", at: 2.2 }] },
+        { who: "teller", say: "This means the heart is symmetrical. If you flip a heart, it looks exactly the same.", sfxs: [{ sfx: "fold-bell", at: 1.0, volume: 0.5 }] },
+        { who: "teller", say: "You can only see that a shape has been flipped if it is not symmetrical, like a flag or an L shape. The exam uses shapes like these.", sfxs: [{ sfx: "fold-unfold", at: 0.3, volume: 0.6 }] },
       ],
       render: s => {
         const paint = rise(s.t, 40, s.at(0) + 20);
@@ -349,7 +349,7 @@ export default {
         { who: "teller", say: "Your turn. Here are three shapes: an L, a circle, and a triangle. Which one would look different if it were flipped? Pause if you need more time.", hold: 6,
           sfxs: Array.from({ length: 6 }, (_, i) => ({ sfx: "tick", at: 9.3 + i, volume: 0.6 })) },
         { who: "teller", say: "Let's fold and see.", sfxs: [{ sfx: "fold-fold", at: 0.6 }, { sfx: "fold-press", at: 2.0 }, { sfx: "fold-unfold", at: 3.2 }] },
-        { who: "teller", say: "The circle and the triangle print exactly the same. They're symmetrical. But the L has turned the other way round. The L is the one that changes when it's flipped.", sfxs: [{ sfx: "fold-bell", at: 5.0, volume: 0.6 }] },
+        { who: "teller", say: "The circle and the triangle print exactly the same as before, because they are symmetrical. But the printed L faces the other way. The L is the one that looks different when it is flipped.", sfxs: [{ sfx: "fold-bell", at: 6.2, volume: 0.6 }] },
       ],
       render: s => {
         const f = foldCycle(s.t, s.at(1) + 10, 24);
@@ -364,11 +364,11 @@ export default {
           <AbsoluteFill>
             <Stage camera={s.t >= s.at(1) && s.t < s.at(2) ? [2.2, 3.6, 4.8] : [0, 6.0, 2.9]} look={[0, 0.15, 0]}>
               <Sheet fold={f} crease={print} right={right} left={left} />
-              <Ring px={-FX} pz={-0.95} r={0.5} opacity={rise(s.t, 20, s.at(2) + s.speech(2) * 0.6)} />
-              <Ring px={FX} pz={-0.95} r={0.5} opacity={rise(s.t, 20, s.at(2) + s.speech(2) * 0.6)} />
+              <Ring px={-FX} pz={-0.95} r={0.5} opacity={rise(s.t, 20, s.at(2) + s.speech(2) * 0.55)} />
+              <Ring px={FX} pz={-0.95} r={0.5} opacity={rise(s.t, 20, s.at(2) + s.speech(2) * 0.55)} />
             </Stage>
             <Countdown t={s.t} at={s.at(0) + s.speech(0)} seconds={6} />
-            <Label t={s.t} at={s.at(2) + s.speech(2) * 0.65} x={960} y={150} text="the L changes" colour={GOLD} />
+            <Label t={s.t} at={s.at(2) + s.speech(2) * 0.62} x={960} y={150} text="the L changes" colour={GOLD} />
           </AbsoluteFill>
         );
       },
@@ -377,9 +377,9 @@ export default {
     // Recap and close.
     {
       beats: [
-        { who: "teller", say: "So remember. A flip is a fold. Fold along a line, and you get the mirror image." },
+        { who: "teller", say: "So a flip is like a fold. If you fold a shape over a line, you get its mirror image." },
         { who: "teller", say: "Turning can never make a mirror image. And symmetrical shapes land on themselves, so flipping them changes nothing." },
-        { who: "teller", say: "Watch for flags, and L shapes, and arrows with a bend. When they face the other way, they've been flipped. And nothing gets past you.", sfxs: [{ sfx: "fold-bell", at: 6.0, volume: 0.6 }] },
+        { who: "teller", say: "Look out for shapes like flags, L shapes and bent arrows. If one of them faces the other way, it has been flipped. Well done.", sfxs: [{ sfx: "fold-bell", at: 6.0, volume: 0.6 }] },
       ],
       tail: 1.6,
       render: s => {
@@ -391,8 +391,8 @@ export default {
                 right={[{ kind: "flag", px: FX, size: 1.05 }]}
                 left={[{ kind: "flag", px: -FX, size: 1.05, mirror: true, colour: "#2A2733" }]} />
             </Stage>
-            <Title t={s.t} text="A flip is a fold" sub="turning never makes a mirror image" at={10} top={80} />
-            <Seal t={s.t} at={s.at(2) + s.speech(2) * 0.85} x={1620} y={800} />
+            <Title t={s.t} text="A flip is like a fold" sub="turning never makes a mirror image" at={10} top={80} />
+            <Seal t={s.t} at={s.at(2) + s.speech(2) * 0.9} x={1620} y={800} />
           </AbsoluteFill>
         );
       },

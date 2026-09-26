@@ -237,7 +237,7 @@ export default {
       next: "gate",
       beats: [
         { who: "herald", say: "Once upon a time, in a kingdom made of paper, there lived a reader called Pip.", sfxs: [{ sfx: "page", at: 0 }] },
-        { who: "herald", say: "Pip had read every book in the village. Every single one. And now Pip wanted more." },
+        { who: "herald", say: "Pip had read every single book in the village, and now Pip wanted more." },
         { who: "pip", say: "The Library Tower! It has a book for every question in the world." },
       ],
       render: s => (
@@ -263,7 +263,7 @@ export default {
       beats: [
         { who: "herald", say: "But the only way to the tower was across the castle bridge. And the bridge had a guard.", sfxs: [{ sfx: "page", at: 0 }] },
         { who: "ember", say: "Halt, little reader! Nobody crosses my bridge unless they answer my three riddles.", sfxs: [{ sfx: "roar", at: 0, volume: 0.5 }] },
-        { who: "pip", say: "Three riddles? I'm good at reading... but riddles? Will you help me? You can tap the answers on the page." },
+        { who: "pip", say: "Three riddles? I'm good at reading, but I'm not sure about riddles. Will you help me? You can tap the answers on the page." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -288,7 +288,7 @@ export default {
         ],
       },
       beats: [
-        { who: "ember", say: "Riddle number one! Look at the banners on my five towers. Four of them share a secret. One does not." },
+        { who: "ember", say: "Riddle number one! Look at the banners on my five towers. Four of them are the same in one way. One is different." },
         { who: "ember", say: "Which banner is the odd one out? Tap it!" },
       ],
       render: s => (
@@ -303,21 +303,21 @@ export default {
     {
       id: "r1-colour",
       returnTo: "riddle1",
-      beats: [{ who: "ember", say: "Hmm! That star is black, yes. But so is another one. Colour isn't the secret. Try counting the points on every star." }],
+      beats: [{ who: "ember", say: "That star is black, but another star is black too, so colour can't be the answer. Count the points on every star." }],
       render: s => <AbsoluteFill><Sky t={s.t} /><Castle t={s.t} banners={BANNERS} /><Dragon t={s.t} x={1680} y={900} scale={0.7} talking /></AbsoluteFill>,
     },
     {
       id: "r1-turn",
       returnTo: "riddle1",
-      beats: [{ who: "ember", say: "Ah, that one's only turned a little. Turning doesn't make a star different. Count the points on every star." }],
+      beats: [{ who: "ember", say: "That star is only turned a little. A turned star is still the same star. Count the points on every star." }],
       render: s => <AbsoluteFill><Sky t={s.t} /><Castle t={s.t} banners={BANNERS} /><Dragon t={s.t} x={1680} y={900} scale={0.7} talking /></AbsoluteFill>,
     },
     {
       id: "r1-yes",
       next: "riddle2",
       beats: [
-        { who: "ember", say: "Correct! Four stars have five points. The middle one has six. Nothing gets past you!", sfxs: [{ sfx: "fanfare", at: 0.2, volume: 0.7 }] },
-        { who: "pip", say: "We did it! One down, two to go." },
+        { who: "ember", say: "Correct! Four stars have five points, but the middle one has six.", sfxs: [{ sfx: "fanfare", at: 0.2, volume: 0.7 }] },
+        { who: "pip", say: "We did it! That's one riddle done, and two more to go." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -344,7 +344,7 @@ export default {
       },
       beats: [
         { who: "ember", say: "Riddle number two! To cross my moat, you need one more stepping stone." },
-        { who: "ember", say: "Look at the arrows. Left. Up. Right. Each stone turns the arrow a quarter turn, clockwise." },
+        { who: "ember", say: "Look at the arrows. They point left, then up, then right. On each stone, the arrow turns a quarter of the way round, clockwise." },
         { who: "ember", say: "Which stone comes next? Tap it!" },
       ],
       render: s => <StonesScene s={s} />,
@@ -352,21 +352,21 @@ export default {
     {
       id: "r2-right",
       returnTo: "riddle2",
-      beats: [{ who: "ember", say: "That arrow points right, and so did the last stone. It hasn't turned at all! One more quarter turn, clockwise." }],
+      beats: [{ who: "ember", say: "That arrow points right, the same as the last stone. It hasn't turned at all. The arrow needs one more quarter turn, clockwise." }],
       render: s => <StonesScene s={s} still />,
     },
     {
       id: "r2-up",
       returnTo: "riddle2",
-      beats: [{ who: "ember", say: "Up? That would be turning back the other way. Clockwise, like the hands of a clock. From right, the next turn is..." }],
+      beats: [{ who: "ember", say: "Pointing up would mean turning back the other way. Clockwise is the way the hands of a clock go round. Turn the arrow that way, starting from right." }],
       render: s => <StonesScene s={s} still />,
     },
     {
       id: "r2-yes",
       next: "riddle3",
       beats: [
-        { who: "ember", say: "Splendid! Left, up, right, down. A quarter turn every time.", sfxs: [{ sfx: "fanfare", at: 0.1, volume: 0.7 }, { sfx: "splash", at: 1.2, volume: 0.6 }] },
-        { who: "pip", say: "Two riddles! Just one more." },
+        { who: "ember", say: "Well done! The arrows go left, up, right, then down. Each one turns a quarter of the way round.", sfxs: [{ sfx: "fanfare", at: 0.1, volume: 0.7 }, { sfx: "splash", at: 1.2, volume: 0.6 }] },
+        { who: "pip", say: "That's two riddles done. Just one more." },
       ],
       render: s => <StonesScene s={s} placed />,
     },
@@ -380,7 +380,7 @@ export default {
         options: ANALOGY.map(a => ({ id: a.id, x: a.x - 130, y: 560, w: 260, h: 260, correct: a.correct, slip: a.correct ? undefined : `r3-${a.id}`, label: a.label })),
       },
       beats: [
-        { who: "ember", say: "Riddle number three, the hardest of all! My magic changes things." },
+        { who: "ember", say: "Riddle number three is the hardest of all. My magic changes shapes." },
         { who: "ember", say: "Watch. A small white circle... becomes a big black circle.", sfxs: [{ sfx: "magic", at: 1.6, volume: 0.6 }] },
         { who: "ember", say: "So what does the small white triangle become? Tap it!" },
       ],
@@ -389,20 +389,20 @@ export default {
     {
       id: "r3-bigwhite",
       returnTo: "riddle3",
-      beats: [{ who: "ember", say: "Bigger, yes! But my magic did two things. The circle grew, and it turned black. Do both!" }],
+      beats: [{ who: "ember", say: "That triangle is bigger, but it is still white. My magic did two things to the circle. It grew, and it turned black. The triangle needs both changes." }],
       render: s => <MagicScene s={s} still />,
     },
     {
       id: "r3-smallblack",
       returnTo: "riddle3",
-      beats: [{ who: "ember", say: "Black, yes! But my magic did two things. The circle turned black, and it grew. Do both!" }],
+      beats: [{ who: "ember", say: "That triangle is black, but it is still small. My magic did two things to the circle. It turned black, and it grew. The triangle needs both changes." }],
       render: s => <MagicScene s={s} still />,
     },
     {
       id: "r3-yes",
       next: "end",
       beats: [
-        { who: "ember", say: "Bigger and black! Both changes, just like the circle. You've answered all three!", sfxs: [{ sfx: "fanfare", at: 0.1, volume: 0.8 }] },
+        { who: "ember", say: "Yes, a big black triangle! It made both changes, just like the circle. You've answered all three riddles!", sfxs: [{ sfx: "fanfare", at: 0.1, volume: 0.8 }] },
       ],
       render: s => <MagicScene s={s} solved />,
     },
@@ -410,7 +410,7 @@ export default {
       id: "end",
       beats: [
         { who: "herald", say: "And so the dragon bowed low, and the great bridge came down.", sfxs: [{ sfx: "page", at: 0 }, { sfx: "drawbridge", at: 1.4, volume: 0.7 }] },
-        { who: "ember", say: "Go on, little reader. And tell them at the tower: nothing gets past you." },
+        { who: "ember", say: "Go on, little reader. Tell them at the tower that nothing gets past you." },
         { who: "pip", say: "Thank you, Ember. And thank you for helping me!" },
         { who: "herald", say: "The end. Or perhaps, just the beginning." },
       ],

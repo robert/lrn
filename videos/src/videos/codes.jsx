@@ -168,16 +168,16 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Codes. Every letter is a secret message, and you're going to crack them all.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Codes" strap="Every letter is a secret message." emblem="key" />,
+      beats: [{ say: "Codes. In these questions, each letter tells you one thing about a picture. Let's learn how to work out what the letters mean.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Picture puzzles" title="Codes" strap="Each letter tells you something about the picture." emblem="key" />,
     },
 
     // What the question asks.
     {
       beats: [
-        { say: "In a codes question, every figure comes with a secret code made of letters." },
-        { say: "Each letter stands for one thing about the figure. Its shape, maybe. Or its colour. Or which way it points." },
-        { say: "Your job is to crack what every letter means, then write the code for a new figure that doesn't have one yet." },
+        { say: "In a codes question, each figure has a code made of letters." },
+        { say: "Each letter stands for one thing about the figure, such as its shape, its colour or which way it points." },
+        { say: "You need to work out what each letter means. Then you write the code for a new figure that does not have one yet." },
       ],
       render: s => (
         <>
@@ -190,7 +190,7 @@ export default {
           <TestFigure s={s} shape={EX1.test} appearAt={s.at(2) + 16} />
           <Words x={TEST.x - 60} w={TEST.size + 120} y={TEST.y - 76} size={42} italic color={C.soft} align="center" appear={rise(s.t, 16, s.at(2) + 40)}>No code yet</Words>
           <Words x={1150} y={380} w={600} size={54} appear={rise(s.t, 20, s.at(2) + 60)}>
-            Crack each letter.<br />Then write the new code.
+            Work out each letter.<br />Then write the new code.
           </Words>
         </>
       ),
@@ -199,9 +199,9 @@ export default {
     // The golden rule.
     {
       beats: [
-        { say: "Here's the secret. Find two figures that share the same letter." },
-        { say: "Then ask yourself: what's the same about those two pictures? Whatever they share, that's what the letter means." },
-        { say: "And watch out. Some things change in the pictures but aren't in the code at all. Don't let them fool you." },
+        { say: "Start by finding two figures that have the same letter." },
+        { say: "Then look at what is the same about those two pictures. The thing they share is what the letter means." },
+        { say: "Be careful, though. Some things change between the pictures but are not part of the code at all, so you can ignore them." },
       ],
       render: s => (
         <>
@@ -215,7 +215,7 @@ export default {
             What they share is what it means.
           </Words>
           <Words x={210} w={1500} y={640} size={50} italic color={C.mud} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>
-            Some changes are only there to trick you.
+            Some changes are not part of the code.
           </Words>
         </>
       ),
@@ -224,15 +224,15 @@ export default {
     // Worked example 1.
     {
       beats: [
-        { say: "Let's try one. Three figures, each with a two letter code." },
+        { say: "Let's try one. Here are three figures, each with a two letter code." },
         { say: "Start with the first letters. Two figures share the letter K." },
-        { say: "What do those two pictures have in common? They're both triangles. So K means triangle." },
+        { say: "Both of those pictures are triangles, so K means triangle." },
         { say: "The other first letter is L, and that figure is a square. So L means square." },
         { say: "Now the second letters. The first and third figures both end in F, and they're both black. So F means black." },
-        { say: "Which leaves D, on the white triangle. D means white." },
+        { say: "That leaves D, which is on the white triangle. So D means white." },
         { say: "Now the new figure. It's a square, so its first letter is L. It's white, so its second letter is D." },
         { say: "L, D. That's answer c.", sfx: "chime", sfxAt: 0.2 },
-        { say: "Careful with answer d. D, L has the right letters, but in the wrong order. The shape letter always comes first." },
+        { say: "Be careful with answer d. D, L has the right letters, but they are in the wrong order. The shape letter always comes first." },
       ],
       render: s => {
         const glow = {};
@@ -241,10 +241,10 @@ export default {
         glow["21"] = window(s.t, s.at(4) + 10, s.at(5));
         glow["01"] = glow["21"];
         const keyRows = [
-          { letter: "K", meaning: "triangle", at: s.at(2) + s.speech(2) * 0.72 },
+          { letter: "K", meaning: "triangle", at: s.at(2) + s.speech(2) * 0.65 },
           { letter: "L", meaning: "square", at: s.at(3) + s.speech(3) * 0.7 },
           { letter: "F", meaning: "black", at: s.at(4) + s.speech(4) * 0.8 },
-          { letter: "D", meaning: "white", at: s.at(5) + s.speech(5) * 0.6 },
+          { letter: "D", meaning: "white", at: s.at(5) + s.speech(5) * 0.72 },
         ];
         return (
           <>
@@ -261,7 +261,7 @@ export default {
             <Options s={s} options={EX1.options} appearAt={s.at(6) + 10} correct={EX1.correct}
               sealAt={s.at(7) + 10} strikes={{ 3: s.at(8) + s.speech(8) * 0.3 }} />
             <Note x={OPTS.x + 3 * (OPTS.w + OPTS.gap) - 250} y={OPTS.y + 190} size={32} bg="#F3E9DF" color={C.mud}
-              appear={rise(s.t, 16, s.at(8) + s.speech(8) * 0.5)}>shape letter comes first</Note>
+              appear={rise(s.t, 16, s.at(8) + s.speech(8) * 0.55)}>shape letter comes first</Note>
           </>
         );
       },
@@ -270,12 +270,12 @@ export default {
     // Worked example 2: a trap, because size is not in the code.
     {
       beats: [
-        { say: "Here's a trickier one. These arrows point different ways, they have different lines, and they're different sizes." },
-        { say: "Figures one and three both start with P. Both arrows point up. But look, their sizes are different. So size can't be what P means. P means pointing up." },
+        { say: "This one is harder. The arrows point different ways, they have different lines and they are different sizes." },
+        { say: "Figures one and three both start with P, and both arrows point up. Their sizes are different, so P cannot mean a size. P means pointing up." },
         { say: "So Q, on the other arrow, means pointing down." },
-        { say: "Second letters. S is on both solid arrows, and T is on the dotted one. S means solid. T means dotted." },
-        { say: "The new arrow points down, so it starts with Q. It's dotted, so it ends with T. Q, T. Answer b.", sfx: "chime", sfxAt: 5.2 },
-        { say: "And its size? It doesn't matter at all. Size was never part of the code." },
+        { say: "Now the second letters. S is on both solid arrows, and T is on the dotted one. So S means solid and T means dotted." },
+        { say: "The new arrow points down, so it starts with Q. It's dotted, so it ends with T. The code is Q, T. That's answer b.", sfx: "chime", sfxAt: 5.6 },
+        { say: "The size of the new arrow does not matter, because size is not part of the code." },
       ],
       render: s => {
         const glow = {};
@@ -286,10 +286,10 @@ export default {
         const keyRows = [
           { letter: "P", meaning: "points up", at: s.at(1) + s.speech(1) * 0.86 },
           { letter: "Q", meaning: "points down", at: s.at(2) + s.speech(2) * 0.6 },
-          { letter: "S", meaning: "solid line", at: s.at(3) + s.speech(3) * 0.72 },
-          { letter: "T", meaning: "dotted line", at: s.at(3) + s.speech(3) * 0.92 },
+          { letter: "S", meaning: "solid line", at: s.at(3) + s.speech(3) * 0.71 },
+          { letter: "T", meaning: "dotted line", at: s.at(3) + s.speech(3) * 0.87 },
         ];
-        const sizeNote = window(s.t, s.at(1) + s.speech(1) * 0.38, s.at(2) + 10);
+        const sizeNote = window(s.t, s.at(1) + s.speech(1) * 0.47, s.at(2) + 10);
         return (
           <>
             <CodedColumn s={s} figures={EX2.figures} glowLetters={glow} />
@@ -298,7 +298,7 @@ export default {
             <Note x={COL.x + P + 150} y={COL.ys[1] + 30} size={32} bg="#F3E9DF" color={C.mud} appear={sizeNote}>different sizes, so not size</Note>
             <Key s={s} rows={keyRows} />
             <TestFigure s={s} shape={EX2.test} appearAt={s.at(4) - 6} built="QT"
-              buildAt={[s.at(4) + s.speech(4) * 0.3, s.at(4) + s.speech(4) * 0.62]} />
+              buildAt={[s.at(4) + s.speech(4) * 0.28, s.at(4) + s.speech(4) * 0.57]} />
             <Options s={s} options={EX2.options} appearAt={s.at(4)} correct={EX2.correct} sealAt={s.at(4) + s.speech(4) * 0.9} />
             <Note x={TEST.x - 20} y={TEST.y - 84} size={32} appear={rise(s.t, 16, s.at(5) + 20)}>size isn't in the code</Note>
           </>
@@ -309,14 +309,14 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Crack the code for the new figure. Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you get it? H means heart, and Y means a double line. So the answer is H, Y. That's d.", sfx: "chime", sfxAt: 4.4 },
+        { say: "Now it's your turn. Work out the code for the new figure. Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. H means heart, and Y means a double line. So the code is H, Y, which is answer d.", sfx: "chime", sfxAt: 4.9 },
       ],
       render: s => (
         <>
           <CodedColumn s={s} figures={TRY.figures} />
           <TestFigure s={s} shape={TRY.test} appearAt={20} built="HY"
-            buildAt={[s.at(1) + s.speech(1) * 0.2, s.at(1) + s.speech(1) * 0.45]} />
+            buildAt={[s.at(1) + s.speech(1) * 0.2, s.at(1) + s.speech(1) * 0.4]} />
           <Options s={s} options={TRY.options} appearAt={30} correct={TRY.correct} sealAt={s.at(1) + s.speech(1) * 0.8} />
           <div style={{ opacity: window(s.t, s.at(0) + s.speech(0), s.at(1)) }}>
             <Countdown x={KEY.x + 300} y={330} t={s.t} start={s.at(0) + s.speech(0)} seconds={6} size={170} />
@@ -329,16 +329,16 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, to crack any code." },
-        { say: "One. Find two figures that share a letter." },
-        { say: "Two. Spot what's the same about them. That's what the letter means." },
-        { say: "Three. Build the new code, one letter at a time." },
-        { say: "Four. Check the letters are in the right order." },
+        { say: "Here is how to work out any code." },
+        { say: "First, find two figures that share a letter." },
+        { say: "Next, look at what is the same about them. That is what the letter means." },
+        { say: "Then build the new code, one letter at a time." },
+        { say: "Last, check that the letters are in the right order." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={420} y={260} steps={[
           "Find two figures that share a letter.",
-          "Spot what's the same about them.",
+          "Look at what is the same about them.",
           "Build the new code, letter by letter.",
           "Check the order of the letters.",
         ]} />
@@ -347,9 +347,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Codes cracked. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to work out a code. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Cracked" strap="Nothing gets past you." emblem="eye" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Now you can work out any code." emblem="eye" />,
     },
   ],
 };

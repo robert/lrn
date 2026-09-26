@@ -276,9 +276,9 @@ export default {
     // Cold open: the museum at midnight.
     {
       beats: [
-        { who: "fox", say: "Midnight. The Grand Museum of Stories. And somewhere inside that old manuscript is the one thing we've come for." },
-        { who: "wren", say: "Gold? Diamonds?" },
-        { who: "fox", say: "Better. Evidence.", sfxs: [{ sfx: "heist-vault", at: 1.2, volume: 0.6 }] },
+        { who: "fox", say: "It's midnight at the Grand Museum of Stories. Somewhere inside that old book is the one thing we've come for." },
+        { who: "wren", say: "Is it gold? Or diamonds?" },
+        { who: "fox", say: "Even better. We've come for evidence.", sfxs: [{ sfx: "heist-vault", at: 2.1, volume: 0.6 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -295,9 +295,9 @@ export default {
     // The job: a question with no quote.
     {
       beats: [
-        { who: "fox", say: "Here's the job. A question with no quote in it. It doesn't tell us where to look." },
-        { who: "wren", say: "How do we know the Badger was about to go to bed? So where's the answer?" },
-        { who: "fox", say: "Hidden somewhere in the story. We have to steal the clue ourselves." },
+        { who: "fox", say: "This is our job. The question has no quote in it, so it doesn't tell us where to look." },
+        { who: "wren", say: "The question asks how we know the Badger was about to go to bed. So where do we look?" },
+        { who: "fox", say: "The answer is somewhere in the story. We have to find the clue ourselves." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -310,10 +310,10 @@ export default {
     // The plan of attack.
     {
       beats: [
-        { who: "fox", say: "The plan. Step one. Turn the question into clue words. What would going to bed look like?" },
-        { who: "wren", say: "Pyjamas! Slippers! A candle, or yawning, or a bedroom!" },
-        { who: "fox", say: "Step two. Sweep the story, paragraph by paragraph, hunting for those words." },
-        { who: "fox", say: "Step three. When you find the evidence, pick the answer that names it. Not the answer that just sounds likely." },
+        { who: "fox", say: "Here is the plan. First, turn the question into clue words. What would you see if someone was going to bed?" },
+        { who: "wren", say: "Pyjamas, slippers, a candle, yawning or a bedroom." },
+        { who: "fox", say: "Second, sweep the story with your torch, one paragraph at a time, looking for those words." },
+        { who: "fox", say: "Third, when you find the evidence, pick the answer that matches it. Don't pick an answer just because it sounds likely." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -321,8 +321,8 @@ export default {
           <Blueprint x={300} y={220} w={1320} title="PLAN OF ATTACK" appear={rise(s.t, 20, 4)} lines={[
             { text: "1.  TURN THE QUESTION INTO CLUE WORDS", show: rise(s.t, 14, s.speech(0) * 0.2) },
             { text: "      → slippers, candle, pyjamas, yawn, bedroom", show: rise(s.t, 14, s.at(1) + s.speech(1) * 0.3) },
-            { text: "2.  SWEEP THE STORY, PARAGRAPH BY PARAGRAPH", show: rise(s.t, 14, s.at(2) + s.speech(2) * 0.3) },
-            { text: "3.  PICK THE ANSWER THAT NAMES THE CLUE", show: rise(s.t, 14, s.at(3) + s.speech(3) * 0.3) },
+            { text: "2.  SWEEP THE STORY, ONE PARAGRAPH AT A TIME", show: rise(s.t, 14, s.at(2) + s.speech(2) * 0.3) },
+            { text: "3.  PICK THE ANSWER THAT MATCHES THE EVIDENCE", show: rise(s.t, 14, s.at(3) + s.speech(3) * 0.3) },
           ]} />
         </AbsoluteFill>
       ),
@@ -331,10 +331,10 @@ export default {
     // Heist one: sweep the paragraphs.
     {
       beats: [
-        { who: "wren", say: "Lasers off. Torch on.", sfxs: [{ sfx: "heist-laser", at: 0.2, volume: 0.6 }, { sfx: "heist-torch", at: 1.2, volume: 0.8 }] },
-        { who: "fox", say: "Paragraph one. A long snout and sleepy blinking eyes. Sleepy, that's a small clue. Keep going." },
-        { who: "fox", say: "Paragraph two. A long dressing-gown. Slippers. A flat candlestick in his paw." },
-        { who: "wren", say: "And there it is in plain words. He had probably been on his way to bed! That's our evidence.", sfxs: [{ sfx: "heist-click", at: 2.2 }] },
+        { who: "wren", say: "The lasers are off. Now switch on the torch.", sfxs: [{ sfx: "heist-laser", at: 0.2, volume: 0.6 }, { sfx: "heist-torch", at: 2.3, volume: 0.8 }] },
+        { who: "fox", say: "In paragraph one, he has a long snout and sleepy blinking eyes. Sleepy is a small clue. Let's keep going." },
+        { who: "fox", say: "In paragraph two, he wears a long dressing gown and slippers, and carries a flat candlestick in his paw." },
+        { who: "wren", say: "It says so in plain words. He had probably been on his way to bed. That's our evidence.", sfxs: [{ sfx: "heist-click", at: 2.2 }] },
       ],
       render: s => {
         const torch = s.t < s.at(1) ? null
@@ -345,9 +345,9 @@ export default {
           <AbsoluteFill>
             <Hall t={s.t} />
             <Manuscript t={s.t} paras={P1} lasers={1 - rise(s.t, 12, 12)} torch={torch} found={[
-              { p: 0, text: "sleepy blinking eyes", at: s.at(1) + s.speech(1) * 0.55 },
-              { p: 1, text: "long dressing-gown", at: s.at(2) + s.speech(2) * 0.2 },
-              { p: 1, text: "slippers", at: s.at(2) + s.speech(2) * 0.4 },
+              { p: 0, text: "sleepy blinking eyes", at: s.at(1) + s.speech(1) * 0.6 },
+              { p: 1, text: "long dressing-gown", at: s.at(2) + s.speech(2) * 0.25 },
+              { p: 1, text: "slippers", at: s.at(2) + s.speech(2) * 0.47 },
               { p: 1, text: "flat candlestick in his paw", at: s.at(2) + s.speech(2) * 0.7 },
               { p: 1, text: "had probably been on his way to bed", at: s.at(3) + s.speech(3) * 0.3 },
             ]} />
@@ -359,10 +359,10 @@ export default {
     // Crack the safe: the trap answer.
     {
       beats: [
-        { who: "fox", say: "Now, the safe. Four answers. Only one opens the door." },
-        { who: "wren", say: "A! He yawns and rubs his eyes. That sounds just right for bedtime!", sfxs: [{ sfx: "heist-alarm", at: 3.6, volume: 0.5 }] },
-        { who: "fox", say: "Alarm! Did anybody yawn in our paragraphs? No. It sounds likely, but it isn't in the story. That's the trap." },
-        { who: "fox", say: "C. He's in a dressing-gown and slippers, carrying a candle. That names our evidence.", sfxs: [{ sfx: "heist-click", at: 3.2 }, { sfx: "heist-click", at: 3.4 }, { sfx: "heist-vault", at: 3.8, volume: 0.8 }] },
+        { who: "fox", say: "Now for the safe. There are four answers, and only one of them opens the door." },
+        { who: "wren", say: "I choose A. He yawns and rubs his eyes. That sounds right for bedtime!", sfxs: [{ sfx: "heist-alarm", at: 3.8, volume: 0.5 }] },
+        { who: "fox", say: "That sets off the alarm! Nobody yawned in our paragraphs. It sounds likely, but it isn't in the story, so it's a trap." },
+        { who: "fox", say: "The answer is C. He's in a dressing gown and slippers, carrying a candle. That matches our evidence.", sfxs: [{ sfx: "heist-click", at: 4.0 }, { sfx: "heist-click", at: 4.2 }, { sfx: "heist-vault", at: 4.6, volume: 0.8 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -406,18 +406,18 @@ export default {
     // Getaway.
     {
       beats: [
-        { who: "fox", say: "Turn the question into clue words. Sweep the story. Pick the answer that names the evidence." },
-        { who: "wren", say: "And never trust an answer that just sounds likely. Nothing gets past us!" },
+        { who: "fox", say: "So, turn the question into clue words, then sweep the story paragraph by paragraph, then pick the answer that matches the evidence." },
+        { who: "wren", say: "And don't pick an answer just because it sounds likely. It has to be in the story." },
       ],
       tail: 1.5,
       render: s => (
         <AbsoluteFill>
           <Hall t={s.t} />
           <Blueprint x={460} y={220} w={1000} title="THE GETAWAY" appear={rise(s.t, 20, 4)} lines={[
-            { text: "✓  CLUE WORDS", show: rise(s.t, 14, s.speech(0) * 0.2) },
-            { text: "✓  SWEEP EVERY PARAGRAPH", show: rise(s.t, 14, s.speech(0) * 0.5) },
-            { text: "✓  NAME THE EVIDENCE", show: rise(s.t, 14, s.speech(0) * 0.8) },
-            { text: "✗  SOUNDS LIKELY ISN'T PROOF", show: rise(s.t, 14, s.at(1) + s.speech(1) * 0.2) },
+            { text: "✓  CLUE WORDS", show: rise(s.t, 14, s.speech(0) * 0.15) },
+            { text: "✓  SWEEP EVERY PARAGRAPH", show: rise(s.t, 14, s.speech(0) * 0.4) },
+            { text: "✓  MATCH THE EVIDENCE", show: rise(s.t, 14, s.speech(0) * 0.75) },
+            { text: "✗  SOUNDING LIKELY IS NOT ENOUGH", show: rise(s.t, 14, s.at(1) + s.speech(1) * 0.2) },
           ]} />
         </AbsoluteFill>
       ),

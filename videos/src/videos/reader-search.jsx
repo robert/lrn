@@ -28,16 +28,16 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Find the evidence. Some questions don't tell you where to look. You find the clue yourself, like a detective.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <LongTitleCard t={s.t} kicker="Mega Reader" title="Find the evidence" strap="Every answer leaves a clue." emblem="lens" size={150} />,
+      beats: [{ say: "Find the evidence. Some questions do not tell you where to look in the story, so you have to find the clue yourself.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <LongTitleCard t={s.t} kicker="Mega Reader" title="Find the evidence" strap="The right answer is backed up by the story." emblem="lens" size={150} />,
     },
 
     // What the question asks.
     {
       beats: [
-        { say: "Some questions don't quote any words at all. They just ask about something that happens, like this." },
-        { say: "There's no paragraph number, and no words to tap. You have to find the evidence yourself." },
-        { say: "But here's the good news. The right answer always names the clue that proves it. Find the clue, and you'll recognise the answer." },
+        { say: "Some questions do not quote any words at all. They just ask about something that happens, like this." },
+        { say: "There is no paragraph number and no quoted words. You have to find the evidence yourself." },
+        { say: "The right answer always mentions the clue that proves it. So if you find the clue, you will be able to spot the answer." },
       ],
       render: s => (
         <>
@@ -48,7 +48,7 @@ export default {
             <Emblem name="lens" size={96} />
           </div>
           <Words x={260} w={1400} y={570} size={54} italic align="center" color={C.soft} appear={rise(s.t, 20, s.at(2) + s.speech(2) * 0.55)}>
-            The right answer names the clue.
+            The right answer mentions the clue.
           </Words>
         </>
       ),
@@ -57,18 +57,18 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. Turn the question into clue words to hunt for." },
+        { say: "First, turn the question into clue words to look for." },
         { say: "Then scan the story, one paragraph at a time, until you find them." },
-        { say: "And choose the answer that names the clue you found. If it isn't in the story, it isn't the answer." },
+        { say: "Last, choose the answer that mentions the clue you found. If something is not in the story, it cannot be the answer." },
       ],
       render: s => (
         <>
           <div style={{ position: "absolute", left: 0, right: 0, top: 220, display: "flex", justifyContent: "center", opacity: rise(s.t, 18) }}>
             <Emblem name="lens" size={84} />
           </div>
-          <Words x={160} w={1600} y={340} size={70} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.35)}>Turn the question into clue words.</Words>
+          <Words x={160} w={1600} y={340} size={70} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.15)}>Turn the question into clue words.</Words>
           <Words x={160} w={1600} y={450} size={70} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>Scan paragraph by paragraph.</Words>
-          <Words x={160} w={1600} y={560} size={70} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>Pick the answer that names the clue.</Words>
+          <Words x={160} w={1600} y={560} size={70} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>Pick the answer that mentions the clue.</Words>
         </>
       ),
     },
@@ -77,11 +77,11 @@ export default {
     {
       beats: [
         { say: "Let's try one. How do we know the Badger was just about to go to bed when they rang?" },
-        { say: "First, turn it into clue words. What goes with bedtime? Night clothes. A candle. Sleepy eyes." },
-        { say: "Now scan. Paragraph two: a pair of sleepy blinking eyes. That's a clue!" },
-        { say: "Paragraph six? Nothing about bed. Keep going. Paragraph seven: a long dressing-gown, slippers, and a flat candlestick. He was on his way to bed!" },
-        { say: "Answer a names those clues: the dressing-gown, the slippers and the candle. That's the one.", sfx: "chime", sfxAt: 0.5 },
-        { say: "And watch out for d. He yawns sounds just right for a sleepy badger. But search the page. Nobody yawns! If it isn't in the story, it isn't the answer." },
+        { say: "First, turn it into clue words. Think of things that go with bedtime, such as night clothes, a candle and sleepy eyes." },
+        { say: "Now scan the story. Paragraph two has a pair of sleepy blinking eyes. That is one clue." },
+        { say: "Paragraph six has nothing about bed, so keep going. Paragraph seven has a long dressing-gown, slippers, and a flat candlestick. He was on his way to bed." },
+        { say: "Answer a mentions those clues, the dressing gown, the slippers and the candle. So a is the answer.", sfx: "chime", sfxAt: 0.5 },
+        { say: "Be careful with d. He yawns sounds right for a sleepy badger, but if you search the page, nobody yawns. It is not in the story, so it cannot be the answer." },
       ],
       render: s => {
         const scan2 = window(s.t, s.at(2), s.at(3) + 10);
@@ -90,11 +90,11 @@ export default {
         return (
           <>
             <ClueWords x={PAGE.x + 20} y={300} t={s.t} appear={1 - rise(s.t, 12, s.at(2))}
-              starts={[0.3, 0.52, 0.74].map(k => s.at(1) + s.speech(1) * k)}
+              starts={[0.64, 0.77, 0.88].map(k => s.at(1) + s.speech(1) * k)}
               words={["night clothes", "a candle", "sleepy eyes"]} />
             <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, s.at(2))} size={34}
               paras={[
-                { n: 2, text: P2, focus: scan2, marks: [{ text: "sleepy blinking eyes", at: s.at(2) + s.speech(2) * 0.5 }] },
+                { n: 2, text: P2, focus: scan2, marks: [{ text: "sleepy blinking eyes", at: s.at(2) + s.speech(2) * 0.55 }] },
                 { n: 6, text: P6, focus: scan6, dim: rise(s.t, 14, s.at(3) + s.speech(3) * 0.3) },
                 {
                   n: 7, text: P7, focus: scan7, marks: [
@@ -125,23 +125,23 @@ export default {
     // Example 2: the answers that sound right but aren't in the story.
     {
       beats: [
-        { say: "Here's a trickier one. Find the moment the Mole starts to really like the Badger. What makes him feel that way?" },
-        { say: "Clue words: like, friendly. Scan until you find them. Here! The Mole began to feel very friendly towards him." },
-        { say: "Now read what comes just before. Badger never said, I told you so. He didn't tell them off at all." },
-        { say: "Watch out for answer a. Telling them off, then giving them cake, sounds just like a grown-up. But look for cake in the story. There isn't any!" },
-        { say: "And b is sneaky. There is an arm-chair in the story, but it's Badger's own seat, not the Mole's." },
+        { say: "This one is harder. Find the moment the Mole starts to really like the Badger. What makes him feel that way?" },
+        { say: "The clue words are like and friendly. Scan until you find them. Here it is. The Mole began to feel very friendly towards him." },
+        { say: "Now read what comes just before. Badger never said, I told you so. He did not tell them off at all." },
+        { say: "Be careful with answer a. Telling them off and then giving them cake sounds like something a grown up might do. But if you look for cake in the story, there is none." },
+        { say: "Answer b is also a trap. There is an armchair in the story, but it is Badger's own seat, not the Mole's." },
         { say: "The answer is c. Badger listened, and never once said, I told you so.", sfx: "chime", sfxAt: 0.4 },
       ],
       render: s => (
         <>
           <ClueWords x={PAGE.x + 20} y={660} t={s.t} label="Clue words" words={["like", "friendly"]}
-            starts={[s.at(1) + s.speech(1) * 0.1, s.at(1) + s.speech(1) * 0.2]} />
+            starts={[s.at(1) + s.speech(1) * 0.14, s.at(1) + s.speech(1) * 0.22]} />
           <StoryPage x={PAGE.x} y={PAGE.y} w={PAGE.w} t={s.t} appear={rise(s.t, 20, s.at(1) - 6)} size={35}
             paras={[{
               n: 11, ellipsisBefore: true, text: P11, focus: rise(s.t, 12, s.at(1) + s.speech(1) * 0.4), marks: [
                 { text: "He sat in his arm-chair", kind: "underline", at: s.at(4) + s.speech(4) * 0.4 },
                 { text: "he never said, “I told you so,”", kind: "underline", at: s.at(2) + s.speech(2) * 0.4 },
-                { text: "The Mole began to feel very friendly towards him.", at: s.at(1) + s.speech(1) * 0.55 },
+                { text: "The Mole began to feel very friendly towards him.", at: s.at(1) + s.speech(1) * 0.6 },
               ],
             }]} />
           <Note x={PAGE.x + 40} y={760} size={36} bg="#F3E9DF" color={C.mud}
@@ -163,8 +163,8 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. Why is the Mole wide awake, when the Rat keeps dropping off? Find the evidence. Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you find it? He's an underground animal, so Badger's house made him feel at home. The answer is c. And strong coffee? It's not in the story!", sfx: "chime", sfxAt: 5.0 },
+        { say: "Now it's your turn. Why is the Mole wide awake, when the Rat keeps dropping off? Find the evidence. Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. He is an underground animal, so Badger's house made him feel at home. The answer is c. Answer a talks about strong coffee, but that is not in the story.", sfx: "chime", sfxAt: 5.2 },
       ],
       render: s => (
         <>
@@ -172,8 +172,8 @@ export default {
             paras={[{
               n: 12, text: P12, marks: [
                 { text: "quite wakeful and even lively", at: s.at(1) + s.speech(1) * 0.08 },
-                { text: "an underground animal", kind: "underline", at: s.at(1) + s.speech(1) * 0.2 },
-                { text: "made him feel at home", at: s.at(1) + s.speech(1) * 0.35 },
+                { text: "an underground animal", kind: "underline", at: s.at(1) + s.speech(1) * 0.18 },
+                { text: "made him feel at home", at: s.at(1) + s.speech(1) * 0.3 },
               ],
             }]} />
           <div style={{ opacity: window(s.t, s.at(0) + s.speech(0), s.at(1)) }}>
@@ -181,8 +181,8 @@ export default {
           </div>
           <AskCard {...Q} appear={rise(s.t, 18, 4)} text="Why is the Mole wide awake when the Rat keeps dropping off?" />
           <Choices size={31} x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={30} correct={2}
-            sealAt={s.at(1) + s.speech(1) * 0.55}
-            strikes={{ 0: s.at(1) + s.speech(1) * 0.85 }}
+            sealAt={s.at(1) + s.speech(1) * 0.52}
+            strikes={{ 0: s.at(1) + s.speech(1) * 0.66 }}
             options={[
               "He drank strong coffee at supper, so he feels jumpy.",
               "He is still scared of the Wild Wood, so he keeps watch.",
@@ -196,11 +196,11 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, whenever a question makes you hunt." },
-        { say: "One. Turn the question into clue words." },
-        { say: "Two. Scan the story, paragraph by paragraph." },
-        { say: "Three. Find the evidence." },
-        { say: "Four. Pick the answer that names your clue. If it isn't in the story, it isn't the answer." },
+        { say: "Here is what to do when a question does not tell you where to look." },
+        { say: "First, turn the question into clue words." },
+        { say: "Next, scan the story, paragraph by paragraph." },
+        { say: "Then find the evidence." },
+        { say: "Last, pick the answer that mentions your clue. If something is not in the story, it cannot be the answer." },
       ],
       render: s => (
         <>
@@ -211,7 +211,7 @@ export default {
             "Turn the question into clue words.",
             "Scan paragraph by paragraph.",
             "Find the evidence.",
-            "Pick the answer that names the clue.",
+            "Pick the answer that mentions the clue.",
           ]} />
         </>
       ),
@@ -219,9 +219,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Evidence found. Nothing gets past a Mega Reader.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to find the evidence in a story. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <LongTitleCard t={s.t} title="Evidence found" strap="Nothing gets past a Mega Reader." emblem="lens" size={160} />,
+      render: s => <LongTitleCard t={s.t} title="Well done" strap="The right answer is backed up by the story." emblem="lens" size={160} />,
     },
   ],
 };

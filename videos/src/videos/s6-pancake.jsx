@@ -172,7 +172,7 @@ export default {
   scenes: [
     {
       beats: [
-        { who: "cook", say: "Welcome to the kitchen table. Today we're making the most important move in the whole exam. The pancake flip!", sfxs: [{ sfx: "pancake-flip", at: 5.4 }] },
+        { who: "cook", say: "Welcome to the kitchen table. Today you will learn what it means when a shape is flipped. We call it the pancake flip!", sfxs: [{ sfx: "pancake-flip", at: 5.4 }] },
       ],
       render: s => {
         const orbit = s.t / 90;
@@ -189,8 +189,8 @@ export default {
     },
     {
       beats: [
-        { who: "cook", say: "Here are two paper flags. They look like twins. But are they really the same?" },
-        { who: "cook", say: "On a page, a shape can only do two things. It can slide, and it can spin. Like this.", sfxs: [{ sfx: "pancake-slide", at: 2.6, volume: 0.6 }] },
+        { who: "cook", say: "Here are two paper flags. They look the same. Let's find out if they really are." },
+        { who: "cook", say: "On a page, a shape can only move in two ways. It can slide along, and it can spin round, like this.", sfxs: [{ sfx: "pancake-slide", at: 2.6, volume: 0.6 }] },
       ],
       render: s => {
         const spin = rise(s.t, 60, s.at(1) + 40) * 90;
@@ -209,8 +209,8 @@ export default {
     },
     {
       beats: [
-        { who: "cook", say: "Let's try to make flag two fit exactly on top of flag one. Slide it over... and spin." },
-        { who: "cook", say: "Spin it a bit more. A bit more. All the way round!", sfxs: [{ sfx: "pancake-slide", at: 0.2, volume: 0.5 }] },
+        { who: "cook", say: "Let's try to make flag two fit exactly on top of flag one. We slide it over, and then we spin it." },
+        { who: "cook", say: "We keep spinning it a little more, all the way round.", sfxs: [{ sfx: "pancake-slide", at: 0.2, volume: 0.5 }] },
         { who: "cook", say: "However much it spins, it never fits. Its flag always points the wrong way." },
       ],
       render: s => {
@@ -229,9 +229,9 @@ export default {
     },
     {
       beats: [
-        { who: "cook", say: "But what if we pick it up... and turn it over. Like a pancake!", sfxs: [{ sfx: "pancake-flip", at: 2.6 }] },
+        { who: "cook", say: "So now let's pick it up, and then turn it over, like a pancake.", sfxs: [{ sfx: "pancake-flip", at: 2.6 }] },
         { who: "cook", say: "Now it fits perfectly.", sfxs: [{ sfx: "chime", at: 0.4, volume: 0.6 }] },
-        { who: "cook", say: "Flag two wasn't turned. It was flipped. Turned over, like a pancake. And that makes a mirror image." },
+        { who: "cook", say: "So flag two was not just turned round. It was flipped over, like a pancake. A flipped shape is a mirror image." },
       ],
       render: s => {
         const up = rise(s.t, 25, s.at(0) + s.speech(0) * 0.55);
@@ -251,8 +251,8 @@ export default {
     },
     {
       beats: [
-        { who: "cook", say: "Here's another way to see it. Stand a mirror next to flag one." },
-        { who: "cook", say: "Look at the flag in the mirror. It points the other way. Just like flag two. A mirror image is a flipped shape." },
+        { who: "cook", say: "There is another way to see this. Let's stand a mirror next to flag one." },
+        { who: "cook", say: "Look at the flag in the mirror. It points the other way, just like flag two. So a mirror image is the same as a flipped shape." },
       ],
       render: s => {
         const m = rise(s.t, 40, s.at(0) + 20);
@@ -274,7 +274,7 @@ export default {
     {
       beats: [
         { who: "cook", say: "In the exam, you can't pick shapes up. They stay flat on the page." },
-        { who: "cook", say: "So here's the rule. If a shape can be spun to match, it's only rotated. If it only matches after turning over, it's been flipped." },
+        { who: "cook", say: "So this is the rule. If you can spin a shape until it matches, it has only been rotated. If it only matches after you turn it over, it has been flipped." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -283,8 +283,8 @@ export default {
             <PaperFlag x={0} z={0.4} spin={90} />
             <PaperFlag x={3} z={0.4} flipped spin={30} />
           </Stage>
-          <Label t={s.t} at={s.at(1) + s.speech(1) * 0.3} x={620} y={180} text="spin to match: rotated" />
-          <Label t={s.t} at={s.at(1) + s.speech(1) * 0.75} x={1380} y={180} text="turn over: flipped" colour={GOLD} />
+          <Label t={s.t} at={s.at(1) + s.speech(1) * 0.25} x={620} y={180} text="spin to match: rotated" />
+          <Label t={s.t} at={s.at(1) + s.speech(1) * 0.8} x={1380} y={180} text="turn over: flipped" colour={GOLD} />
         </AbsoluteFill>
       ),
     },
@@ -292,7 +292,7 @@ export default {
       beats: [
         { who: "cook", say: "Your turn, chef! One of these three flags has been flipped. The other two are only spun. Which one is flipped? Pause if you need more time.", hold: 6,
           sfxs: Array.from({ length: 6 }, (_, i) => ({ sfx: "tick", at: 8.6 + i, volume: 0.8 })) },
-        { who: "cook", say: "The middle one! Watch. The others spin into place... but the middle one has to be flipped over.", sfxs: [{ sfx: "pancake-flip", at: 4.6 }, { sfx: "chime", at: 6.2, volume: 0.6 }] },
+        { who: "cook", say: "It's the middle one. Watch closely. The other two spin into place, but the middle one has to be flipped over.", sfxs: [{ sfx: "pancake-flip", at: 4.6 }, { sfx: "chime", at: 6.2, volume: 0.6 }] },
       ],
       render: s => {
         const reveal = s.t >= s.at(1);
@@ -315,7 +315,7 @@ export default {
     },
     {
       beats: [
-        { who: "cook", say: "Spun is rotated. Turned over is flipped. Nothing gets past you, chef!", sfxs: [{ sfx: "pancake-flip", at: 3.4 }, { sfx: "chime", at: 4.6, volume: 0.7 }] },
+        { who: "cook", say: "If it spins to match, it's rotated. If you turn it over, it's flipped. Well done, chef!", sfxs: [{ sfx: "pancake-flip", at: 4.2 }, { sfx: "chime", at: 5.4, volume: 0.7 }] },
       ],
       tail: 1.5,
       render: s => {
@@ -325,7 +325,7 @@ export default {
             <Stage camera={[Math.sin(s.t / 80) * 6, 4.5, Math.cos(s.t / 80) * 6]}>
               <PaperFlag x={0} z={0} flip={hop * 2} lift={Math.sin(hop * Math.PI) * 2} />
             </Stage>
-            <Title t={s.t} text="Nothing gets past you" sub="spun is rotated, turned over is flipped" at={20} />
+            <Title t={s.t} text="Well done, chef" sub="spun is rotated, turned over is flipped" at={20} />
           </AbsoluteFill>
         );
       },

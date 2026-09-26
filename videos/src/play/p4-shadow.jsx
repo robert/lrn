@@ -206,7 +206,7 @@ const Q2 = {
   options: [
     "That he is silly for wearing new goloshes.",
     "That something dangerous is coming, so run!",
-    "That the rabbit wants the Mole’s burrow.",
+    "That the rabbit wants to take the Mole’s burrow.",
   ],
 };
 const Q3 = {
@@ -214,7 +214,7 @@ const Q3 = {
   options: [
     "The quickest way home to the river bank.",
     "That the faces were only funguses on stumps.",
-    "That the Wild Wood really is dangerous for a small animal alone.",
+    "That the Wild Wood is dangerous for him.",
   ],
 };
 
@@ -242,7 +242,7 @@ export default {
       id: "open",
       next: "enter",
       beats: [
-        { who: "host", say: "A story you already know, told in shadows. Listen, and watch closely. There will be questions." },
+        { who: "host", say: "This is a story you have already read, told with shadow puppets. Listen and watch carefully, because there will be some questions." },
       ],
       render: s => (
         <AbsoluteFill>
@@ -293,20 +293,20 @@ export default {
     {
       id: "q1",
       choice: { prompt: "Tap the best answer", next: "faces", options: cardSpots(0, [undefined, "q1-slip", "q1-slip"]) },
-      beats: [{ who: "host", say: "A question. Why is “Then the faces began” a paragraph all on its own? Tap the best answer." }],
+      beats: [{ who: "host", say: "Here is a question. Why is “Then the faces began” a paragraph all on its own? Tap the best answer." }],
       render: s => <Question t={s.t} {...Q1} />,
     },
     {
       id: "q1-slip",
       returnTo: "q1",
-      beats: [{ who: "host", say: "Try reading it aloud. Four short words, standing alone after a long, slow paragraph. How does that make you feel?" }],
+      beats: [{ who: "host", say: "Try reading it aloud. It is just four short words on their own, after a long, slow paragraph. How does that make you feel?" }],
       render: s => <Question t={s.t} {...Q1} instant />,
     },
     {
       id: "faces",
       next: "whistle",
       beats: [
-        { who: "host", say: "Yes. A short line all alone feels like a sudden gasp. Now, back to the wood.", sfxs: [{ sfx: "shadow-chime", at: 0 }] },
+        { who: "host", say: "Yes. A short line on its own feels sudden, like a gasp. Now let's go back to the wood.", sfxs: [{ sfx: "shadow-chime", at: 0 }] },
         { who: "teller", say: "It was over his shoulder, and indistinctly, that he first thought he saw a face; a little evil wedge-shaped face, looking out at him from a hole. When he turned and confronted it, the thing had vanished." },
         { who: "teller", say: "Then suddenly, and as if it had been so all the time, every hole, far and near, and there were hundreds of them, seemed to possess its face, coming and going rapidly, all fixing on him glances of malice and hatred: all hard-eyed and evil and sharp." },
       ],
@@ -352,7 +352,7 @@ export default {
     {
       id: "q2",
       choice: { prompt: "Tap the best answer", next: "terror", options: cardSpots(1, ["q2-slip", undefined, "q2-slip"]) },
-      beats: [{ who: "host", say: "Another question. The rabbit says, get out of this, you fool, get out! What is he really telling the Mole?" }],
+      beats: [{ who: "host", say: "Here is another question. The rabbit says, get out of this, you fool, get out! What is he really telling the Mole?" }],
       render: s => <Question t={s.t} {...Q2} />,
     },
     {
@@ -394,20 +394,20 @@ export default {
     {
       id: "q3",
       choice: { prompt: "Tap the best answer", next: "end", options: cardSpots(2, ["q3-slip", "q3-slip", undefined]) },
-      beats: [{ who: "host", say: "Last question. At the end, the Mole knew it at last. What did he know?" }],
+      beats: [{ who: "host", say: "Here is the last question. At the end, the Mole knew it at last. What did he know?" }],
       render: s => <Question t={s.t} {...Q3} />,
     },
     {
       id: "q3-slip",
       returnTo: "q3",
-      beats: [{ who: "host", say: "Think back. What had the Rat tried to warn him about, before he ever set off? The Mole didn't believe it. Until now." }],
+      beats: [{ who: "host", say: "Think back. Before the Mole set off, what had the Rat tried to warn him about? The Mole didn't believe it then, but he does now." }],
       render: s => <Question t={s.t} {...Q3} instant />,
     },
     {
       id: "end",
       beats: [
-        { who: "host", say: "Exactly. The Wild Wood really is dangerous for a small animal on his own, just as the Rat had warned.", sfxs: [{ sfx: "shadow-chime", at: 0 }] },
-        { who: "host", say: "You read between the lines, three times out of three. A true Mega Reader. And what happens next? You already know. Or you soon will." },
+        { who: "host", say: "That's right. The Wild Wood really is dangerous for a small animal on his own, just as the Rat had warned.", sfxs: [{ sfx: "shadow-chime", at: 0 }] },
+        { who: "host", say: "You worked out what the story really meant all three times. Well done. You may already know what happens next, or you will soon find out." },
       ],
       render: s => (
         <AbsoluteFill>

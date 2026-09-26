@@ -243,9 +243,9 @@ export default {
       id: "open",
       next: "r1-look",
       beats: [
-        { who: "narrator", say: "Shape City. Midnight. The Shape Museum is locked up tight...", sfxs: [{ sfx: "comic-swish", at: 0 }] },
+        { who: "narrator", say: "It is midnight in Shape City, and the Shape Museum is locked up tight.", sfxs: [{ sfx: "comic-swish", at: 0 }] },
         { who: "villain", say: "Heh heh heh. Nobody will ever notice my little changes. I am the Switcheroo!", sfxs: [{ sfx: "comic-sneak", at: 0 }] },
-        { who: "hero", say: "Not so fast, Switcheroo! Nothing gets past Captain Sharp-Eye. Or my sidekick. That's you, reader!", sfxs: [{ sfx: "comic-whoosh", at: 0.2 }] },
+        { who: "hero", say: "Not so fast, Switcheroo! Nothing gets past Captain Sharp-Eye, or my sidekick. That's you, reader!", sfxs: [{ sfx: "comic-whoosh", at: 0.2 }] },
       ],
       render: s => (
         <AbsoluteFill>
@@ -271,8 +271,8 @@ export default {
       id: "r1-look",
       next: "r1-spot",
       beats: [
-        { who: "narrator", say: "Exhibit one. Before the Switcheroo struck... and after.", sfxs: [{ sfx: "comic-swish", at: 0 }] },
-        { who: "hero", say: "Something's different in the after picture. Compare them, shape by shape." },
+        { who: "narrator", say: "Here is exhibit one. The left picture shows it before the Switcheroo came, and the right picture shows it after.", sfxs: [{ sfx: "comic-swish", at: 0 }] },
+        { who: "hero", say: "Something is different in the after picture. Compare the two pictures one shape at a time." },
       ],
       render: s => <AbsoluteFill><Page /><TwoPanels t={s.t} round={R1} /><Caption t={s.t} at={4} x={150} y={60} text="EXHIBIT ONE" size={52} /></AbsoluteFill>,
     },
@@ -291,21 +291,21 @@ export default {
       id: "r1-what",
       choice: { prompt: "Tap what the Switcheroo changed", next: "r1-kapow", options: badgeSpots(R1.attr, () => "r1-notthat") },
       beats: [
-        { who: "hero", say: "The star! Great spotting. Now, which of the twelve things did he change? Its shape? Its size? Something else?", sfxs: [{ sfx: "comic-ding", at: 0 }] },
+        { who: "hero", say: "Yes, it's the star. Now, which of the twelve things did he change about it? Was it the shape, the size, or something else?", sfxs: [{ sfx: "comic-ding", at: 0 }] },
       ],
       render: s => <AbsoluteFill><Page tint="#FFF6DD" /><Caption t={s.t} at={4} x={180} y={120} text="WHAT CHANGED? THE TWELVE THINGS" size={48} /><Badges t={s.t} at={10} /></AbsoluteFill>,
     },
     {
       id: "r1-notthat",
       returnTo: "r1-what",
-      beats: [{ who: "dot", say: "Beep boop. Still a star, still the same size, still in the same place. But look at the inside of it..." }],
+      beats: [{ who: "dot", say: "Beep boop. It is still a star, it is the same size, and it is in the same place. Now look at the inside of the star." }],
       render: s => <AbsoluteFill><Page /><TwoPanels t={s.t} at={-40} round={R1} highlight={R1.changed} /></AbsoluteFill>,
     },
     {
       id: "r1-kapow",
       next: "r2-look",
       beats: [
-        { who: "hero", say: "Shading! It was black, and now it's striped. One nil to us!", sfxs: [{ sfx: "comic-kapow", at: 0.1 }] },
+        { who: "hero", say: "It was the shading! The star was black, and now it's striped. One nil to us!", sfxs: [{ sfx: "comic-kapow", at: 0.1 }] },
         { who: "villain", say: "Curses! A lucky guess. Let's see you spot the next one..." },
       ],
       render: s => (
@@ -338,7 +338,7 @@ export default {
     {
       id: "r2-what",
       choice: { prompt: "Tap what the Switcheroo changed", next: "r2-kapow", options: badgeSpots(R2.attr, i => (i === 4 ? "r2-turned" : "r2-notthat")) },
-      beats: [{ who: "hero", say: "The flag! Now, careful. What exactly did he do to it?", sfxs: [{ sfx: "comic-ding", at: 0 }] }],
+      beats: [{ who: "hero", say: "Yes, it's the flag. Be careful with this one. What exactly did he do to it?", sfxs: [{ sfx: "comic-ding", at: 0 }] }],
       render: s => <AbsoluteFill><Page tint="#FFF6DD" /><Caption t={s.t} at={4} x={180} y={120} text="WHAT CHANGED? THE TWELVE THINGS" size={48} /><Badges t={s.t} at={10} /></AbsoluteFill>,
     },
     {
@@ -346,21 +346,21 @@ export default {
       returnTo: "r2-what",
       beats: [
         { who: "villain", say: "Ha! You think I turned it? Try turning it back, then. Round and round and round..." },
-        { who: "dot", say: "Beep! No turn ever matches. The flag is facing the other way, like in a mirror." },
+        { who: "dot", say: "Beep! However far you turn the flag, it will never match. It is facing the other way, like a reflection in a mirror." },
       ],
       render: s => <AbsoluteFill><Page /><TwoPanels t={s.t} at={-40} round={R2} highlight={R2.changed} /><Villain t={s.t} x={960} y={900} scale={0.45} /></AbsoluteFill>,
     },
     {
       id: "r2-notthat",
       returnTo: "r2-what",
-      beats: [{ who: "dot", say: "Beep boop. Same shape, same size, same shading, same place. But which way is the flag facing?" }],
+      beats: [{ who: "dot", say: "Beep boop. The shape, the size, the shading and the place are all the same. Look at which way the flag is facing." }],
       render: s => <AbsoluteFill><Page /><TwoPanels t={s.t} at={-40} round={R2} highlight={R2.changed} /></AbsoluteFill>,
     },
     {
       id: "r2-kapow",
       next: "r3-look",
       beats: [
-        { who: "hero", say: "Flipped! A mirror image. Not turned, flipped! Two nil!", sfxs: [{ sfx: "comic-kapow", at: 0.1 }] },
+        { who: "hero", say: "It was flipped, so now the flag is a mirror image. Turning the flag could never do that. Two nil to us!", sfxs: [{ sfx: "comic-kapow", at: 0.1 }] },
         { who: "villain", say: "Grr! Right, reader. My final trick. You'll never see this one coming." },
       ],
       render: s => (
@@ -375,8 +375,8 @@ export default {
       id: "r3-look",
       next: "r3-what",
       beats: [
-        { who: "narrator", say: "Exhibit three. A triangle and a square, leaning on each other...", sfxs: [{ sfx: "comic-swish", at: 0 }] },
-        { who: "hero", say: "Both shapes are still there. Same size, same shading. So what's he done?" },
+        { who: "narrator", say: "Here is exhibit three. A triangle and a square are leaning on each other.", sfxs: [{ sfx: "comic-swish", at: 0 }] },
+        { who: "hero", say: "Both shapes are still there, with the same size and the same shading. So what has he changed?" },
       ],
       render: s => (
         <AbsoluteFill><Page />
@@ -395,7 +395,7 @@ export default {
     {
       id: "r3-notthat",
       returnTo: "r3-what",
-      beats: [{ who: "dot", say: "Beep! Look at where they overlap. Before, which shape was on top? And after?" }],
+      beats: [{ who: "dot", say: "Beep! Look at where the two shapes overlap. Which shape was on top before? Which shape is on top after?" }],
       render: s => (
         <AbsoluteFill><Page />
           <OverlapPanel t={s.t} at={-40} box={BEFORE} label="BEFORE" colour={K.cyan} front="triangle" />
@@ -407,7 +407,7 @@ export default {
       id: "r3-kapow",
       next: "end",
       beats: [
-        { who: "hero", say: "In front or behind! The triangle was in front of the square. Now it's hiding behind it!", sfxs: [{ sfx: "comic-kapow", at: 0.1 }] },
+        { who: "hero", say: "It was in front or behind! The triangle was in front of the square, and now it is behind the square.", sfxs: [{ sfx: "comic-kapow", at: 0.1 }] },
       ],
       render: s => (
         <AbsoluteFill><Page />
@@ -422,7 +422,7 @@ export default {
       beats: [
         { who: "narrator", say: "And so, the Switcheroo was caught red-handed.", sfxs: [{ sfx: "comic-kapow", at: 0.4 }] },
         { who: "villain", say: "Foiled! By a kid with sharp eyes!" },
-        { who: "hero", say: "Twelve things can change, Switcheroo. And we check every single one. Nothing gets past us!" },
+        { who: "hero", say: "There are twelve things that can change, Switcheroo, and we check every one of them. Nothing gets past us!" },
         { who: "dot", say: "Beep beep! The end!" },
       ],
       render: s => (

@@ -351,7 +351,7 @@ export default {
     {
       beats: [
         { who: "bella", say: "Hello, and welcome to the Great Balance Bake-Off!", sfxs: [{ sfx: "bakeoff-fanfare", at: 1.6, volume: 0.7 }] },
-        { who: "bertie", say: "Where today's bakers won't need an oven. Just their brains!" },
+        { who: "bertie", say: "Today's bakers won't need an oven. They will just need their brains!" },
       ],
       render: s => (
         <AbsoluteFill>
@@ -364,8 +364,8 @@ export default {
     // What a balancing puzzle is.
     {
       beats: [
-        { who: "bella", say: "Here's how a balancing puzzle works. First, you're told which bakes weigh the same as each other." },
-        { who: "bertie", say: "Two cupcakes weigh the same as one doughnut, that sort of thing. See? The scales are perfectly level.", sfxs: [settle(0.2)] },
+        { who: "bella", say: "This is how a balancing puzzle works. First, you're told which bakes weigh the same as each other." },
+        { who: "bertie", say: "Two cupcakes weigh the same as one doughnut, for example. The scales are perfectly level.", sfxs: [settle(0.2)] },
         { who: "bella", say: "Then you're asked about two bakes that have never been on the scales together." },
       ],
       render: s => (
@@ -385,14 +385,14 @@ export default {
     // The secret recipe.
     {
       beats: [
-        { who: "bertie", say: "So what's the secret ingredient?" },
-        { who: "bella", say: "Swapping! Put the bake on the scales, then swap it for the things it weighs the same as." },
-        { who: "bella", say: "Keep swapping, until everything on the scales is the same kind of bake. Then just count them." },
+        { who: "bertie", say: "So how do we solve it?" },
+        { who: "bella", say: "We swap. Put the bake on the scales, then swap it for the things it weighs the same as." },
+        { who: "bella", say: "Keep swapping until everything on the scales is the same kind of bake. Then just count them." },
       ],
       render: s => (
         <AbsoluteFill>
           <Tent t={s.t} />
-          <RecipeCard t={s.t} x={560} y={290} w={800} title="Secret recipe" appear={rise(s.t, 20, 6)} lines={[
+          <RecipeCard t={s.t} x={560} y={290} w={800} title="The recipe" appear={rise(s.t, 20, 6)} lines={[
             { content: "1.  Put the bake on the scales.", show: rise(s.t, 14, s.at(1) + s.speech(1) * 0.2) },
             { content: "2.  Swap it for what it weighs the same as.", show: rise(s.t, 14, s.at(1) + s.speech(1) * 0.55) },
             { content: "3.  Keep swapping till they're all the same.", show: rise(s.t, 14, s.at(2) + s.speech(2) * 0.2) },
@@ -405,10 +405,10 @@ export default {
     // Bake one: two steps.
     {
       beats: [
-        { who: "bella", say: "Our first bake. Two cupcakes weigh the same as one doughnut. And two doughnuts weigh the same as one pie." },
+        { who: "bella", say: "Here is our first bake. Two cupcakes weigh the same as one doughnut. And two doughnuts weigh the same as one pie." },
         { who: "bella", say: "How many cupcakes weigh the same as a pie?" },
         { who: "bertie", say: "Pop the pie on one side. We know it balances two doughnuts.", sfxs: [settle(2.8)] },
-        { who: "bella", say: "Now swap each doughnut for two cupcakes. One doughnut, two cupcakes. The other doughnut, two more.", sfxs: [...plop(3.2, 2), ...plop(5.2, 2), settle(5.6)] },
+        { who: "bella", say: "Now swap each doughnut for two cupcakes. The first doughnut becomes two cupcakes. So does the other one.", sfxs: [...plop(4.0, 2), ...plop(6.0, 2), settle(6.4)] },
         { who: "bertie", say: "Still perfectly level! So one pie weighs the same as four cupcakes.", sfxs: [{ sfx: "bakeoff-ding", at: 3.6, volume: 0.7 }] },
       ],
       render: s => {
@@ -416,8 +416,8 @@ export default {
           { at: 0, left: [], right: [] },
           { at: s.at(2) + s.speech(2) * 0.25, left: ["pie"], right: [] },
           { at: s.at(2) + s.speech(2) * 0.7, left: ["pie"], right: rep("doughnut", 2), balanced: true },
-          { at: s.at(3) + s.speech(3) * 0.55, left: ["pie"], right: ["doughnut", "cupcake", "cupcake"], balanced: true },
-          { at: s.at(3) + s.speech(3) * 0.88, left: ["pie"], right: rep("cupcake", 4), balanced: true },
+          { at: s.at(3) + s.speech(3) * 0.6, left: ["pie"], right: ["doughnut", "cupcake", "cupcake"], balanced: true },
+          { at: s.at(3) + s.speech(3) * 0.9, left: ["pie"], right: rep("cupcake", 4), balanced: true },
         ];
         return (
           <AbsoluteFill>
@@ -438,13 +438,13 @@ export default {
     // Bake two: "half as much", and the trap.
     {
       beats: [
-        { who: "bella", say: "A trickier bake. One pie weighs the same as three doughnuts. And a cupcake weighs half as much as a doughnut." },
+        { who: "bella", say: "This bake is trickier. One pie weighs the same as three doughnuts. And a cupcake weighs half as much as a doughnut." },
         { who: "bella", say: "How many cupcakes weigh the same as the pie?" },
-        { who: "bertie", say: "Half as much? Easy! Halve the three. One and a half cupcakes!", sfxs: [settle(2.8)] },
-        { who: "bella", say: "Oh, Bertie. Look at the scales. The pie crashes down! One and a half cupcakes is far too light." },
-        { who: "bella", say: "If cupcakes are lighter, you need more of them, not fewer. Half as much means two cupcakes for every doughnut." },
+        { who: "bertie", say: "Half as much means I halve the three. So that's one and a half cupcakes!", sfxs: [settle(3.4)] },
+        { who: "bella", say: "Oh, Bertie, look at the scales. The pie side crashes down. One and a half cupcakes is far too light." },
+        { who: "bella", say: "A cupcake is lighter than a doughnut, so you need more cupcakes to make the same weight. Half as much means two cupcakes weigh the same as one doughnut." },
         { who: "bertie", say: "So each of the three doughnuts becomes two cupcakes. Two, four, six!", sfxs: [...plop(2.6, 2), ...plop(3.4, 2), ...plop(4.2, 2), settle(4.8)] },
-        { who: "bella", say: "Level again. The pie weighs the same as six cupcakes!", sfxs: [{ sfx: "bakeoff-ding", at: 2.4, volume: 0.7 }] },
+        { who: "bella", say: "The scales are level again. The pie weighs the same as six cupcakes!", sfxs: [{ sfx: "bakeoff-ding", at: 3.2, volume: 0.7 }] },
       ],
       render: s => {
         const states = [
@@ -465,9 +465,9 @@ export default {
             ]} />
             <Scales t={s.t} states={states} />
             {s.t < s.at(5) && <Answer t={s.t} at={s.at(2) + s.speech(2) * 0.8} y={880} bad>
-              1½ <Mini kind="cupcake" size={52} /> ? Far too light!
+              1½ <Mini kind="cupcake" size={52} /> is far too light!
             </Answer>}
-            {s.t >= s.at(5) && <Answer t={s.t} at={s.at(6) + s.speech(6) * 0.4} y={880}>1 <Mini kind="pie" size={52} /> = 6 <Mini kind="cupcake" size={52} /></Answer>}
+            {s.t >= s.at(5) && <Answer t={s.t} at={s.at(6) + s.speech(6) * 0.5} y={880}>1 <Mini kind="pie" size={52} /> = 6 <Mini kind="cupcake" size={52} /></Answer>}
           </AbsoluteFill>
         );
       },
@@ -479,12 +479,12 @@ export default {
         { who: "bertie", say: "Now it's your technical challenge! Two cookies weigh the same as one cupcake. Three cupcakes weigh the same as one cake." },
         { who: "bella", say: "How many cookies weigh the same as the cake? Your time starts... now! Pause if you need longer.", voice: "How many cookies weigh the same as the cake? Your time starts, now! Pause if you need longer.", hold: 6,
           sfxs: Array.from({ length: 6 }, (_, i) => ({ sfx: "bakeoff-tick", at: 4.6 + i, volume: 0.9 })) },
-        { who: "bella", say: "The cake is three cupcakes. And each cupcake is two cookies. Two, four, six cookies!", sfxs: [{ sfx: "bakeoff-ding", at: 0, volume: 0.8 }, settle(4.4)] },
+        { who: "bella", say: "The cake weighs the same as three cupcakes. Each cupcake weighs the same as two cookies. So that's two, four, six cookies!", sfxs: [{ sfx: "bakeoff-ding", at: 0, volume: 0.8 }, settle(6.5)] },
       ],
       render: s => {
         const states = [
           { at: 0, left: ["cake"], right: [] },
-          { at: s.at(2) + s.speech(2) * 0.2, left: ["cake"], right: rep("cupcake", 3), balanced: true },
+          { at: s.at(2) + s.speech(2) * 0.3, left: ["cake"], right: rep("cupcake", 3), balanced: true },
           { at: s.at(2) + s.speech(2) * 0.8, left: ["cake"], right: rep("cookie", 6), balanced: true },
         ];
         return (
@@ -496,7 +496,7 @@ export default {
             ]} />
             <Scales t={s.t} states={states} appear={rise(s.t, 20, 10)} />
             <OvenTimer t={s.t} at={s.at(1) + s.speech(1) * 0.55} seconds={6} />
-            <Answer t={s.t} at={s.at(2) + s.speech(2) * 0.85} y={880}>1 <Mini kind="cake" size={52} /> = 6 <Mini kind="cookie" size={52} /></Answer>
+            <Answer t={s.t} at={s.at(2) + s.speech(2) * 0.9} y={880}>1 <Mini kind="cake" size={52} /> = 6 <Mini kind="cookie" size={52} /></Answer>
           </AbsoluteFill>
         );
       },
@@ -505,19 +505,19 @@ export default {
     // Judging and recap.
     {
       beats: [
-        { who: "judge", say: "Balanced, precise, and not a crumb out of place. That, my dears, is a perfect bake!", sfxs: [{ sfx: "bakeoff-fanfare", at: 3.4, volume: 0.8 }] },
-        { who: "bella", say: "Remember the recipe. Swap each bake for what it weighs the same as, until they're all the same." },
-        { who: "bertie", say: "And if the new bakes are lighter, you need more of them! Nothing gets past you." },
+        { who: "judge", say: "Every bake is balanced, and not a crumb is out of place. That, my dears, is a perfect bake!", sfxs: [{ sfx: "bakeoff-fanfare", at: 3.4, volume: 0.8 }] },
+        { who: "bella", say: "To solve these puzzles, swap each bake for what it weighs the same as. Keep going until they are all the same kind." },
+        { who: "bertie", say: "And if the new bakes are lighter, you need more of them." },
       ],
       tail: 1.5,
       render: s => (
         <AbsoluteFill>
           <Tent t={s.t} />
           <Rosette t={s.t} at={s.at(0) + s.speech(0) * 0.7} />
-          <RecipeCard t={s.t} x={1150} y={330} w={620} title="Remember" appear={rise(s.t, 18, s.at(1))} lines={[
+          <RecipeCard t={s.t} x={1150} y={330} w={620} title="The recipe" appear={rise(s.t, 18, s.at(1))} lines={[
             { content: "Swap each bake for its equal." },
             { content: "Keep going till they all match." },
-            { content: "Lighter bakes? You need more!", show: rise(s.t, 14, s.at(2)) },
+            { content: "If they are lighter, you need more.", show: rise(s.t, 14, s.at(2)) },
           ]} />
         </AbsoluteFill>
       ),

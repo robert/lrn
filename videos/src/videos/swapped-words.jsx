@@ -184,20 +184,20 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Swapped words. Two words have sneaked into each other's places, and you're going to catch them.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Swapped Words" strap="Two words are in the wrong place." emblem="swap" />,
+      beats: [{ say: "Swapped Words. In each sentence, two words have swapped places, and you need to find them.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Word puzzles" title="Swapped Words" strap="Two words are in the wrong place." emblem="swap" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "In these questions, two words in a sentence have swapped places.", sfx: "swish", sfxAt: 2.1 },
-        { say: "So the sentence sounds silly. The mat sat on the cat!" },
-        { say: "Your job is to spot the two swapped words, and underline them." },
+        { say: "This makes the sentence sound silly. The mat sat on the cat!" },
+        { say: "You need to find the two swapped words and underline them." },
       ],
       render: s => {
         const swap = [{ at: s.at(0) + s.speech(0) * 0.62, dur: 34, order: swapped(identity(tokens(CAT)), 1, 5) }];
-        const silly = window(s.t, s.at(1) + s.speech(1) * 0.5, s.at(2) + 8);
+        const silly = window(s.t, s.at(1) + s.speech(1) * 0.55, s.at(2) + 8);
         return (
           <>
             <Words x={260} w={1400} y={220} size={40} italic color={C.soft} align="center" appear={rise(s.t, 18, 6)}>
@@ -217,9 +217,9 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. First, read the sentence out loud, and listen for the silly part." },
-        { say: "Then find the word that's in the wrong place, and the word it should swap with." },
-        { say: "Swap them over, then read it again to check it makes sense. Never skip the check!" },
+        { say: "First, read the sentence out loud, and listen for the silly part." },
+        { say: "Then find the word that is in the wrong place, and the word it should swap with." },
+        { say: "Swap them over, then read it again to check that it makes sense. Always do this check." },
       ],
       render: s => (
         <>
@@ -242,12 +242,12 @@ export default {
     // Worked example 1: two nouns swapped.
     {
       beats: [
-        { say: "Here's one. The carrot ate a crunchy rabbit." },
-        { say: "Can a carrot eat anything? No! That's the silly part." },
+        { say: "Here is one. The carrot ate a crunchy rabbit." },
+        { say: "A carrot cannot eat anything, so that is the silly part." },
         { say: "Carrots get eaten, and rabbits do the eating. So carrot and rabbit are the swapped pair." },
         { say: "Swap them over.", sfx: "swish", sfxAt: 0.3 },
         { say: "Now read it again. The rabbit ate a crunchy carrot. That makes perfect sense.", sfx: "chime", sfxAt: 4.2 },
-        { say: "So on the paper, you'd underline carrot and rabbit." },
+        { say: "So on the paper, you would underline carrot and rabbit." },
       ],
       render: s => {
         const moves = [{ at: s.at(3) + 8, dur: 36, order: swapped(identity(tokens(CARROT)), 1, 5) }];
@@ -274,13 +274,13 @@ export default {
     // Worked example 2: the trap of the first silly-looking swap.
     {
       beats: [
-        { say: "Here's a trickier one. The children sang the teacher while their song clapped." },
-        { say: "The first silly bit is, sang the teacher. You can't sing a teacher! So you might want to swap teacher with children." },
+        { say: "This one is harder. The children sang the teacher while their song clapped." },
+        { say: "The first silly part is sang the teacher, because you cannot sing a teacher. So you might want to swap teacher with children." },
         { say: "Let's try it, and read it again. The teacher sang the children while their song clapped.", sfx: "swish", sfxAt: 1.2 },
-        { say: "Hmm. A song still can't clap! So that swap was wrong. That's the trap." },
-        { say: "Put them back. What did the children really sing? Their song! And who clapped? The teacher.", sfx: "swish", sfxAt: 0.2 },
-        { say: "So swap teacher and song. The children sang the song while their teacher clapped. Perfect.", sfx: "chime", sfxAt: 5.4 },
-        { say: "That's why you always read it again. The check catches the trap." },
+        { say: "But a song still cannot clap, so that swap was wrong. This is the trap." },
+        { say: "Put them back. The children really sang their song, and it was the teacher who clapped.", sfx: "swish", sfxAt: 0.2 },
+        { say: "So swap teacher and song. The children sang the song while their teacher clapped. That makes sense.", sfx: "chime", sfxAt: 5.4 },
+        { say: "This is why you should always read the sentence again. Checking it helps you avoid the trap." },
       ],
       render: s => {
         const base = identity(tokens(SONG));
@@ -294,15 +294,15 @@ export default {
         const teacherSilly = window(s.t, s.at(1) + s.speech(1) * 0.12, s.at(2) + s.speech(2) * 0.18);
         const childrenMaybe = window(s.t, s.at(1) + s.speech(1) * 0.78, s.at(2) + s.speech(2) * 0.18);
         const stillSilly = window(s.t, s.at(3) + s.speech(3) * 0.1, s.at(4) + 8);
-        const answer = window(s.t, s.at(4) + s.speech(4) * 0.55, s.at(5) + s.speech(5) * 0.14);
-        const sealAt = s.at(5) + s.speech(5) * 0.86;
+        const answer = window(s.t, s.at(4) + s.speech(4) * 0.46, s.at(5) + s.speech(5) * 0.14);
+        const sealAt = s.at(5) + s.speech(5) * 0.84;
         return (
           <>
             <Sentence sentence={SONG} t={s.t} cy={450} size={78} moves={moves} appear={rise(s.t, 18, 6)}
               tint={{ 4: teacherSilly, 1: childrenMaybe * 0.6, 7: stillSilly, 8: stillSilly }}
               under={{ 4: answer, 7: answer }}
               notes={[{ token: 4, text: "sing a teacher?", appear: teacherSilly, mud: true }, { token: 7, text: "a song can't clap!", appear: stillSilly, mud: true }]}
-              sweep={s.beat === 0 ? reading(s, 0, 0.25, 0.97) : s.beat === 2 ? reading(s, 2, 0.4, 0.97) : s.beat === 5 ? reading(s, 5, 0.35, 0.8) : 0} />
+              sweep={s.beat === 0 ? reading(s, 0, 0.25, 0.97) : s.beat === 2 ? reading(s, 2, 0.4, 0.97) : s.beat === 5 ? reading(s, 5, 0.32, 0.72) : 0} />
             <Words x={260} w={1400} y={600} size={46} italic color={C.mud} align="center" appear={window(s.t, s.at(3) + s.speech(3) * 0.55, s.at(4) + 6)}>
               Still silly, so that was the wrong swap.
             </Words>
@@ -318,13 +318,13 @@ export default {
     // Your turn: two quick ones.
     {
       beats: [
-        { say: "Your turn! Two quick ones. Find the two swapped words in each sentence. Pause the video if you'd like more time.", hold: 7 },
-        { say: "The first one: London and seven. Tom is seven, and he was born in London. A number and a place!", sfx: "chime", sfxAt: 1.6 },
-        { say: "The second one: bottle and cry. The baby began to cry, so Dad warmed her bottle.", sfx: "chime", sfxAt: 1.6 },
+        { say: "Now it's your turn. There are two sentences this time. Find the two swapped words in each one. Pause the video if you would like more time.", hold: 7 },
+        { say: "In the first one, London and seven are swapped. It should say, Tom is seven, and he was born in London.", sfx: "chime", sfxAt: 2.4 },
+        { say: "In the second one, bottle and cry are swapped. It should say, the baby began to cry, so Dad warmed her bottle.", sfx: "chime", sfxAt: 2.4 },
       ],
       render: s => {
-        const tom = [{ at: s.at(1) + s.speech(1) * 0.3, dur: 36, order: swapped(identity(tokens(TOM)), 2, 8) }];
-        const baby = [{ at: s.at(2) + s.speech(2) * 0.3, dur: 36, order: swapped(identity(tokens(BABY)), 4, 10) }];
+        const tom = [{ at: s.at(1) + s.speech(1) * 0.52, dur: 36, order: swapped(identity(tokens(TOM)), 2, 8) }];
+        const baby = [{ at: s.at(2) + s.speech(2) * 0.48, dur: 36, order: swapped(identity(tokens(BABY)), 4, 10) }];
         const cd = window(s.t, s.at(0) + s.speech(0) * 0.6, s.at(1));
         return (
           <>
@@ -336,8 +336,8 @@ export default {
             <div style={{ opacity: cd }}>
               <Countdown x={960} y={700} t={s.t} start={s.at(0) + s.speech(0)} seconds={7} size={130} />
             </div>
-            <Seal x={112} y={318} size={56} t={s.t} start={s.at(1) + s.speech(1) * 0.55} />
-            <Seal x={112} y={498} size={56} t={s.t} start={s.at(2) + s.speech(2) * 0.55} />
+            <Seal x={112} y={318} size={56} t={s.t} start={s.at(1) + s.speech(1) * 0.7} />
+            <Seal x={112} y={498} size={56} t={s.t} start={s.at(2) + s.speech(2) * 0.7} />
           </>
         );
       },
@@ -346,11 +346,11 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, to fix any swapped sentence." },
-        { say: "One. Read it out loud." },
-        { say: "Two. Find the silly part, and the word that's in the wrong place." },
-        { say: "Three. Swap it with its partner." },
-        { say: "Four. Read it again to check it makes sense." },
+        { say: "Here is how to fix any swapped sentence." },
+        { say: "First, read it out loud." },
+        { say: "Next, find the silly part, and the word that is in the wrong place." },
+        { say: "Then swap it with the word it should change places with." },
+        { say: "Last, read it again to check that it makes sense." },
       ],
       render: s => (
         <>
@@ -367,9 +367,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Swapped back and sorted. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to find swapped words. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Sorted" strap="Nothing gets past you." emblem="swap" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Read it again to check." emblem="swap" />,
     },
   ],
 };

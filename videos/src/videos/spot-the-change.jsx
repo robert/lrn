@@ -127,16 +127,16 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "Spot the Change. Twelve things can change. Check them all, and nothing gets past you.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <TitleCard t={s.t} kicker="Nothing gets past you" title="Spot the Change" strap="Twelve things. Check them all." emblem="lens" />,
+      beats: [{ say: "Spot the Change. There are twelve things that can change between two pictures. If you check them all, you will find every change.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <TitleCard t={s.t} kicker="Picture puzzles" title="Spot the Change" strap="Check all twelve things that can change." emblem="lens" />,
     },
 
     // What the question asks.
     {
       beats: [
         { say: "In a spot the change question, you get two figures, one after the other." },
-        { say: "Something has changed between them. Maybe one thing, maybe more." },
-        { say: "Your job is to find every single change, and say exactly what it is." },
+        { say: "Something has changed between them. It might be one thing, or more than one." },
+        { say: "You need to find every change and say exactly what it is." },
       ],
       render: s => (
         <>
@@ -152,12 +152,12 @@ export default {
     // The secret: only twelve things can change.
     {
       beats: [
-        { say: "Here's the secret. Only twelve things can ever change. Always the same twelve, in the same order." },
+        { say: "There are only twelve things that can change. We always check them in the same order." },
         {
           say: "Shape. How many. Size. Shading. Rotation. Flipped. Position on screen. In front or behind. Line style. Touching. Pointing at. Inside or outside.",
           voice: "Shape. How many. Size. Shading. Rotation. Flipped. Position on screen. In front, or behind. Line style. Touching. Pointing at. Inside, or outside.",
         },
-        { say: "Check every one, from top to bottom, and nothing gets past you." },
+        { say: "Check every one, from the top of the list to the bottom, so that you do not miss a change." },
       ],
       render: s => {
         // Each row appears as its name is spoken (timed by letters).
@@ -176,7 +176,7 @@ export default {
               <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 46, color: C.soft }}>things can change</div>
             </div>
             <Words x={250} y={660} w={600} size={40} italic color={C.giltDark} align="center" appear={rise(s.t, 18, s.at(2) + 10)}>
-              Top to bottom, every time.
+              Check them from top to bottom.
             </Words>
             <Ledger s={s} heading="The twelve" rowsAt={rowsAt} appearAt={10} />
           </>
@@ -187,23 +187,23 @@ export default {
     // Worked example 1: one shape, two changes.
     {
       beats: [
-        { say: "Let's try one. There's only one shape here, so we call it Shape A. We name it by how it looks in the first figure: a small black triangle." },
-        { say: "Now sweep down the list. Shape? Still a triangle. Same. How many? Still one. Same. Size? Still small. Same." },
-        { say: "Shading. It was black, and now it's striped. Different!", sfx: "tick", sfxAt: 1.9 },
-        { say: "Rotation? Same. Flipped? Same." },
-        { say: "Position on screen. It's moved from the top corner to the bottom corner. Different!", sfx: "tick", sfxAt: 3.6 },
-        { say: "In front or behind? There's only one shape, so same. Line style? Still solid. Same. Touching, pointing at, inside or outside: they all need two shapes, so they're the same too." },
-        { say: "Two changes caught: the shading and the position. Nothing got past you.", sfx: "chime", sfxAt: 0.2 },
+        { say: "Let's try one. There's only one shape here, so we call it Shape A. We describe it by how it looks in the first figure. It is a small black triangle." },
+        { say: "Now go down the list. The shape is still a triangle, so shape is the same. There is still only one, so how many is the same. It is still small, so size is the same." },
+        { say: "Next is shading. It was black, and now it is striped, so the shading is different.", sfx: "tick", sfxAt: 3.0 },
+        { say: "It has not been turned or flipped, so rotation and flipped are both the same." },
+        { say: "Next is position on screen. It has moved from the top corner to the bottom corner, so its position is different.", sfx: "tick", sfxAt: 5.0 },
+        { say: "In front or behind is the same, because there is only one shape. The line is still solid, so line style is the same. Touching, pointing at and inside or outside all need two shapes, so they are the same too." },
+        { say: "So two things have changed, the shading and the position.", sfx: "chime", sfxAt: 0.2 },
       ],
       render: s => {
         const b1 = s.at(1), sp1 = s.speech(1);
         const marks = [
-          same(b1 + sp1 * 0.3), same(b1 + sp1 * 0.62), same(b1 + sp1 * 0.95),
+          same(b1 + sp1 * 0.43), same(b1 + sp1 * 0.73), same(b1 + sp1 * 0.97),
           diff(s.at(2) + s.speech(2) * 0.8),
-          same(s.at(3) + s.speech(3) * 0.4), same(s.at(3) + s.speech(3) * 0.95),
+          same(s.at(3) + s.speech(3) * 0.6), same(s.at(3) + s.speech(3) * 0.95),
           diff(s.at(4) + s.speech(4) * 0.9),
-          same(s.at(5) + s.speech(5) * 0.2), same(s.at(5) + s.speech(5) * 0.42),
-          ...spread(s.at(5) + s.speech(5) * 0.82, s.at(5) + s.speech(5), 3).map(same),
+          same(s.at(5) + s.speech(5) * 0.15), same(s.at(5) + s.speech(5) * 0.56),
+          ...spread(s.at(5) + s.speech(5) * 0.85, s.at(5) + s.speech(5), 3).map(same),
         ];
         const shadeRing = rise(s.t, 22, s.at(2) + 10) * (1 - rise(s.t, 8, s.at(3)));
         const posRing = rise(s.t, 22, s.at(4) + 20) * (1 - rise(s.t, 8, s.at(5)));
@@ -225,11 +225,11 @@ export default {
     // Worked example 2: flipped, not rotated.
     {
       beats: [
-        { say: "Now the trap that catches almost everyone. Shape A is a grey flag. In the second figure, the flag points the other way." },
-        { say: "Lots of people say it's been rotated. Let's check. Watch the first flag turn, all the way round." },
-        { say: "It never matches! However you turn it, it can't point that way." },
-        { say: "That's because it's been flipped, like looking in a mirror." },
-        { say: "So rotation stays the same, and flipped is different. A mirror image is never just a turn.", sfx: "chime", sfxAt: 2.4 },
+        { say: "This next one catches out lots of people. Shape A is a grey flag. In the second figure, the flag points the other way." },
+        { say: "Many people think it has been rotated. To check, watch the first flag turn all the way round." },
+        { say: "It never matches. However you turn it, it cannot point that way." },
+        { say: "That is because it has been flipped, like a reflection in a mirror." },
+        { say: "So rotation is the same, and flipped is different. You cannot make a mirror image just by turning a shape.", sfx: "chime", sfxAt: 2.2 },
       ],
       render: s => {
         // The ghost turns a full circle during beat 1 and into beat 2.
@@ -240,12 +240,12 @@ export default {
         // Then a mirror line, and the ghost flips across it to match.
         const mirror = rise(s.t, 18, s.at(3) + 8);
         const flipK = rise(s.t, 28, s.at(3) + s.speech(3) * 0.55);
-        const flipOn = window(s.t, s.at(3) + 4, s.at(4) + s.speech(4) * 0.5, 10);
+        const flipOn = window(s.t, s.at(3) + 4, s.at(4) + s.speech(4) * 0.4, 10);
         const nope = window(s.t, s.at(2) + 6, s.at(3) + 6);
         const marks = [
           ...spread(s.at(4), s.at(4) + 10, 4).map(same),
-          same(s.at(4) + s.speech(4) * 0.3), diff(s.at(4) + s.speech(4) * 0.5),
-          ...spread(s.at(4) + s.speech(4) * 0.6, s.at(4) + s.speech(4) * 0.8, 6).map(same),
+          same(s.at(4) + s.speech(4) * 0.2), diff(s.at(4) + s.speech(4) * 0.4),
+          ...spread(s.at(4) + s.speech(4) * 0.5, s.at(4) + s.speech(4) * 0.75, 6).map(same),
         ];
         const ghosts = [
           <g key="turn">
@@ -263,7 +263,7 @@ export default {
             <Note x={PLATES[1].x + 40} y={PLATES[1].y - 72} size={32} bg="#F3E9DF" color={C.mud} appear={nope}>no turn matches</Note>
             <Note x={PLATES[1].x + 60} y={PLATES[1].y - 72} size={32} appear={window(s.t, s.at(3) + 30, s.length)}>a mirror image</Note>
             <Ledger s={s} heading="Shape A: large grey flag" marks={marks} appearAt={10} dimUnmarked />
-            <Seal x={PLATES[1].x + PS - 8} y={PLATES[1].y + 8} size={78} t={s.t} start={s.at(4) + s.speech(4) * 0.5} />
+            <Seal x={PLATES[1].x + PS - 8} y={PLATES[1].y + 8} size={78} t={s.t} start={s.at(4) + s.speech(4) * 0.4} />
           </>
         );
       },
@@ -272,9 +272,9 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. There are two shapes this time. Shape A is a large white square, and Shape B is a small grey heart. What changed for the heart? Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you catch them? The heart has moved, so its position on screen is different. And now it's inside the square. Inside or outside: different.", sfx: "chime", sfxAt: 0.4 },
-        { say: "The square didn't change at all. Two changes, and not one slipped past." },
+        { say: "Now it's your turn. There are two shapes this time. Shape A is a large white square, and Shape B is a small grey heart. What changed for the heart? Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. The heart has moved, so its position on screen is different. It is now inside the square, so inside or outside is different too.", sfx: "chime", sfxAt: 0.4 },
+        { say: "The square did not change at all. So there are two changes, and both are to the heart." },
       ],
       render: s => {
         const marks = [
@@ -306,11 +306,11 @@ export default {
     // Remember the twelve: three lines of four, said like a chant.
     {
       beats: [
-        { say: "Here's a way to remember all twelve. Say them in three lines of four." },
+        { say: "To help you remember all twelve, say them in three lines of four." },
         { say: "Shape, how many, size, shading.", voice: "Shape. How many. Size. Shading." },
         { say: "Rotation, flipped, position, in front or behind.", voice: "Rotation. Flipped. Position. In front, or behind." },
         { say: "Line style, touching, pointing at, inside or outside.", voice: "Line style. Touching. Pointing at. Inside, or outside." },
-        { say: "Say it at breakfast, say it in the bath, and soon you'll know it by heart." },
+        { say: "Say the three lines a few times each day, and soon you will know them by heart." },
       ],
       render: s => {
         const lines = [TWELVE.slice(0, 4), TWELVE.slice(4, 8), TWELVE.slice(8, 12)];
@@ -337,7 +337,7 @@ export default {
               </div>
             ))}
             <Words x={260} y={720} w={1400} size={40} italic color={C.giltDark} align="center" appear={rise(s.t, 18, s.at(4) + 10)}>
-              Breakfast, bath time, bedtime.
+              Say them every day.
             </Words>
           </>
         );
@@ -347,27 +347,27 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, to spot every change." },
-        { say: "One. Name each shape by how it looks in the first figure." },
-        { say: "Two. Sweep all twelve, from top to bottom." },
-        { say: "Three. Say same or different for every single one." },
-        { say: "Four. If something points the other way, ask: was it turned, or flipped?" },
+        { say: "Here is how to spot every change." },
+        { say: "First, name each shape by how it looks in the first figure." },
+        { say: "Next, go through all twelve, from top to bottom." },
+        { say: "Then say same or different for each one." },
+        { say: "Last, if something points the other way, check whether it was turned or flipped." },
       ],
       render: s => (
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={380} y={280} steps={[
           "Name each shape by how it looks first.",
-          "Sweep all twelve, top to bottom.",
-          "Same or different, for every one.",
-          "Turned, or flipped? Check.",
+          "Check all twelve, top to bottom.",
+          "Say same or different for each one.",
+          "Check if it was turned or flipped.",
         ]} />
       ),
     },
 
     {
       bg: "cloth",
-      beats: [{ say: "Twelve things, checked every time. Nothing gets past you.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Check all twelve things every time, and you will find every change. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <TitleCard t={s.t} title="Nothing gets past" strap="Twelve things, checked every time." emblem="eye" />,
+      render: s => <TitleCard t={s.t} title="Well done" strap="Check all twelve things every time." emblem="eye" />,
     },
   ],
 };

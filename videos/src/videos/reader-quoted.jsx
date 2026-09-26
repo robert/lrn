@@ -25,8 +25,8 @@ export default {
   scenes: [
     {
       bg: "cloth",
-      beats: [{ say: "What do the words mean? These questions are all about the storyteller's words, and Mega Readers are brilliant at them.", sfx: "chime", sfxAt: 0.3 }],
-      render: s => <LongTitleCard t={s.t} kicker="Mega Reader" title="What do the words mean?" strap="Every word is there for a reason." emblem="quote" />,
+      beats: [{ say: "What do the words mean? These questions ask about the exact words the storyteller uses.", sfx: "chime", sfxAt: 0.3 }],
+      render: s => <LongTitleCard t={s.t} kicker="Mega Reader" title="What do the words mean?" strap="Find the words, then read around them." emblem="quote" />,
     },
 
     // What the question asks.
@@ -34,7 +34,7 @@ export default {
       beats: [
         { say: "Some questions quote a few words from the story, in italics, like this." },
         { say: "They ask what the words mean, or how a character really feels, or why the storyteller put it that way." },
-        { say: "The words are always there in the story, waiting for you. Find them, and you're halfway there." },
+        { say: "The words are always somewhere in the story. Finding them is the first step." },
       ],
       render: s => (
         <>
@@ -46,7 +46,7 @@ export default {
             ))}
           </div>
           <StoryPage x={400} y={440} w={1120} t={s.t} appear={rise(s.t, 20, s.at(2) + 4)} size={34}
-            paras={[{ n: 5, text: P5, marks: [{ text: "Why, you must be perished.", at: s.at(2) + s.speech(2) * 0.3 }] }]} />
+            paras={[{ n: 5, text: P5, marks: [{ text: "Why, you must be perished.", at: s.at(2) + s.speech(2) * 0.4 }] }]} />
         </>
       ),
     },
@@ -54,18 +54,18 @@ export default {
     // The secret.
     {
       beats: [
-        { say: "Here's the secret. First, find the words in the story." },
+        { say: "First, find the words in the story." },
         { say: "Then read the whole sentence around them, not just the words on their own." },
-        { say: "And ask: what do they mean here, in this story? Not word by word, but what's really going on." },
+        { say: "Last, work out what they mean here, in this story. Think about what is really happening, and do not just take each word on its own." },
       ],
       render: s => (
         <>
           <div style={{ position: "absolute", left: 0, right: 0, top: 220, display: "flex", justifyContent: "center", opacity: rise(s.t, 18) }}>
             <Emblem name="quote" size={84} />
           </div>
-          <Words x={210} w={1500} y={340} size={72} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.4)}>Find the words.</Words>
+          <Words x={210} w={1500} y={340} size={72} align="center" appear={rise(s.t, 20, s.at(0) + s.speech(0) * 0.1)}>Find the words.</Words>
           <Words x={210} w={1500} y={450} size={72} align="center" appear={rise(s.t, 20, s.at(1) + 6)}>Read the whole sentence.</Words>
-          <Words x={210} w={1500} y={560} size={72} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>Ask what they mean here.</Words>
+          <Words x={210} w={1500} y={560} size={72} align="center" appear={rise(s.t, 20, s.at(2) + 6)}>Work out what they mean here.</Words>
         </>
       ),
     },
@@ -77,7 +77,7 @@ export default {
         { say: "First, find the words. Here they are, in paragraph five." },
         { say: "Now read the sentences around them. Lost in the snow! And at this time of night!" },
         { say: "Perished is an old fashioned word. Here, it means frozen and worn out, after a long night in the snow." },
-        { say: "Could they really be ghosts, or eaten up? No! He's asking them in. So a and c are out." },
+        { say: "They cannot be ghosts, and they have not been eaten up, because he is asking them in. So a and c are wrong." },
         { say: "The answer is b. They must be terribly cold and tired.", sfx: "chime", sfxAt: 0.4 },
       ],
       render: s => (
@@ -90,7 +90,7 @@ export default {
                   { text: "Why, you must be perished.", at: s.at(1) + s.speech(1) * 0.5 },
                   { text: "Lost in the snow!", kind: "underline", at: s.at(2) + s.speech(2) * 0.45 },
                   { text: "at this time of night!", kind: "underline", at: s.at(2) + s.speech(2) * 0.75 },
-                  { text: "But come in with you.", kind: "underline", at: s.at(4) + s.speech(4) * 0.62 },
+                  { text: "But come in with you.", kind: "underline", at: s.at(4) + s.speech(4) * 0.67 },
                 ],
               },
             ]} />
@@ -98,7 +98,7 @@ export default {
           <AskCard {...Q} appear={rise(s.t, 18, 4)} text="The Badger says *Why, you must be perished.* What does he mean?" />
           <Choices size={31} x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={s.at(0) + 30} correct={1}
             sealAt={s.at(5) + s.speech(5) * 0.3}
-            strikes={{ 0: s.at(4) + s.speech(4) * 0.8, 2: s.at(4) + s.speech(4) * 0.88 }}
+            strikes={{ 0: s.at(4) + s.speech(4) * 0.82, 2: s.at(4) + s.speech(4) * 0.9 }}
             options={[
               "He thinks they have died in the snow and are ghosts.",
               "He means they must be terribly cold and worn out.",
@@ -112,11 +112,11 @@ export default {
     // Example 2: the word-by-word trap, and the fragment trap.
     {
       beats: [
-        { say: "Here's a trickier one. By the fire, they are now in safe anchorage. What does that tell us?" },
+        { say: "This one is harder. By the fire, they are now in safe anchorage. What does that tell us?" },
         { say: "Find the words, then read the whole sentence. Warm and dry at last. Storm-driven animals. The Wild Wood feels miles and miles away." },
         { say: "An anchorage is where boats shelter from a storm. But there's no real boat here. The storyteller is saying they're like a boat, safe out of the storm." },
-        { say: "So watch out for a and b. They read the words one by one, as if there's a real boat, or real anchors. That's the word by word trap." },
-        { say: "And c? Safe at last is the right idea. But it's only three words, not a full sentence. Mega Readers choose the full sentence." },
+        { say: "So be careful with a and b. They take each word on its own, as if there is a real boat or real anchors. That is the mistake of reading word by word." },
+        { say: "Answer c, safe at last, is the right idea. But it is only three words, and it is not a full sentence. Choose the answer that is a full sentence." },
         { say: "The answer is d. They feel safe and still, like a boat tied up out of a storm.", sfx: "chime", sfxAt: 0.4 },
       ],
       render: s => (
@@ -131,12 +131,12 @@ export default {
               ],
             }]} />
           <Note x={PAGE.x + 40} y={640} size={38} appear={rise(s.t, 16, s.at(2) + s.speech(2) * 0.72)}>like a boat, safe out of the storm</Note>
-          <Note x={PAGE.x + 40} y={724} size={36} bg="#F3E9DF" color={C.mud} appear={rise(s.t, 16, s.at(3) + s.speech(3) * 0.75)}>the word-by-word trap</Note>
+          <Note x={PAGE.x + 40} y={724} size={36} bg="#F3E9DF" color={C.mud} appear={rise(s.t, 16, s.at(3) + s.speech(3) * 0.72)}>reading word by word</Note>
           <AskCard {...Q} appear={rise(s.t, 18, 4)} text="By the fire they are *now in safe anchorage*. What does that tell us?" />
           <Choices size={31} x={Q.x} y={ANS_Y} w={Q.w} t={s.t} appearAt={s.at(0) + 30} correct={3}
             sealAt={s.at(5) + s.speech(5) * 0.3}
             strikes={{ 0: s.at(3) + s.speech(3) * 0.2, 1: s.at(3) + s.speech(3) * 0.28 }}
-            dims={{ 2: s.at(4) + s.speech(4) * 0.55 }}
+            dims={{ 2: s.at(4) + s.speech(4) * 0.52 }}
             options={[
               "They have climbed into a real boat in Badger's house.",
               "Badger's kitchen has heavy iron anchors on the ceiling.",
@@ -144,7 +144,7 @@ export default {
               "They feel safe and still, like a boat out of a storm.",
             ]} />
           <Note x={Q.x + 250} y={ANS_Y + 2 * 120 + 12} size={28} bg="#F3E9DF" color={C.mud}
-            appear={window(s.t, s.at(4) + s.speech(4) * 0.62, s.at(5) + 4)}>right idea, not a full sentence</Note>
+            appear={window(s.t, s.at(4) + s.speech(4) * 0.55, s.at(5) + 4)}>right idea, not a full sentence</Note>
         </>
       ),
     },
@@ -152,8 +152,8 @@ export default {
     // Your turn.
     {
       beats: [
-        { say: "Your turn. The Mole tried to look properly mournful. Does he really feel sad? Pause the video if you'd like more time.", hold: 6 },
-        { say: "Did you spot it? He's basking in the firelight, with his heels higher than his head. That's a cosy, happy Mole, only putting on a sad face. The answer is b.", sfx: "chime", sfxAt: 8.6 },
+        { say: "Now it's your turn. The Mole tried to look properly mournful. Does he really feel sad? Pause the video if you would like more time.", hold: 6 },
+        { say: "Here is the answer. He is basking in the firelight, with his heels higher than his head. So he is cosy and happy, and is only putting on a sad face. The answer is b.", sfx: "chime", sfxAt: 9.1 },
       ],
       render: s => (
         <>
@@ -184,11 +184,11 @@ export default {
     // Recap.
     {
       beats: [
-        { say: "So, whenever a question quotes the story." },
-        { say: "One. Find the words in the story." },
-        { say: "Two. Read the whole sentence around them." },
-        { say: "Three. Ask what they mean here, not word by word." },
-        { say: "Four. Choose the full sentence, not the little fragment." },
+        { say: "Here is what to do whenever a question quotes the story." },
+        { say: "First, find the words in the story." },
+        { say: "Next, read the whole sentence around them." },
+        { say: "Then work out what they mean here, not word by word." },
+        { say: "Last, choose the answer that is a full sentence, not a short fragment." },
       ],
       render: s => (
         <>
@@ -198,7 +198,7 @@ export default {
         <Steps t={s.t} starts={[s.at(1), s.at(2), s.at(3), s.at(4)]} x={440} y={300} steps={[
           "Find the words in the story.",
           "Read the whole sentence around them.",
-          "Ask what they mean here.",
+          "Work out what they mean here.",
           "Choose the full sentence.",
         ]} />
         </>
@@ -207,9 +207,9 @@ export default {
 
     {
       bg: "cloth",
-      beats: [{ say: "Words cracked. You really are a Mega Reader.", sfx: "chime", sfxAt: 0.2 }],
+      beats: [{ say: "Now you know how to work out what the words mean. Well done.", sfx: "chime", sfxAt: 0.2 }],
       tail: 1.2,
-      render: s => <LongTitleCard t={s.t} title="Mega Reader" strap="No word gets past you." emblem="book" size={170} />,
+      render: s => <LongTitleCard t={s.t} title="Mega Reader" strap="Find the words, then read around them." emblem="book" size={170} />,
     },
   ],
 };

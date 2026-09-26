@@ -280,8 +280,8 @@ export default {
     // Dawn over the meadow.
     {
       beats: [
-        { who: "basil", say: "Dawn. On the great meadow of Planet Shapes.", sfxs: [{ sfx: "nature-meadow", at: 0, volume: 0.55 }] },
-        { who: "basil", say: "Every creature here can change. A turn. A new coat. A move across the grass." },
+        { who: "basil", say: "It is dawn on the great meadow of Planet Shapes.", sfxs: [{ sfx: "nature-meadow", at: 0, volume: 0.55 }] },
+        { who: "basil", say: "Every creature here can change. It might turn round, grow a new coat, or move across the grass." },
         { who: "basil", say: "And only the sharpest eyes can say exactly what changed." },
       ],
       render: s => {
@@ -319,14 +319,14 @@ export default {
     {
       beats: [
         { who: "poppy", say: "Sir Basil, what exactly are we looking for?" },
-        { who: "basil", say: "Twelve things. Always in the same order. Shape. How many. Size. Shading.", sfxs: [{ sfx: "nature-pencil", at: 2.6 }] },
+        { who: "basil", say: "We check twelve things, always in the same order. Shape. How many. Size. Shading.", sfxs: [{ sfx: "nature-pencil", at: 3.0 }] },
         { who: "basil", say: "Rotation. Flipped. Position on screen. In front or behind." },
         { who: "basil", say: "Line style. Touching. Pointing at. Inside or outside." },
-        { who: "poppy", say: "Three lines of four. I'll write them down." },
+        { who: "poppy", say: "That's three lines of four. I'll write them down." },
       ],
       render: s => {
         const writeAt = [
-          ...[0.3, 0.45, 0.6, 0.78].map(f => s.at(1) + s.speech(1) * f),
+          ...[0.35, 0.5, 0.65, 0.8].map(f => s.at(1) + s.speech(1) * f),
           ...[0.05, 0.28, 0.5, 0.75].map(f => s.at(2) + s.speech(2) * f),
           ...[0.05, 0.3, 0.52, 0.75].map(f => s.at(3) + s.speech(3) * f),
         ];
@@ -353,9 +353,9 @@ export default {
     // Encounter one: the common triangle, before and after an hour.
     {
       beats: [
-        { who: "basil", say: "There, by the water. The common triangle. Quite shy.", sfxs: [{ sfx: "nature-rustle", at: 0.6, volume: 0.7 }] },
-        { who: "poppy", say: "I'll take a photo. Before.", sfxs: [{ sfx: "nature-shutter", at: 1.2 }] },
-        { who: "basil", say: "Now we wait. One whole hour, in the blink of an eye.", hold: 1.2 },
+        { who: "basil", say: "Look, there by the water. It is a common triangle, and it is quite shy.", sfxs: [{ sfx: "nature-rustle", at: 0.6, volume: 0.7 }] },
+        { who: "poppy", say: "I'll take the before photo.", sfxs: [{ sfx: "nature-shutter", at: 1.2 }] },
+        { who: "basil", say: "Now we wait for one whole hour, sped up so it passes in a moment.", hold: 1.2 },
         { who: "poppy", say: "And after!", sfxs: [{ sfx: "nature-shutter", at: 0.5 }] },
       ],
       render: s => {
@@ -384,11 +384,11 @@ export default {
     // Comparing the two photos, down the list.
     {
       beats: [
-        { who: "basil", say: "Now, down the list. Shape, the same. How many, the same. Size, the same." },
-        { who: "basil", say: "Shading. Different! It was pale. Now it is dark.", sfxs: [{ sfx: "nature-pencil", at: 1.2 }] },
-        { who: "basil", say: "Rotation. Different too. It has turned to face the water.", sfxs: [{ sfx: "nature-pencil", at: 1.4 }] },
-        { who: "basil", say: "Flipped, position, and everything else. The same." },
-        { who: "poppy", say: "Two changes. Shading, and rotation!", sfxs: [{ sfx: "chime", at: 1.4, volume: 0.5 }] },
+        { who: "basil", say: "Now we go down the list. Shape is the same. How many is the same. Size is the same." },
+        { who: "basil", say: "Shading is different. It was pale, and now it is dark.", sfxs: [{ sfx: "nature-pencil", at: 1.2 }] },
+        { who: "basil", say: "Rotation is different too. It has turned to face the water.", sfxs: [{ sfx: "nature-pencil", at: 1.4 }] },
+        { who: "basil", say: "Flipped, position and everything else are the same." },
+        { who: "poppy", say: "So two things changed, the shading and the rotation.", sfxs: [{ sfx: "chime", at: 1.4, volume: 0.5 }] },
       ],
       render: s => {
         const marks = [
@@ -415,7 +415,7 @@ export default {
       beats: [
         { who: "basil", say: "Ah. A family of speckled hexagons, settling in for the winter.", sfxs: [{ sfx: "nature-rustle", at: 0.4, volume: 0.6 }] },
         { who: "poppy", say: "Before.", sfxs: [{ sfx: "nature-shutter", at: 0.4 }] },
-        { who: "basil", say: "And as the season turns... the snow comes. And something wonderful happens.", hold: 1.4 },
+        { who: "basil", say: "Then winter comes, and the snow falls. Watch what happens to the family.", hold: 1.4 },
         { who: "poppy", say: "After! Oh, there's a baby!", sfxs: [{ sfx: "nature-shutter", at: 0.3 }] },
       ],
       render: s => {
@@ -445,8 +445,8 @@ export default {
     // Comparing the hexagon family.
     {
       beats: [
-        { who: "basil", say: "How many. Different. Two became three.", sfxs: [{ sfx: "nature-pencil", at: 1.2 }] },
-        { who: "basil", say: "And look at their coats. Line style. Different. Their solid lines have turned to dots, for winter.", sfxs: [{ sfx: "nature-pencil", at: 2.8 }] },
+        { who: "basil", say: "How many is different. There were two, and now there are three.", sfxs: [{ sfx: "nature-pencil", at: 1.2 }] },
+        { who: "basil", say: "And look at their coats. Line style is different too. Their solid lines have turned to dots for winter.", sfxs: [{ sfx: "nature-pencil", at: 2.8 }] },
         { who: "poppy", say: "And everything else stayed just the same." },
       ],
       render: s => {
@@ -474,7 +474,7 @@ export default {
     // Encounter three: the rare mirror flag, with its reflection in the pond.
     {
       beats: [
-        { who: "basil", say: "And now... something very rare indeed. The mirror flag.", sfxs: [{ sfx: "nature-rustle", at: 0.5, volume: 0.6 }] },
+        { who: "basil", say: "Now here is a very rare creature, called the mirror flag.", sfxs: [{ sfx: "nature-rustle", at: 0.5, volume: 0.6 }] },
         { who: "poppy", say: "Before.", sfxs: [{ sfx: "nature-shutter", at: 0.4 }] },
         { who: "basil", say: "Watch it very closely.", hold: 1.6 },
         { who: "poppy", say: "After. Oh, it's just turned round, hasn't it?", sfxs: [{ sfx: "nature-shutter", at: 0.3 }] },
@@ -509,19 +509,19 @@ export default {
     // The mirror flag, compared: turning never matches; flipping does.
     {
       beats: [
-        { who: "basil", say: "Has it? Let us try turning the old photograph, to see if it matches." },
-        { who: "basil", say: "All the way round... and it never matches. So it has not simply turned.", sfxs: [{ sfx: "nature-pencil", at: 3.6 }] },
-        { who: "basil", say: "But hold it up to the water, like a reflection... and there. A mirror image. It has flipped.", sfxs: [{ sfx: "nature-pencil", at: 4.6 }, { sfx: "chime", at: 4.8, volume: 0.5 }] },
-        { who: "poppy", say: "Rotation, the same. Flipped, different! The rarest change of all." },
+        { who: "basil", say: "Has it? Let us turn the old photograph and see if it matches." },
+        { who: "basil", say: "We turn it all the way round, and it never matches. So it has not just turned.", sfxs: [{ sfx: "nature-pencil", at: 3.6 }] },
+        { who: "basil", say: "But hold it up to the water, like a reflection, and now it matches. It is a mirror image. It has flipped.", sfxs: [{ sfx: "nature-pencil", at: 4.6 }, { sfx: "chime", at: 4.8, volume: 0.5 }] },
+        { who: "poppy", say: "So rotation is the same, and flipped is different. That is the rarest change of all." },
       ],
       render: s => {
         const turn = rise(s.t, s.speech(0) + s.speech(1) * 0.6, s.at(0) + s.speech(0) * 0.5) * 360;
-        const flip = rise(s.t, 30, s.at(2) + s.speech(2) * 0.55);
+        const flip = rise(s.t, 30, s.at(2) + s.speech(2) * 0.45);
         const matched = flip > 0.95;
         const marks = [
           ...sweep([0, 1, 2, 3], "same", s.at(1) + s.speech(1) * 0.6, 5),
           { row: 4, kind: "same", at: s.at(1) + s.speech(1) * 0.85 },
-          { row: 5, kind: "diff", at: s.at(2) + s.speech(2) * 0.72 },
+          { row: 5, kind: "diff", at: s.at(2) + s.speech(2) * 0.66 },
           ...sweep([6, 7, 8, 9, 10, 11], "same", s.at(3) + s.speech(3) * 0.5, 5),
         ];
         return (
@@ -551,10 +551,10 @@ export default {
     // Your turn: the lesser star.
     {
       beats: [
-        { who: "basil", say: "Your turn, young naturalist. The lesser star, before, and after. Go down the list. What changed? Pause if you would like more time.", hold: 7,
-          sfxs: Array.from({ length: 7 }, (_, i) => ({ sfx: "nature-pencil", at: 9.2 + i, volume: 0.5 })) },
-        { who: "basil", say: "Size. Different, it has grown. And position on screen. Different. It has climbed up to the top corner.", sfxs: [{ sfx: "chime", at: 4.6, volume: 0.5 }] },
-        { who: "poppy", say: "And everything else, exactly the same. Nothing gets past us!" },
+        { who: "basil", say: "Your turn now, young naturalist. Here is the lesser star, before and after. Go down the list and find what changed. Pause if you need more time.", hold: 7,
+          sfxs: Array.from({ length: 7 }, (_, i) => ({ sfx: "nature-pencil", at: 10.0 + i, volume: 0.5 })) },
+        { who: "basil", say: "Size is different, because it has grown. Position on screen is different too. It has climbed up to the top corner.", sfxs: [{ sfx: "chime", at: 4.6, volume: 0.5 }] },
+        { who: "poppy", say: "And everything else stayed exactly the same." },
       ],
       render: s => {
         const reveal = s.at(1);
@@ -588,8 +588,8 @@ export default {
     // Sunset: the lesson, and good night.
     {
       beats: [
-        { who: "basil", say: "Twelve things. Always in order. Go slowly, and say what changed, and what did not." },
-        { who: "poppy", say: "Because nothing gets past us." },
+        { who: "basil", say: "Check the twelve things, always in the same order. Go slowly, and say what changed and what did not." },
+        { who: "poppy", say: "Then nothing will get past you." },
         { who: "basil", say: "Planet Shapes. Good night.", sfxs: [{ sfx: "chime", at: 0.6, volume: 0.5 }] },
       ],
       tail: 2,

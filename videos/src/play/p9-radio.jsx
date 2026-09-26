@@ -157,25 +157,25 @@ const spots = (correct, slip) => CARD.xs.map((x, i) => ({ id: `c${i}`, x, y: CAR
 const Q1 = {
   text: "Why can't the muffin thief be Sam the porter?",
   options: [
-    "Porters are never allowed to eat on trains.",
-    "His hands were sticky with polish, but the plate had no polish on it.",
-    "He was far too polite to steal a muffin.",
+    "Porters are never allowed to eat any food on the train.",
+    "His sticky hands would have left polish on the plate.",
+    "He was far too kind and polite to steal a muffin.",
   ],
 };
 const Q2 = {
   text: "Mr Crumb says he hasn't eaten since lunch. Which clue says he's not telling the truth?",
   options: [
-    "He brushes something blue off his waistcoat, and the muffin was blueberry.",
-    "He works at the far end of the train.",
-    "He says he is starving.",
+    "He brushes something blue off his waistcoat.",
+    "He says he works at the far end of the train.",
+    "He clips tickets as he walks along the train.",
   ],
 };
 const Q3 = {
   text: "How does Lady Plum feel at the very end, and how do we know?",
   options: [
-    "Furious: she wants Mr Crumb thrown off the train.",
-    "Sad: she cries because her muffin is gone for ever.",
-    "Not cross any more: she laughs and offers to share her next muffin.",
+    "She is furious and wants Mr Crumb thrown off the train.",
+    "She is sad, and cries because her muffin has gone for ever.",
+    "She isn't cross now. She laughs and offers to share.",
   ],
 };
 
@@ -188,7 +188,7 @@ export default {
   series: 9,
   title: "The Midnight Muffin",
   genre: "Radio mystery",
-  strap: "A radio mystery. Listen carefully: the clues are in the sounds and the voices.",
+  strap: "A radio mystery. Listen carefully, because the clues are in the sounds and the voices.",
   music: "music/radio.wav",
   musicVolume: 0.12,
   cast: {
@@ -205,7 +205,7 @@ export default {
       id: "open", next: "train",
       ...onAir([
         { who: "announcer", say: "Good evening, listeners. Put the kettle on, and turn the lights down low. Tonight's mystery is called... The Midnight Muffin.", sfxs: [{ sfx: "radio-static", at: 0, volume: 0.6 }, { sfx: "radio-chime", at: 0.6, volume: 0.6 }] },
-        { who: "announcer", say: "Listen very carefully. Every clue is in the story. And later, you'll be the detective." },
+        { who: "announcer", say: "Listen very carefully, because every clue is in the story. Later on, you will be the detective." },
       ]),
     },
     {
@@ -223,7 +223,7 @@ export default {
       ...onAir([
         { who: "narrator", say: "Along the corridor came Sam, the young porter.", sfxs: [{ sfx: "radio-door", at: 0.4, volume: 0.7 }] },
         { who: "sam", say: "Sorry, madam, I've been polishing the brass door handles all evening. Look at my hands. Sticky and shiny with polish!" },
-        { who: "narrator", say: "Lady Plum looked at her plate. There was not a single smear of polish on it. Just a few blue crumbs." },
+        { who: "narrator", say: "Lady Plum looked at her plate. There was not a single smear of polish on it, just a few blue crumbs." },
       ]),
     },
     {
@@ -234,13 +234,13 @@ export default {
     },
     {
       id: "q1-slip", returnTo: "q1",
-      beats: [{ who: "announcer", say: "Put two clues together. What was on Sam's hands? And what was, and wasn't, on the plate?" }],
+      beats: [{ who: "announcer", say: "Put two clues together. What was on Sam's hands? What was on the plate, and what was not?" }],
       render: s => <Question t={s.t} {...Q1} instant />,
     },
     {
       id: "crumb", next: "q2",
       ...onAir([
-        { who: "announcer", say: "Exactly. Sticky hands would have left polish on the plate. Back to the train!", sfxs: [{ sfx: "radio-chime", at: 0, volume: 0.5 }] },
+        { who: "announcer", say: "That's right. Sam's sticky hands would have left polish on the plate, and there was none. Now, back to the train.", sfxs: [{ sfx: "radio-chime", at: 0, volume: 0.5 }] },
         { who: "narrator", say: "Next came the conductor, Mr Crumb, clipping tickets as he went.", sfxs: [{ sfx: "radio-train", at: 0, volume: 0.5 }, { sfx: "radio-clip", at: 3.2, volume: 0.7 }] },
         { who: "crumb", say: "A missing muffin? Well, it certainly wasn't me. I've been at the far end of the train. I haven't had a bite since lunch. I'm starving!" },
         { who: "narrator", say: "And as he spoke, Mr Crumb brushed something small and blue from the front of his waistcoat." },
@@ -250,18 +250,18 @@ export default {
     {
       id: "q2",
       choice: { prompt: "Tap the best answer", next: "reveal", options: spots(0, "q2-slip") },
-      beats: [{ who: "announcer", say: "Another question. Mr Crumb says he hasn't eaten since lunch. Which clue says he's not telling the truth?" }],
+      beats: [{ who: "announcer", say: "Here is another question. Mr Crumb says he hasn't eaten since lunch. Which clue says he's not telling the truth?" }],
       render: s => <Question t={s.t} {...Q2} />,
     },
     {
       id: "q2-slip", returnTo: "q2",
-      beats: [{ who: "announcer", say: "Listen to what Polly the parrot noticed. Crumbs, on a waistcoat. What colour were the muffin crumbs?" }],
+      beats: [{ who: "announcer", say: "Think about what Polly the parrot noticed. She saw crumbs on Mr Crumb's waistcoat. What colour were the muffin crumbs?" }],
       render: s => <Question t={s.t} {...Q2} instant />,
     },
     {
       id: "reveal", next: "q3",
       ...onAir([
-        { who: "announcer", say: "That's it. Blue crumbs, from a blueberry muffin. On with the story!", sfxs: [{ sfx: "radio-chime", at: 0, volume: 0.5 }] },
+        { who: "announcer", say: "That's right. The blue crumbs came from the blueberry muffin. Now, on with the story.", sfxs: [{ sfx: "radio-chime", at: 0, volume: 0.5 }] },
         { who: "plum", say: "Mr Crumb. Those are blue crumbs on your waistcoat. And my muffin was blueberry." },
         { who: "crumb", say: "Oh dear. Oh dear, oh dear. I'm so sorry, Lady Plum. I was just so terribly hungry." },
         { who: "narrator", say: "For a moment, nobody spoke. And then Lady Plum began to laugh." },
@@ -272,19 +272,19 @@ export default {
     {
       id: "q3",
       choice: { prompt: "Tap the best answer", next: "end", options: spots(2, "q3-slip") },
-      beats: [{ who: "announcer", say: "Last question. How does Lady Plum feel at the very end, and how do we know?" }],
+      beats: [{ who: "announcer", say: "Here is the last question. How does Lady Plum feel at the very end, and how do we know?" }],
       render: s => <Question t={s.t} {...Q3} />,
     },
     {
       id: "q3-slip", returnTo: "q3",
-      beats: [{ who: "announcer", say: "Listen again to the end. What does Lady Plum do? She begins to laugh. And what does she offer?" }],
+      beats: [{ who: "announcer", say: "Think about the end of the story. Lady Plum begins to laugh. What does she offer Mr Crumb?" }],
       render: s => <Question t={s.t} {...Q3} instant />,
     },
     {
       id: "end",
       ...onAir([
         { who: "announcer", say: "Quite right. She laughed, and she offered to share. So she wasn't cross any more.", sfxs: [{ sfx: "radio-chime", at: 0, volume: 0.5 }] },
-        { who: "announcer", say: "You listened like a true detective, and you read between the lines, even without any lines to read. Good night, listeners.", sfxs: [{ sfx: "radio-static", at: 6.5, volume: 0.5 }] },
+        { who: "announcer", say: "You listened carefully and worked out what really happened, just like a detective. Good night, listeners.", sfxs: [{ sfx: "radio-static", at: 5.5, volume: 0.5 }] },
       ]),
     },
   ],
