@@ -32,8 +32,8 @@ function useWashi(tint, fibre, seed) {
     const rnd = () => (r = (r * 16807) % 2147483647) / 2147483647;
     g.fillStyle = tint;
     g.fillRect(0, 0, 1024, 1024);
-    for (let i = 0; i < 1100; i++) {
-      g.strokeStyle = `rgba(${fibre},${0.12 + rnd() * 0.3})`;
+    for (let i = 0; i < 1600; i++) {
+      g.strokeStyle = `rgba(${fibre},${0.22 + rnd() * 0.45})`;
       g.lineWidth = 0.4 + rnd() * 1.3;
       const x = rnd() * 1024, y = rnd() * 1024;
       g.beginPath();
@@ -42,7 +42,7 @@ function useWashi(tint, fibre, seed) {
       g.stroke();
     }
     for (let i = 0; i < 4000; i++) {
-      g.fillStyle = `rgba(110,90,70,${rnd() * 0.07})`;
+      g.fillStyle = `rgba(120,95,70,${rnd() * 0.12})`;
       g.fillRect(rnd() * 1024, rnd() * 1024, 1 + rnd() * 2, 1 + rnd() * 2);
     }
     const tex = new THREE.CanvasTexture(c);
@@ -57,7 +57,7 @@ function Half({ x, front, back }) {
     <group position={[x, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
       <mesh receiveShadow castShadow>
         <planeGeometry args={[W, H]} />
-        <meshStandardMaterial map={front} roughness={0.95} side={THREE.FrontSide} />
+        <meshStandardMaterial map={front} roughness={0.95} side={THREE.FrontSide} emissive="#3A2C18" emissiveIntensity={0.25} />
       </mesh>
       <mesh>
         <planeGeometry args={[W, H]} />
@@ -103,7 +103,7 @@ function Ink({ kind, px = 0, pz = 0, size = 1, colour = INK, opacity = 1, lift =
 // The whole sheet. fold: 0 flat, 1 right half folded over onto the left.
 // right: shapes painted on the right half. left: shapes on the left half.
 function Sheet({ fold = 0, right = [], left = [], crease = 0 }) {
-  const front = useWashi("#F3EADA", "255,255,255", 7);
+  const front = useWashi("#F1E3C8", "255,252,244", 7);
   const back = useWashi("#E9C9C4", "255,240,240", 13);
   return (
     <group>
@@ -153,8 +153,9 @@ function Stage({ camera, look, children }) {
       <Camera pos={camera} look={look} />
       <color attach="background" args={["#15171B"]} />
       <fog attach="fog" args={["#15171B", 8, 16]} />
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[-3, 6, 3]} intensity={1.5} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048}
+      <ambientLight intensity={1.05} />
+      <hemisphereLight args={["#FFF4E2", "#2C3036", 0.6]} />
+      <directionalLight position={[-3, 6, 3]} intensity={2.3} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048}
         shadow-camera-left={-5} shadow-camera-right={5} shadow-camera-top={5} shadow-camera-bottom={-5} shadow-bias={-0.0004} />
       <pointLight position={[4, 3, -2]} intensity={6} color="#FFE2C0" />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
@@ -171,8 +172,8 @@ function Stage({ camera, look, children }) {
 function Title({ t, text, sub, at = 0, top = 110 }) {
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top, textAlign: "center", opacity: rise(t, 30, at) }}>
-      <div style={{ fontFamily: SERIF, fontWeight: 600, fontSize: 112, color: "#F5EEDF", letterSpacing: 1, textShadow: "0 6px 30px rgba(0,0,0,0.6)" }}>{text}</div>
-      {sub && <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 44, color: GOLD, marginTop: 8 }}>{sub}</div>}
+      <div style={{ fontFamily: SERIF, fontWeight: 600, fontSize: 112, color: "#F5EEDF", letterSpacing: 1, textShadow: "0 0 24px rgba(10,10,14,0.95), 0 4px 30px rgba(0,0,0,0.8)" }}>{text}</div>
+      {sub && <div style={{ display: "inline-block", fontFamily: SERIF, fontStyle: "italic", fontSize: 44, color: GOLD, marginTop: 10, padding: "4px 22px 8px", background: "rgba(14,14,18,0.72)", borderRadius: 6 }}>{sub}</div>}
     </div>
   );
 }
@@ -188,7 +189,7 @@ function Seal({ t, at, x, y }) {
   const k = pop(t, at);
   if (k <= 0) return null;
   return (
-    <div style={{ position: "absolute", left: x - 60, top: y - 60, width: 120, height: 120, borderRadius: 14, border: `6px solid ${VERMILION}`, color: VERMILION, fontFamily: SERIF, fontWeight: 600, fontSize: 30, lineHeight: 1.05, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", transform: `scale(${lerp(1.6, 1, Math.min(1, k))}) rotate(-6deg)`, opacity: Math.min(1, k * 1.5) }}>
+    <div style={{ position: "absolute", left: x - 90, top: y - 90, width: 180, height: 180, borderRadius: 16, border: `7px solid ${VERMILION}`, background: "rgba(245,238,223,0.08)", color: VERMILION, fontFamily: SERIF, fontWeight: 600, fontSize: 34, lineHeight: 1.05, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", transform: `scale(${lerp(1.6, 1, Math.min(1, k))}) rotate(-6deg)`, opacity: Math.min(1, k * 1.5) }}>
       nothing<br />gets<br />past
     </div>
   );

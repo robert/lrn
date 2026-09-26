@@ -124,7 +124,7 @@ const SLOTS = [
   ["Ending", "they win a rosette and feel proud"],
 ];
 
-function Recipe({ t, show }) {
+function Recipe({ t, show, glow = 0 }) {
   const at = [show.who, show.what, show.when, show.where, show.problem, show.solution, show.ending];
   return (
     <div style={{ position: "absolute", left: 1200, top: 110, width: 640, height: 760, background: "#FFFDF7", boxShadow: "0 20px 40px rgba(60,40,20,0.25)", padding: "34px 40px" }}>
@@ -134,7 +134,8 @@ function Recipe({ t, show }) {
         const k = rise(t, 30, at[i]);
         const key = label === "Problem" || label === "Solution";
         return (
-          <div key={label} style={{ display: "flex", gap: 16, alignItems: "baseline", minHeight: 88, borderBottom: "2px dashed #EADFCF" }}>
+          <div key={label} style={{ display: "flex", gap: 16, alignItems: "baseline", minHeight: 88, borderBottom: "2px dashed #EADFCF",
+            background: key ? `rgba(244,194,91,${0.3 * glow})` : "transparent", margin: "0 -16px", padding: "0 16px", borderRadius: 10 }}>
             <div style={{ fontFamily: SERIF, fontSize: 30, color: key ? "#B5563D" : "#8A7A6A", width: 150, flex: "none" }}>{label}</div>
             <div style={{ fontFamily: HAND, fontSize: 40, color: INK, lineHeight: 1.05, clipPath: `inset(0 ${100 - k * 100}% 0 0)` }}>{text}</div>
           </div>
@@ -221,8 +222,7 @@ export default {
         const glow = rise(s.t, 30, s.at(0) + 20);
         return <>
           <Painting t={s.t} show={show} wave={1} rebuilt={1} />
-          <Recipe t={s.t} show={show} />
-          <div style={{ position: "absolute", left: 1210, top: 486, width: 620, height: 184, border: "5px solid #B5563D", borderRadius: 18, opacity: glow, transform: `rotate(-1deg)` }} />
+          <Recipe t={s.t} show={show} glow={glow} />
         </>;
       },
     },

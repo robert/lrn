@@ -105,7 +105,7 @@ function Trevor({ t, x, y, talking = false, sulk = false }) {
 // The scoreboard: YOU against TREVOR, with a round counter.
 function Scoreboard({ t, you, trevor, round, trevorTalking, trevorSulk }) {
   return (
-    <div style={{ position: "absolute", left: 1510, top: 130, width: 340, height: 420, borderRadius: 26, background: "linear-gradient(#24164F, #140B33)", boxShadow: `0 0 0 4px ${Q.cyan}, 0 0 40px rgba(46,230,255,0.4)` }}>
+    <div style={{ position: "absolute", left: 1510, top: 120, width: 340, height: 455, borderRadius: 26, overflow: "hidden", background: "linear-gradient(#24164F, #140B33)", boxShadow: `0 0 0 4px ${Q.cyan}, 0 0 40px rgba(46,230,255,0.4)` }}>
       <div style={{ textAlign: "center", fontFamily: BEBAS, fontSize: 40, color: Q.gold, marginTop: 14, letterSpacing: 2 }}>{round}</div>
       {[["YOU", you, Q.pink], ["TREVOR", trevor, Q.cyan]].map(([name, score, c], i) => (
         <div key={name} style={{ margin: "16px 26px", padding: "8px 18px", borderRadius: 14, background: "rgba(255,255,255,0.06)", border: `3px solid ${c}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -113,7 +113,7 @@ function Scoreboard({ t, you, trevor, round, trevorTalking, trevorSulk }) {
           <span style={{ fontFamily: BEBAS, fontSize: 64, color: c }}>{Math.round(score)}</span>
         </div>
       ))}
-      <Trevor t={t} x={170} y={400} talking={trevorTalking} sulk={trevorSulk} />
+      <Trevor t={t} x={170} y={450} talking={trevorTalking} sulk={trevorSulk} />
     </div>
   );
 }
