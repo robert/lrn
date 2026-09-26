@@ -75,4 +75,9 @@ A song he can chant, cut as a music video. The words are Kokoro phrases fitted t
 
 These films are rendered in three.js through `@remotion/three`, with lighting, shadows and a camera that moves through the scene. They use 3D where it genuinely teaches something 2D can't.
 
-- [ ] 1 `s6-pancake`: The Pancake Flip. Paper flags on a wooden kitchen table. Spinning on the table never matches, but turning over like a pancake does, and a standing mirror shows the reflection is the flipped one. The rule: spun is rotated, turned over is flipped. Score: plucked ukulele (Karplus-Strong). Reviewed; rendering.
+- [ ] 1 `s6-pancake`: The Pancake Flip. Paper flags on a wooden kitchen table. Spinning on the table never matches, but turning over like a pancake does, and a standing mirror shows the reflection is the flipped one. The rule: spun is rotated, turned over is flipped. Score: plucked ukulele (Karplus-Strong). Rendered, 1:40.
+
+# Series 7: claymation, and Series 8: playable retro RPG
+
+- [ ] `s7-clay`: The Clay Workshop. Stop-motion on twos, thumbprinted clay, squash and stretch. Sequences and grids. (Agent working.)
+- [ ] `p8-quest`: Shape Quest. A Game Boy style RPG play-along: battle puzzle monsters with answers from the battle menu. (Agent working.)
