@@ -276,6 +276,9 @@ const talking = (s, scene, who) => {
 
 // ---------- The puzzles ----------
 
+// Cameras for the row scene.
+const RCAM = [0, 6.8, 8.4], RLOOK = [0, 0.2, 0.4];
+
 // Row: balls count up 1, 2, 3, 4 while the colour swaps red, blue.
 const ROW_X = [-3.2, -1.7, -0.2, 1.3, 2.8];
 const ROW = [[1, COL.red], [2, COL.blue], [3, COL.red], [4, COL.blue]];
@@ -391,11 +394,11 @@ scenes.push({
     const sc = this;
     const counting = s.beat >= 1 && s.beat < 2;
     const colouring = s.beat === 3;
-    const optsIn = s.at(4) - 20;
+    const optsIn = s.at(4) + 4;
     const winAt = s.at(4) + s.speech(4) * 0.6;
     return (
       <AbsoluteFill>
-        <Stage t={s.t} cam={[0, 6.2, 7.4]} look={[0, 0.2, 0.4]}>
+        <Stage t={s.t} cam={RCAM} look={RLOOK}>
           {ROW.map(([n, c], i) => (
             <group key={i}>
               <Tile x={ROW_X[i]} z={-0.6} t={s.t} at={-40} seed={i} glow={(counting || colouring) ? 0.35 : 0} />
@@ -410,22 +413,22 @@ scenes.push({
               <Balls n={o.n} colour={o.c} x={ROW_OPT_X[i]} z={1.6} t={s.t} at={optsIn + 6 + i * 5} seed={40 + i * 9} />
             </group>
           ))}
-          <Owl x={-4.7} z={1.6} t={s.t} talking={talking(s, sc, "hoot")} />
-          <Worm x={4.6} z={1.8} t={s.t} talking={talking(s, sc, "wiggle")} excited={s.beat === 3} />
+          <Owl x={-4.4} z={0.2} t={s.t} talking={talking(s, sc, "hoot")} />
+          <Worm x={4.3} z={0.4} t={s.t} talking={talking(s, sc, "wiggle")} excited={s.beat === 3} />
         </Stage>
-        {s.beat >= 1 && ROW.map(([n], i) => <Chip key={i} t={s.t} at={s.at(1) + i * 8} {...pos(toScreen([ROW_X[i], 1.1, -0.6], [0, 6.2, 7.4], [0, 0.2, 0.4]))} text={`${n}`} size={52} />)}
-        {s.beat >= 1 && <Chip t={s.t} at={s.at(1) + s.speech(1) * 0.8} {...pos(toScreen([ROW_X[4], 1.1, -0.6], [0, 6.2, 7.4], [0, 0.2, 0.4]))} text="5" size={52} bg="rgba(200,60,40,0.9)" />}
-        {s.beat >= 3 && ["red", "blue", "red", "blue"].map((c, i) => <Chip key={c + i} t={s.t} at={s.at(3) + i * 7} {...pos(toScreen([ROW_X[i], 0.2, 0.25], [0, 6.2, 7.4], [0, 0.2, 0.4]))} text={c} size={40} bg={i % 2 ? "rgba(63,124,201,0.95)" : "rgba(217,72,59,0.95)"} />)}
-        {s.beat >= 3 && <Chip t={s.t} at={s.at(3) + s.speech(3) * 0.8} {...pos(toScreen([ROW_X[4], 0.2, 0.25], [0, 6.2, 7.4], [0, 0.2, 0.4]))} text="red!" size={40} bg="rgba(217,72,59,0.95)" />}
-        {ROW_OPTS.map((o, i) => (held(s.t) < winAt || !o.correct) && <Chip key={o.label} t={s.t} at={optsIn + 10 + i * 5} {...pos(toScreen([ROW_OPT_X[i], 0.2, 2.5], [0, 6.2, 7.4], [0, 0.2, 0.4]))} text={o.label} size={40} rot={0} />)}
-        {s.beat >= 5 && <Chip t={s.t} at={s.at(5) + s.speech(5) * 0.3} {...pos(toScreen([ROW_OPT_X[0], 1.3, 1.6], [0, 6.2, 7.4], [0, 0.2, 0.4]))} text="only one change!" colour="#FFE3D6" bg="rgba(150,50,30,0.92)" />}
+        {s.beat >= 1 && ROW.map(([n], i) => <Chip key={i} t={s.t} at={s.at(1) + i * 8} {...pos(toScreen([ROW_X[i], 1.1, -0.6], RCAM, RLOOK))} text={`${n}`} size={52} />)}
+        {s.beat >= 1 && <Chip t={s.t} at={s.at(1) + s.speech(1) * 0.8} {...pos(toScreen([ROW_X[4], 1.1, -0.6], RCAM, RLOOK))} text="5" size={52} bg="rgba(200,60,40,0.9)" />}
+        {s.beat >= 3 && ["red", "blue", "red", "blue"].map((c, i) => <Chip key={c + i} t={s.t} at={s.at(3) + i * 7} {...pos(toScreen([ROW_X[i], 0.2, 0.25], RCAM, RLOOK))} text={c} size={40} bg={i % 2 ? "rgba(63,124,201,0.95)" : "rgba(217,72,59,0.95)"} />)}
+        {s.beat >= 3 && <Chip t={s.t} at={s.at(3) + s.speech(3) * 0.8} {...pos(toScreen([ROW_X[4], 0.2, 0.25], RCAM, RLOOK))} text="red!" size={40} bg="rgba(217,72,59,0.95)" />}
+        {ROW_OPTS.map((o, i) => (held(s.t) < winAt || !o.correct) && <Chip key={o.label} t={s.t} at={optsIn + 10 + i * 5} {...pos(toScreen([ROW_OPT_X[i], 0.2, 2.5], RCAM, RLOOK))} text={o.label} size={40} rot={0} />)}
+        {s.beat >= 5 && <Chip t={s.t} at={s.at(5) + s.speech(5) * 0.3} {...pos(toScreen([ROW_OPT_X[0] - 1.3, 0.2, 1.6], RCAM, RLOOK))} text="only one change!" colour="#FFE3D6" bg="rgba(150,50,30,0.92)" />}
       </AbsoluteFill>
     );
   },
 });
 
 // Scene 5: worked example on the grid, with the one-direction trap.
-const GCAM = [0.6, 6.8, 6.6], GLOOK = [0.4, 0, 0.2];
+const GCAM = [0.3, 7.4, 7.6], GLOOK = [0.1, 0, 0.2];
 scenes.push({
   beats: [
     { who: "hoot", say: "Now a grid. Read across the rows first. Each row is all one colour." },
@@ -463,8 +466,8 @@ scenes.push({
               <Piece kind={o.kind} colour={o.c} size={0.3} x={OPT_X + 0.9} y={0.22} z={GZ[i]} t={s.t} at={-40} seed={60 + i} />
             </group>
           ))}
-          <Owl x={-4.6} z={0.8} t={s.t} talking={talking(s, sc, "hoot")} wave={s.beat === 4 ? 0.5 : 0} />
-          <Worm x={-3.8} z={2.6} t={s.t} talking={talking(s, sc, "wiggle")} excited={s.beat === 3 || s.beat === 6} />
+          <Owl x={-4.6} z={-1.6} t={s.t} talking={talking(s, sc, "hoot")} wave={s.beat === 4 ? 0.5 : 0} />
+          <Worm x={-3.4} z={2.4} t={s.t} talking={talking(s, sc, "wiggle")} excited={s.beat === 3 || s.beat === 6} />
         </Stage>
         {s.beat <= 1 && ["red", "yellow", "blue"].map((c, r) => <Chip key={c} t={s.t} at={s.at(0) + r * 20} {...pos(toScreen([GX[0] - 1.1, 0.3, GZ[r]], GCAM, GLOOK))} text={c} size={38} bg={["rgba(217,72,59,0.95)", "rgba(200,150,20,0.95)", "rgba(63,124,201,0.95)"][r]} />)}
         {s.beat >= 2 && s.beat <= 5 && ["ball", "cube", "cone"].map((k, c) => <Chip key={k} t={s.t} at={s.at(2) + c * 22} {...pos(toScreen([GX[c], 0.3, GZ[0] - 1.05], GCAM, GLOOK))} text={k} size={38} />)}
@@ -477,7 +480,7 @@ scenes.push({
 });
 
 // Scene 6: your turn.
-const YCAM = [0.6, 6.8, 6.6], YLOOK = [0.4, 0, 0.2];
+const YCAM = [0.3, 7.4, 7.6], YLOOK = [0.1, 0, 0.2];
 scenes.push({
   beats: [
     { who: "hoot", say: "Your turn! Across the rows, then down the columns. Which tile fits both ways? Pause if you need more time.", hold: 6,
@@ -510,8 +513,8 @@ scenes.push({
               <Balls n={o.n} colour={COL.green} size={o.size} x={OPT_X + 0.9} z={GZ[i]} t={s.t} at={46 + i * 5} seed={300 + i * 7} />
             </group>
           ))}
-          <Owl x={-4.6} z={0.8} t={s.t} talking={talking(s, sc, "hoot")} />
-          <Worm x={-3.8} z={2.6} t={s.t} talking={talking(s, sc, "wiggle")} excited={reveal} />
+          <Owl x={-4.6} z={-1.6} t={s.t} talking={talking(s, sc, "hoot")} />
+          <Worm x={-3.4} z={2.4} t={s.t} talking={talking(s, sc, "wiggle")} excited={reveal} />
         </Stage>
         {Y_OPTS.map((o, i) => !(o.correct && placed) && <Chip key={o.label} t={s.t} at={50 + i * 5} {...pos(toScreen([OPT_X + 1.9, 0.2, GZ[i]], YCAM, YLOOK))} text={o.label} size={40} rot={0} />)}
         {!reveal && s.t > s.at(0) + s.speech(0) && (

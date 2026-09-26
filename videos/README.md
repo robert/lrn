@@ -1,5 +1,22 @@
 # Explainer videos
 
+## The series at a glance
+
+| Series | What it is | Where |
+|---|---|---|
+| 1 | Calm tutorials in the app's cloth-bound style, one per question type (13) | `src/videos/*.jsx`, rendered to mp4 |
+| 2 | Short genre films: noir, arcade, chalkboard, space, nature documentary, puppet theatre, bake-off, heist, football, railway (10) | `src/videos/s2-*.jsx` |
+| 3 | Play-along stories he taps through: pop-up book, comic book | `src/play/p3-*.jsx`, run live in the app |
+| 4 | Shadow theatre of passages he has read, with inference questions | `src/play/p4-*.jsx` |
+| 5 | Music videos: songs that fix the lists in memory | `src/videos/s5-*.jsx` plus `music/twelve.py` |
+| 6 | Real 3D (three.js) where 3D teaches something | `src/videos/s6-*.jsx` |
+| 7 | Stop-motion claymation | `src/videos/s7-*.jsx` |
+| 8 | A playable Game Boy role-playing game | `src/play/p8-*.jsx` |
+| 9 | Radio plays for listening inference | `src/play/p9-*.jsx` |
+| 10 | Bedtime films: calm reviews in the night sky | `src/videos/s10-*.jsx` |
+
+`SERIES2.md` has the full notes and status for series 2 onwards.
+
 Short animated films, one per question type. They have a warm British narrator, subtitles and the same cloth-bound library look as the games (see `../DESIGN.md`). They're built with [Remotion](https://remotion.dev) (React to MP4). The voice is [Kokoro](https://github.com/thewh1teagle/kokoro-onnx), a neural text-to-speech model that runs offline on this Mac.
 
 ```sh

@@ -26,6 +26,9 @@ export const FILMS = [
   { id: "s2-train", title: "The Sequence Express", group: "The cinema", genre: "Steam railway", blurb: "Couple on the missing carriage." },
   // Series 6: real 3D.
   { id: "s6-pancake", title: "The Pancake Flip", group: "The cinema", genre: "3D film", blurb: "Spinning never matches. Turning over does." },
+  { id: "s7-clay", title: "The Clay Workshop", group: "The cinema", genre: "Claymation", blurb: "Sequences and grids in plasticine: one change at a time, across and down." },
+  // Series 10: bedtime.
+  { id: "s10-stars", title: "Goodnight, Twelve Things", group: "Bedtime", genre: "Night sky", blurb: "The twelve things written in the stars. Calm, for the end of the day." },
   // Series 5: songs.
   { id: "s5-twelve", title: "The Twelve Things", group: "Songs", genre: "Music video", blurb: "Sing the twelve things in order until they stick." },
 ];

@@ -79,7 +79,7 @@ These films are rendered in three.js through `@remotion/three`, with lighting, s
 
 # Series 7: claymation, and Series 8: playable retro RPG
 
-- [ ] `s7-clay`: The Clay Workshop. Stop-motion on twos, thumbprinted clay, squash and stretch. Sequences and grids. (Agent working.)
+- [x] `s7-clay`: The Clay Workshop. Stop-motion on twos, thumbprinted clay, squash and stretch; Professor Hoot the owl and Wiggle the worm. Sequences and grids. Rendered, 2:13.
 - [x] `p8-quest`: Shape Quest. A Game Boy style RPG play-along: Odd Ogre, Code Goblin and the Mirror Wraith boss, beaten with answers from the battle menu. Reviewed.
 
 # Series 9: radio plays
@@ -87,3 +87,7 @@ These films are rendered in three.js through `@remotion/three`, with lighting, s
 Listening comprehension through inference. The story is carried by voices and sound design, with an art-deco wireless on screen.
 
 - [ ] `p9-radio`: The Midnight Muffin. A night-train mystery with five characters, including a parrot. Three inference questions that each need two clues held together. Voiced and reviewed.
+
+# Series 10: bedtime
+
+- [x] `s10-stars`: Goodnight, Twelve Things. The twelve things in the night sky, much of it real astronomy: moon phases, the Plough wheeling round the Pole Star, the pointers, an occultation, a halo, a reflection in a lake. Whispered narration, music-box lullaby. Reviewed; rendering.
