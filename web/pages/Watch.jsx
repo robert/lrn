@@ -3,6 +3,7 @@ import { useState } from "react";
 import { go } from "../App.jsx";
 import { ErrorBox, Loading } from "../components.jsx";
 import { useFilms, FilmPlayer } from "../Film.jsx";
+import { PLAY_FILMS } from "../cinema/films.js";
 import Icon from "../icons.jsx";
 import "./watch.css";
 
@@ -24,6 +25,23 @@ export default function Watch() {
       <div className="page stack">
         <ErrorBox error={error} />
         {!films && !error && <Loading />}
+        {PLAY_FILMS.length > 0 && (
+          <section className="watch-group play">
+            <h2 className="watch-group-title">Play along</h2>
+            <div className="watch-list">
+              {PLAY_FILMS.map(f => (
+                <button key={f.id} className="watch-film" onClick={() => go(`play/${f.id}`)}>
+                  <span className="watch-play"><Icon name="sparkle" size={34} strokeWidth={1.3} /></span>
+                  <span className="watch-text">
+                    <span className="watch-genre">You tap the answers</span>
+                    <span className="watch-title">{f.title}</span>
+                    <span className="watch-blurb">{f.strap}</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
         {groups.map(g => (
           <section key={g} className={`watch-group ${g === "The cinema" ? "cinema" : ""}`}>
             <h2 className="watch-group-title">{g}</h2>

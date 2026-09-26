@@ -44,3 +44,15 @@ Series 1 is a consistent library of calm, bookish tutorials. Series 2 does the o
 - [ ] 10 train (agent working)
 - [x] Films wired into the app (a "Cinema" shelf in the film library; each film appears when its mp4 exists)
 - [ ] theatre, bakeoff, heist (one agent working on all three)
+
+# Series 3: play-along films (live in the app)
+
+Series 3 films aren't MP4s. They run live inside the app with Remotion's Player and stop at each riddle for him to tap the answer on the picture itself. A right tap carries the story on; a slip plays a short scene from a character explaining why, then returns to the same choice.
+
+- **Engine:** `web/cinema/` (`PlayAlong.jsx` for flow and hotspots, `Segment.jsx` for one scene, `films.js` for the registry). Films live in `videos/src/play/*.jsx` and are voiced with the same `node scripts/voice.js <id>`. Deep link: `#/play/<id>/<sceneId>/choose`.
+- **Scene flow fields:** `id`, `next` (the next scene), `choice: { prompt, next, options: [{ id, x, y, w, h, correct, slip }] }` with hotspots in 1920x1080 space, and `returnTo` (go back to that scene's choice).
+
+## Films
+
+- [x] 1 `p3-dragon`: The Dragon's Three Riddles. A pop-up book with paper layers that stand up off the page. Riddles: odd one out on the banners, stepping-stone sequence, magic analogy.
+- [ ] 2 ideas: a claymation "Shape Kitchen", a comic book "Captain Nothing-Gets-Past" with panels he taps, a marionette "Twelve Things" song-and-dance, a detective "choose your suspect" with branching endings.

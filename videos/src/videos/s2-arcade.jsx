@@ -168,9 +168,9 @@ function PText({ children, x, y, size = 40, color = "#fff", align = "left", widt
 // ---------- The puzzle board ----------
 const CARD = 250;
 const COLX = [140, 440, 740];
-const CARD_Y = 200;
-const MYST = { x: 1110, y: 180, w: 290 };
-const OPT = { x: 300, y: 690, w: 230, gap: 40 };
+const CARD_Y = 230;
+const MYST = { x: 1110, y: 210, w: 290 };
+const OPT = { x: 250, y: 730, w: 230, gap: 40 };
 
 function Card({ x, y, w = CARD, border = CYAN, pulse = 0, children, dim = 0 }) {
   return (
@@ -220,7 +220,7 @@ function Mystery({ s, sprite, built = "", buildAt = [], appear = 0 }) {
           const k = buildAt[j] !== undefined ? pop(s.t, buildAt[j]) : 0;
           return (
             <div key={j} style={{ width: 90, height: 100, borderBottom: `6px solid ${PINK}`, fontFamily: PIXEL, fontSize: 70, color: YELLOW, textAlign: "center", textShadow: `0 0 16px ${YELLOW}` }}>
-              {k > 0 ? <span style={{ display: "inline-block", transform: `scale(${lerp(2, 1, k)})` }}>{built[j]}</span> : <span style={{ color: DIM, opacity: blink(s.t, 14) ? 1 : 0.3 }}>?</span>}
+              {k > 0 ? <span style={{ display: "inline-block", transform: `scale(${lerp(2, 1, k)})` }}>{built[j]}</span> : <span style={{ color: "#8A92C0", opacity: blink(s.t, 14) ? 1 : 0.45 }}>?</span>}
             </div>
           );
         })}
@@ -230,7 +230,7 @@ function Mystery({ s, sprite, built = "", buildAt = [], appear = 0 }) {
 }
 
 // Four answer buttons. The trap one explodes into pixels; the right one wins.
-function Options({ s, options, appear, correct, winAt, boomAt, boomIndex }) {
+function Options({ s, options, appear, correct, winAt, boomAt, boomIndex, prize = "+1000" }) {
   return options.map((o, i) => {
     const x = OPT.x + i * (OPT.w + OPT.gap);
     const a = rise(s.t, 8, appear + i * 5);
@@ -258,7 +258,7 @@ function Options({ s, options, appear, correct, winAt, boomAt, boomIndex }) {
         }}>
           <span style={{ fontSize: 22, color: "#8A92C0" }}>{"abcd"[i]}</span>{o}
         </div>
-        {win && <PText x={x - 40} y={OPT.y - 60} width={OPT.w + 80} align="center" size={26} color={GREEN} opacity={blink(s.t, 8) ? 1 : 0.6}>+1000</PText>}
+        {win && <PText x={x - 40} y={OPT.y - 60} width={OPT.w + 80} align="center" size={26} color={GREEN} opacity={blink(s.t, 8) ? 1 : 0.6}>{prize}</PText>}
       </div>
     );
   });
@@ -345,7 +345,7 @@ export default {
                 <span key={i} style={{
                   fontFamily: PIXEL, fontSize: 104, color: `hsl(${(hue + i * 24) % 360} 100% 65%)`,
                   textShadow: `0 8px 0 #1A1F3A, 0 0 24px hsl(${(hue + i * 24) % 360} 100% 60%)`,
-                  display: "inline-block", transform: `translateY(${Math.sin(s.t / 8 + i / 1.5) * 10}px)`,
+                  display: "inline-block", width: ch === " " ? 70 : undefined, transform: `translateY(${Math.sin(s.t / 8 + i / 1.5) * 10}px)`,
                 }}>{ch}</span>
               ))}
             </div>
@@ -422,6 +422,7 @@ export default {
               { k: "X", v: "SOLID", at: at(s, 3, 0.75) }, { k: "Y", v: "HOLLOW", at: at(s, 3, 0.92) },
             ]} />
             <Options s={s} options={L1.options} appear={at(s, 4, 0.9)} correct={L1.correct} winAt={at(s, 6, 0.3)} boomAt={at(s, 5, 0.5)} boomIndex={1} />
+            <Byte x={1600} y={560} t={s.t} talking={[1, 2, 3, 5].includes(s.beat)} scale={0.9} />
           </AbsoluteFill>
         );
       },
@@ -457,6 +458,7 @@ export default {
               <PText x={140} y={140} size={30} color={ORANGE} opacity={Math.min(1, decoy) * (blink(s.t, 8) ? 1 : 0.5)}>DECOY: COLOUR IS NOT IN THE CODE</PText>
             )}
             <Options s={s} options={L2.options} appear={at(s, 3, 0.1)} correct={L2.correct} winAt={at(s, 3, 0.85)} boomAt={99999} boomIndex={-1} />
+            <Byte x={1600} y={560} t={s.t} talking={[1, 2, 4].includes(s.beat)} scale={0.9} />
           </AbsoluteFill>
         );
       },
@@ -478,14 +480,14 @@ export default {
           <AbsoluteFill>
             <Board s={s} sprites={BONUS.sprites} />
             <Mystery s={s} sprite={BONUS.mystery} appear={12} built="LS" buildAt={[at(s, 1, 0.62), at(s, 1, 0.75)]} />
-            <Options s={s} options={BONUS.options} appear={20} correct={BONUS.correct} winAt={at(s, 1, 0.85)} boomAt={99999} boomIndex={-1} />
-            <PText x={1470} y={170} size={30} color={ORANGE} opacity={s.t < s.at(1) ? 1 : 0}>BONUS</PText>
-            <PText x={1470} y={230} size={96} color={left <= 2 ? PINK : YELLOW} opacity={ticking ? 1 : 0}>{left}</PText>
+            <Options s={s} options={BONUS.options} appear={20} correct={BONUS.correct} winAt={at(s, 1, 0.85)} boomAt={99999} boomIndex={-1} prize="+5000" />
+            <PText x={1470} y={210} size={30} color={ORANGE} opacity={s.t < s.at(1) ? 1 : 0}>BONUS</PText>
+            <PText x={1470} y={270} size={96} color={left <= 2 ? PINK : YELLOW} opacity={ticking ? 1 : 0}>{left}</PText>
             {s.t >= s.at(1) && <Legend s={s} rows={[
               { k: "K", v: "STAR", at: at(s, 1, 0.1) }, { k: "L", v: "CROSS", at: at(s, 1, 0.2) },
               { k: "R", v: "SOLID", at: at(s, 1, 0.33) }, { k: "S", v: "SPECKLED", at: at(s, 1, 0.45) },
             ]} />}
-            {/* A blip every second while the timer runs. */}
+            <Byte x={1600} y={560} t={s.t} talking={s.beat === 1} scale={0.9} />
           </AbsoluteFill>
         );
       },
@@ -520,6 +522,7 @@ export default {
               <PText key={i} x={0} y={580 + i * 56} width={1920} align="center" size={30} color="#fff" opacity={rise(s.t, 6, at(s, 1, 0.1 + i * 0.3))}>{`${i + 1}. ${tip}`}</PText>
             ))}
             <Byte x={1560} y={330} t={s.t} talking={s.beat === 1} />
+            <Fireworks t={s.t} start={at(s, 2, 0.75)} />
           </AbsoluteFill>
         );
       },
@@ -530,7 +533,7 @@ export default {
 // The code key, filling in as Byte cracks each letter.
 function Legend({ s, rows }) {
   return (
-    <div style={{ position: "absolute", left: 1470, top: 180, width: 330 }}>
+    <div style={{ position: "absolute", left: 1470, top: 210, width: 330 }}>
       {rows.map((r, i) => {
         const k = pop(s.t, r.at);
         return (
@@ -543,4 +546,22 @@ function Legend({ s, rows }) {
       })}
     </div>
   );
+}
+
+// Pixel fireworks: bursts of square sparks, each falling as it fades.
+function Fireworks({ t, start }) {
+  if (t < start) return null;
+  const bursts = [[420, 300, 0], [1500, 260, 14], [960, 200, 28], [700, 420, 44], [1250, 430, 58], [300, 520, 74], [1650, 500, 90]];
+  const colours = [PINK, YELLOW, CYAN, GREEN, ORANGE];
+  const sparks = [];
+  bursts.forEach(([cx, cy, delay], b) => {
+    const e = t - start - delay;
+    if (e < 0 || e > 60) return;
+    for (let k = 0; k < 28; k++) {
+      const ang = (k / 28) * Math.PI * 2, sp = 7 + hash(b * 50 + k) * 3;
+      sparks.push(<rect key={`${b}-${k}`} x={cx + Math.cos(ang) * sp * e} y={cy + Math.sin(ang) * sp * e + 0.08 * e * e}
+        width={10} height={10} fill={colours[(b + k) % colours.length]} opacity={Math.max(0, 1 - e / 60)} />);
+    }
+  });
+  return <svg width="1920" height="1080" style={{ position: "absolute", inset: 0 }} shapeRendering="crispEdges">{sparks}</svg>;
 }

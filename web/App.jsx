@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home.jsx";
 import Parent from "./pages/Parent.jsx";
 import Watch from "./pages/Watch.jsx";
+import PlayAlong from "./cinema/PlayAlong.jsx";
 import ReaderApp from "./games/reader/ReaderApp.jsx";
 import ImaginationApp from "./games/imagination/ImaginationApp.jsx";
 import StoryApp from "./games/story/StoryApp.jsx";
@@ -16,6 +17,7 @@ const ROUTES = {
   spotter: SpotterApp,
   parent: Parent,
   watch: Watch,
+  play: PlayAlong,
 };
 
 const currentPath = () => window.location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);

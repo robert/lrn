@@ -336,8 +336,8 @@ export default {
             <div style={{ opacity: cd }}>
               <Countdown x={960} y={700} t={s.t} start={s.at(0) + s.speech(0)} seconds={7} size={130} />
             </div>
-            <Seal x={140} y={318} size={70} t={s.t} start={s.at(1) + s.speech(1) * 0.55} />
-            <Seal x={140} y={498} size={70} t={s.t} start={s.at(2) + s.speech(2) * 0.55} />
+            <Seal x={112} y={318} size={56} t={s.t} start={s.at(1) + s.speech(1) * 0.55} />
+            <Seal x={112} y={498} size={56} t={s.t} start={s.at(2) + s.speech(2) * 0.55} />
           </>
         );
       },

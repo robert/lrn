@@ -31,3 +31,6 @@
 .watch-group.cinema .watch-blurb { color: rgba(250, 251, 248, 0.65); }
 .watch-group.cinema .watch-play { color: var(--gilt); }
 .watch-genre { font-size: 13px; font-weight: 800; color: var(--gilt); }
+
+/* Play-along films: warm paper, like a pop-up book. */
+.watch-group.play .watch-film { background: linear-gradient(160deg, #FBF3E2, #F1E3C6); box-shadow: 0 0 0 1px #D9C39A, var(--lift); }

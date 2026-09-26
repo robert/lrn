@@ -10,9 +10,10 @@ import { loadFont as loadFell } from "@remotion/google-fonts/IMFellEnglish";
 import { rise, pop, window, lerp } from "../lib/anim.js";
 import { Shape } from "../lib/shapes.jsx";
 
-const { fontFamily: HAND } = loadCaveat();
-const { fontFamily: TITLE } = loadCinzel();
-const { fontFamily: FELL } = loadFell();
+// Only the Latin subsets and weights we use, so fonts load quickly.
+const { fontFamily: HAND } = loadCaveat("normal", { weights: ["400", "700"], subsets: ["latin"] });
+const { fontFamily: TITLE } = loadCinzel("normal", { weights: ["400"], subsets: ["latin"] });
+const { fontFamily: FELL } = loadFell("italic", { weights: ["400"], subsets: ["latin"] });
 
 const INK = "#3B2A1A";      // sepia notebook ink
 const RUST = "#B2542A";     // "changed!" marks
@@ -173,7 +174,7 @@ function TimeLapse({ t, from, to, label }) {
   const k = window(t, from, to, 8);
   const spin = ((t - from) / Math.max(1, to - from)) * 720;
   return (
-    <div style={{ position: "absolute", left: 140, top: 180, opacity: k, display: "flex", alignItems: "center", gap: 18 }}>
+    <div style={{ position: "absolute", left: 140, top: 300, opacity: k, display: "flex", alignItems: "center", gap: 18 }}>
       <svg width="84" height="84" viewBox="-42 -42 84 84">
         <circle r="38" fill="rgba(255,255,255,0.85)" stroke={INK} strokeWidth="3" />
         <line x1="0" y1="0" x2="0" y2="-26" stroke={INK} strokeWidth="4" strokeLinecap="round" transform={`rotate(${spin / 12})`} />
@@ -214,7 +215,7 @@ function Polaroid({ t, at, x, y, w = 430, rot = -3, label, creatures, bg = ["#79
 
 // The field notebook: the twelve things in order, with pencil ticks for
 // "same" and a rust ring round "changed!". marks: [{ row, kind, at }].
-function Notebook({ t, x = 1110, y = 96, w = 720, title, marks = [], written = 12, writeAt = [], appear = 1, rowH = 58 }) {
+function Notebook({ t, x = 1110, y = 150, w = 720, title, marks = [], written = 12, writeAt = [], appear = 1, rowH = 52 }) {
   const lastMark = [...marks].filter(m => t >= m.at).pop();
   return (
     <div style={{
@@ -239,7 +240,7 @@ function Notebook({ t, x = 1110, y = 96, w = 720, title, marks = [], written = 1
           <div key={i} style={{ position: "absolute", left: 40, right: 20, top: 110 + i * rowH, height: rowH, display: "flex", alignItems: "center" }}>
             {active && <div style={{ position: "absolute", left: 50, right: 0, top: 6, bottom: 6, background: "rgba(255,226,120,0.55)", borderRadius: 4 }} />}
             <span style={{ position: "relative", width: 48, fontFamily: HAND, fontSize: 36, color: "rgba(59,42,26,0.55)", opacity: shown }}>{i + 1}</span>
-            <span style={{ position: "relative", marginLeft: 30, fontFamily: HAND, fontSize: 44, color: INK, opacity: shown, clipPath: `inset(0 ${100 - shown * 100}% 0 0)` }}>{name}</span>
+            <span style={{ position: "relative", marginLeft: 30, paddingRight: 12, fontFamily: HAND, fontSize: 42, color: INK, opacity: shown, clipPath: shown < 1 ? `inset(-20% ${100 - shown * 100}% -20% 0)` : "none" }}>{name}</span>
             {mark && m > 0 && (mark.kind === "same" ? (
               <span style={{ position: "relative", marginLeft: "auto", marginRight: 30, fontFamily: HAND, fontSize: 40, color: "rgba(59,42,26,0.6)", opacity: m }}>✓ same</span>
             ) : (
@@ -371,9 +372,9 @@ export default {
             <Species t={s.t} at={40} common="The Common Triangle" latin="Triangulus vulgaris" />
             <TimeLapse t={s.t} from={s.at(2) + 20} to={s.at(2) + s.speech(2) + 56} label="One hour later..." />
             <Flash t={s.t} at={s.t >= shutter2 ? shutter2 : shutter1} />
-            <Polaroid t={s.t} at={shutter1 + 4} x={1340} y={130} w={380} rot={4} label="before"
+            <Polaroid t={s.t} at={shutter1 + 4} x={1380} y={190} w={340} rot={4} label="before"
               creatures={<g transform="rotate(0)"><Shape kind="triangle" r={80} fill="white" /></g>} />
-            <Polaroid t={s.t} at={shutter2 + 4} x={1360} y={520} w={380} rot={-3} label="after" bg={["#6FA2D0", "#DDEBF0"]}
+            <Polaroid t={s.t} at={shutter2 + 4} x={1400} y={560} w={340} rot={-3} label="after" bg={["#6FA2D0", "#DDEBF0"]}
               creatures={<g transform="rotate(90)"><Shape kind="triangle" r={80} fill="black" /></g>} />
           </AbsoluteFill>
         );
@@ -510,7 +511,7 @@ export default {
       beats: [
         { who: "basil", say: "Has it? Let us try turning the old photograph, to see if it matches." },
         { who: "basil", say: "All the way round... and it never matches. So it has not simply turned.", sfxs: [{ sfx: "nature-pencil", at: 3.6 }] },
-        { who: "basil", say: "But hold it up to the water, like a reflection... and there. A mirror image. It has flipped.", sfxs: [{ sfx: "nature-pencil", at: 5.0 }, { sfx: "chime", at: 5.2, volume: 0.5 }] },
+        { who: "basil", say: "But hold it up to the water, like a reflection... and there. A mirror image. It has flipped.", sfxs: [{ sfx: "nature-pencil", at: 4.6 }, { sfx: "chime", at: 4.8, volume: 0.5 }] },
         { who: "poppy", say: "Rotation, the same. Flipped, different! The rarest change of all." },
       ],
       render: s => {
@@ -526,18 +527,19 @@ export default {
         return (
           <AbsoluteFill>
             <div style={{ position: "absolute", inset: 0, filter: "blur(10px) brightness(0.65)" }}><Meadow t={s.t} from="dusk" to="dusk" k={0} /></div>
-            <Polaroid t={s.t} at={2} x={150} y={110} w={440} rot={-2} label="after" bg={SKIES.dusk}
+            <Polaroid t={s.t} at={2} x={180} y={150} w={560} rot={-2} label="after" bg={SKIES.dusk}
               creatures={<>
                 <g transform="scale(-1 1)"><Shape kind="flag" r={100} fill="white" /></g>
                 {/* The old photo's flag, held over it as a gilt ghost that turns, then flips. */}
                 <g transform={`rotate(${turn}) scale(${lerp(1, -1, flip)} 1)`} opacity={s.t > 10 ? 0.9 : 0}>
                   <Shape kind="flag" r={100} fill="none" line="dashed" ink={matched ? "#2F8F4E" : RUST} />
+                  <Shape kind="flag" r={101.5} fill="none" line="dashed" ink={matched ? "#2F8F4E" : RUST} />
                 </g>
               </>} />
-            <div style={{ position: "absolute", left: 150, top: 610, width: 440, textAlign: "center", fontFamily: HAND, fontSize: 56, color: matched ? "#BDF0C8" : "#FFD9C4", textShadow: "0 2px 8px rgba(0,0,0,0.6)", opacity: rise(s.t, 12, s.at(0) + 30) }}>
+            <div style={{ position: "absolute", left: 180, top: 730, width: 560, textAlign: "center", fontFamily: HAND, fontSize: 60, color: matched ? "#BDF0C8" : "#FFD9C4", textShadow: "0 2px 8px rgba(0,0,0,0.6)", opacity: rise(s.t, 12, s.at(0) + 30) }}>
               {matched ? "a perfect match!" : "no match..."}
             </div>
-            <div style={{ position: "absolute", left: 150, top: 690, width: 440, textAlign: "center", fontFamily: FELL, fontStyle: "italic", fontSize: 32, color: "rgba(255,253,245,0.85)", opacity: rise(s.t, 12, s.at(0) + 30) }}>
+            <div style={{ position: "absolute", left: 180, top: 812, width: 560, textAlign: "center", fontFamily: FELL, fontStyle: "italic", fontSize: 32, color: "rgba(255,253,245,0.85)", opacity: rise(s.t, 12, s.at(0) + 30) }}>
               dashed: the "before" photo
             </div>
             <Notebook t={s.t} title="Vexillum speculum" marks={marks} appear={rise(s.t, 20, 4)} />
@@ -550,8 +552,8 @@ export default {
     {
       beats: [
         { who: "basil", say: "Your turn, young naturalist. The lesser star, before, and after. Go down the list. What changed? Pause if you would like more time.", hold: 7,
-          sfxs: Array.from({ length: 7 }, (_, i) => ({ sfx: "nature-pencil", at: 9.5 + i, volume: 0.5 })) },
-        { who: "basil", say: "Size. Different, it has grown. And position on screen. Different. It has climbed up to the top corner.", sfxs: [{ sfx: "chime", at: 5.6, volume: 0.5 }] },
+          sfxs: Array.from({ length: 7 }, (_, i) => ({ sfx: "nature-pencil", at: 9.2 + i, volume: 0.5 })) },
+        { who: "basil", say: "Size. Different, it has grown. And position on screen. Different. It has climbed up to the top corner.", sfxs: [{ sfx: "chime", at: 4.6, volume: 0.5 }] },
         { who: "poppy", say: "And everything else, exactly the same. Nothing gets past us!" },
       ],
       render: s => {
@@ -574,7 +576,7 @@ export default {
               creatures={<Shape kind="star" r={78} fill="grey" x={60} y={-40} />} />
             <Notebook t={s.t} title="Stella minor" marks={marks} appear={rise(s.t, 20, 4)} />
             {waiting && (
-              <div style={{ position: "absolute", left: 360, top: 720, fontFamily: HAND, fontSize: 90, color: "#FFFDF5", textShadow: "0 3px 12px rgba(0,0,0,0.7)" }}>
+              <div style={{ position: "absolute", left: 520, top: 700, fontFamily: HAND, fontSize: 110, color: "#FFFDF5", textShadow: "0 3px 12px rgba(0,0,0,0.7)" }}>
                 {left > 0 ? left : ""}
               </div>
             )}

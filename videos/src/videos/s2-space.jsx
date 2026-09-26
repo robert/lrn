@@ -109,12 +109,12 @@ function Bridge({ t, alarm = 0 }) {
 // ---------- The hologram ----------
 
 // Recolours ink drawings into a hologram: dark ink glows cyan, white goes
-// clear, grey sits in between. So "black" reads as solid light, "white" as hollow.
+// see-through (its alpha falls with lightness), grey sits in between. So "black" reads as solid light, "white" as hollow.
 function HoloDefs() {
   return (
     <defs>
       <filter id="holo" x="-30%" y="-30%" width="160%" height="160%">
-        <feColorMatrix type="matrix" values="-0.15 -0.29 -0.06 0.5 0  -0.29 -0.57 -0.11 0.97 0  -0.3 -0.59 -0.11 1 0  0 0 0 1 0" result="c" />
+        <feColorMatrix type="matrix" values="-0.15 -0.29 -0.06 0.5 0  -0.29 -0.57 -0.11 0.97 0  -0.3 -0.59 -0.11 1 0  -0.24 -0.47 -0.09 1 0" result="c" />
         <feGaussianBlur in="c" stdDeviation="4" result="g" />
         <feMerge><feMergeNode in="g" /><feMergeNode in="c" /></feMerge>
       </filter>
@@ -238,7 +238,7 @@ function StarMap({ t, restored, lightAt = -1 }) {
 
 // A HUD countdown ring for "your turn".
 function Countdown({ t, at, seconds = 6 }) {
-  if (t < at) return null;
+  if (t < at || t > at + seconds * 30 + 10) return null;
   const k = Math.min(1, (t - at) / (seconds * 30));
   const left = Math.ceil(seconds * (1 - k));
   return (
@@ -394,7 +394,7 @@ export default {
               cells={SECTOR1} fill fillAt={pickAt} fillItems={SECTOR1_OPTS[0]} />
             <Choices t={s.t} x={1050} y={320} cell={150} options={SECTOR1_OPTS} appearAt={30} pick={0} pickAt={pickAt} />
             <Chip x={G2.x} y={G2.y - 90} text="ACROSS: QUARTER TURN" appear={window(s.t, s.at(2) + s.speech(2) * 0.5, s.at(3) + 6)} />
-            <Chip x={G2.x - 300} y={G2.y + 180} text="DOWN: HALF TURN" appear={window(s.t, s.at(3) + s.speech(3) * 0.6, s.at(5))} />
+            <Chip x={20} y={G2.y + 196} text="DOWN: HALF TURN" appear={window(s.t, s.at(3) + s.speech(3) * 0.6, s.at(5))} />
             <Chip x={G2.x} y={G2.y + 2 * G2.cell + 40} text="FITS BOTH WAYS" color={AMBER} appear={rise(s.t, 16, s.at(5) + s.speech(5) * 0.6)} />
           </AbsoluteFill>
         );
@@ -405,7 +405,7 @@ export default {
     {
       beats: [
         { who: "orbit", say: "Sector two. Nine squares.", sfxs: [{ sfx: "space-holo", at: 0 }] },
-        { who: "bolt", say: "Easy! The bottom row goes circle, triangle... so it's a circle. This black one! Jump!" },
+        { who: "bolt", say: "Easy! The bottom row goes circle, triangle... so it's a circle. This solid one! Jump!" },
         { who: "orbit", say: "Negative. The shape is correct. The shading is not.", sfxs: [{ sfx: "space-nope", at: 0.1 }] },
         { who: "captain", say: "Read across properly, Bolt. Each row keeps one shading. The top row is all hollow, the middle row all solid, and the bottom row all striped." },
         { who: "captain", say: "Now read down the right-hand column. Circle, triangle, circle. So the gap needs a striped circle." },
@@ -426,7 +426,7 @@ export default {
             <HoloGrid t={s.t} {...G3} appear={rise(s.t, 24, 6)} scanRow={row} scanCol={col}
               cells={SECTOR2} fill fillAt={pickAt} fillItems={SECTOR2_OPTS[2]} />
             <Choices t={s.t} x={1050} y={290} cell={150} options={SECTOR2_OPTS} appearAt={30} pick={2} pickAt={pickAt} nope={0} nopeAt={nopeAt} />
-            <Chip x={1010} y={200} text="RIGHT SHAPE, WRONG SHADING" color="#FF9A8A" size={24} appear={window(s.t, s.at(2) + 10, s.at(4))} />
+            <Chip x={1030} y={780} text="RIGHT SHAPE, WRONG SHADING" color="#FF9A8A" size={26} appear={window(s.t, s.at(2) + 10, s.at(4))} />
             {["HOLLOW", "SOLID", "STRIPED"].map((w, i) => (
               <Chip key={w} x={G3.x - 250} y={G3.y + i * G3.cell + 60} text={w} size={24}
                 appear={window(s.t, s.at(3) + (s.speech(3) / 3) * i + 10, s.at(5))} />

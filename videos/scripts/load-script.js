@@ -28,10 +28,19 @@ const stubs = {
   },
 };
 
+// Films live in src/videos/ (rendered to mp4) or src/play/ (played live in the app).
+export function scriptPath(id) {
+  for (const dir of ["videos", "play"]) {
+    const p = path.join(ROOT, "src", dir, `${id}.jsx`);
+    if (fs.existsSync(p)) return p;
+  }
+  throw new Error(`No film called ${id} in src/videos or src/play`);
+}
+
 export async function loadScript(id) {
   const outfile = path.join(ROOT, "node_modules/.cache/voice", `${id}.mjs`);
   await build({
-    entryPoints: [path.join(ROOT, "src/videos", `${id}.jsx`)], bundle: true, format: "esm", platform: "node",
+    entryPoints: [scriptPath(id)], bundle: true, format: "esm", platform: "node",
     outfile, jsx: "automatic", jsxImportSource: "stubreact", plugins: [stubs], logLevel: "error",
   });
   const script = (await import(pathToFileURL(outfile).href + `?t=${Date.now()}`)).default;

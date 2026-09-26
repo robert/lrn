@@ -1,0 +1,45 @@
+/* Play-along films: the film fills a dark theatre; hotspots sit over it. */
+.playalong {
+  min-height: 100vh; background: #0E0B0D;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 56px 16px 24px; position: relative;
+}
+.playalong-back { position: absolute; top: 10px; left: 10px; color: var(--gilt-light); }
+.playalong-stage {
+  position: relative; width: min(100%, calc((100vh - 110px) * 16 / 9)); aspect-ratio: 16 / 9;
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(201, 162, 75, 0.5), 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+}
+.playalong-poster {
+  position: absolute; inset: 0; border: none; cursor: pointer;
+  background: radial-gradient(ellipse at 50% 40%, #3A2A1E, #120C09 75%) center / cover;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  color: var(--paper); text-align: center; padding: 24px;
+}
+.playalong-kicker { font-family: var(--story); font-style: italic; font-size: 20px; color: var(--gilt-light); }
+.playalong-title { font-family: var(--story); font-weight: 600; font-size: clamp(30px, 5vw, 60px); line-height: 1.05; max-width: 16ch; }
+.playalong-hint { font-size: 17px; opacity: 0.8; max-width: 40ch; }
+.playalong-begin { margin-top: 10px; }
+
+/* Hotspots are laid out in the film's 1920x1080 space and scaled with it. */
+.playalong-choices { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+.playalong-hotspot {
+  position: absolute; border: none; background: transparent; cursor: pointer; border-radius: 24px;
+  box-shadow: 0 0 0 0 rgba(237, 212, 143, 0);
+  animation: hotspot 2.4s ease-in-out infinite;
+}
+.playalong-hotspot:hover { box-shadow: 0 0 0 6px rgba(237, 212, 143, 0.8); animation: none; }
+.playalong-hotspot.tried { cursor: default; animation: none; background: rgba(0, 0, 0, 0.35); }
+@keyframes hotspot { 50% { box-shadow: 0 0 0 5px rgba(237, 212, 143, 0.45); } }
+
+.playalong-prompt {
+  position: absolute; left: 50%; top: 14px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20, 14, 10, 0.85); color: var(--gilt-light);
+  font-family: var(--story); font-style: italic; font-size: clamp(16px, 2vw, 24px);
+  padding: 8px 18px; border-radius: 99px; box-shadow: 0 0 0 1px rgba(201, 162, 75, 0.5);
+}
+.playalong-end {
+  position: absolute; left: 50%; bottom: 8%; transform: translateX(-50%);
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+}

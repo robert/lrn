@@ -23,6 +23,8 @@ app.use("/api/story", story);
 app.use("/api/spotter", spotter);
 app.use("/pictures", express.static(path.join(ROOT, "pictures")));
 app.use("/videos", express.static(path.join(ROOT, "public-videos")));
+// Voices, music and sound effects for the play-along films.
+app.use("/video-assets", express.static(path.join(ROOT, "videos/public")));
 
 // Any error in an API route comes back as JSON with the message, loudly.
 app.use("/api", (err, req, res, next) => {
