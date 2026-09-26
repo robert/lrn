@@ -34,14 +34,14 @@ Series 1 is a consistent library of calm, bookish tutorials. Series 2 does the o
 - [x] Music generator (`music/synth.py`)
 - [x] 1 noir: rendered, 2:21 (`public-videos/s2-noir.mp4`)
 - [x] 2 arcade: rendered 2:29
-- [ ] 3 chalk (agent working)
+- [x] 3 chalk: rendered 2:29
 - [x] 4 space: rendered 2:34
-- [x] 5 nature: rendered (agent finishing sports)
+- [x] 5 nature: rendered
 - [x] 6 theatre: rendered (agent finishing bakeoff, heist)
 - [ ] 7 bakeoff
 - [ ] 8 heist
 - [ ] 9 sports (agent working)
-- [ ] 10 train (agent working)
+- [x] 10 train: rendered 2:34
 - [x] Films wired into the app (a "Cinema" shelf in the film library; each film appears when its mp4 exists)
 - [ ] theatre, bakeoff, heist (one agent working on all three)
 
@@ -55,4 +55,5 @@ Series 3 films aren't MP4s. They run live inside the app with Remotion's Player 
 ## Films
 
 - [x] 1 `p3-dragon`: The Dragon's Three Riddles. A pop-up book with paper layers that stand up off the page. Riddles: odd one out on the banners, stepping-stone sequence, magic analogy.
-- [ ] 2 ideas: a claymation "Shape Kitchen", a comic book "Captain Nothing-Gets-Past" with panels he taps, a marionette "Twelve Things" song-and-dance, a detective "choose your suspect" with branching endings.
+- [ ] 2 `p3-comic`: Captain Sharp-Eye and the Switcheroo. A comic book, two taps a round: spot the changed shape, then name which of the twelve things changed. (Voicing.)
+- [ ] More ideas: a claymation "Shape Kitchen", a comic book "Captain Nothing-Gets-Past" with panels he taps, a marionette "Twelve Things" song-and-dance, a detective "choose your suspect" with branching endings.

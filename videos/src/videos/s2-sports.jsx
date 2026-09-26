@@ -266,7 +266,7 @@ const MATCH2 = {
     <><Shape kind="heart" r={86} fill="striped" y={10} /><Shape kind="circle" r={20} fill="black" y={10} /></>,
     <><Shape kind="pentagon" r={80} fill="white" y={14} /><Shape kind="circle" r={22} fill="black" x={0} y={14 - 80 - 22} /></>,
     <><Shape kind="cross" r={80} fill="striped" y={14} /><Shape kind="star" r={22} fill="black" x={0} y={14 - 72 - 26} /></>,
-    <><Shape kind="pentagon" r={80} fill="striped" y={24} /><Shape kind="circle" r={22} fill="black" x={0} y={24 - 80 - 62} /></>,
+    <><Shape kind="pentagon" r={80} fill="striped" y={34} /><Shape kind="circle" r={22} fill="black" x={0} y={34 - 80 - 50} /></>,
   ],
 };
 
@@ -419,10 +419,10 @@ export default {
           <Pen t={s.t} at={s.at(1) + s.speech(1) * 0.25} {...teamCentre(0)} w={180} h={180} />
           <Pen t={s.t} at={s.at(1) + s.speech(1) * 0.35} {...cardCentre(2)} w={170} h={180} />
           <PenArrow t={s.t} at={s.at(1) + s.speech(1) * 0.7} x1={teamCentre(0).x + 60} y1={CARD_Y + 30} x2={cardCentre(2).x - 40} y2={CARD_Y + 30} />
-          <div style={{ position: "absolute", left: cardCentre(2).x - 180, top: 620, width: 360, textAlign: "center", fontFamily: BEBAS, fontSize: 60, color: YELLOW, letterSpacing: 2, opacity: rise(s.t, 12, s.at(1) + s.speech(1) * 0.85) }}>
+          <div style={{ position: "absolute", left: 760, top: 600, width: 1060, textAlign: "center", fontFamily: BEBAS, fontSize: 70, color: YELLOW, letterSpacing: 2, opacity: rise(s.t, 12, s.at(1) + s.speech(1) * 0.85) }}>
             LOOKS LIKE A TWIN...
           </div>
-          <div style={{ position: "absolute", left: cardCentre(2).x - 200, top: 690, width: 400, textAlign: "center", fontFamily: BEBAS, fontSize: 60, color: RED, letterSpacing: 2, opacity: rise(s.t, 12, s.at(2) + s.speech(2) * 0.5), textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}>
+          <div style={{ position: "absolute", left: 760, top: 680, width: 1060, textAlign: "center", fontFamily: BEBAS, fontSize: 70, color: RED, letterSpacing: 2, opacity: rise(s.t, 12, s.at(2) + s.speech(2) * 0.5), textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}>
             ...BUT WHITE, NOT BLACK
           </div>
           <div style={{ position: "absolute", left: 0, right: 0, top: 820, textAlign: "center", fontFamily: BEBAS, fontSize: 64, color: WHITE, letterSpacing: 4, opacity: rise(s.t, 14, s.at(3)) }}>
@@ -464,7 +464,7 @@ export default {
             <PenArrow t={s.t} at={off(3, 0.7)} x1={teamCentre(0).x + 40} y1={CARD_Y + 10} x2={cardCentre(3).x} y2={CARD_Y + 20} />
             <Checks t={s.t} x={HOPE_X[1]} y={610} marks={[{ ok: false, at: off(4, 0.55) }, { ok: true, at: off(4, 0.3) }, { ok: true, at: off(4, 0.4) }]} />
             <RedCard t={s.t} at={off(4, 0.85)} x={HOPE_X[1] + 160} y={CARD_Y - 30} />
-            <Pen t={s.t} at={off(5, 0.5)} x={cardCentre(3).x} y={cardCentre(3).y - 70} w={80} h={70} />
+            <Pen t={s.t} at={off(5, 0.5)} x={cardCentre(3).x} y={cardCentre(3).y - 60} w={80} h={70} />
             <Checks t={s.t} x={HOPE_X[3]} y={610} marks={[{ ok: true, at: off(5, 0.3) }, { ok: true, at: off(5, 0.4) }, { ok: false, at: off(5, 0.6) }]} />
             <RedCard t={s.t} at={off(5, 0.85)} x={HOPE_X[3] + 160} y={CARD_Y - 30} />
             <Checks t={s.t} x={HOPE_X[0]} y={610} marks={[{ ok: true, at: off(6, 0.3) }, { ok: true, at: off(6, 0.4) }, { ok: false, at: off(6, 0.6) }]} />
