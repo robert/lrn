@@ -64,3 +64,9 @@ Series 4 films bring the reading and the films together. Each one is a silhouett
 
 - [ ] 1 `p4-shadow`: Into the Wild Wood (Chapter III: the faces, the whistling, the pattering, the rabbit's warning, the hollow beech). Three questions. Written; voicing.
 - [ ] Next: The Door in the Snow (once he has read it), The Open Road and the caravan, Toad and the motor-car.
+
+# Series 5: music videos
+
+A song he can chant, cut as a music video. The words are Kokoro phrases fitted to the beat and mixed over a synthesised track in `music/<song>.py`, which also writes a timing file that drives the animation. Scripts with their own `Component` and `frames` are registered directly in Root; voice.js skips them.
+
+- [ ] 1 `s5-twelve`: The Twelve Things. Bauhaus kinetic typography with primary colour fields cut on the bar. Verse, chorus, a call-and-response verse where each thing is echoed by a second voice, and a strip of twelve tiles that light up in order. (Song building.)

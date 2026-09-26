@@ -17,7 +17,9 @@ const ids = process.argv.slice(2).length ? process.argv.slice(2)
 
 
 for (const id of ids) {
-  const lines = narration(await loadScript(id));
+  const script = await loadScript(id);
+  if (!script.scenes) { console.log(`${id}: a music video, voiced by its own music script`); continue; }
+  const lines = narration(script);
   const dir = path.join(ROOT, "public/audio", id);
   const linesFile = path.join(ROOT, "node_modules/.cache/voice", `${id}.lines.json`);
   fs.writeFileSync(linesFile, JSON.stringify(lines));

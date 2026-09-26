@@ -144,12 +144,12 @@ function Pile({ items, x, y, since }) {
   let row = [];
   let width = 0;
   items.forEach(k => {
-    const w = BAKES[k].w * (items.length > 4 ? 0.8 : 1);
-    if (width + w > 280 && row.length) { rows.push(row); row = []; width = 0; }
+    const w = BAKES[k].w * (items.length > 4 ? 1.1 : 1.45);
+    if (width + w > 290 && row.length) { rows.push(row); row = []; width = 0; }
     row.push(k); width += w;
   });
   if (row.length) rows.push(row);
-  const small = items.length > 4 ? 0.8 : 1;
+  const small = items.length > 4 ? 1.1 : 1.45;
   let yy = y;
   return rows.map((r, ri) => {
     const total = r.reduce((a, k) => a + BAKES[k].w * small, 0);
@@ -261,7 +261,7 @@ function RecipeCard({ t, title, lines, x = 90, y = 250, w = 560, appear = 1 }) {
 // "2 🧁 = 1 🍩" style equation using the little bake pictures.
 const Eq = ({ a, ak, b, bk, op = "=" }) => (
   <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-    <b>{a}</b><Mini kind={ak} size={48} /><span style={{ color: BERRY, margin: "0 6px" }}>{op}</span><b>{b}</b><Mini kind={bk} size={48} />
+    <b>{a}</b><Mini kind={ak} size={62} /><span style={{ color: BERRY, margin: "0 6px" }}>{op}</span><b>{b}</b><Mini kind={bk} size={62} />
   </span>
 );
 
@@ -315,7 +315,7 @@ function Rosette({ t, at }) {
   const k = pop(t, at);
   if (k <= 0) return null;
   return (
-    <svg width="360" height="460" viewBox="-180 -180 360 460" style={{ position: "absolute", left: 780, top: 250, transform: `scale(${k}) rotate(${lerp(-30, 0, k)}deg)` }}>
+    <svg width="360" height="460" viewBox="-180 -180 360 460" style={{ position: "absolute", left: 520, top: 240, transform: `scale(${k}) rotate(${lerp(-30, 0, k)}deg)` }}>
       <path d="M-60 60 L-100 260 L-40 220 L0 270 L10 60 Z" fill="#6FA8D9" stroke={INK} strokeWidth="4" />
       <path d="M60 60 L100 260 L40 220 L0 270 L-10 60 Z" fill="#4E8EC4" stroke={INK} strokeWidth="4" />
       {Array.from({ length: 24 }, (_, i) => <ellipse key={i} rx="22" ry="60" fill={i % 2 ? "#F7D98B" : BRASS_LIGHT} stroke={INK} strokeWidth="2" transform={`rotate(${i * 15}) translate(0 -100)`} />)}
@@ -464,9 +464,9 @@ export default {
               { content: <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>so <b>1</b><Mini kind="doughnut" size={48} /> = <b>2</b><Mini kind="cupcake" size={48} /></span>, show: rise(s.t, 14, s.at(4) + s.speech(4) * 0.7) },
             ]} />
             <Scales t={s.t} states={states} />
-            <Answer t={s.t} at={s.at(2) + s.speech(2) * 0.8} y={880} bad>
-              {s.t < s.at(5) ? <>1½ <Mini kind="cupcake" size={52} /> ? Far too light!</> : null}
-            </Answer>
+            {s.t < s.at(5) && <Answer t={s.t} at={s.at(2) + s.speech(2) * 0.8} y={880} bad>
+              1½ <Mini kind="cupcake" size={52} /> ? Far too light!
+            </Answer>}
             {s.t >= s.at(5) && <Answer t={s.t} at={s.at(6) + s.speech(6) * 0.4} y={880}>1 <Mini kind="pie" size={52} /> = 6 <Mini kind="cupcake" size={52} /></Answer>}
           </AbsoluteFill>
         );
@@ -514,7 +514,7 @@ export default {
         <AbsoluteFill>
           <Tent t={s.t} />
           <Rosette t={s.t} at={s.at(0) + s.speech(0) * 0.7} />
-          <RecipeCard t={s.t} x={90} y={300} w={560} title="Remember" appear={rise(s.t, 18, s.at(1))} lines={[
+          <RecipeCard t={s.t} x={1150} y={330} w={620} title="Remember" appear={rise(s.t, 18, s.at(1))} lines={[
             { content: "Swap each bake for its equal." },
             { content: "Keep going till they all match." },
             { content: "Lighter bakes? You need more!", show: rise(s.t, 14, s.at(2)) },

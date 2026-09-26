@@ -13,8 +13,12 @@ function VideoById({ id }) {
   return <Video script={script} timeline={buildTimeline(script, DURATIONS[id])} />;
 }
 
+// Films with their own Component (music videos) set their own length.
 export function Root() {
-  return VIDEOS.map(script => (
+  return VIDEOS.map(script => script.Component ? (
+    <Composition key={script.id} id={script.id} component={script.Component}
+      durationInFrames={script.frames} fps={FPS} width={W} height={H} />
+  ) : (
     <Composition key={script.id} id={script.id} component={VideoById}
       durationInFrames={buildTimeline(script, DURATIONS[script.id]).total} fps={FPS} width={W} height={H}
       defaultProps={{ id: script.id }} />
