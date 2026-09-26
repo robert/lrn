@@ -20,6 +20,8 @@ const stubs = {
       // Bare packages (remotion, react): stub whatever the script imports.
       // One self-returning stand-in: any property, call or destructure works.
       const any = "__any";
+      // Whatever names the film itself imports from this module.
+      for (const n of importedNames.get(args.path) ?? []) names.add(n);
       const known = ["ThreeCanvas", "useThree", "useFrame", "Audio", "Video", "OffthreadVideo", "Loop", "Series", "Freeze", "random", "useVideoConfig", "delayRender", "continueRender", "loadFont", "jsx", "jsxs", "jsxDEV", "AbsoluteFill", "interpolate", "spring", "Easing", "Sequence", "useCurrentFrame", "staticFile", "Img", "useId", "Fragment"];
       known.forEach(n => names.add(n));
       const header = "const __any = new Proxy(function(){}, { get: (t, k) => k === Symbol.toPrimitive ? () => \"\" : __any, apply: () => __any });\n";
@@ -37,7 +39,19 @@ export function scriptPath(id) {
   throw new Error(`No film called ${id} in src/videos or src/play`);
 }
 
+// Names each module is asked for by the film file, e.g. react -> [useMemo].
+const importedNames = new Map();
+function collectImports(file) {
+  const src = fs.readFileSync(file, "utf8");
+  for (const m of src.matchAll(/import\s+(?:\w+\s*,\s*)?\{([^}]*)\}\s*from\s*["']([^"']+)["']/g)) {
+    const names = m[1].split(",").map(x => x.trim().split(/\s+as\s+/)[0]).filter(Boolean);
+    const key = m[2].startsWith(".") ? path.resolve(path.dirname(file), m[2]) : m[2];
+    importedNames.set(key, [...(importedNames.get(key) ?? []), ...names]);
+  }
+}
+
 export async function loadScript(id) {
+  collectImports(scriptPath(id));
   const outfile = path.join(ROOT, "node_modules/.cache/voice", `${id}.mjs`);
   await build({
     entryPoints: [scriptPath(id)], bundle: true, format: "esm", platform: "node",

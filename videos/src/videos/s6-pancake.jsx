@@ -42,7 +42,7 @@ function PaperFlag({ x = 0, z = 0, spin = 0, flip = 0, lift = 0, colour = "#FBF7
   const geo = useFlagGeometry();
   const outline = useOutline();
   return (
-    <group position={[x, 0.03 + lift, z]} rotation={[0, (-spin * Math.PI) / 180, 0]}>
+    <group position={[x, 0.03 + lift, z]} rotation={[0, (-spin * Math.PI) / 180, 0]} scale={1.3}>
       {/* Turning over happens about the flag's own long axis. */}
       <group rotation={[0, 0, flip * Math.PI]}>
         <group rotation={[-Math.PI / 2, 0, 0]} scale={[flipped ? -1 : 1, 1, 1]}>
@@ -57,23 +57,16 @@ function PaperFlag({ x = 0, z = 0, spin = 0, flip = 0, lift = 0, colour = "#FBF7
   );
 }
 
-// A dashed gold outline on the table showing where a flag must fit.
+// A gold silhouette on the table showing where a flag must fit.
 function Ghost({ x = 0, z = 0, spin = 0, flipped = false, opacity = 1 }) {
-  const geo = useMemo(() => {
-    const pts = [...FLAG, FLAG[0]].map(([px, py]) => new THREE.Vector3(px, py, 0));
-    const g = new THREE.BufferGeometry().setFromPoints(pts);
-    return g;
-  }, []);
-  const line = useMemo(() => {
-    const l = new THREE.Line(geo, new THREE.LineDashedMaterial({ color: GOLD, dashSize: 0.08, gapSize: 0.06, transparent: true }));
-    l.computeLineDistances();
-    return l;
-  }, [geo]);
-  line.material.opacity = opacity;
+  const fill = useMemo(() => new THREE.ShapeGeometry(new THREE.Shape(FLAG.map(([px, py]) => new THREE.Vector2(px, py)))), []);
+  const outline = useOutline();
+  if (opacity <= 0.01) return null;
   return (
-    <group position={[x, 0.012, z]} rotation={[0, (-spin * Math.PI) / 180, 0]}>
+    <group position={[x, 0.006, z]} rotation={[0, (-spin * Math.PI) / 180, 0]} scale={1.3}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={[flipped ? -1 : 1, 1, 1]}>
-        <primitive object={line} />
+        <mesh geometry={fill}><meshBasicMaterial color={GOLD} transparent opacity={0.38 * opacity} side={THREE.DoubleSide} /></mesh>
+        <line geometry={outline}><lineBasicMaterial color={GOLD} transparent opacity={opacity} /></line>
       </group>
     </group>
   );
@@ -247,7 +240,7 @@ export default {
         const lift = up * (1 - down) * 1.5;
         return (
           <AbsoluteFill>
-            <Stage camera={[3.5, 5, 5.5]} look={[L, 0.3, 0]}>
+            <Stage camera={[L + 0.6, 6.2, 3.2]} look={[L, 0.3, 0]}>
               <Ghost x={L} z={0} opacity={1 - down * 0.8} />
               <PaperFlag x={L} z={0} lift={0.02 + lift} flip={over} flipped />
             </Stage>
@@ -265,15 +258,15 @@ export default {
         const m = rise(s.t, 40, s.at(0) + 20);
         return (
           <AbsoluteFill>
-            <Stage camera={[-0.6, 3.4, 6.5]} look={[-0.7, 0.4, 0]}>
+            <Stage camera={[0.1, 3.8, 7.6]} look={[0.1, 0.4, 0]}>
               <PaperFlag x={-2.3} z={0} />
               <Mirror mx={-1.1} rise={m} />
               {/* The reflection: flag one mirrored in the glass. */}
               <group visible={m > 0.9}><PaperFlag x={0.1} z={0} flipped colour="#E9EEF0" /></group>
               <PaperFlag x={2.6} z={0} flipped />
             </Stage>
-            <Label t={s.t} at={s.at(1) + 20} x={1010} y={250} text="in the mirror" colour="#CFE6F0" />
-            <Label t={s.t} at={s.at(1) + 50} x={1560} y={250} text="flag two" />
+            <Label t={s.t} at={s.at(1) + 20} x={980} y={300} text="in the mirror" colour="#CFE6F0" />
+            <Label t={s.t} at={s.at(1) + 50} x={1500} y={300} text="flag two" />
           </AbsoluteFill>
         );
       },

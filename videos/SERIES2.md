@@ -38,12 +38,12 @@ Series 1 is a consistent library of calm, bookish tutorials. Series 2 does the o
 - [x] 4 space: rendered 2:34
 - [x] 5 nature: rendered
 - [x] 6 theatre: rendered (agent finishing bakeoff, heist)
-- [ ] 7 bakeoff
-- [ ] 8 heist
-- [ ] 9 sports (agent working)
+- [x] 7 bakeoff
+- [x] 8 heist
+- [x] 9 sports
 - [x] 10 train: rendered 2:34
 - [x] Films wired into the app (a "Cinema" shelf in the film library; each film appears when its mp4 exists)
-- [ ] theatre, bakeoff, heist (one agent working on all three)
+- [x] theatre, bakeoff, heist: all rendered
 
 # Series 3: play-along films (live in the app)
 
@@ -69,10 +69,10 @@ Series 4 films bring the reading and the films together. Each one is a silhouett
 
 A song he can chant, cut as a music video. The words are Kokoro phrases fitted to the beat and mixed over a synthesised track in `music/<song>.py`, which also writes a timing file that drives the animation. Scripts with their own `Component` and `frames` are registered directly in Root; voice.js skips them.
 
-- [ ] 1 `s5-twelve`: The Twelve Things. Bauhaus kinetic typography with primary colour fields cut on the bar. Verse, chorus, a call-and-response verse where each thing is echoed by a second voice, and a strip of twelve tiles that light up in order. (Song building.)
+- [ ] 1 `s5-twelve`: The Twelve Things. Bauhaus kinetic typography with primary colour fields cut on the bar. Verse, chorus, a call-and-response verse where each thing is echoed by a second voice, and a strip of twelve tiles that light up in order. Rendered.
 
 # Series 6: real 3D
 
 These films are rendered in three.js through `@remotion/three`, with lighting, shadows and a camera that moves through the scene. They use 3D where it genuinely teaches something 2D can't.
 
-- [ ] 1 `s6-pancake`: The Pancake Flip. Paper flags on a wooden kitchen table. Spinning on the table never matches, but turning over like a pancake does, and a standing mirror shows the reflection is the flipped one. The rule: spun is rotated, turned over is flipped. Score: plucked ukulele (Karplus-Strong). (Voicing.)
+- [ ] 1 `s6-pancake`: The Pancake Flip. Paper flags on a wooden kitchen table. Spinning on the table never matches, but turning over like a pancake does, and a standing mirror shows the reflection is the flipped one. The rule: spun is rotated, turned over is flipped. Score: plucked ukulele (Karplus-Strong). Reviewed; rendering.

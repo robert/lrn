@@ -14,7 +14,7 @@ execFileSync("node", [path.join(ROOT, "scripts/voice.js"), ...ids], { stdio: "in
 fs.mkdirSync(APP_VIDEOS, { recursive: true });
 for (const id of ids) {
   const out = path.join(ROOT, "out", `${id}.mp4`);
-  execFileSync("npx", ["remotion", "render", "src/index.jsx", id, out, "--crf=20", "--concurrency=4", "--timeout=240000"], { stdio: "inherit", cwd: ROOT });
+  execFileSync("npx", ["remotion", "render", "src/index.jsx", id, out, "--crf=20", "--concurrency=4", "--timeout=240000", "--gl=angle"], { stdio: "inherit", cwd: ROOT });
   fs.copyFileSync(out, path.join(APP_VIDEOS, `${id}.mp4`));
   console.log(`Copied to public-videos/${id}.mp4`);
 }

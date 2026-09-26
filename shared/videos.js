@@ -24,6 +24,8 @@ export const FILMS = [
   { id: "s2-heist", title: "The Evidence Heist", group: "The cinema", genre: "Heist", blurb: "Steal the clue from the story itself." },
   { id: "s2-sports", title: "Match of the Day: Most Alike", group: "The cinema", genre: "Football highlights", blurb: "Action replays of what two figures really share." },
   { id: "s2-train", title: "The Sequence Express", group: "The cinema", genre: "Steam railway", blurb: "Couple on the missing carriage." },
+  // Series 6: real 3D.
+  { id: "s6-pancake", title: "The Pancake Flip", group: "The cinema", genre: "3D film", blurb: "Spinning never matches. Turning over does." },
   // Series 5: songs.
   { id: "s5-twelve", title: "The Twelve Things", group: "Songs", genre: "Music video", blurb: "Sing the twelve things in order until they stick." },
 ];
