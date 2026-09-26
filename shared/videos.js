@@ -34,6 +34,7 @@ export const FILMS = [
   // Series 13: watercolour picture books.
   { id: "s13-recipe", title: "The Story Recipe", group: "Stories", genre: "Watercolour picture book", blurb: "Who, what, when, where, problem, solution, ending: the seven ingredients of every story." },
   { id: "s16-flight", title: "Cleared for Take-off", group: "Exam day", genre: "Cockpit", blurb: "Exam-day technique, from pre-flight checks to a smooth landing." },
+  { id: "s17-departures", title: "Departures: Name That Question", group: "Exam day", genre: "Split-flap drill", blurb: "Trains pull in with questions aboard. Name each type before the board flips." },
   // Series 5: songs.
   { id: "s5-twelve", title: "The Twelve Things", group: "Songs", genre: "Music video", blurb: "Sing the twelve things in order until they stick." },
 ];

@@ -112,3 +112,7 @@ Listening comprehension through inference. The story is carried by voices and so
 # Series 16: exam technique
 
 - [x] `s16-flight`: Cleared for Take-off: Exam Day. A cockpit checklist of exam habits and a mini paper flown together: read the instruction, skip and return, watch the clock, check every answer. Rendered, 3:03.
+
+# Series 17: recognition drill
+
+- [x] `s17-departures`: Departures: Name That Question. Evening at a Victorian station: questions arrive on carriage sides, and the split-flap board names each type. There are 18 arrivals, getting faster, with porter tips on the easily confused pairs (similarities vs odd one out, grid vs sequence, quoted words). Rendered, 3:02.
