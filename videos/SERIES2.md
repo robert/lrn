@@ -70,3 +70,9 @@ Series 4 films bring the reading and the films together. Each one is a silhouett
 A song he can chant, cut as a music video. The words are Kokoro phrases fitted to the beat and mixed over a synthesised track in `music/<song>.py`, which also writes a timing file that drives the animation. Scripts with their own `Component` and `frames` are registered directly in Root; voice.js skips them.
 
 - [ ] 1 `s5-twelve`: The Twelve Things. Bauhaus kinetic typography with primary colour fields cut on the bar. Verse, chorus, a call-and-response verse where each thing is echoed by a second voice, and a strip of twelve tiles that light up in order. (Song building.)
+
+# Series 6: real 3D
+
+These films are rendered in three.js through `@remotion/three`, with lighting, shadows and a camera that moves through the scene. They use 3D where it genuinely teaches something 2D can't.
+
+- [ ] 1 `s6-pancake`: The Pancake Flip. Paper flags on a wooden kitchen table. Spinning on the table never matches, but turning over like a pancake does, and a standing mirror shows the reflection is the flipped one. The rule: spun is rotated, turned over is flipped. Score: plucked ukulele (Karplus-Strong). (Voicing.)

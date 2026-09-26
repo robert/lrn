@@ -20,7 +20,7 @@ const stubs = {
       // Bare packages (remotion, react): stub whatever the script imports.
       // One self-returning stand-in: any property, call or destructure works.
       const any = "__any";
-      const known = ["Audio", "Video", "OffthreadVideo", "Loop", "Series", "Freeze", "random", "useVideoConfig", "delayRender", "continueRender", "loadFont", "jsx", "jsxs", "jsxDEV", "AbsoluteFill", "interpolate", "spring", "Easing", "Sequence", "useCurrentFrame", "staticFile", "Img", "useId", "Fragment"];
+      const known = ["ThreeCanvas", "useThree", "useFrame", "Audio", "Video", "OffthreadVideo", "Loop", "Series", "Freeze", "random", "useVideoConfig", "delayRender", "continueRender", "loadFont", "jsx", "jsxs", "jsxDEV", "AbsoluteFill", "interpolate", "spring", "Easing", "Sequence", "useCurrentFrame", "staticFile", "Img", "useId", "Fragment"];
       known.forEach(n => names.add(n));
       const header = "const __any = new Proxy(function(){}, { get: (t, k) => k === Symbol.toPrimitive ? () => \"\" : __any, apply: () => __any });\n";
       return { contents: header + [...names].map(n => `export const ${n} = ${any};`).join("\n") + `\nexport default ${any};`, loader: "js" };
