@@ -25,7 +25,7 @@ function Overlay({ frame, scene }) {
         <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={frame % 61} /></filter>
         <rect width="1920" height="1080" filter="url(#g)" />
       </svg>
-      <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, transparent ${lerp(0, 72, iris)}%, #000 ${lerp(2, 76, iris)}%)` }} />
+      <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, transparent ${lerp(0, 125, iris)}%, #000 ${lerp(2, 130, iris)}%)` }} />
       <AbsoluteFill style={{ boxShadow: "inset 0 0 200px rgba(0,0,0,0.85)" }} />
     </AbsoluteFill>
   );

@@ -72,11 +72,11 @@ function Subtitles({ words, spoken, opacity, actor }) {
 // ---------- The manuscript ----------
 // A page of numbered paragraphs, in a glass case. `torch` sweeps a beam
 // across paragraph `torch.p` (0 based); `found` highlights exact phrases.
-const PAGE = { x: 560, y: 150, w: 800 };
+const PAGE = { x: 410, y: 130, w: 1100 };
 
-function Manuscript({ t, paras, torch, found = [], lasers = 0, appear = 1, dimOthers = -1 }) {
+function Manuscript({ t, paras, torch, found = [], lasers = 0, appear = 1, dimOthers = -1, y = PAGE.y }) {
   return (
-    <div style={{ position: "absolute", left: PAGE.x, top: PAGE.y, width: PAGE.w, opacity: appear }}>
+    <div style={{ position: "absolute", left: PAGE.x, top: y, width: PAGE.w, opacity: appear }}>
       {/* The glass case glinting. */}
       <div style={{ position: "absolute", inset: -26, border: `2px solid ${CYAN}44`, borderRadius: 8, background: "rgba(120,200,255,0.05)" }} />
       <div style={{
@@ -89,8 +89,8 @@ function Manuscript({ t, paras, torch, found = [], lasers = 0, appear = 1, dimOt
           const dim = dimOthers >= 0 && dimOthers !== i;
           return (
             <div key={i} style={{ position: "relative", marginBottom: 18, opacity: dim ? 0.35 : 1 }}>
-              <div style={{ position: "absolute", left: -48, top: 2, fontFamily: BEBAS, fontSize: 30, color: "#8C6A3A" }}>{i + 1}</div>
-              <div style={{ fontFamily: FELL, fontSize: 31, lineHeight: 1.42, color: INK }}>
+              <div style={{ position: "absolute", left: -48, top: 4, fontFamily: BEBAS, fontSize: 36, color: "#8C6A3A" }}>{i + 1}</div>
+              <div style={{ fontFamily: FELL, fontSize: 38, lineHeight: 1.4, color: INK }}>
                 {renderFound(p, found.filter(f => f.p === i), t)}
               </div>
               {lit > 0 && (
@@ -151,13 +151,13 @@ function Blueprint({ title, lines, x, y, w, appear = 1 }) {
   return (
     <div style={{
       position: "absolute", left: x, top: y, width: w, opacity: appear, transform: `translateY(${(1 - appear) * 24}px)`,
-      background: "#133A63", border: "2px solid #7FB2E5", borderRadius: 6, padding: "18px 26px",
+      background: "#133A63", border: "2px solid #7FB2E5", borderRadius: 6, padding: "28px 40px",
       backgroundImage: "linear-gradient(#7FB2E522 1px, transparent 1px), linear-gradient(90deg, #7FB2E522 1px, transparent 1px)",
       backgroundSize: "28px 28px", boxShadow: "0 20px 50px rgba(0,0,0,0.6)",
     }}>
-      <div style={{ fontFamily: BEBAS, fontSize: 40, letterSpacing: 4, color: "#CFE6FF", marginBottom: 8 }}>{title}</div>
+      <div style={{ fontFamily: BEBAS, fontSize: 64, letterSpacing: 5, color: "#CFE6FF", marginBottom: 12 }}>{title}</div>
       {lines.map((l, i) => (
-        <div key={i} style={{ fontFamily: BEBAS, fontSize: 34, letterSpacing: 1.5, color: "#E9F4FF", lineHeight: 1.35, opacity: l.show ?? 1 }}>{l.text}</div>
+        <div key={i} style={{ fontFamily: BEBAS, fontSize: 54, letterSpacing: 2, color: "#E9F4FF", lineHeight: 1.35, opacity: l.show ?? 1 }}>{l.text}</div>
       ))}
     </div>
   );
@@ -169,7 +169,7 @@ function QuestionCard({ text, x = 560, y = 180, w = 800, appear = 1 }) {
     <div style={{
       position: "absolute", left: x, top: y, width: w, opacity: appear, transform: `rotate(-1deg) translateY(${(1 - appear) * 30}px)`,
       background: "#F7F3EA", borderRadius: 6, padding: "20px 30px", boxShadow: "0 20px 50px rgba(0,0,0,0.7)",
-      fontFamily: "Georgia, serif", fontSize: 38, lineHeight: 1.3, color: INK, borderLeft: `8px solid ${RED}`,
+      fontFamily: "Georgia, serif", fontSize: 50, lineHeight: 1.3, color: INK, borderLeft: `10px solid ${RED}`,
     }}>{text}</div>
   );
 }
@@ -284,7 +284,7 @@ export default {
         <AbsoluteFill>
           <Hall t={s.t} />
           <Crew t={s.t} />
-          <div style={{ position: "absolute", left: 0, right: 0, top: 300, textAlign: "center", opacity: rise(s.t, 30, s.at(2)) }}>
+          <div style={{ position: "absolute", left: 0, right: 0, top: 360, textAlign: "center", opacity: rise(s.t, 30, s.at(2)) }}>
             <div style={{ fontFamily: BEBAS, fontSize: 40, letterSpacing: 16, color: CYAN }}>A MEGA READER CAPER</div>
             <div style={{ fontFamily: BEBAS, fontSize: 190, letterSpacing: 10, color: "#F4F0E6", lineHeight: 1, textShadow: `0 0 40px ${GOLD}66` }}>THE EVIDENCE HEIST</div>
           </div>
@@ -302,7 +302,7 @@ export default {
       render: s => (
         <AbsoluteFill>
           <Hall t={s.t} />
-          <QuestionCard text="How do we know the Badger was just about to go to bed when they knocked?" appear={rise(s.t, 20, s.at(1))} x={460} y={330} w={1000} />
+          <QuestionCard text="How do we know the Badger was just about to go to bed when they knocked?" appear={rise(s.t, 20, s.at(1))} x={410} y={330} w={1100} />
         </AbsoluteFill>
       ),
     },
@@ -318,7 +318,7 @@ export default {
       render: s => (
         <AbsoluteFill>
           <Hall t={s.t} />
-          <Blueprint x={420} y={200} w={1080} title="PLAN OF ATTACK" appear={rise(s.t, 20, 4)} lines={[
+          <Blueprint x={300} y={220} w={1320} title="PLAN OF ATTACK" appear={rise(s.t, 20, 4)} lines={[
             { text: "1.  TURN THE QUESTION INTO CLUE WORDS", show: rise(s.t, 14, s.speech(0) * 0.2) },
             { text: "      → slippers, candle, pyjamas, yawn, bedroom", show: rise(s.t, 14, s.at(1) + s.speech(1) * 0.3) },
             { text: "2.  SWEEP THE STORY, PARAGRAPH BY PARAGRAPH", show: rise(s.t, 14, s.at(2) + s.speech(2) * 0.3) },
@@ -392,7 +392,8 @@ export default {
       render: s => (
         <AbsoluteFill>
           <Hall t={s.t} />
-          <Manuscript t={s.t} paras={P2} appear={rise(s.t, 20, 6)}
+          <QuestionCard text="How do we know the hedgehogs didn't mean to end up at Badger's house?" appear={rise(s.t, 20, 4)} x={410} y={110} w={1100} />
+          <Manuscript t={s.t} paras={P2} appear={rise(s.t, 20, 20)} y={340}
             torch={s.t > s.at(1) ? { p: 1, k: Math.min(1, (s.t - s.at(1)) / s.speech(1)) } : null}
             found={[
               { p: 1, text: "trying to find our way to school", at: s.at(1) + s.speech(1) * 0.3 },
@@ -412,7 +413,7 @@ export default {
       render: s => (
         <AbsoluteFill>
           <Hall t={s.t} />
-          <Blueprint x={460} y={250} w={1000} title="THE GETAWAY" appear={rise(s.t, 20, 4)} lines={[
+          <Blueprint x={460} y={220} w={1000} title="THE GETAWAY" appear={rise(s.t, 20, 4)} lines={[
             { text: "✓  CLUE WORDS", show: rise(s.t, 14, s.speech(0) * 0.2) },
             { text: "✓  SWEEP EVERY PARAGRAPH", show: rise(s.t, 14, s.speech(0) * 0.5) },
             { text: "✓  NAME THE EVIDENCE", show: rise(s.t, 14, s.speech(0) * 0.8) },

@@ -1,1 +1,375 @@
-{"bpm":100,"seconds":10,"bars":4,"lines":[]}
+{
+  "bpm": 100,
+  "seconds": 79.8,
+  "bars": 32,
+  "lines": [
+    {
+      "start": 4.8,
+      "end": 6.17,
+      "text": "Ready? Twelve things.",
+      "thing": null,
+      "kind": "intro",
+      "who": "lead"
+    },
+    {
+      "start": 7.2,
+      "end": 8.009,
+      "text": "Let's go!",
+      "thing": null,
+      "kind": "intro",
+      "who": "lead"
+    },
+    {
+      "start": 9.6,
+      "end": 10.537,
+      "text": "One, shape.",
+      "thing": 0,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 10.8,
+      "end": 11.898,
+      "text": "Two, how many.",
+      "thing": 1,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 12.0,
+      "end": 12.978,
+      "text": "Three, size.",
+      "thing": 2,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 13.2,
+      "end": 14.21,
+      "text": "Four, shading.",
+      "thing": 3,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 14.4,
+      "end": 15.502,
+      "text": "Five, rotation.",
+      "thing": 4,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 15.6,
+      "end": 16.554,
+      "text": "Six, flipped!",
+      "thing": 5,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 16.8,
+      "end": 18.788,
+      "text": "Seven, position on the screen.",
+      "thing": 6,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 19.2,
+      "end": 20.301,
+      "text": "Eight, in front or behind.",
+      "thing": 7,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 20.4,
+      "end": 21.519,
+      "text": "Nine, line style.",
+      "thing": 8,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 21.6,
+      "end": 22.618,
+      "text": "Ten, touching.",
+      "thing": 9,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 22.8,
+      "end": 23.872,
+      "text": "Eleven, pointing at.",
+      "thing": 10,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 24.0,
+      "end": 26.061,
+      "text": "Twelve, inside or outside!",
+      "thing": 11,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 26.4,
+      "end": 28.339,
+      "text": "Twelve things can change, and I check every one.",
+      "thing": null,
+      "kind": "chorus",
+      "who": "lead"
+    },
+    {
+      "start": 28.8,
+      "end": 30.765,
+      "text": "Nothing gets past me. Sharp eyes. Job done!",
+      "thing": null,
+      "kind": "chorus",
+      "who": "lead"
+    },
+    {
+      "start": 31.2,
+      "end": 32.594,
+      "text": "Now you say it back!",
+      "thing": null,
+      "kind": "intro",
+      "who": "lead"
+    },
+    {
+      "start": 33.6,
+      "end": 34.537,
+      "text": "One, shape.",
+      "thing": 0,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 34.8,
+      "end": 35.556,
+      "text": "Shape!",
+      "thing": 0,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 36.0,
+      "end": 37.098,
+      "text": "Two, how many.",
+      "thing": 1,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 37.2,
+      "end": 38.133,
+      "text": "How many!",
+      "thing": 1,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 38.4,
+      "end": 39.378,
+      "text": "Three, size.",
+      "thing": 2,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 39.6,
+      "end": 40.456,
+      "text": "Size!",
+      "thing": 2,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 40.8,
+      "end": 41.81,
+      "text": "Four, shading.",
+      "thing": 3,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 42.0,
+      "end": 42.847,
+      "text": "Shading!",
+      "thing": 3,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 43.2,
+      "end": 44.302,
+      "text": "Five, rotation.",
+      "thing": 4,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 44.4,
+      "end": 45.509,
+      "text": "Rotation!",
+      "thing": 4,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 45.6,
+      "end": 46.554,
+      "text": "Six, flipped!",
+      "thing": 5,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 46.8,
+      "end": 47.628,
+      "text": "Flipped!",
+      "thing": 5,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 48.0,
+      "end": 49.184,
+      "text": "Seven, position on the screen.",
+      "thing": 6,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 49.2,
+      "end": 50.132,
+      "text": "Position!",
+      "thing": 6,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 50.4,
+      "end": 51.501,
+      "text": "Eight, in front or behind.",
+      "thing": 7,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 51.6,
+      "end": 52.618,
+      "text": "Front or behind!",
+      "thing": 7,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 52.8,
+      "end": 53.919,
+      "text": "Nine, line style.",
+      "thing": 8,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 54.0,
+      "end": 55.044,
+      "text": "Line style!",
+      "thing": 8,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 55.2,
+      "end": 56.218,
+      "text": "Ten, touching.",
+      "thing": 9,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 56.4,
+      "end": 57.221,
+      "text": "Touching!",
+      "thing": 9,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 57.6,
+      "end": 58.672,
+      "text": "Eleven, pointing at.",
+      "thing": 10,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 58.8,
+      "end": 59.883,
+      "text": "Pointing at!",
+      "thing": 10,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 60.0,
+      "end": 61.227,
+      "text": "Twelve, inside or outside!",
+      "thing": 11,
+      "kind": "verse",
+      "who": "lead"
+    },
+    {
+      "start": 61.2,
+      "end": 62.3,
+      "text": "Inside, outside!",
+      "thing": 11,
+      "kind": "echo",
+      "who": "echo"
+    },
+    {
+      "start": 62.4,
+      "end": 64.339,
+      "text": "Twelve things can change, and I check every one.",
+      "thing": null,
+      "kind": "chorus",
+      "who": "lead"
+    },
+    {
+      "start": 64.8,
+      "end": 66.765,
+      "text": "Nothing gets past me. Sharp eyes. Job done!",
+      "thing": null,
+      "kind": "chorus",
+      "who": "lead"
+    },
+    {
+      "start": 67.2,
+      "end": 69.139,
+      "text": "Twelve things can change, and I check every one.",
+      "thing": null,
+      "kind": "chorus",
+      "who": "lead"
+    },
+    {
+      "start": 69.6,
+      "end": 71.565,
+      "text": "Nothing gets past me. Sharp eyes. Job done!",
+      "thing": null,
+      "kind": "chorus",
+      "who": "lead"
+    },
+    {
+      "start": 72.0,
+      "end": 74.228,
+      "text": "Twelve things. Nothing gets past you.",
+      "thing": null,
+      "kind": "outro",
+      "who": "lead"
+    }
+  ]
+}
