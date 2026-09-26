@@ -29,6 +29,7 @@ export const FILMS = [
   { id: "s7-clay", title: "The Clay Workshop", group: "The cinema", genre: "Claymation", blurb: "Sequences and grids in plasticine: one change at a time, across and down." },
   { id: "s12-fold", title: "The Paper Fold", group: "The cinema", genre: "Origami, in 3D", blurb: "Fold, press, unfold: a flip is a fold, and turning never makes a mirror image." },
   { id: "s14-quiet", title: "Doors", group: "The cinema", genre: "Wordless", blurb: "No words at all. Watch a little traveller solve four doors, and think along." },
+  { id: "s18-manuscript", title: "The Riddle Book of Brother Snail", group: "The cinema", genre: "Illuminated manuscript", blurb: "An owl, a snail knight and a rabbit argue through four riddles: say the rule, test every answer, then check." },
   // Series 10: bedtime.
   { id: "s10-stars", title: "Goodnight, Twelve Things", group: "Bedtime", genre: "Night sky", blurb: "The twelve things written in the stars. Calm, for the end of the day." },
   // Series 13: watercolour picture books.

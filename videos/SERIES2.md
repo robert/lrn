@@ -116,3 +116,7 @@ Listening comprehension through inference. The story is carried by voices and so
 # Series 17: recognition drill
 
 - [x] `s17-departures`: Departures: Name That Question. Evening at a Victorian station: questions arrive on carriage sides, and the split-flap board names each type. There are 18 arrivals, getting faster, with porter tips on the easily confused pairs (similarities vs odd one out, grid vs sequence, quoted words). Rendered, 3:02.
+
+# Series 18: illuminated manuscript
+
+- [x] `s18-manuscript`: The Riddle Book of Brother Snail. A medieval book comes alive: vellum, ruling, bar borders, gold initials gilded as we watch, and page turns between chapters. Brother Quill the owl scribe, Sir Snail and Tansy the rabbit argue through an analogy, an odd one out, a most-alike and a letter code, saying the rule, testing every answer and checking. Plainchant score in `music/manuscript.py`. Rendered, 3:31.
