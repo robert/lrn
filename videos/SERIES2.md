@@ -94,7 +94,7 @@ Listening comprehension through inference. The story is carried by voices and so
 
 # Series 13: watercolour picture books
 
-- [ ] `s13-recipe`: The Story Recipe. Teaches the Story Builder plan (who, what, when, where, problem, solution, ending) as a recipe, while a seaside story is painted layer by layer in watercolour. A wave washes the castle away, and it is rebuilt higher up. Ends with a your-turn picnic prompt. Reviewed; rendering.
+- [ ] `s13-recipe`: The Story Recipe. Teaches the Story Builder plan (who, what, when, where, problem, solution, ending) as a recipe, while a seaside story is painted layer by layer in watercolour. A wave washes the castle away, and it is rebuilt higher up. Ends with a your-turn picnic prompt. Rendered.
 
 # Series 11: TV quiz show, and Series 12: origami
 
