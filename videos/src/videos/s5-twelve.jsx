@@ -58,6 +58,15 @@ function MusicVideo() {
       {/* The shape that acts out the thing. */}
       {line?.thing != null && <Demo thing={line.thing} into={into} beat={beat} fg={fg} bg={bg} />}
 
+      {/* Before the first words: the title, stamped on the beat. */}
+      {sec < timing.lines[0].start && (
+        <div style={{ position: "absolute", left: 120, top: 250, fontFamily: MONO, fontSize: 150, lineHeight: 1, color: fg, transform: `scale(${1 + pulse * 0.04})`, transformOrigin: "0 0" }}>
+          {["THE", "TWELVE", "THINGS"].map((w, i) => (
+            <div key={w} style={{ opacity: beat >= i * 2 ? 1 : 0, transform: `translateX(${beat >= i * 2 ? 0 : -60}px)` }}>{w}</div>
+          ))}
+        </div>
+      )}
+
       {/* The words, dropping in one at a time. */}
       {line && <Lyric line={line} into={into} fg={fg} bg={bg} chorus={chorus} pulse={pulse} />}
 
@@ -87,7 +96,7 @@ function Lyric({ line, into, fg, bg, chorus, pulse }) {
   const size = chorus ? 110 : echo ? 120 : line.text.length > 22 ? 96 : 130;
   return (
     <div style={{
-      position: "absolute", left: echo ? 900 : chorus ? 120 : 700, right: 120, top: echo ? 620 : chorus ? 330 : 470,
+      position: "absolute", left: echo ? 900 : chorus ? 120 : 700, right: echo ? undefined : 120, top: echo ? 620 : chorus ? 330 : 470,
       fontFamily: chorus ? MONO : BEBAS, fontSize: size, lineHeight: 1.02, letterSpacing: chorus ? 0 : 2,
       color: echo ? bg : fg, textTransform: "uppercase",
       background: echo ? fg : "transparent", padding: echo ? "10px 30px" : 0, display: "inline-block",
@@ -114,7 +123,7 @@ function Demo({ thing, into, beat, fg, bg }) {
   let body;
   switch (thing) {
     case 0: body = <Shape {...base} kind={["triangle", "square", "pentagon", "hexagon", "circle"][b % 5]} x={cx} y={cy} />; break;
-    case 1: body = Array.from({ length: (b % 3) + 1 }, (_, i, a) => <Shape key={i} {...base} kind="circle" r={60} x={cx + (i - (a.length - 1) / 2) * 140} y={cy} />); break;
+    case 1: { const n = (b % 3) + 1; body = Array.from({ length: n }, (_, i) => <Shape key={i} {...base} kind="circle" r={60} x={cx + (i - (n - 1) / 2) * 140} y={cy} />); break; }
     case 2: body = <Shape {...base} kind="square" r={b % 2 ? 150 : 70} x={cx} y={cy} />; break;
     case 3: body = <Shape {...base} kind="heart" fill={fillFor(b)} x={cx} y={cy} />; break;
     case 4: body = <Shape {...base} kind="arrow" rot={beat * 45} x={cx} y={cy} />; break;
