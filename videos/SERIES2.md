@@ -80,7 +80,7 @@ These films are rendered in three.js through `@remotion/three`, with lighting, s
 # Series 7: claymation, and Series 8: playable retro RPG
 
 - [ ] `s7-clay`: The Clay Workshop. Stop-motion on twos, thumbprinted clay, squash and stretch. Sequences and grids. (Agent working.)
-- [ ] `p8-quest`: Shape Quest. A Game Boy style RPG play-along: battle puzzle monsters with answers from the battle menu. (Agent working.)
+- [x] `p8-quest`: Shape Quest. A Game Boy style RPG play-along: Odd Ogre, Code Goblin and the Mirror Wraith boss, beaten with answers from the battle menu. Reviewed.
 
 # Series 9: radio plays
 

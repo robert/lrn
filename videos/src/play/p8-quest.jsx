@@ -210,7 +210,7 @@ const menuSpots = (labels, correct, slips) => labels.map((label, i) => ({ id: `m
 
 function Hearts({ n, broken = -1, t = 0 }) {
   return (
-    <div style={{ position: "absolute", left: 80, top: 720, display: "flex", gap: 16 }}>
+    <div style={{ position: "absolute", left: 380, top: 640, display: "flex", gap: 16 }}>
       {[0, 1, 2].map(i => {
         const gone = i >= n;
         const breaking = i === broken;
@@ -248,15 +248,15 @@ function Battle({ t, name, sprite, hp = 1, hearts = 3, puzzle, menu, pointer = -
   return (
     <AbsoluteFill style={{ background: BG, transform: `translate(${shake + hurtShake}px, ${-shake}px)` }}>
       <HPBar x={60} y={40} name={name} hp={hit ? lerp(hp, 0, rise(t, 20, hit + 4)) : hp} />
-      {/* The monster, on its little ground patch. */}
-      <div style={{ position: "absolute", left: 1320, top: 520, width: 460, height: 60, borderRadius: "50%", background: LT }} />
-      <Sprite rows={sprite} x={1360} y={130 + bob} px={24} opacity={1 - monsterGone} />
-      {/* The hero, seen from behind-ish, bottom left. */}
-      <div style={{ position: "absolute", left: 60, top: 640, width: 360, height: 50, borderRadius: "50%", background: LT }} />
-      <Sprite rows={HERO} x={140} y={440 - (hit && t > hit - 12 && t < hit ? 40 : 0)} px={16} />
+      {/* The monster, on its little ground patch, top left under its HP bar. */}
+      <div style={{ position: "absolute", left: 220, top: 470, width: 420, height: 46, borderRadius: "50%", background: LT }} />
+      <Sprite rows={sprite} x={260 + (sprite[0].length < 16 ? 30 : 0)} y={190 + bob} px={20} opacity={1 - monsterGone} />
+      {/* The hero, bottom left, leaping forward as it attacks. */}
+      <div style={{ position: "absolute", left: 40, top: 700, width: 300, height: 40, borderRadius: "50%", background: LT }} />
+      <Sprite rows={HERO} x={80 + (hit && t > hit - 12 && t < hit ? 60 : 0)} y={520 - (hit && t > hit - 12 && t < hit ? 30 : 0)} px={13} />
       <Hearts n={hearts} broken={hurt != null ? hearts : -1} t={hurt != null ? t - hurt : 0} />
       {/* The riddle, in a box at the top middle. */}
-      <Box x={740} y={40} w={1120} h={470}>{puzzle}</Box>
+      <Box x={740} y={96} w={1120} h={430}>{puzzle}</Box>
       {/* The battle menu: every attack is an answer. */}
       {menu.map((m, i) => {
         const p = menuAt(i);
@@ -271,8 +271,8 @@ function Battle({ t, name, sprite, hp = 1, hearts = 3, puzzle, menu, pointer = -
       {/* The hit: a big damage number and a star burst. */}
       {hit && t >= hit && (
         <>
-          <div style={{ position: "absolute", left: 1480, top: 200 - Math.min(60, (t - hit) * 3), fontFamily: PIXEL, fontSize: 64, color: DK, opacity: 1 - rise(t, 20, hit + 30) }}>CRIT! 99</div>
-          <svg width="400" height="400" viewBox="-5 -5 10 10" shapeRendering="crispEdges" style={{ position: "absolute", left: 1400, top: 160, opacity: 1 - rise(t, 16, hit + 10) }}>
+          <div style={{ position: "absolute", left: 250, top: 230 - Math.min(60, (t - hit) * 3), fontFamily: PIXEL, fontSize: 60, color: DK, textShadow: `4px 4px 0 ${BG}`, opacity: 1 - rise(t, 20, hit + 30) }}>CRIT! 99</div>
+          <svg width="400" height="400" viewBox="-5 -5 10 10" shapeRendering="crispEdges" style={{ position: "absolute", left: 230, top: 130, opacity: 1 - rise(t, 16, hit + 10) }}>
             {[[0, -4], [0, 4], [-4, 0], [4, 0], [-3, -3], [3, 3], [-3, 3], [3, -3]].map(([a, b], i) => <rect key={i} x={a * Math.min(1, (t - hit) / 8) - 0.5} y={b * Math.min(1, (t - hit) / 8) - 0.5} width={1} height={1} fill={DK} />)}
           </svg>
         </>
@@ -285,13 +285,13 @@ function Battle({ t, name, sprite, hp = 1, hearts = 3, puzzle, menu, pointer = -
 // Four little framed figures, lettered A to D, inside the riddle box.
 function Figures({ items, label = true }) {
   return items.map((it, i) => (
-    <div key={i} style={{ position: "absolute", left: 60 + i * 260, top: 90, width: 220, height: 220, background: BG, border: `6px solid ${DK}` }}>
+    <div key={i} style={{ position: "absolute", left: 60 + i * 260, top: 80, width: 220, height: 220, background: BG, border: `6px solid ${DK}` }}>
       {it}
       {label && <div style={{ position: "absolute", left: 0, right: 0, top: 236, textAlign: "center", fontFamily: PIXEL, fontSize: 30, color: DK }}>{"ABCD"[i]}</div>}
     </div>
   ));
 }
-const Title = ({ text }) => <div style={{ position: "absolute", left: 40, top: 30, fontFamily: PIXEL, fontSize: 26, color: MD }}>{text}</div>;
+const Title = ({ text }) => <div style={{ position: "absolute", left: 40, top: 28, fontFamily: PIXEL, fontSize: 26, color: MD }}>{text}</div>;
 
 // Riddle 1: dots in a box. Three have three dots; one has four.
 const dots = (pts, fill = DK) => pts.map(([a, b], i) => <div key={i} style={{ position: "absolute", left: a, top: b, width: 40, height: 40, background: fill, boxShadow: `inset 0 0 0 6px ${DK}` }} />);
@@ -306,7 +306,7 @@ const OgrePuzzle = () => <><Title text="WHICH ONE IS THE ODD ONE OUT?" /><Figure
 // Riddle 2: codes. First letter is the shape, second letter is the shading.
 function CodeFig({ poly, fill, code, x }) {
   return (
-    <div style={{ position: "absolute", left: x, top: 90, width: 200, height: 250 }}>
+    <div style={{ position: "absolute", left: x, top: 80, width: 200, height: 250 }}>
       <div style={{ position: "absolute", left: 0, top: 0, width: 200, height: 200, background: BG, border: `6px solid ${DK}` }}>
         <PixelShape poly={poly} cells={14} px={11} fill={fill} x={23} y={23} />
       </div>
@@ -353,6 +353,7 @@ export default {
   order: 701,
   series: 8,
   title: "Shape Quest",
+  genre: "Retro RPG",
   strap: "A retro adventure. Every attack is an answer. Defeat three monsters to reach the Library of Sharp Eyes.",
   music: "music/quest.wav",
   musicVolume: 0.13,
