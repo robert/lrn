@@ -111,4 +111,4 @@ Listening comprehension through inference. The story is carried by voices and so
 
 # Series 16: exam technique
 
-- [ ] `s16-flight`: Cleared for Take-off: Exam Day. A cockpit checklist of exam habits. (Agent working.)
+- [x] `s16-flight`: Cleared for Take-off: Exam Day. A cockpit checklist of exam habits and a mini paper flown together: read the instruction, skip and return, watch the clock, check every answer. Rendered, 3:03.

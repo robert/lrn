@@ -33,6 +33,7 @@ export const FILMS = [
   { id: "s10-stars", title: "Goodnight, Twelve Things", group: "Bedtime", genre: "Night sky", blurb: "The twelve things written in the stars. Calm, for the end of the day." },
   // Series 13: watercolour picture books.
   { id: "s13-recipe", title: "The Story Recipe", group: "Stories", genre: "Watercolour picture book", blurb: "Who, what, when, where, problem, solution, ending: the seven ingredients of every story." },
+  { id: "s16-flight", title: "Cleared for Take-off", group: "Exam day", genre: "Cockpit", blurb: "Exam-day technique, from pre-flight checks to a smooth landing." },
   // Series 5: songs.
   { id: "s5-twelve", title: "The Twelve Things", group: "Songs", genre: "Music video", blurb: "Sing the twelve things in order until they stick." },
 ];
