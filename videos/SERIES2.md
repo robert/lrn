@@ -91,3 +91,7 @@ Listening comprehension through inference. The story is carried by voices and so
 # Series 10: bedtime
 
 - [x] `s10-stars`: Goodnight, Twelve Things. The twelve things in the night sky, much of it real astronomy: moon phases, the Plough wheeling round the Pole Star, the pointers, an occultation, a halo, a reflection in a lake. Whispered narration, music-box lullaby. Rendered, 2:12.
+
+# Series 13: watercolour picture books
+
+- [ ] `s13-recipe`: The Story Recipe. Teaches the Story Builder plan (who, what, when, where, problem, solution, ending) as a recipe, while a seaside story is painted layer by layer in watercolour. A wave washes the castle away, and it is rebuilt higher up. Ends with a your-turn picnic prompt. (Voicing.)
