@@ -100,3 +100,7 @@ Listening comprehension through inference. The story is carried by voices and so
 
 - [x] `p11-quiz`: Nothing Gets Past: The Big Quiz. A Saturday-night studio play-along with a host, Clever Trevor the rival, a phone-a-friend, and seven mixed rounds up to a flipped-flag jackpot. Reviewed.
 - [x] `s12-fold`: The Paper Fold. 3D origami: folding along a crease prints a mirror image, and symmetric shapes land on themselves. Rendered, 2:01.
+
+# Series 15: personalised, generated films
+
+- [x] The Mega News (`#/news`). A news bulletin written fresh from his real progress each time it opens (`server/routes/news.js`), voiced on this Mac with Kokoro and cached, and played live. It has an owl newsreader, breaking-news streaks, the week seals, a weather forecast from his spotter animal, a puzzle of the day, and a ticker of his records.

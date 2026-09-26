@@ -25,6 +25,19 @@ export default function Watch() {
       <div className="page stack">
         <ErrorBox error={error} />
         {!films && !error && <Loading />}
+        <section className="watch-group play">
+          <h2 className="watch-group-title">Tonight</h2>
+          <div className="watch-list">
+            <button className="watch-film" onClick={() => go("news")}>
+              <span className="watch-play"><Icon name="sparkle" size={34} strokeWidth={1.3} /></span>
+              <span className="watch-text">
+                <span className="watch-genre">A news bulletin, written fresh from your progress</span>
+                <span className="watch-title">The Mega News</span>
+                <span className="watch-blurb">Your streaks, your records, the weather, and a puzzle of the day.</span>
+              </span>
+            </button>
+          </div>
+        </section>
         {PLAY_FILMS.length > 0 && (
           <section className="watch-group play">
             <h2 className="watch-group-title">Play along</h2>

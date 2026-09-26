@@ -11,6 +11,7 @@ import reader from "./routes/reader.js";
 import imagination from "./routes/imagination.js";
 import story from "./routes/story.js";
 import spotter from "./routes/spotter.js";
+import news from "./routes/news.js";
 
 const PORT = Number(process.env.PORT || 5173);
 const app = express();
@@ -21,6 +22,7 @@ app.use("/api/reader", reader);
 app.use("/api/imagination", imagination);
 app.use("/api/story", story);
 app.use("/api/spotter", spotter);
+app.use("/api/news", news);
 app.use("/pictures", express.static(path.join(ROOT, "pictures")));
 app.use("/videos", express.static(path.join(ROOT, "public-videos")));
 // Voices, music and sound effects for the play-along films.

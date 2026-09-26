@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Parent from "./pages/Parent.jsx";
 import Watch from "./pages/Watch.jsx";
 import PlayAlong from "./cinema/PlayAlong.jsx";
+import News from "./cinema/News.jsx";
 import ReaderApp from "./games/reader/ReaderApp.jsx";
 import ImaginationApp from "./games/imagination/ImaginationApp.jsx";
 import StoryApp from "./games/story/StoryApp.jsx";
@@ -18,6 +19,7 @@ const ROUTES = {
   parent: Parent,
   watch: Watch,
   play: PlayAlong,
+  news: News,
 };
 
 const currentPath = () => window.location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
