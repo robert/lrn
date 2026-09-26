@@ -81,3 +81,9 @@ These films are rendered in three.js through `@remotion/three`, with lighting, s
 
 - [ ] `s7-clay`: The Clay Workshop. Stop-motion on twos, thumbprinted clay, squash and stretch. Sequences and grids. (Agent working.)
 - [ ] `p8-quest`: Shape Quest. A Game Boy style RPG play-along: battle puzzle monsters with answers from the battle menu. (Agent working.)
+
+# Series 9: radio plays
+
+Listening comprehension through inference. The story is carried by voices and sound design, with an art-deco wireless on screen.
+
+- [ ] `p9-radio`: The Midnight Muffin. A night-train mystery with five characters, including a parrot. Three inference questions that each need two clues held together. (Voicing.)
