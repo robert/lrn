@@ -90,4 +90,4 @@ Listening comprehension through inference. The story is carried by voices and so
 
 # Series 10: bedtime
 
-- [x] `s10-stars`: Goodnight, Twelve Things. The twelve things in the night sky, much of it real astronomy: moon phases, the Plough wheeling round the Pole Star, the pointers, an occultation, a halo, a reflection in a lake. Whispered narration, music-box lullaby. Reviewed; rendering.
+- [x] `s10-stars`: Goodnight, Twelve Things. The twelve things in the night sky, much of it real astronomy: moon phases, the Plough wheeling round the Pole Star, the pointers, an occultation, a halo, a reflection in a lake. Whispered narration, music-box lullaby. Rendered, 2:12.
