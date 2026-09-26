@@ -57,3 +57,10 @@ Series 3 films aren't MP4s. They run live inside the app with Remotion's Player 
 - [x] 1 `p3-dragon`: The Dragon's Three Riddles. A pop-up book with paper layers that stand up off the page. Riddles: odd one out on the banners, stepping-stone sequence, magic analogy.
 - [ ] 2 `p3-comic`: Captain Sharp-Eye and the Switcheroo. A comic book, two taps a round: spot the changed shape, then name which of the twelve things changed. (Voicing.)
 - [ ] More ideas: a claymation "Shape Kitchen", a comic book "Captain Nothing-Gets-Past" with panels he taps, a marionette "Twelve Things" song-and-dance, a detective "choose your suspect" with branching endings.
+
+# Series 4: shadow theatre of the story itself
+
+Series 4 films bring the reading and the films together. Each one is a silhouette film of a passage he has already read, in the style of the old cut-paper shadow films. The storyteller reads the real text while he reads the words along in the captions, and the film pauses for inference questions he answers by tapping. They're play-along films, so they run in the same engine in `videos/src/play/`.
+
+- [ ] 1 `p4-shadow`: Into the Wild Wood (Chapter III: the faces, the whistling, the pattering, the rabbit's warning, the hollow beech). Three questions. Written; voicing.
+- [ ] Next: The Door in the Snow (once he has read it), The Open Road and the caravan, Toad and the motor-car.
