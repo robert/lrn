@@ -1,6 +1,6 @@
 # Mega Games
 
-Four learning games for 8+ exam prep, behind one home screen.
+Four learning games behind one home screen.
 
 ## Running it
 
