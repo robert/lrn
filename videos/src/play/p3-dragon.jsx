@@ -220,6 +220,7 @@ export default {
   order: 201,
   series: 3,
   title: "The Dragon's Three Riddles",
+  genre: "Pop-up book",
   strap: "Help Pip past the dragon. Tap your answers on the page.",
   music: "music/dragon.wav",
   musicVolume: 0.16,

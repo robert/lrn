@@ -187,6 +187,7 @@ export default {
   order: 801,
   series: 9,
   title: "The Midnight Muffin",
+  genre: "Radio mystery",
   strap: "A radio mystery. Listen carefully: the clues are in the sounds and the voices.",
   music: "music/radio.wav",
   musicVolume: 0.12,

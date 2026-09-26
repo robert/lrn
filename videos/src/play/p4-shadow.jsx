@@ -227,6 +227,7 @@ export default {
   order: 301,
   series: 4,
   title: "Into the Wild Wood",
+  genre: "Shadow theatre of the story",
   strap: "A shadow-theatre film of a story you've already read. It stops three times for you to answer.",
   music: "music/shadow.wav",
   musicVolume: 0.16,

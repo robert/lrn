@@ -86,4 +86,4 @@ These films are rendered in three.js through `@remotion/three`, with lighting, s
 
 Listening comprehension through inference. The story is carried by voices and sound design, with an art-deco wireless on screen.
 
-- [ ] `p9-radio`: The Midnight Muffin. A night-train mystery with five characters, including a parrot. Three inference questions that each need two clues held together. (Voicing.)
+- [ ] `p9-radio`: The Midnight Muffin. A night-train mystery with five characters, including a parrot. Three inference questions that each need two clues held together. Voiced and reviewed.

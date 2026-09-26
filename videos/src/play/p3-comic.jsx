@@ -227,6 +227,7 @@ export default {
   order: 202,
   series: 3,
   title: "Captain Sharp-Eye and the Switcheroo",
+  genre: "Comic book",
   strap: "A comic book adventure. Spot what the villain changed, then name it.",
   music: "music/comic.wav",
   musicVolume: 0.14,

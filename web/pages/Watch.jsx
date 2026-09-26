@@ -33,7 +33,7 @@ export default function Watch() {
                 <button key={f.id} className="watch-film" onClick={() => go(`play/${f.id}`)}>
                   <span className="watch-play"><Icon name="sparkle" size={34} strokeWidth={1.3} /></span>
                   <span className="watch-text">
-                    <span className="watch-genre">You tap the answers</span>
+                    <span className="watch-genre">{f.genre ? `${f.genre}, you tap the answers` : "You tap the answers"}</span>
                     <span className="watch-title">{f.title}</span>
                     <span className="watch-blurb">{f.strap}</span>
                   </span>
