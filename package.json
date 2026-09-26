@@ -9,7 +9,6 @@
     "split": "node scripts/split-chapters.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.128.0",
     "@remotion/google-fonts": "^4.0.529",
     "@remotion/player": "^4.0.529",
     "express": "^5.2.1",

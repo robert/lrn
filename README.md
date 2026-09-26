@@ -6,9 +6,10 @@ Four learning games for 8+ exam prep, behind one home screen.
 
 ```sh
 npm install
-cp .env.example .env    # then put your Anthropic API key in .env
 npm run dev
 ```
+
+The Imagination Engine asks Claude through the Claude Code CLI (`claude -p`), so `claude` must be installed and logged in on this computer. No API key is needed.
 
 The terminal prints two addresses: one for this computer and one for an iPad or phone on the same wifi. Voice input works best in Chrome.
 

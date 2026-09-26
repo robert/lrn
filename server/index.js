@@ -47,5 +47,4 @@ server.listen(PORT, "0.0.0.0", () => {
     }
   }
   console.log(`  Parent settings:   http://localhost:${PORT}/#/parent\n`);
-  if (!process.env.ANTHROPIC_API_KEY) console.log("  (No ANTHROPIC_API_KEY in .env yet: Imagination Engine results need it.)\n");
 });
